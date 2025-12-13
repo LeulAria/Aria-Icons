@@ -3,14 +3,16 @@ import { RPCLink } from "@orpc/client/fetch";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import { QueryCache, QueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import type { AppRouterClient } from "@aria-icon/api/routers/index";
+import type { AppRouterClient } from "@aria-icons/api/routers/index";
 
 export const queryClient = new QueryClient({
 	queryCache: new QueryCache({
 		onError: (error) => {
-			toast.error(`Error: ${error.message}`, {
+			toast.error("Request failed", {
+				description: error.message,
+				duration: 6500,
 				action: {
-					label: "retry",
+					label: "Retry",
 					onClick: () => {
 						queryClient.invalidateQueries();
 					},
@@ -21,21 +23,7 @@ export const queryClient = new QueryClient({
 });
 
 export const link = new RPCLink({
-	url: `${process.env.NEXT_PUBLIC_SERVER_URL}/rpc`,
-	fetch(url, options) {
-		return fetch(url, {
-			...options,
-			credentials: "include",
-		});
-	},
-	headers: async () => {
-		if (typeof window !== "undefined") {
-			return {};
-		}
-
-		const { headers } = await import("next/headers");
-		return Object.fromEntries(await headers());
-	},
+	url: `${typeof window !== "undefined" ? window.location.origin : "http://localhost:3001"}/api/rpc`,
 });
 
 export const client: AppRouterClient = createORPCClient(link);

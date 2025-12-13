@@ -1,17 +1,7 @@
-import type { Context as HonoContext } from "hono";
-import { auth } from "@aria-icon/auth";
+import type { NextRequest } from "next/server";
 
-export type CreateContextOptions = {
-	context: HonoContext;
-};
-
-export async function createContext({ context }: CreateContextOptions) {
-	const session = await auth.api.getSession({
-		headers: context.req.raw.headers,
-	});
-	return {
-		session,
-	};
+export async function createContext(req: NextRequest) {
+	return {};
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;

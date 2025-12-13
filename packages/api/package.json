@@ -1,5 +1,5 @@
 {
-  "name": "@aria-icon/api",
+  "name": "@aria-icons/api",
   "exports": {
     ".": {
       "default": "./src/index.ts"
@@ -11,7 +11,7 @@
   "type": "module",
   "scripts": {},
   "devDependencies": {
-    "@aria-icon/config": "workspace:*"
+    "@aria-icons/config": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -21,13 +21,10 @@
     "@orpc/client": "catalog:",
     "@orpc/openapi": "catalog:",
     "@orpc/zod": "catalog:",
-    "hono": "catalog:",
-    "@prisma/client": "^7.0.1",
+    "next": "catalog:",
     "ai": "catalog:",
     "@ai-sdk/google": "catalog:",
-    "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@aria-icon/auth": "workspace:*",
-    "@aria-icon/db": "workspace:*"
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.13"
   }
 }

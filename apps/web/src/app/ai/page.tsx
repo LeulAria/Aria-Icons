@@ -12,7 +12,7 @@ export default function AIPage() {
 	const [input, setInput] = useState("");
 	const { messages, sendMessage } = useChat({
 		transport: new DefaultChatTransport({
-			api: `${process.env.NEXT_PUBLIC_SERVER_URL}/ai`,
+			api: "/api/ai",
 		}),
 	});
 

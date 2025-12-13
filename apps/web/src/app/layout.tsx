@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "aria-icon",
-	description: "aria-icon",
+	title: "aria-icons",
+	description: "aria-icons",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<Providers>
-					<div className="grid grid-rows-[auto_1fr] h-svh">
+					<div className="grid grid-rows-[auto_1fr] h-screen overflow-hidden">
 						<Header />
 						{children}
 					</div>
