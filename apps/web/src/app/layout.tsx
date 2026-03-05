@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import Header from "@/components/header";
+import {Analytics} from "@vercel/analytics/react"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
+				<Analytics />
 				<Providers>
 					<div className="grid grid-rows-[auto_1fr] h-screen overflow-hidden">
 						<Header />

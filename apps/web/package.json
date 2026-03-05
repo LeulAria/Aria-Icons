@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev --port=3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate-icons": "tsx scripts/generate-icons-names.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "catalog:",
     "@ai-sdk/react": "^2.0.39",
     "@aria-icons/api": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "@orpc/client": "catalog:",
     "@orpc/openapi": "catalog:",
     "@orpc/server": "catalog:",
@@ -18,6 +20,7 @@
     "@orpc/zod": "catalog:",
     "@tanstack/react-form": "^1.27.3",
     "@tanstack/react-query": "^5.90.12",
+    "@vercel/analytics": "^1.6.1",
     "ai": "catalog:",
     "babel-plugin-react-compiler": "^1.0.0",
     "class-variance-authority": "^0.7.1",
@@ -43,6 +46,7 @@
     "tailwindcss": "^4.1.10",
     "typescript": "^5",
     "@tanstack/react-query-devtools": "^5.91.1",
-    "@aria-icons/config": "workspace:*"
+    "@aria-icons/config": "workspace:*",
+    "tsx": "^4.19.2"
   }
 }

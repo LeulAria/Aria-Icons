@@ -96,7 +96,7 @@ function CustomizeControls({
   }, []);
 
   return (
-    <div className="space-y-6 px-5 pt-5">
+    <div className="space-y-6 px-5 pt-4">
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <label className="text-[12px] font-medium text-foreground">
@@ -460,8 +460,8 @@ export default function Home() {
                 Add MCP Server
               </Button>
             </div>
-            <div className="border-y border-white/10 bg-black px-5 py-3 flex items-center justify-between gap-3">
-              <div className="text-sm font-semibold text-white">
+            <div className="border-y border-white/10 bg-black px-5 pt-1 flex items-center justify-between gap-3">
+              <div className="text-sm font-semibold text-white mb-1">
                 Collections
               </div>
               <div
@@ -597,7 +597,10 @@ export default function Home() {
                           ].join(" ")}>
                             {set.label}
                           </div>
-                          <div className="truncate text-[11px] leading-4 text-muted-foreground">
+                          <div className={[
+                            "truncate text-[11px] leading-4",
+                            active ? "text-foreground/80" : "text-muted-foreground",
+                          ].join(" ")}>
                             {set.homepage ? set.homepage : set.id}
                           </div>
                         </div>
@@ -911,7 +914,7 @@ export default function Home() {
                   onApplyPatch={applyCustomizePatch}
                 />
 
-                <div className="border-t pt-6">
+                <div className="border-t pt-2">
                   <div className="px-5 mb-4">
                     <label className="text-[12px] font-medium text-foreground">
                       Export
@@ -964,12 +967,143 @@ export default function Home() {
             <DialogTitle>Add Aria Icons MCP to Cursor</DialogTitle>
             <DialogClose onClose={() => setMcpDialogOpen(false)} />
           </DialogHeader>
-          <div className="space-y-4 text-sm text-white/80">
-            <p>
-              Aria provides an MCP server so you can use it with any AI
-              model that supports the Model Context Protocol (MCP).
-            </p>
+          <div className="space-y-6 text-sm text-white/80">
+            <div>
+              <p className="mb-3">
+                Aria provides an MCP server so you can use it with any AI
+                model that supports the Model Context Protocol (MCP).
+              </p>
+            </div>
 
+            {/* MCP Endpoint URL */}
+            <div>
+              <h3 className="text-base font-semibold text-white mb-2">
+                MCP Endpoint
+              </h3>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-black/50 border border-white/10 rounded-lg p-3 font-mono text-xs">
+                  <code className="text-white break-all">
+                    {typeof window !== "undefined"
+                      ? `${window.location.origin}/api/mcp`
+                      : "/api/mcp"}
+                  </code>
+                </div>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={async () => {
+                    const url =
+                      typeof window !== "undefined"
+                        ? `${window.location.origin}/api/mcp`
+                        : "/api/mcp";
+                    await navigator.clipboard.writeText(url);
+                    toast.success("Copied MCP endpoint URL");
+                  }}
+                  className="shrink-0"
+                >
+                  <Copy className="size-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Add to Cursor Button */}
+            <div>
+              <Button
+                variant="default"
+                className="w-full"
+                onClick={() => {
+                  const mcpUrl =
+                    typeof window !== "undefined"
+                      ? `${window.location.origin}/api/mcp`
+                      : "https://your-domain.com/api/mcp";
+                  const config = {
+                    url: mcpUrl,
+                  };
+                  const base64Config = btoa(JSON.stringify(config));
+                  const cursorUrl = `cursor://anysphere.cursor-deeplink/mcp/install?name=Aria%20Icons&config=${encodeURIComponent(base64Config)}`;
+                  window.location.href = cursorUrl;
+                }}
+              >
+                Add to Cursor
+              </Button>
+            </div>
+
+            {/* Quick Setup */}
+            <div>
+              <h3 className="text-base font-semibold text-white mb-2">
+                Quick Setup
+              </h3>
+              <p className="mb-3 text-white/70">
+                The easiest way to add Aria Icons MCP is to click the "Add to Cursor" button above, 
+                or manually configure it using the instructions below.
+              </p>
+            </div>
+
+            {/* Manual Configuration */}
+            <div>
+              <h3 className="text-base font-semibold text-white mb-2">
+                Manual Configuration
+              </h3>
+              <p className="mb-3 text-white/70">
+                Alternatively, you can manually configure the MCP server for
+                each client:
+              </p>
+              <div className="space-y-2">
+                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
+                  <div className="text-white/60 mb-1 text-xs">Cursor:</div>
+                  <pre className="text-xs text-white overflow-x-auto">
+                    {`{
+  "mcpServers": {
+    "aria-icons": {
+      "url": "${typeof window !== "undefined" ? `${window.location.origin}/api/mcp` : "/api/mcp"}"
+    }
+  }
+}`}
+                  </pre>
+                </div>
+                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
+                  <div className="text-white/60 mb-1 text-xs">Claude Code:</div>
+                  <code className="text-xs text-white block">
+                    claude mcp add --transport http aria-icons{" "}
+                    {typeof window !== "undefined"
+                      ? `${window.location.origin}/api/mcp`
+                      : "/api/mcp"}
+                  </code>
+                </div>
+                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
+                  <div className="text-white/60 mb-1 text-xs">Open Code:</div>
+                  <pre className="text-xs text-white overflow-x-auto">
+                    {`{
+"$schema": "https://opencode.ai/config.json",
+"mcp": {
+  "Aria Icons": {
+    "type": "remote",
+    "url": "${typeof window !== "undefined" ? `${window.location.origin}/api/mcp` : "/api/mcp"}",
+    "enabled": true
+  }
+}
+}`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            {/* Example Usage */}
+            <div>
+              <h3 className="text-base font-semibold text-white mb-2">
+                Example Usage
+              </h3>
+              <div className="bg-black/50 border border-white/10 rounded-lg p-3">
+                <p className="text-white/70 mb-2 text-xs">
+                  Once connected, you can ask the AI to:
+                </p>
+                <ul className="list-disc list-inside space-y-1 text-white/70 text-xs">
+                  <li>List all available icons</li>
+                  <li>Get SVG content for a specific icon (e.g., "heroicons-academic-cap")</li>
+                  <li>Search for icons by name</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
