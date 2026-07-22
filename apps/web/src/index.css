@@ -130,6 +130,17 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    interpolate-size: allow-keywords;
+  }
+  button,
+  a,
+  input,
+  [role="tab"],
+  [role="button"] {
+    transition-duration: 100ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
 }
 
 /* Custom scrollbar styles */

@@ -25,6 +25,7 @@
     "dev:web": "turbo -F web dev"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "dotenv": "^17.2.2",
     "zod": "^4.1.13"
   },

@@ -55,7 +55,7 @@ const Mask = React.forwardRef<HTMLDivElement, MaskProps>(
           variant === "blur" && "backdrop-blur-sm",
           variant === "subtle" && "bg-black/20",
           variant === "default" && "bg-black/40",
-          "transition-opacity duration-200",
+          "transition-opacity duration-100",
           className
         )}
         onClick={handleBackdropClick}

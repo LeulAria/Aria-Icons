@@ -15,13 +15,8 @@ import type { IconStyleGroup } from "@/lib/icon-sets";
 import { Copy, Download, Search } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import JSZip from "jszip";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogClose,
-} from "@/components/ui/dialog";
+import { WelcomeDialog } from "@/components/welcome-dialog";
+import { McpDialog } from "@/components/mcp-dialog";
 
 type AppliedCustomize = {
   size: number;
@@ -59,50 +54,49 @@ function useGridColumns() {
 function CustomizeControls({
   value,
   onApplyPatch,
+  previewSrc,
+  previewName,
 }: {
   value: AppliedCustomize;
   onApplyPatch: (patch: Partial<AppliedCustomize>) => void;
+  previewSrc: string | null;
+  previewName: string | null;
 }) {
   const [uiSize, setUiSize] = React.useState(value.size);
   const [uiStroke, setUiStroke] = React.useState(value.stroke);
   const [uiColor, setUiColor] = React.useState(value.color);
 
-  // Sync local UI when the applied value changes (e.g. Reset).
   React.useEffect(() => {
     setUiSize(value.size);
     setUiStroke(value.stroke);
     setUiColor(value.color);
   }, [value.size, value.stroke, value.color]);
 
-  const pendingRef = React.useRef<Partial<AppliedCustomize>>({});
-  const timerRef = React.useRef<number | null>(null);
-
-  const scheduleApply = React.useCallback(
-    (patch: Partial<AppliedCustomize>) => {
-      pendingRef.current = { ...pendingRef.current, ...patch };
-      if (timerRef.current) window.clearTimeout(timerRef.current);
-      timerRef.current = window.setTimeout(() => {
-        onApplyPatch(pendingRef.current);
-        pendingRef.current = {};
-      }, 180);
-    },
-    [onApplyPatch]
-  );
-
-  React.useEffect(() => {
-    return () => {
-      if (timerRef.current) window.clearTimeout(timerRef.current);
-    };
-  }, []);
-
   return (
-    <div className="space-y-6 px-5 pt-4">
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="text-[12px] font-medium text-foreground">
-            Size
-          </label>
-          <span className="text-[11px] text-muted-foreground font-mono">
+    <div className="space-y-1 px-4 pt-3">
+      {/* Live preview */}
+      <div className="mb-5 flex flex-col items-center rounded-2xl border border-white/10 bg-transparent px-4 py-6">
+        <div className="grid size-20 place-items-center rounded-full bg-white/5 ring-1 ring-inset ring-white/10">
+          {previewSrc ? (
+            <img
+              src={previewSrc}
+              alt={previewName ?? "Preview"}
+              style={{ width: Math.min(uiSize, 48), height: Math.min(uiSize, 48) }}
+            />
+          ) : (
+            <div className="size-6 rounded-sm border border-dashed border-white/25" />
+          )}
+        </div>
+        <p className="mt-3 max-w-full truncate text-[12px] text-white/45">
+          {previewName ?? "Select an icon to preview"}
+        </p>
+      </div>
+
+      {/* Size */}
+      <div className="rounded-2xl border border-white/10 px-4 py-4">
+        <div className="mb-3 flex items-center justify-between">
+          <label className="text-[13px] font-medium text-white">Size</label>
+          <span className="rounded-full bg-white/10 px-2.5 py-0.5 font-mono text-[11px] text-white/70">
             {uiSize}px
           </span>
         </div>
@@ -111,17 +105,23 @@ function CustomizeControls({
           max={64}
           step={1}
           value={[uiSize]}
-          onValueChange={(v) => setUiSize(v[0] ?? value.size)}
-          onValueCommit={(v) => scheduleApply({ size: v[0] ?? value.size })}
+          onValueChange={(v) => {
+            const next = v[0] ?? value.size;
+            setUiSize(next);
+            onApplyPatch({ size: next });
+          }}
         />
+        <div className="mt-2 flex justify-between text-[10px] text-white/35">
+          <span>12</span>
+          <span>64</span>
+        </div>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="text-[12px] font-medium text-foreground">
-            Stroke Width
-          </label>
-          <span className="text-[11px] text-muted-foreground font-mono">
+      {/* Stroke */}
+      <div className="mt-3 rounded-2xl border border-white/10 px-4 py-4">
+        <div className="mb-3 flex items-center justify-between">
+          <label className="text-[13px] font-medium text-white">Stroke</label>
+          <span className="rounded-full bg-white/10 px-2.5 py-0.5 font-mono text-[11px] text-white/70">
             {uiStroke}px
           </span>
         </div>
@@ -130,42 +130,53 @@ function CustomizeControls({
           max={4}
           step={0.5}
           value={[uiStroke]}
-          onValueChange={(v) => setUiStroke(v[0] ?? value.stroke)}
-          onValueCommit={(v) =>
-            scheduleApply({ stroke: v[0] ?? value.stroke })
-          }
+          onValueChange={(v) => {
+            const next = v[0] ?? value.stroke;
+            setUiStroke(next);
+            onApplyPatch({ stroke: next });
+          }}
         />
+        <div className="mt-2 flex justify-between text-[10px] text-white/35">
+          <span>0.5</span>
+          <span>4</span>
+        </div>
       </div>
 
-      <div className="space-y-3">
-        <label className="text-[12px] font-medium text-foreground block">
+      {/* Color */}
+      <div className="mt-3 rounded-2xl border border-white/10 px-4 py-4">
+        <label className="mb-3 block text-[13px] font-medium text-white">
           Color
         </label>
-        <div className="flex items-center gap-2.5">
-          <div className="relative">
+        <div className="flex items-center gap-3">
+          <label className="relative size-11 shrink-0 cursor-pointer overflow-hidden rounded-full ring-1 ring-white/15 transition-opacity duration-100 hover:opacity-90">
+            <span
+              className="absolute inset-0"
+              style={{ backgroundColor: uiColor }}
+            />
             <input
               aria-label="Color"
               type="color"
               value={uiColor}
-              onChange={(e) => setUiColor(e.target.value)}
-              onBlur={() => scheduleApply({ color: uiColor })}
-              className="h-10 w-10 cursor-pointer rounded-full border border-border bg-background p-0.5 shadow-sm hover:border-foreground/20 transition-colors"
-              style={{
-                WebkitAppearance: "none",
-                MozAppearance: "none",
-                appearance: "none",
+              onChange={(e) => {
+                const next = e.target.value;
+                setUiColor(next);
+                onApplyPatch({ color: next });
               }}
+              className="absolute inset-0 cursor-pointer opacity-0"
             />
-          </div>
+          </label>
           <Input
             value={uiColor}
-            onChange={(e) => setUiColor(e.target.value)}
-            onBlur={() => scheduleApply({ color: uiColor })}
+            onChange={(e) => {
+              const next = e.target.value;
+              setUiColor(next);
+              if (/^#[0-9a-fA-F]{6}$/.test(next)) onApplyPatch({ color: next });
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter")
                 (e.currentTarget as HTMLInputElement).blur();
             }}
-            className="h-10 flex-1 font-mono text-[12px]"
+            className="h-11 flex-1 rounded-full border-white/10 bg-transparent font-mono text-[13px] focus-visible:bg-transparent"
             placeholder="#ffffff"
           />
         </div>
@@ -176,10 +187,10 @@ function CustomizeControls({
 
 export default function Home() {
   type UiStyleGroup = IconStyleGroup | "both";
-  const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("line");
+  const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("both");
   const [search, setSearch] = React.useState("");
-  const [selectedSetId, setSelectedSetId] = React.useState<string>("basicons-line");
-  const [selectedStyleId, setSelectedStyleId] = React.useState<string>("line");
+  const [selectedSetId, setSelectedSetId] = React.useState<string>("all");
+  const [selectedStyleId, setSelectedStyleId] = React.useState<string>("both");
   const [focusedIcon, setFocusedIcon] = React.useState<{
     setId: string;
     styleId: string;
@@ -193,11 +204,11 @@ export default function Home() {
   const lastSelectedIndexRef = React.useRef<number | null>(null);
   const gridCols = useGridColumns();
 
-  // Applied values used by the icon grid + SVG copy/download.
-  // The Customise panel keeps its own local UI state and only commits changes on "stop" events.
-  const [appliedSize, setAppliedSize] = React.useState(24);
-  const [appliedStroke, setAppliedStroke] = React.useState(1);
-  const [appliedColor, setAppliedColor] = React.useState("#ffffff");
+  // Customize applies only to the selected icon(s). The rest of the grid stays at defaults.
+  const GRID_DEFAULT = { size: 24, stroke: 1, color: "#ffffff" } as const;
+  const [appliedSize, setAppliedSize] = React.useState(GRID_DEFAULT.size);
+  const [appliedStroke, setAppliedStroke] = React.useState(GRID_DEFAULT.stroke);
+  const [appliedColor, setAppliedColor] = React.useState(GRID_DEFAULT.color);
 
   const applyCustomizePatch = React.useCallback(
     (patch: Partial<AppliedCustomize>) => {
@@ -441,7 +452,7 @@ export default function Home() {
               <div className="text-base font-semibold tracking-tight">
                 Aria Icons
               </div>
-              <div className="mt-1 text-sm text-muted-foreground">
+              <div className="mt-1 text-[11px] leading-4 text-muted-foreground">
                 Browse and export icons from local collections.
               </div>
               <Button
@@ -751,15 +762,24 @@ export default function Home() {
                       {allIcons.map((icon, idx) => {
                         const key = `${icon.setId}:${icon.styleId}:${icon.filePath}`;
                         const active = selectedKeys.has(key);
+                        const displaySize = active
+                          ? appliedSize
+                          : GRID_DEFAULT.size;
+                        const displayStroke = active
+                          ? appliedStroke
+                          : GRID_DEFAULT.stroke;
+                        const displayColor = active
+                          ? appliedColor
+                          : GRID_DEFAULT.color;
                         const params = new URLSearchParams();
                         params.set("setId", icon.setId);
                         params.set("styleId", icon.styleId);
                         params.set("filePath", icon.filePath);
-                        params.set("size", String(appliedSize));
-                        params.set("strokeWidth", String(appliedStroke));
-                        params.set("color", appliedColor);
+                        params.set("size", String(displaySize));
+                        params.set("strokeWidth", String(displayStroke));
+                        params.set("color", displayColor);
                         return (
-                          <Tooltip key={key} delayDuration={150}>
+                          <Tooltip key={key} delayDuration={0}>
                             <TooltipTrigger asChild>
                               <button
                                 type="button"
@@ -808,17 +828,18 @@ export default function Home() {
                                   lastSelectedIndexRef.current = idx;
                                 }}
                                 className={[
-                                  "group relative flex aspect-square items-center justify-center bg-background p-2 sm:p-3 text-left outline-none transition-all",
+                                  "group relative flex aspect-square items-center justify-center bg-background p-2 sm:p-3 text-left outline-none transition-colors duration-100 [content-visibility:auto] [contain-intrinsic-size:72px]",
                                   "hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                                  active ? "ring-1 ring-indigo-500 ring-inset" : "",
+                                  active ? "ring-1 ring-white/40 ring-inset" : "",
                                 ].join(" ")}
                               >
                                 <img
                                   alt={icon.name}
                                   loading="lazy"
+                                  className="transition-transform duration-100 ease-out will-change-transform group-hover:scale-110"
                                   style={{
-                                    width: appliedSize,
-                                    height: appliedSize,
+                                    width: displaySize,
+                                    height: displaySize,
                                   }}
                                   src={`/api/icon-svg?${params.toString()}`}
                                 />
@@ -883,75 +904,87 @@ export default function Home() {
         {/* Right: customize + collect */}
         <aside className="hidden lg:block border-l border-white/10 bg-black overflow-hidden order-3">
           <div className="flex h-full flex-col">
-            <div className="flex h-14 sm:h-16 items-center justify-between border-b border-white/10 bg-black px-4 sm:px-5">
+            <div className="flex h-14 items-center justify-between px-4">
               <div>
-                <div className="text-sm font-semibold">Customize</div>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-[15px] font-medium text-white">
+                  Customize
+                </div>
+                <div className="text-[12px] text-white/45">
                   Appearance & export
                 </div>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
+              <button
+                type="button"
                 onClick={() => {
-                  setAppliedSize(24);
-                  setAppliedStroke(1);
-                  setAppliedColor("#ffffff");
+                  setAppliedSize(GRID_DEFAULT.size);
+                  setAppliedStroke(GRID_DEFAULT.stroke);
+                  setAppliedColor(GRID_DEFAULT.color);
                 }}
+                className="h-9 rounded-full px-3 text-[13px] font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
               >
                 Reset
-              </Button>
+              </button>
             </div>
 
-            <div className="flex-1 overflow-auto">
-              <div className="space-y-6 pb-5">
-                <CustomizeControls
-                  value={{
-                    size: appliedSize,
-                    stroke: appliedStroke,
-                    color: appliedColor,
-                  }}
-                  onApplyPatch={applyCustomizePatch}
-                />
+            <div className="flex-1 overflow-auto pb-4">
+              <CustomizeControls
+                value={{
+                  size: appliedSize,
+                  stroke: appliedStroke,
+                  color: appliedColor,
+                }}
+                onApplyPatch={applyCustomizePatch}
+                previewName={focusedIcon?.name ?? null}
+                previewSrc={
+                  focusedIcon
+                    ? `/api/icon-svg?${new URLSearchParams({
+                        setId: focusedIcon.setId,
+                        styleId: focusedIcon.styleId,
+                        filePath: focusedIcon.filePath,
+                        size: String(appliedSize),
+                        strokeWidth: String(appliedStroke),
+                        color: appliedColor,
+                      }).toString()}`
+                    : null
+                }
+              />
 
-                <div className="border-t pt-2">
-                  <div className="px-5 mb-4">
-                    <label className="text-[12px] font-medium text-foreground">
-                      Export
-                    </label>
+              <div className="mt-4 px-4">
+                <div className="rounded-2xl border border-white/10 px-4 py-4">
+                  <div className="mb-3 text-[13px] font-medium text-white">
+                    Export
                   </div>
-                  <div className="grid gap-2.5 px-5">
+                  <div className="grid gap-2">
                     <Button
                       onClick={downloadSvg}
                       disabled={selectedKeys.size === 0}
-                      className="w-full justify-start"
+                      className="h-11 w-full justify-center rounded-full"
                     >
                       <Download className="size-4" />
                       {selectedKeys.size > 1
-                        ? `Download ${selectedKeys.size} Icons (ZIP)`
+                        ? `Download ${selectedKeys.size} (ZIP)`
                         : "Download SVG"}
                     </Button>
                     <Button
-                      variant="outline"
                       onClick={copySvg}
                       disabled={!focusedIcon || !selectedSvgQuery.data}
-                      className="w-full justify-start"
+                      className="h-11 w-full justify-center rounded-full border-0 bg-[#FFF1] text-black hover:bg-[#FFF1]/90"
                     >
                       <Copy className="size-4" />
                       Copy SVG
                     </Button>
                   </div>
                   {selectedSvgQuery.isFetching ? (
-                    <div className="mt-3 px-5 flex items-center gap-2 text-[11px] text-muted-foreground">
+                    <div className="mt-3 flex items-center gap-2 text-[11px] text-white/45">
                       <Loader size="sm" />
                       <span>Loading SVG…</span>
                     </div>
                   ) : null}
                   {selectedKeys.size > 1 ? (
-                    <div className="mt-3 px-5 text-[11px] text-muted-foreground">
-                      {selectedKeys.size.toLocaleString()} selected ·
-                      Shift+Click to extend
-                    </div>
+                    <p className="mt-3 text-[11px] leading-4 text-white/40">
+                      {selectedKeys.size.toLocaleString()} selected · Shift+click
+                      to extend
+                    </p>
                   ) : null}
                 </div>
               </div>
@@ -960,153 +993,8 @@ export default function Home() {
         </aside>
       </div>
 
-      {/* MCP Dialog */}
-      <Dialog open={mcpDialogOpen} onOpenChange={setMcpDialogOpen}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Add Aria Icons MCP to Cursor</DialogTitle>
-            <DialogClose onClose={() => setMcpDialogOpen(false)} />
-          </DialogHeader>
-          <div className="space-y-6 text-sm text-white/80">
-            <div>
-              <p className="mb-3">
-                Aria provides an MCP server so you can use it with any AI
-                model that supports the Model Context Protocol (MCP).
-              </p>
-            </div>
-
-            {/* MCP Endpoint URL */}
-            <div>
-              <h3 className="text-base font-semibold text-white mb-2">
-                MCP Endpoint
-              </h3>
-              <div className="flex items-center gap-2">
-                <div className="flex-1 bg-black/50 border border-white/10 rounded-lg p-3 font-mono text-xs">
-                  <code className="text-white break-all">
-                    {typeof window !== "undefined"
-                      ? `${window.location.origin}/api/mcp`
-                      : "/api/mcp"}
-                  </code>
-                </div>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={async () => {
-                    const url =
-                      typeof window !== "undefined"
-                        ? `${window.location.origin}/api/mcp`
-                        : "/api/mcp";
-                    await navigator.clipboard.writeText(url);
-                    toast.success("Copied MCP endpoint URL");
-                  }}
-                  className="shrink-0"
-                >
-                  <Copy className="size-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Add to Cursor Button */}
-            <div>
-              <Button
-                variant="default"
-                className="w-full"
-                onClick={() => {
-                  const mcpUrl =
-                    typeof window !== "undefined"
-                      ? `${window.location.origin}/api/mcp`
-                      : "https://your-domain.com/api/mcp";
-                  const config = {
-                    url: mcpUrl,
-                  };
-                  const base64Config = btoa(JSON.stringify(config));
-                  const cursorUrl = `cursor://anysphere.cursor-deeplink/mcp/install?name=Aria%20Icons&config=${encodeURIComponent(base64Config)}`;
-                  window.location.href = cursorUrl;
-                }}
-              >
-                Add to Cursor
-              </Button>
-            </div>
-
-            {/* Quick Setup */}
-            <div>
-              <h3 className="text-base font-semibold text-white mb-2">
-                Quick Setup
-              </h3>
-              <p className="mb-3 text-white/70">
-                The easiest way to add Aria Icons MCP is to click the "Add to Cursor" button above, 
-                or manually configure it using the instructions below.
-              </p>
-            </div>
-
-            {/* Manual Configuration */}
-            <div>
-              <h3 className="text-base font-semibold text-white mb-2">
-                Manual Configuration
-              </h3>
-              <p className="mb-3 text-white/70">
-                Alternatively, you can manually configure the MCP server for
-                each client:
-              </p>
-              <div className="space-y-2">
-                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
-                  <div className="text-white/60 mb-1 text-xs">Cursor:</div>
-                  <pre className="text-xs text-white overflow-x-auto">
-                    {`{
-  "mcpServers": {
-    "aria-icons": {
-      "url": "${typeof window !== "undefined" ? `${window.location.origin}/api/mcp` : "/api/mcp"}"
-    }
-  }
-}`}
-                  </pre>
-                </div>
-                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
-                  <div className="text-white/60 mb-1 text-xs">Claude Code:</div>
-                  <code className="text-xs text-white block">
-                    claude mcp add --transport http aria-icons{" "}
-                    {typeof window !== "undefined"
-                      ? `${window.location.origin}/api/mcp`
-                      : "/api/mcp"}
-                  </code>
-                </div>
-                <div className="bg-black/50 border border-white/10 rounded-lg p-3">
-                  <div className="text-white/60 mb-1 text-xs">Open Code:</div>
-                  <pre className="text-xs text-white overflow-x-auto">
-                    {`{
-"$schema": "https://opencode.ai/config.json",
-"mcp": {
-  "Aria Icons": {
-    "type": "remote",
-    "url": "${typeof window !== "undefined" ? `${window.location.origin}/api/mcp` : "/api/mcp"}",
-    "enabled": true
-  }
-}
-}`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-
-            {/* Example Usage */}
-            <div>
-              <h3 className="text-base font-semibold text-white mb-2">
-                Example Usage
-              </h3>
-              <div className="bg-black/50 border border-white/10 rounded-lg p-3">
-                <p className="text-white/70 mb-2 text-xs">
-                  Once connected, you can ask the AI to:
-                </p>
-                <ul className="list-disc list-inside space-y-1 text-white/70 text-xs">
-                  <li>List all available icons</li>
-                  <li>Get SVG content for a specific icon (e.g., "heroicons-academic-cap")</li>
-                  <li>Search for icons by name</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <WelcomeDialog onConnectMcp={() => setMcpDialogOpen(true)} />
+      <McpDialog open={mcpDialogOpen} onOpenChange={setMcpDialogOpen} />
     </div>
   );
 }

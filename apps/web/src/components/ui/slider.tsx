@@ -18,24 +18,19 @@ function Slider({
 		>
 			<SliderPrimitive.Track
 				data-slot="slider-track"
-				className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary"
+				className="relative h-1 w-full grow overflow-hidden rounded-full bg-white/15"
 			>
 				<SliderPrimitive.Range
 					data-slot="slider-range"
-					className="absolute h-full bg-primary"
+					className="absolute h-full bg-white"
 				/>
 			</SliderPrimitive.Track>
 			<SliderPrimitive.Thumb
 				data-slot="slider-thumb"
-				className="block size-4 rounded-full border border-primary/50 bg-background shadow-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+				className="block size-3.5 rounded-full bg-white shadow-sm transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:pointer-events-none disabled:opacity-50 hover:scale-110"
 			/>
 		</SliderPrimitive.Root>
 	);
 }
 
 export { Slider };
-
-
-
-
-
