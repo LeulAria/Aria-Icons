@@ -13,12 +13,17 @@ import iconsData from "../../../../icons-name.json";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-// Cache for icons-name.json
-let iconsNamesCache: typeof iconsData | null = null;
+type IconsNamesData = {
+	"icons-names": Record<string, string[]>;
+	all: string[];
+};
 
-function getIconsNames() {
+// Cache for icons-name.json
+let iconsNamesCache: IconsNamesData | null = null;
+
+function getIconsNames(): IconsNamesData {
 	if (!iconsNamesCache) {
-		iconsNamesCache = iconsData;
+		iconsNamesCache = iconsData as IconsNamesData;
 	}
 	return iconsNamesCache;
 }
@@ -297,13 +302,13 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
 			if (iconSet) {
 				for (const style of iconSet.styles) {
 					try {
-						const index = await buildIconIndex(setId, style.id);
+						const index = await buildIconIndex(iconSet.id, style.id);
 						const icon = index.icons.find(
 							(i) => i.name.toLowerCase() === iconName.toLowerCase(),
 						);
 
 						if (icon) {
-							const svgContent = await readSvg(setId, icon.filePath);
+							const svgContent = await readSvg(iconSet.id, icon.filePath);
 							return {
 								contents: [
 									{
@@ -536,7 +541,7 @@ export async function POST(req: NextRequest) {
 
 									for (const style of iconSet.styles) {
 										try {
-											const index = await buildIconIndex(setId, style.id);
+											const index = await buildIconIndex(iconSet.id, style.id);
 											const icon = index.icons.find(
 												(i) => i.name.toLowerCase() === iconName.toLowerCase(),
 											);
@@ -551,7 +556,7 @@ export async function POST(req: NextRequest) {
 									}
 
 									if (foundIcon) {
-										const svgContent = await readSvg(setId, foundIcon.filePath);
+										const svgContent = await readSvg(iconSet.id, foundIcon.filePath);
 										response = {
 											jsonrpc: "2.0",
 											id: body.id,

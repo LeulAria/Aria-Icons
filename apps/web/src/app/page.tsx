@@ -205,7 +205,7 @@ export default function Home() {
   const gridCols = useGridColumns();
 
   // Customize applies only to the selected icon(s). The rest of the grid stays at defaults.
-  const GRID_DEFAULT = { size: 24, stroke: 1, color: "#ffffff" } as const;
+  const GRID_DEFAULT: AppliedCustomize = { size: 24, stroke: 1, color: "#ffffff" };
   const [appliedSize, setAppliedSize] = React.useState(GRID_DEFAULT.size);
   const [appliedStroke, setAppliedStroke] = React.useState(GRID_DEFAULT.stroke);
   const [appliedColor, setAppliedColor] = React.useState(GRID_DEFAULT.color);
