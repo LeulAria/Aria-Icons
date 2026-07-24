@@ -966,9 +966,10 @@ export default function Home() {
                         : "Download SVG"}
                     </Button>
                     <Button
+                      variant="outline"
                       onClick={copySvg}
                       disabled={!focusedIcon || !selectedSvgQuery.data}
-                      className="h-11 w-full justify-center rounded-full border-0 bg-[#FFF1] text-black hover:bg-[#FFF1]/90"
+                      className="h-11 w-full justify-center rounded-full"
                     >
                       <Copy className="size-4" />
                       Copy SVG
