@@ -4,11 +4,21 @@ const nextConfig: NextConfig = {
 	typedRoutes: true,
 	reactCompiler: true,
 	transpilePackages: ["shiki"],
-	// Include packed icon JSON in serverless function traces so /api/icon-svg
-	// and MCP can read them at runtime on Vercel.
+	// Keep serverless traces small: vendored packs + theSVG + Iconify manifests.
+	// Full Iconify set bodies are pruned on Vercel; icons load via Iconify API.
 	outputFileTracingIncludes: {
-		"/api/**": ["./icons/vendored/**/*", "./icons/thesvg.json", "./icons/iconify/**/*"],
-		"/*": ["./icons/vendored/**/*", "./icons/thesvg.json", "./icons/iconify/**/*"],
+		"/api/**": [
+			"./icons/vendored/**/*",
+			"./icons/thesvg.json",
+			"./icons/iconify/collections.json",
+			"./icons/iconify/prefixes.json",
+		],
+		"/*": [
+			"./icons/vendored/**/*",
+			"./icons/thesvg.json",
+			"./icons/iconify/collections.json",
+			"./icons/iconify/prefixes.json",
+		],
 	},
 };
 

@@ -35,7 +35,14 @@ export async function getIconSourceKind(
 		return (await loadTheSvgRegistry()) ? "thesvg" : null;
 	}
 	const prefixes = await listIconifyPrefixes();
-	return prefixes.includes(setId) ? "iconify" : null;
+	if (prefixes.includes(setId)) return "iconify";
+	// Production may only ship collections/prefixes manifests — still treat
+	// unknown hyphenated ids as Iconify so /api/icon-svg can hit the API.
+	if (/^[a-z0-9-]+$/.test(setId) && !FS_SET_IDS.has(setId)) {
+		const collections = await loadIconifyCollections();
+		if (collections?.[setId]) return "iconify";
+	}
+	return null;
 }
 
 function prettyStyleLabel(id: string) {

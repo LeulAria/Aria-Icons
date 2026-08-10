@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readSvg } from "@/lib/icon-fs";
 import { getIconSet } from "@/lib/icon-sets";
 import { getIconSourceKind } from "@/lib/icon-sources";
-import { loadIconifySet, renderIconifySvg } from "@/lib/iconify";
+import { renderIconifyIcon } from "@/lib/iconify";
 
 export const runtime = "nodejs";
 
@@ -48,11 +48,9 @@ export async function GET(req: Request) {
 	const kind = await getIconSourceKind(setId);
 	if (!kind) return NextResponse.json({ error: "Unknown setId" }, { status: 400 });
 
-	// Iconify sets: render the SVG from the compact JSON body on demand.
+	// Iconify sets: local JSON when present, else Iconify API (Vercel prune).
 	if (kind === "iconify") {
-		const set = await loadIconifySet(setId);
-		if (!set) return NextResponse.json({ error: "Unknown setId" }, { status: 400 });
-		const svg = renderIconifySvg(set, filePath, {
+		const svg = await renderIconifyIcon(setId, filePath, {
 			...(size ? { size } : {}),
 			color,
 		});

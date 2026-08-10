@@ -11,7 +11,8 @@
     "fetch:thesvg": "tsx scripts/fetch-thesvg.ts",
     "fetch:iconify": "tsx scripts/fetch-iconify.ts",
     "pack:icons": "tsx scripts/pack-icon-sets.ts",
-    "prebuild": "tsx scripts/generate-icons-meta.ts"
+    "prepare:icons": "tsx scripts/prepare-production-icons.ts",
+    "prebuild": "tsx scripts/prepare-production-icons.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "catalog:",

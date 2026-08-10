@@ -1,7 +1,7 @@
 import { buildIconIndex, readSvg } from "@/lib/icon-fs";
 import { getIconSet } from "@/lib/icon-sets";
 import { getIconSourceKind } from "@/lib/icon-sources";
-import { loadIconifySet, renderIconifySvg } from "@/lib/iconify";
+import { renderIconifyIcon } from "@/lib/iconify";
 import { dedupedVariants, getTheSvgEntry } from "@/lib/thesvg";
 
 export type ResolvedIconSvg = {
@@ -25,9 +25,7 @@ export async function resolveIconSvgByName(
 	if (!kind) return null;
 
 	if (kind === "iconify") {
-		const set = await loadIconifySet(setId);
-		if (!set) return null;
-		const svg = renderIconifySvg(set, name);
+		const svg = await renderIconifyIcon(setId, name);
 		if (!svg) return null;
 		return { setId, name, styleId: "line", svg };
 	}
