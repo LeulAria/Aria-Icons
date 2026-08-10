@@ -2,16 +2,15 @@ import { ICON_SETS } from "./icon-sets";
 
 /**
  * Browse priority for the All Icons grid (lower = earlier).
- * Curated / vendored line sets first (Feather, Basicons, …), then brands,
- * then Iconify — so the first screen isn't flooded with Iconify packs.
+ * Iconify packs first, then theSVG brands, then curated / vendored sets.
  */
 const VENDORED_RANK = new Map(ICON_SETS.map((set, index) => [set.id, index]));
 
 export function setBrowsePriority(setId: string): number {
 	const vendored = VENDORED_RANK.get(setId);
-	if (vendored != null) return vendored;
+	if (vendored != null) return 2_000 + vendored;
 	if (setId === "thesvg") return 1_000;
-	return 2_000;
+	return 0; // Iconify
 }
 
 /** Sort icons for empty-query "All Icons" browsing. */

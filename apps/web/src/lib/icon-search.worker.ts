@@ -55,9 +55,9 @@ const VENDORED_RANK = new Map(VENDORED_ORDER.map((id, i) => [id, i]));
 
 function setBrowsePriority(setId: string): number {
 	const vendored = VENDORED_RANK.get(setId);
-	if (vendored != null) return vendored;
+	if (vendored != null) return 2_000 + vendored;
 	if (setId === "thesvg") return 1_000;
-	return 2_000;
+	return 0; // Iconify
 }
 
 let icons: WorkerIcon[] = [];
@@ -136,7 +136,7 @@ self.onmessage = (event: MessageEvent<InMessage>) => {
 				const icon = icons[i];
 				if (icon && matchesFilters(icon, msg.filters)) indices.push(i);
 			}
-			// Curated sets first when browsing All Icons with no query.
+			// Iconify first when browsing All Icons with no query.
 			if (msg.filters.collection === "all") {
 				indices.sort((ia, ib) => {
 					const a = icons[ia];

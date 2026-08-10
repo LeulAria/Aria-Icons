@@ -46,11 +46,11 @@ export function filterCatalogIcons(
 	filters: SearchFilters,
 ): CatalogIcon[] {
 	const filtered = icons.filter((icon) => matchesFilters(icon, filters));
-	// Empty browse: curated sets (Feather, Basicons, …) before Iconify.
+	// Empty browse: Iconify packs first, then brands / curated sets.
 	if (filters.collection === "all") {
 		return filtered.slice().sort(compareIconsForBrowse);
 	}
-	return filtered;
+	return filtered
 }
 
 /**
