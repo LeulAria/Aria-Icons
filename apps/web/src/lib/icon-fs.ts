@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { loadPackedSet } from "./icon-packed";
 import { ICON_SETS, type IconSetId, type IconStyleGroup, type IconStyleId } from "./icon-sets";
 
 export type IconListItem = {
@@ -7,7 +8,8 @@ export type IconListItem = {
 	styleId: IconStyleId;
 	/**
 	 * Stable identifier (unique within set/style). This is the file path relative
-	 * to the set folder (e.g. `icons/outline/alert-circle.svg`).
+	 * to the set folder (e.g. `icons/outline/alert-circle.svg`), or the packed
+	 * lookup key after consolidation.
 	 */
 	filePath: string;
 	/**
@@ -65,12 +67,33 @@ function ensureUnder(baseAbsDir: string, absTarget: string) {
 	}
 }
 
-export async function buildIconIndex(setId: IconSetId, styleId: IconStyleId): Promise<CachedIndex> {
-	const key = cacheKey(setId, styleId);
-	const cache = getCache();
-	const cached = cache.get(key);
-	if (cached) return cached;
+async function buildIconIndexFromPacked(
+	setId: IconSetId,
+	styleId: IconStyleId,
+): Promise<CachedIndex | null> {
+	const packed = await loadPackedSet(setId);
+	if (!packed) return null;
 
+	const icons: IconListItem[] = [];
+	for (const [filePath, icon] of Object.entries(packed.icons)) {
+		if (icon.styleId !== styleId) continue;
+		icons.push({
+			setId,
+			styleId,
+			filePath,
+			name: icon.name,
+		});
+	}
+	icons.sort((a, b) => a.name.localeCompare(b.name));
+	const byFilePath = new Map<string, IconListItem>();
+	for (const icon of icons) byFilePath.set(icon.filePath, icon);
+	return { icons, byFilePath };
+}
+
+async function buildIconIndexFromLoose(
+	setId: IconSetId,
+	styleId: IconStyleId,
+): Promise<CachedIndex> {
 	const set = ICON_SETS.find((s) => s.id === setId);
 	if (!set) throw new Error(`Unknown icon set: ${setId}`);
 	const style = set.styles.find((st) => st.id === styleId);
@@ -79,7 +102,7 @@ export async function buildIconIndex(setId: IconSetId, styleId: IconStyleId): Pr
 	const setRootAbs = path.join(iconsRootDir(), setId);
 	const icons: IconListItem[] = [];
 
-	for (const rootRel of style.roots) {
+	for (const rootRel of style.roots ?? []) {
 		const rootAbs = path.join(setRootAbs, rootRel);
 		ensureUnder(setRootAbs, rootAbs);
 
@@ -114,7 +137,17 @@ export async function buildIconIndex(setId: IconSetId, styleId: IconStyleId): Pr
 	const byFilePath = new Map<string, IconListItem>();
 	for (const icon of icons) byFilePath.set(icon.filePath, icon);
 
-	const idx: CachedIndex = { icons, byFilePath };
+	return { icons, byFilePath };
+}
+
+export async function buildIconIndex(setId: IconSetId, styleId: IconStyleId): Promise<CachedIndex> {
+	const key = cacheKey(setId, styleId);
+	const cache = getCache();
+	const cached = cache.get(key);
+	if (cached) return cached;
+
+	const fromPacked = await buildIconIndexFromPacked(setId, styleId);
+	const idx = fromPacked ?? (await buildIconIndexFromLoose(setId, styleId));
 	cache.set(key, idx);
 	return idx;
 }
@@ -277,10 +310,21 @@ export async function listAllIconsMulti(params: {
 }
 
 export async function readSvg(setId: IconSetId, filePath: string) {
+	const packed = await loadPackedSet(setId);
+	if (packed?.icons[filePath]?.svg) {
+		return packed.icons[filePath].svg;
+	}
+
+	// theSVG packed bodies (when setId is thesvg).
+	if (setId === "thesvg") {
+		const { loadPackedTheSvg } = await import("./icon-packed");
+		const thesvg = await loadPackedTheSvg();
+		const svg = thesvg?.svgs[filePath];
+		if (svg) return svg;
+	}
+
 	const setRootAbs = path.join(iconsRootDir(), setId);
 	const abs = path.join(setRootAbs, filePath);
 	ensureUnder(setRootAbs, abs);
 	return await fs.readFile(abs, "utf8");
 }
-
-

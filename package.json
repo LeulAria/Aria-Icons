@@ -27,6 +27,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "dotenv": "^17.2.2",
+    "next": "16.0.10",
     "zod": "^4.1.13"
   },
   "devDependencies": {

@@ -1,31 +1,12 @@
 export type IconStyleGroup = "line" | "solid";
 
-export type IconStyleId =
-	| "line"
-	| "solid"
-	| "outline"
-	| "filled"
-	| "regular"
-	| "sharp"
-	| "rounded";
-
-export type IconSetId =
-	| "akar-icons"
-	| "basicons-line"
-	| "bytesize-icons"
-	| "coolicons"
-	| "feathers"
-	| "heroicons"
-	| "iconicicons"
-	| "iconoir"
-	| "iconpack"
-	| "ikonate"
-	| "ionicons"
-	| "lucide-icons"
-	| "majesticons"
-	| "system-uicons"
-	| "tabler-icons"
-	| "icons";
+/**
+ * Style/set ids are open strings: filesystem sets use the ids below, while
+ * theSVG brand variants ("default", "mono", "wordmark", …) and Iconify sets
+ * (prefixes like "ph", "mdi") are discovered dynamically.
+ */
+export type IconStyleId = string;
+export type IconSetId = string;
 
 export type IconSetStyle = {
 	id: IconStyleId;
@@ -38,8 +19,9 @@ export type IconSetStyle = {
 	/**
 	 * Roots are paths relative to the icon set folder on disk.
 	 * Each root will be searched recursively for `.svg`.
+	 * Only used by filesystem-backed sets.
 	 */
-	roots: string[];
+	roots?: string[];
 };
 
 export type IconSetConfig = {
@@ -122,7 +104,7 @@ export const ICON_SETS: IconSetConfig[] = [
 		id: "akar-icons",
 		label: "Akar Icons",
 		homepage: "https://akaricons.com/",
-		styles: [{ id: "line", label: "All", group: "line", roots: ["svg"] }],
+		styles: [{ id: "line", label: "All", group: "line", roots: ["src/svg"] }],
 	},
 	{
 		id: "system-uicons",

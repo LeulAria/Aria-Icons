@@ -2,16 +2,24 @@
 
 import * as React from "react";
 import { Check, Copy, X } from "lucide-react";
+import { CodeBlock } from "@/components/code-block";
 import { Mask } from "@/components/ui/mask";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import type { BundledLanguage } from "shiki";
 
-type ClientTab = "cursor" | "claude" | "opencode";
+type ClientTab = "cursor" | "claude" | "opencode" | "codex";
 
-const TABS: { id: ClientTab; label: string }[] = [
-  { id: "cursor", label: "Cursor" },
-  { id: "claude", label: "Claude Code" },
-  { id: "opencode", label: "OpenCode" },
+const TABS: {
+  id: ClientTab;
+  label: string;
+  lang: BundledLanguage;
+  icon: string;
+}[] = [
+  { id: "cursor", label: "Cursor", lang: "json", icon: "/cursor.svg" },
+  { id: "claude", label: "Claude Code", lang: "bash", icon: "/claude.svg" },
+  { id: "opencode", label: "OpenCode", lang: "json", icon: "/opencode.svg" },
+  { id: "codex", label: "Codex", lang: "toml", icon: "/codex.svg" },
 ];
 
 function useMcpUrl() {
@@ -77,10 +85,13 @@ export function McpDialog({
     }
   }
 }`;
-    return { cursor, claude, opencode } as const;
+    const codex = `[mcp_servers.aria-icons]
+url = "${mcpUrl}"`;
+    return { cursor, claude, opencode, codex } as const;
   }, [mcpUrl]);
 
   const activeConfig = configs[tab];
+  const activeTab = TABS.find((t) => t.id === tab) ?? TABS[0];
 
   const addToCursor = () => {
     const config = { url: mcpUrl };
@@ -99,7 +110,7 @@ export function McpDialog({
       <div
         className={cn(
           "relative flex max-h-[min(640px,calc(100vh-2rem))] w-full max-w-[560px] flex-col overflow-hidden rounded-2xl",
-          "border border-white/10 bg-[#111]/80 shadow-2xl backdrop-blur-[2px]",
+          "border border-white/10 bg-[#111]/90 shadow-2xl backdrop-blur-[2px]",
           "animate-in fade-in-0 zoom-in-95 duration-100"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -107,7 +118,7 @@ export function McpDialog({
         aria-modal="true"
         aria-labelledby="mcp-dialog-title"
       >
-        <div className="flex shrink-0 items-start gap-2 px-2 pl-6 pt-4">
+        <div className="flex shrink-0 items-start gap-2 border-b border-[#333] px-2 pl-6 pt-4 pb-4">
           <div className="min-w-0 flex-1 py-2 pr-2">
             <h2
               id="mcp-dialog-title"
@@ -124,7 +135,7 @@ export function McpDialog({
               type="button"
               onClick={() => onOpenChange(false)}
               aria-label="Close"
-              className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-[#444] text-white/70 transition-colors hover:bg-[#555] hover:text-white"
+              className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-[#222] text-white/70 transition-colors hover:bg-[#333] hover:text-white"
             >
               <X className="size-4" strokeWidth={1.75} />
             </button>
@@ -155,7 +166,7 @@ export function McpDialog({
             <div
               role="tablist"
               aria-label="Client"
-              className="flex border-b border-white/10"
+              className="flex overflow-x-auto border-b border-white/10"
             >
               {TABS.map((t) => {
                 const selected = tab === t.id;
@@ -167,12 +178,22 @@ export function McpDialog({
                     aria-selected={selected}
                     onClick={() => setTab(t.id)}
                     className={cn(
-                      "h-11 px-4 text-[14px] font-medium transition-colors",
+                      "inline-flex h-11 shrink-0 items-center gap-2 px-3 text-[13px] font-medium transition-colors sm:px-4 sm:text-[14px]",
                       selected
                         ? "border-b-2 border-white text-white"
                         : "border-b-2 border-transparent text-white/45 hover:text-white/80"
                     )}
                   >
+                    <img
+                      src={t.icon}
+                      alt=""
+                      width={14}
+                      height={14}
+                      className={cn(
+                        "size-3.5 shrink-0 object-contain",
+                        !selected && "opacity-55",
+                      )}
+                    />
                     {t.label}
                   </button>
                 );
@@ -181,17 +202,19 @@ export function McpDialog({
 
             <div
               role="tabpanel"
-              className="relative mt-3 overflow-hidden rounded-[2px] border border-white/10 bg-transparent"
+              className="relative mt-3 overflow-hidden rounded-[2px] border border-white/10 bg-black/30"
             >
-              <div className="absolute right-1 top-1 z-1">
+              <div className="absolute right-1 top-1 z-10">
                 <CopyIconButton
                   value={activeConfig}
                   successLabel="Copied configuration"
                 />
               </div>
-              <pre className="max-h-[148px] overflow-auto whitespace-pre-wrap break-all p-4 pr-11 font-mono text-[12px] leading-[1.55] text-white/70">
-                {activeConfig}
-              </pre>
+              <CodeBlock
+                key={tab}
+                code={activeConfig}
+                lang={activeTab.lang}
+              />
             </div>
           </section>
 
@@ -216,19 +239,26 @@ export function McpDialog({
           </section>
         </div>
 
-        <div className="flex shrink-0 items-center justify-end gap-2 px-3 py-3">
+        <div className="flex shrink-0 items-center justify-end gap-2 border-t border-[#333] px-3 py-3">
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="h-10 min-w-[64px] rounded-full px-4 text-[14px] font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            className="h-10 min-w-[64px] rounded-[5px] px-4 text-[14px] font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={addToCursor}
-            className="h-10 min-w-[64px] rounded-full bg-white px-6 text-[14px] font-medium text-black transition-colors hover:bg-white/90"
+            className="inline-flex h-10 min-w-[64px] items-center justify-center gap-2 rounded-[5px] bg-white px-5 text-[14px] font-medium text-black transition-colors hover:bg-white/90"
           >
+            <img
+              src="/cursor.svg"
+              alt=""
+              width={14}
+              height={16}
+              className="brightness-0"
+            />
             Add to Cursor
           </button>
         </div>

@@ -190,3 +190,28 @@ body {
     opacity: 1;
   }
 }
+
+.code-block pre {
+  counter-reset: line;
+}
+
+.code-block code {
+  display: grid;
+}
+
+.code-block .line {
+  display: inline-block;
+  width: 100%;
+  min-height: 1.55em;
+}
+
+.code-block .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2ch;
+  margin-right: 1rem;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.28);
+  user-select: none;
+}
