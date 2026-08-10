@@ -32,6 +32,34 @@ type OutMessage =
 
 declare const self: DedicatedWorkerGlobalScope;
 
+/** Keep in sync with ICON_SETS order in icon-sets.ts (Feather, Basicons, …). */
+const VENDORED_ORDER = [
+	"feathers",
+	"basicons-line",
+	"lucide-icons",
+	"tabler-icons",
+	"heroicons",
+	"iconoir",
+	"icons",
+	"majesticons",
+	"coolicons",
+	"akar-icons",
+	"system-uicons",
+	"bytesize-icons",
+	"ikonate",
+	"iconicicons",
+	"ionicons",
+	"iconpack",
+];
+const VENDORED_RANK = new Map(VENDORED_ORDER.map((id, i) => [id, i]));
+
+function setBrowsePriority(setId: string): number {
+	const vendored = VENDORED_RANK.get(setId);
+	if (vendored != null) return vendored;
+	if (setId === "thesvg") return 1_000;
+	return 2_000;
+}
+
 let icons: WorkerIcon[] = [];
 /** Precomputed lowercase names — makes 300k-icon scans fast. */
 let names: string[] = [];
@@ -107,6 +135,20 @@ self.onmessage = (event: MessageEvent<InMessage>) => {
 			for (let i = 0; i < icons.length; i++) {
 				const icon = icons[i];
 				if (icon && matchesFilters(icon, msg.filters)) indices.push(i);
+			}
+			// Curated sets first when browsing All Icons with no query.
+			if (msg.filters.collection === "all") {
+				indices.sort((ia, ib) => {
+					const a = icons[ia];
+					const b = icons[ib];
+					if (!a || !b) return 0;
+					const bySet =
+						setBrowsePriority(a.setId) - setBrowsePriority(b.setId);
+					if (bySet !== 0) return bySet;
+					const byName = a.name.localeCompare(b.name);
+					if (byName !== 0) return byName;
+					return a.setId.localeCompare(b.setId);
+				});
 			}
 		} else {
 			const hits: Array<[index: number, score: number]> = [];

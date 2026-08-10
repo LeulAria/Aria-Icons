@@ -1,5 +1,6 @@
 import type { CatalogIcon } from "@/lib/icon-catalog";
 import type { IconStyleGroup } from "@/lib/icon-sets";
+import { compareIconsForBrowse } from "@/lib/icon-set-order";
 import { iconKey } from "@/lib/icon-workspace";
 
 export type SearchFilters = {
@@ -44,7 +45,12 @@ export function filterCatalogIcons(
 	icons: CatalogIcon[],
 	filters: SearchFilters,
 ): CatalogIcon[] {
-	return icons.filter((icon) => matchesFilters(icon, filters));
+	const filtered = icons.filter((icon) => matchesFilters(icon, filters));
+	// Empty browse: curated sets (Feather, Basicons, …) before Iconify.
+	if (filters.collection === "all") {
+		return filtered.slice().sort(compareIconsForBrowse);
+	}
+	return filtered;
 }
 
 /**
@@ -125,7 +131,8 @@ export function searchWithContext(
 ): CatalogIcon[] {
 	const tokens = tokenizeQuery(query);
 	if (tokens.length === 0) {
-		return filters ? filterCatalogIcons(ctx.icons, filters) : ctx.icons;
+		if (filters) return filterCatalogIcons(ctx.icons, filters);
+		return ctx.icons.slice().sort(compareIconsForBrowse);
 	}
 
 	const hits: Array<{ icon: CatalogIcon; score: number }> = [];

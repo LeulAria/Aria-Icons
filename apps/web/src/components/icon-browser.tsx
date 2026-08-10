@@ -4,7 +4,11 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import type { IconSetConfig, IconStyleGroup } from "@/lib/icon-sets";
+import {
+	ICON_SETS,
+	type IconSetConfig,
+	type IconStyleGroup,
+} from "@/lib/icon-sets";
 import { GitPullRequestArrow, Search } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
@@ -208,6 +212,11 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	const counts = catalogQuery.data?.counts;
 
+	const curatedSetIds = React.useMemo(
+		() => new Set(ICON_SETS.map((s) => s.id)),
+		[],
+	);
+
 	const setForSidebar = React.useMemo(() => {
 		return sets
 			.map((s) => {
@@ -218,6 +227,41 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			})
 			.filter((s) => !counts || s.countForGroup > 0);
 	}, [sets, styleGroup, counts]);
+
+	const sidebarIconify = React.useMemo(
+		() =>
+			setForSidebar.filter(
+				(s) => !curatedSetIds.has(s.id) && s.id !== "thesvg",
+			),
+		[setForSidebar, curatedSetIds],
+	);
+
+	const sidebarCurated = React.useMemo(
+		() =>
+			setForSidebar.filter(
+				(s) => curatedSetIds.has(s.id) || s.id === "thesvg",
+			),
+		[setForSidebar, curatedSetIds],
+	);
+
+	const selectLibrary = React.useCallback(
+		(set: IconSetConfig & { countForGroup: number }) => {
+			setCollection(set.id);
+			if (styleGroup === "both") {
+				setSelectedStyleId("both");
+			} else {
+				const preferred =
+					set.styles.find((s) => s.group === styleGroup) ??
+					set.styles[0] ??
+					null;
+				if (preferred) setSelectedStyleId(preferred.id);
+			}
+			setFocusedIcon(null);
+			setSelectedKeys(new Set());
+			lastSelectedIndexRef.current = null;
+		},
+		[styleGroup],
+	);
 
 	const allCountForGroup = React.useMemo(() => {
 		if (!counts) return 0;
@@ -696,45 +740,56 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								/>
 							</nav>
 
-							<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
-								Libraries
-							</div>
 							{catalogQuery.isLoading ? (
-								<div className="flex items-center gap-2 px-5 py-2 text-sm text-white/40">
+								<div className="mt-6 flex items-center gap-2 px-5 py-2 text-sm text-white/40">
 									<Loader size="sm" />
 									<span>Loading…</span>
 								</div>
 							) : catalogQuery.isError ? (
-								<div className="px-5 py-2 text-sm text-destructive">
+								<div className="mt-6 px-5 py-2 text-sm text-destructive">
 									Failed to load libraries
 								</div>
 							) : (
-								<nav className="grid min-w-0">
-									{setForSidebar.map((set) => (
-										<SidebarRow
-											key={set.id}
-											label={set.label}
-											subtitle={set.homepage ?? set.id}
-											count={set.countForGroup}
-											active={collection === set.id}
-											onClick={() => {
-												setCollection(set.id);
-												if (styleGroup === "both") {
-													setSelectedStyleId("both");
-												} else {
-													const preferred =
-														set.styles.find((s) => s.group === styleGroup) ??
-														set.styles[0] ??
-														null;
-													if (preferred) setSelectedStyleId(preferred.id);
-												}
-												setFocusedIcon(null);
-												setSelectedKeys(new Set());
-												lastSelectedIndexRef.current = null;
-											}}
-										/>
-									))}
-								</nav>
+								<>
+									{sidebarIconify.length > 0 ? (
+										<>
+											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
+												Iconify
+											</div>
+											<nav className="grid min-w-0">
+												{sidebarIconify.map((set) => (
+													<SidebarRow
+														key={set.id}
+														label={set.label}
+														subtitle={set.homepage ?? set.id}
+														count={set.countForGroup}
+														active={collection === set.id}
+														onClick={() => selectLibrary(set)}
+													/>
+												))}
+											</nav>
+										</>
+									) : null}
+									{sidebarCurated.length > 0 ? (
+										<>
+											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
+												Curated
+											</div>
+											<nav className="grid min-w-0">
+												{sidebarCurated.map((set) => (
+													<SidebarRow
+														key={set.id}
+														label={set.label}
+														subtitle={set.homepage ?? set.id}
+														count={set.countForGroup}
+														active={collection === set.id}
+														onClick={() => selectLibrary(set)}
+													/>
+												))}
+											</nav>
+										</>
+									) : null}
+								</>
 							)}
 						</div>
 					</div>

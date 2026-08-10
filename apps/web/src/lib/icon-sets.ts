@@ -37,11 +37,24 @@ export type IconSetConfig = {
  * NOTE: You mentioned you have a list of links to match these folders.
  * If you paste that list, I can update the `homepage` values to match it exactly.
  */
+/** Curated UI sets — order here controls All Icons browse priority. */
 export const ICON_SETS: IconSetConfig[] = [
+	{
+		id: "feathers",
+		label: "Feather",
+		homepage: "https://feathericons.com/",
+		styles: [{ id: "line", label: "All", group: "line", roots: ["icons"] }],
+	},
 	{
 		id: "basicons-line",
 		label: "Basicons",
 		homepage: "https://basicons.xyz/",
+		styles: [{ id: "line", label: "Line", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "lucide-icons",
+		label: "Lucide",
+		homepage: "https://lucide.dev/icons",
 		styles: [{ id: "line", label: "Line", group: "line", roots: ["./"] }],
 	},
 	{
@@ -51,6 +64,15 @@ export const ICON_SETS: IconSetConfig[] = [
 		styles: [
 			{ id: "outline", label: "Outline", group: "line", roots: ["icons/outline"] },
 			{ id: "filled", label: "Filled", group: "solid", roots: ["icons/filled"] },
+		],
+	},
+	{
+		id: "heroicons",
+		label: "Heroicons",
+		homepage: "https://heroicons.com/",
+		styles: [
+			{ id: "outline", label: "Outline (24)", group: "line", roots: ["src/24/outline"] },
+			{ id: "solid", label: "Solid (24)", group: "solid", roots: ["src/24/solid"] },
 		],
 	},
 	{
@@ -68,21 +90,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		styles: [
 			{ id: "regular", label: "Regular", group: "line", roots: ["regular"] },
 			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "lucide-icons",
-		label: "Lucide",
-		homepage: "https://lucide.dev/icons",
-		styles: [{ id: "line", label: "Line", group: "line", roots: ["./"] }],
-	},
-	{
-		id: "heroicons",
-		label: "Heroicons",
-		homepage: "https://heroicons.com/",
-		styles: [
-			{ id: "outline", label: "Outline (24)", group: "line", roots: ["src/24/outline"] },
-			{ id: "solid", label: "Solid (24)", group: "solid", roots: ["src/24/solid"] },
 		],
 	},
 	{
@@ -110,12 +117,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		id: "system-uicons",
 		label: "System UIcons",
 		homepage: "https://systemuicons.com/",
-		styles: [{ id: "line", label: "All", group: "line", roots: ["icons"] }],
-	},
-	{
-		id: "feathers",
-		label: "Feather",
-		homepage: "https://feathericons.com/",
 		styles: [{ id: "line", label: "All", group: "line", roots: ["icons"] }],
 	},
 	{

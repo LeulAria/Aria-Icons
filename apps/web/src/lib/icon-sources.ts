@@ -96,15 +96,15 @@ async function buildIconifyConfigs(): Promise<IconSetConfig[]> {
 }
 
 /**
- * All set configs for the browser UI: vendored sets first, then brands, then
- * downloaded Iconify sets. Server-only (reads the filesystem).
+ * All set configs for the browser sidebar: Iconify first, then curated
+ * vendored sets, then theSVG brands. Server-only (reads the filesystem).
  */
 export async function getAllIconSetConfigs(): Promise<IconSetConfig[]> {
 	const [thesvg, iconify] = await Promise.all([
 		buildTheSvgConfig(),
 		buildIconifyConfigs(),
 	]);
-	return [...ICON_SETS, ...(thesvg ? [thesvg] : []), ...iconify];
+	return [...iconify, ...ICON_SETS, ...(thesvg ? [thesvg] : [])];
 }
 
 /** Every known set id (used for MCP icon-id parsing). */
