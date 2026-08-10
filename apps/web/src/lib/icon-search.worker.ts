@@ -53,11 +53,16 @@ const VENDORED_ORDER = [
 ];
 const VENDORED_RANK = new Map(VENDORED_ORDER.map((id, i) => [id, i]));
 
-function setBrowsePriority(setId: string): number {
+function setBrowsePriority(
+	setId: string,
+	group?: "line" | "solid",
+): number {
 	const vendored = VENDORED_RANK.get(setId);
-	if (vendored != null) return 2_000 + vendored;
-	if (setId === "thesvg") return 1_000;
-	return 0; // Iconify
+	if (vendored != null) return 3_000 + vendored;
+	if (setId === "thesvg") return 2_000;
+	// Iconify line before Iconify fill
+	if (group === "line") return 0;
+	return 1_000;
 }
 
 let icons: WorkerIcon[] = [];
@@ -136,14 +141,15 @@ self.onmessage = (event: MessageEvent<InMessage>) => {
 				const icon = icons[i];
 				if (icon && matchesFilters(icon, msg.filters)) indices.push(i);
 			}
-			// Iconify first when browsing All Icons with no query.
+			// Iconify line first when browsing All Icons with no query.
 			if (msg.filters.collection === "all") {
 				indices.sort((ia, ib) => {
 					const a = icons[ia];
 					const b = icons[ib];
 					if (!a || !b) return 0;
 					const bySet =
-						setBrowsePriority(a.setId) - setBrowsePriority(b.setId);
+						setBrowsePriority(a.setId, a.group) -
+						setBrowsePriority(b.setId, b.group);
 					if (bySet !== 0) return bySet;
 					const byName = a.name.localeCompare(b.name);
 					if (byName !== 0) return byName;

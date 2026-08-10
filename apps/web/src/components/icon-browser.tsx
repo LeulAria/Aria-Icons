@@ -117,10 +117,10 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
-	const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("both");
+	const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("line");
 	const [search, setSearch] = React.useState("");
 	const [collection, setCollection] = React.useState<CollectionId>("all");
-	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("both");
+	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("line");
 	const [focusedIcon, setFocusedIcon] = React.useState<CatalogIcon | null>(null);
 	const [selectedKeys, setSelectedKeys] = React.useState<Set<string>>(
 		() => new Set(),
@@ -654,8 +654,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		search.trim().length > 0;
 
 	return (
-		<div className="h-full overflow-hidden bg-black">
-			<div className="flex h-full flex-col overflow-hidden lg:grid lg:grid-cols-[15.5rem_minmax(0,1fr)_22rem]">
+		<div className="h-full min-h-0 overflow-hidden bg-black">
+			<div className="flex h-full min-h-0 flex-col overflow-hidden lg:grid lg:grid-cols-[15.5rem_minmax(0,1fr)_22rem]">
 				<aside className="hidden min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
 					<div className="flex h-full min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">

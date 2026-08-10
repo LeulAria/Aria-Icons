@@ -26,13 +26,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning className="dark">
+		<html lang="en" suppressHydrationWarning className="dark min-h-dvh">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} min-h-dvh antialiased`}
 			>
 				<Analytics />
 				<Providers>
-					<div className="grid grid-rows-[auto_1fr] h-screen overflow-hidden">
+					<div className="grid h-dvh min-h-dvh grid-rows-[auto_1fr] overflow-hidden">
 						<Header />
 						{children}
 					</div>
