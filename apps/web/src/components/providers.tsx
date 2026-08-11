@@ -16,7 +16,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 			forcedTheme="dark"
 		>
 			<QueryClientProvider client={queryClient}>
-				{children}
+				<div
+					className="flex flex-1 flex-col"
+					style={{ flex: 1, minHeight: "100vh", height: "100%" }}
+				>
+					{children}
+				</div>
 				{/* <ReactQueryDevtools /> */}
 			</QueryClientProvider>
 			<Toaster richColors />

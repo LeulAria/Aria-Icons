@@ -19,12 +19,101 @@ function applySize(svg: string, size: string) {
 	});
 }
 
+/** Sets whose SVGs omit stroke/fill and are drawn as strokes (inherit from root). */
+const STROKE_DEFAULT_SET_IDS = new Set(["ikonate"]);
+
+/** Rewrite fill/stroke colors inside a CSS `style="..."` value (skip `none`). */
+function tintCssStyleValue(style: string, color: string) {
+	return style
+		.replace(
+			/(^|;)\s*fill\s*:\s*(?!none\b)[^;]*/gi,
+			(_m, lead: string) => `${lead}fill:${color}`,
+		)
+		.replace(
+			/(^|;)\s*stroke\s*:\s*(?!none\b)[^;]*/gi,
+			(_m, lead: string) => `${lead}stroke:${color}`,
+		)
+		.replace(
+			/(^|;)\s*color\s*:\s*(?!none\b)[^;]*/gi,
+			(_m, lead: string) => `${lead}color:${color}`,
+		);
+}
+
+/**
+ * Only remap UI stroke widths (Feather-style 1–4). Ionicons outlines use
+ * stroke-width="32" in a 512 viewBox — crushing those to 1 makes them vanish.
+ */
+function remapStrokeWidthAttr(value: string, strokeWidth: string) {
+	const num = Number.parseFloat(value);
+	if (!Number.isFinite(num) || num > 4) return value;
+	if (/px$/i.test(value.trim())) return `${strokeWidth}px`;
+	return strokeWidth;
+}
+
+/**
+ * Tint filesystem SVGs for the dark UI. Many packs ship bare paths that default
+ * to black fill; Ionicons often paint via style="stroke:#000"; Ikonate omits
+ * presentation attrs entirely.
+ */
+function tintFilesystemSvg(
+	svg: string,
+	color: string,
+	strokeWidth: string,
+	setId: string,
+) {
+	let next = svg
+		.replaceAll("currentColor", color)
+		.replaceAll("currentcolor", color)
+		// Inline styles beat presentation attributes — must rewrite these.
+		.replace(/\bstyle=(["'])([\s\S]*?)\1/gi, (_m, quote: string, body: string) => {
+			return `style=${quote}${tintCssStyleValue(body, color)}${quote}`;
+		})
+		.replace(/\bstroke-width="([^"]*)"/gi, (_m, value: string) => {
+			return `stroke-width="${remapStrokeWidthAttr(value, strokeWidth)}"`;
+		})
+		.replace(/\bstrokeWidth="([^"]*)"/gi, (_m, value: string) => {
+			return `strokeWidth="${remapStrokeWidthAttr(value, strokeWidth)}"`;
+		})
+		.replace(/\bstroke="(?!none)[^"]*"/gi, `stroke="${color}"`)
+		.replace(/\bfill="(?!none)[^"]*"/gi, `fill="${color}"`);
+
+	const hasStrokeAttr = /\bstroke=/i.test(next);
+	const hasFillAttr = /\bfill=/i.test(next);
+	const hasStylePaint = /style=(["'])[^"']*(?:stroke|fill)\s*:/i.test(next);
+
+	if (STROKE_DEFAULT_SET_IDS.has(setId)) {
+		// Force stroke paint on the root so bare Ikonate paths render white.
+		next = next.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
+			let patched = attrs
+				.replace(/\bfill="[^"]*"/gi, "")
+				.replace(/\bstroke="[^"]*"/gi, "")
+				.replace(/\bstroke-width="[^"]*"/gi, "")
+				.replace(/\bstroke-linecap="[^"]*"/gi, "")
+				.replace(/\bstroke-linejoin="[^"]*"/gi, "");
+			return `<svg fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round"${patched}>`;
+		});
+	} else if (!hasStrokeAttr && !hasFillAttr && !hasStylePaint) {
+		// Ionicons solid (and similar): bare paths inherit root fill.
+		next = next.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
+			return `<svg fill="${color}"${attrs}>`;
+		});
+	} else if (!hasFillAttr && !hasStylePaint) {
+		next = next.replace(/<svg\b([^>]*?)>/i, (m, attrs: string) =>
+			/\bfill=/.test(attrs) ? m : `<svg fill="${color}"${attrs}>`,
+		);
+	}
+
+	return next;
+}
+
 function svgResponse(svg: string) {
 	return new NextResponse(svg, {
 		status: 200,
 		headers: {
 			"content-type": "image/svg+xml; charset=utf-8",
-			"cache-control": "public, max-age=3600",
+			// Colored per request — avoid sticky black/untinted browser caches.
+			"cache-control": "public, max-age=300, must-revalidate",
+			vary: "Accept",
 		},
 	});
 }
@@ -73,11 +162,7 @@ export async function GET(req: Request) {
 		if (size) svg = applySize(svg, size);
 
 		if (kind === "fs") {
-			// Default styling: make stroke width consistent unless caller overrides it.
-			svg = svg.replace(/\bstroke-width="[^"]*"/gi, `stroke-width="${strokeWidth}"`);
-			svg = svg.replace(/\bstrokeWidth="[^"]*"/gi, `strokeWidth="${strokeWidth}"`);
-			svg = svg.replace(/\bstroke="(?!none)[^"]*"/gi, `stroke="${color}"`);
-			svg = svg.replace(/\bfill="(?!none)[^"]*"/gi, `fill="${color}"`);
+			svg = tintFilesystemSvg(svg, color, strokeWidth, setId);
 		} else if (kind === "thesvg" && styleId === "mono") {
 			// Mono brand variants are meant to inherit the surrounding color;
 			// other brand variants keep their official colors untouched.

@@ -6,6 +6,34 @@ import { ICON_SETS } from "./icon-sets";
  */
 const VENDORED_RANK = new Map(ICON_SETS.map((set, index) => [set.id, index]));
 
+/**
+ * Iconify sets pinned into the curated sidebar block after the first 10
+ * vendored packs (11 = Elegant, 12 = Guidance).
+ */
+export const SIDEBAR_PINNED_ICONIFY_IDS = ["et", "guidance"] as const;
+
+export const SIDEBAR_PINNED_ICONIFY_SET = new Set<string>(
+	SIDEBAR_PINNED_ICONIFY_IDS,
+);
+
+/** Ordered library ids for the curated sidebar section (excl. theSVG). */
+export const SIDEBAR_CURATED_ORDER: string[] = [
+	...ICON_SETS.slice(0, 10).map((s) => s.id),
+	...SIDEBAR_PINNED_ICONIFY_IDS,
+	...ICON_SETS.slice(10).map((s) => s.id),
+];
+
+const SIDEBAR_CURATED_RANK = new Map(
+	SIDEBAR_CURATED_ORDER.map((id, index) => [id, index]),
+);
+
+export function sidebarCuratedRank(setId: string): number {
+	const pinned = SIDEBAR_CURATED_RANK.get(setId);
+	if (pinned != null) return pinned;
+	if (setId === "thesvg") return SIDEBAR_CURATED_ORDER.length;
+	return Number.MAX_SAFE_INTEGER;
+}
+
 export function setBrowsePriority(
 	setId: string,
 	group?: "line" | "solid",

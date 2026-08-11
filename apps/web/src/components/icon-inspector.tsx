@@ -72,25 +72,40 @@ function Section({
   );
 }
 
+const SET_ARROW_SRC = buildIconSvgUrl(
+  {
+    setId: "lucide-icons",
+    styleId: "line",
+    filePath: "arrow-right.svg",
+  },
+  { size: 12, stroke: 2, color: "#d4d4d4" },
+);
+
 export function IconInspector({
   focusedIcon,
   selectedIcons,
   selectedCount,
   setLabel,
+  groupLabel,
   favorited,
   onToggleFavorite,
   onClose,
   onCopySvg,
+  onSelectSet,
   customizeRef,
 }: {
   focusedIcon: IconExportRef | null;
   selectedIcons: IconExportRef[];
   selectedCount: number;
   setLabel?: string | null;
+  /** Line / Fill (or similar) — shown on the preview. */
+  groupLabel?: string | null;
   favorited: boolean;
   onToggleFavorite: () => void;
   onClose: () => void;
   onCopySvg?: () => void;
+  /** Jump to this icon's library and clear search. */
+  onSelectSet?: (setId: string) => void;
   customizeRef?: React.MutableRefObject<{
     copySvg: () => Promise<void>;
     download: () => Promise<void>;
@@ -289,13 +304,39 @@ export function IconInspector({
       </div>
 
       <div className="flex-1 overflow-auto">
-        <Section title="Preview">
+        <Section
+          title="Preview"
+          action={
+            setLabel || focusedIcon.setId ? (
+              <button
+                type="button"
+                onClick={() => onSelectSet?.(focusedIcon.setId)}
+                title={`Open ${setLabel ?? focusedIcon.setId}`}
+                className="group/set inline-flex max-w-[13rem] items-center gap-1 text-[11px] font-medium text-white/55 transition-colors duration-150 hover:text-white"
+              >
+                <span className="truncate">{setLabel ?? focusedIcon.setId}</span>
+                <img
+                  src={SET_ARROW_SRC}
+                  alt=""
+                  width={12}
+                  height={12}
+                  className="size-3 shrink-0 opacity-50 transition-opacity duration-150 group-hover/set:opacity-90"
+                />
+              </button>
+            ) : null
+          }
+        >
           <div
             className={cn(
-              "grid h-44 place-items-center rounded-xl ring-1 ring-inset ring-white/[0.06]",
+              "relative grid h-44 place-items-center rounded-xl ring-1 ring-inset ring-white/[0.06]",
               previewFrameClass,
             )}
           >
+            {groupLabel ? (
+              <span className="absolute right-3 top-3 rounded-md bg-black/55 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-white/85 ring-1 ring-white/10 backdrop-blur-sm">
+                {groupLabel}
+              </span>
+            ) : null}
             {previewSrc ? (
               <img
                 key={previewSrc}
@@ -558,7 +599,7 @@ export function IconInspector({
   return (
     <aside
       className={cn(
-        "z-40 flex flex-col overflow-hidden bg-[#0b0b0b]",
+        "z-40 flex h-full min-h-0 flex-col overflow-hidden bg-[#0b0b0b]",
         // Always visible on large screens; mobile sheet only when an icon is selected
         focusedIcon
           ? "fixed inset-x-0 bottom-0 max-h-[85vh] rounded-t-2xl border border-white/[0.08] shadow-2xl lg:relative lg:inset-auto lg:h-full lg:max-h-none lg:rounded-none lg:border-0 lg:border-l lg:border-[#2D2D2D] lg:shadow-none"

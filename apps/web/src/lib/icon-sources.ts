@@ -1,4 +1,5 @@
 import { ICON_SETS, type IconSetConfig } from "./icon-sets";
+import { SIDEBAR_PINNED_ICONIFY_IDS } from "./icon-set-order";
 import {
 	isLogoOrColoredSet,
 	listIconifyPrefixes,
@@ -96,15 +97,30 @@ async function buildIconifyConfigs(): Promise<IconSetConfig[]> {
 }
 
 /**
- * All set configs for the browser sidebar: Iconify first, then curated
- * vendored sets, then theSVG brands. Server-only (reads the filesystem).
+ * All set configs for the browser sidebar: curated vendored sets first
+ * (legacy icons/ folder packs), with Elegant + Guidance pinned at 11–12,
+ * then theSVG brands, then remaining Iconify.
+ * Server-only (reads the filesystem).
  */
 export async function getAllIconSetConfigs(): Promise<IconSetConfig[]> {
 	const [thesvg, iconify] = await Promise.all([
 		buildTheSvgConfig(),
 		buildIconifyConfigs(),
 	]);
-	return [...iconify, ...ICON_SETS, ...(thesvg ? [thesvg] : [])];
+	const pinnedIds = new Set<string>(SIDEBAR_PINNED_ICONIFY_IDS);
+	const pinned = SIDEBAR_PINNED_ICONIFY_IDS.map((id) =>
+		iconify.find((s) => s.id === id),
+	).filter((s): s is IconSetConfig => Boolean(s));
+	const restIconify = iconify.filter((s) => !pinnedIds.has(s.id));
+	const head = ICON_SETS.slice(0, 10);
+	const tail = ICON_SETS.slice(10);
+	return [
+		...head,
+		...pinned,
+		...tail,
+		...(thesvg ? [thesvg] : []),
+		...restIconify,
+	];
 }
 
 /** Every known set id (used for MCP icon-id parsing). */

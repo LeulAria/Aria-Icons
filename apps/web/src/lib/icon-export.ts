@@ -56,6 +56,8 @@ export function buildIconSvgUrl(
   params.set("size", String(customize.size));
   params.set("strokeWidth", String(customize.stroke));
   params.set("color", customize.color);
+  // Bump when SVG tinting rules change so grids don't keep stale black SVGs.
+  params.set("v", "2");
   return `/api/icon-svg?${params.toString()}`;
 }
 

@@ -9,6 +9,10 @@ import {
 	type IconSetConfig,
 	type IconStyleGroup,
 } from "@/lib/icon-sets";
+import {
+	SIDEBAR_PINNED_ICONIFY_SET,
+	sidebarCuratedRank,
+} from "@/lib/icon-set-order";
 import { GitPullRequestArrow, Search } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
@@ -228,25 +232,34 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			.filter((s) => !counts || s.countForGroup > 0);
 	}, [sets, styleGroup, counts]);
 
-	const sidebarIconify = React.useMemo(
+	const sidebarCurated = React.useMemo(
 		() =>
-			setForSidebar.filter(
-				(s) => !curatedSetIds.has(s.id) && s.id !== "thesvg",
-			),
+			setForSidebar
+				.filter(
+					(s) =>
+						curatedSetIds.has(s.id) ||
+						s.id === "thesvg" ||
+						SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
+				)
+				.sort((a, b) => sidebarCuratedRank(a.id) - sidebarCuratedRank(b.id)),
 		[setForSidebar, curatedSetIds],
 	);
 
-	const sidebarCurated = React.useMemo(
+	const sidebarIconify = React.useMemo(
 		() =>
 			setForSidebar.filter(
-				(s) => curatedSetIds.has(s.id) || s.id === "thesvg",
+				(s) =>
+					!curatedSetIds.has(s.id) &&
+					s.id !== "thesvg" &&
+					!SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
 			),
 		[setForSidebar, curatedSetIds],
 	);
 
 	const selectLibrary = React.useCallback(
-		(set: IconSetConfig & { countForGroup: number }) => {
+		(set: IconSetConfig & { countForGroup?: number }) => {
 			setCollection(set.id);
+			setSearch("");
 			if (styleGroup === "both") {
 				setSelectedStyleId("both");
 			} else {
@@ -261,6 +274,15 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			lastSelectedIndexRef.current = null;
 		},
 		[styleGroup],
+	);
+
+	const openFocusedSet = React.useCallback(
+		(setId: string) => {
+			const set = sets.find((s) => s.id === setId);
+			if (!set) return;
+			selectLibrary(set);
+		},
+		[sets, selectLibrary],
 	);
 
 	const allCountForGroup = React.useMemo(() => {
@@ -654,10 +676,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		search.trim().length > 0;
 
 	return (
-		<div className="h-full min-h-0 overflow-hidden bg-black">
-			<div className="flex h-full min-h-0 flex-col overflow-hidden lg:grid lg:grid-cols-[15.5rem_minmax(0,1fr)_22rem]">
-				<aside className="hidden min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
-					<div className="flex h-full min-w-0 flex-col">
+		<div
+			className="flex min-h-0 flex-1 flex-col overflow-hidden bg-black"
+			style={{ height: "100vh", minHeight: "100vh" }}
+		>
+			<div className="grid h-full min-h-0 flex-1 grid-rows-1 overflow-hidden lg:grid-cols-[15.5rem_minmax(0,1fr)_22rem]">
+				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
+					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
 							<div className="truncate text-[15px] font-semibold tracking-tight text-white">
 								Aria Icons
@@ -751,13 +776,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								</div>
 							) : (
 								<>
-									{sidebarIconify.length > 0 ? (
+									{sidebarCurated.length > 0 ? (
 										<>
 											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
-												Iconify
+												Curated
 											</div>
 											<nav className="grid min-w-0">
-												{sidebarIconify.map((set) => (
+												{sidebarCurated.map((set) => (
 													<SidebarRow
 														key={set.id}
 														label={set.label}
@@ -770,13 +795,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 											</nav>
 										</>
 									) : null}
-									{sidebarCurated.length > 0 ? (
+									{sidebarIconify.length > 0 ? (
 										<>
 											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
-												Curated
+												Iconify
 											</div>
 											<nav className="grid min-w-0">
-												{sidebarCurated.map((set) => (
+												{sidebarIconify.map((set) => (
 													<SidebarRow
 														key={set.id}
 														label={set.label}
@@ -797,7 +822,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 				<main
 					ref={iconsScrollRef}
-					className="relative flex min-w-0 flex-1 flex-col overflow-auto"
+					className="relative flex h-full min-h-0 min-w-0 flex-col overflow-auto bg-black"
 				>
 					<div className="sticky top-0 z-10 bg-black/90 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
 						<div className="flex flex-col gap-4 pb-3 lg:flex-row lg:items-center lg:justify-between">
@@ -815,7 +840,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<Search className="absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-white/35" />
 								<Input
 									ref={searchInputRef}
-									className="h-11 rounded-[3px] border-white/[0.08] bg-white/[0.04] pr-16 pl-10 text-[14px] placeholder:text-white/35 focus-visible:border-white/15 focus-visible:bg-white/[0.055]"
+									className="h-11 rounded-[3px] border-[#2D2D2D] bg-white/[0.04] pr-16 pl-10 text-[14px] placeholder:text-white/35 focus-visible:border-[#2D2D2D] focus-visible:bg-white/[0.055]"
 									placeholder="Search icons, collections, styles…"
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
@@ -914,6 +939,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					selectedIcons={selectedIcons}
 					selectedCount={selectedKeys.size}
 					setLabel={sets.find((s) => s.id === focusedIcon?.setId)?.label}
+					groupLabel={
+						focusedIcon
+							? focusedIcon.group === "solid"
+								? "Fill"
+								: "Line"
+							: null
+					}
 					favorited={
 						focusedIcon ? favoriteKeys.has(iconKey(focusedIcon)) : false
 					}
@@ -921,6 +953,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 						if (focusedIcon) handleFavorite(focusedIcon);
 					}}
 					onClose={clearSelection}
+					onSelectSet={openFocusedSet}
 					customizeRef={inspectorActionsRef}
 				/>
 			</div>
