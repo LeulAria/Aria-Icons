@@ -121,10 +121,10 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
-	const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("line");
+	const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("both");
 	const [search, setSearch] = React.useState("");
 	const [collection, setCollection] = React.useState<CollectionId>("all");
-	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("line");
+	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("both");
 	const [focusedIcon, setFocusedIcon] = React.useState<CatalogIcon | null>(null);
 	const [selectedKeys, setSelectedKeys] = React.useState<Set<string>>(
 		() => new Set(),
