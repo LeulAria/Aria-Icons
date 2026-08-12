@@ -56,11 +56,25 @@ tags, aliases, and categories) and `icons-name.json`.
 
 ## MCP Server
 
-The app exposes an MCP endpoint at `/api/mcp` with three tools:
+The app exposes a remote MCP endpoint at `/api/mcp` (production: `https://icons.leularia.com/api/mcp`) with three tools:
 
 - `search_icons` — ranked keyword search over names and metadata (brand titles, aliases, categories)
 - `list_icons` — organized set summaries with per-set pagination
 - `get_icon_svg` — fetch SVG content by id (e.g. `thesvg-github`, `lucide-icons-house`), with brand variant support
+
+The server is dual-era and stateless: Cursor and other handshake clients use `initialize` (protocol `2025-06-18` and earlier), while `2026-07-28` clients send per-request metadata. Neither path uses `Mcp-Session-Id`.
+
+Add it in Cursor with:
+
+```json
+{
+  "mcpServers": {
+    "aria-icons": {
+      "url": "https://icons.leularia.com/api/mcp"
+    }
+  }
+}
+```
 
 ## Contributing Icons
 

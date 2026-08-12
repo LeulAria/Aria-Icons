@@ -2,6 +2,26 @@ export const PROTOCOL_VERSION = "2026-07-28" as const;
 
 export const SUPPORTED_VERSIONS = [PROTOCOL_VERSION] as const;
 
+/** Handshake-based protocol revisions still used by Cursor and other clients. */
+export const LEGACY_PROTOCOL_VERSIONS = [
+	"2025-11-25",
+	"2025-06-18",
+	"2025-03-26",
+	"2024-11-05",
+] as const;
+
+export const PREFERRED_LEGACY_VERSION = "2025-06-18" as const;
+
+export function negotiateLegacyVersion(requested: unknown): string {
+	if (
+		typeof requested === "string" &&
+		(LEGACY_PROTOCOL_VERSIONS as readonly string[]).includes(requested)
+	) {
+		return requested;
+	}
+	return PREFERRED_LEGACY_VERSION;
+}
+
 export const SERVER_INFO = {
 	name: "aria-icons",
 	version: "1.0.0",

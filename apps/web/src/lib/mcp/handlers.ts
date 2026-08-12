@@ -10,10 +10,12 @@ import {
 	LIST_CACHE,
 	READ_CACHE,
 	SERVER_CAPABILITIES,
+	SERVER_INFO,
 	SERVER_INSTRUCTIONS,
 	SUPPORTED_VERSIONS,
+	negotiateLegacyVersion,
 } from "./constants";
-import { completeResult } from "./protocol";
+import { type ProtocolEra, wrapEraResult } from "./protocol";
 
 const TOOLS = [
 	{
@@ -86,31 +88,46 @@ const TOOLS = [
 	},
 ] as const;
 
-export function handleDiscover() {
-	return completeResult({
-		supportedVersions: [...SUPPORTED_VERSIONS],
+export function handleInitialize(requestedVersion: unknown) {
+	return {
+		protocolVersion: negotiateLegacyVersion(requestedVersion),
 		capabilities: SERVER_CAPABILITIES,
+		serverInfo: SERVER_INFO,
 		instructions: SERVER_INSTRUCTIONS,
-		...LIST_CACHE,
-	});
+	};
 }
 
-export function handleToolsList() {
-	return completeResult({
-		tools: [...TOOLS],
-		...LIST_CACHE,
-	});
+export function handleDiscover(era: ProtocolEra = "modern") {
+	return wrapEraResult(
+		era,
+		{
+			supportedVersions: [...SUPPORTED_VERSIONS],
+			capabilities: SERVER_CAPABILITIES,
+			instructions: SERVER_INSTRUCTIONS,
+		},
+		LIST_CACHE,
+	);
 }
 
-function toolErrorResult(message: string) {
-	return completeResult({
+export function handleToolsList(era: ProtocolEra = "modern") {
+	return wrapEraResult(
+		era,
+		{
+			tools: [...TOOLS],
+		},
+		LIST_CACHE,
+	);
+}
+
+function toolErrorResult(era: ProtocolEra, message: string) {
+	return wrapEraResult(era, {
 		content: [{ type: "text", text: JSON.stringify({ error: message }) }],
 		isError: true,
 	});
 }
 
-function toolJsonResult(payload: unknown) {
-	return completeResult({
+function toolJsonResult(era: ProtocolEra, payload: unknown) {
+	return wrapEraResult(era, {
 		content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
 	});
 }
@@ -118,10 +135,11 @@ function toolJsonResult(payload: unknown) {
 export async function handleToolsCall(
 	name: string,
 	args: Record<string, unknown> | undefined,
+	era: ProtocolEra = "modern",
 ) {
 	if (name === "search_icons") {
 		const query = typeof args?.query === "string" ? args.query.trim() : "";
-		if (!query) return toolErrorResult("query is required");
+		if (!query) return toolErrorResult(era, "query is required");
 		const setId = typeof args?.set === "string" ? args.set : undefined;
 		const limit = typeof args?.limit === "number" ? args.limit : undefined;
 
@@ -129,13 +147,14 @@ export async function handleToolsCall(
 			const known = await getAllIconSetIds();
 			if (!known.includes(setId)) {
 				return toolErrorResult(
+					era,
 					`Unknown set: ${setId}. Available sets: ${known.join(", ")}`,
 				);
 			}
 		}
 
 		const { total, results } = await searchIcons({ query, setId, limit });
-		return toolJsonResult({
+		return toolJsonResult(era, {
 			query,
 			total,
 			results: results.map((r) => ({
@@ -155,7 +174,7 @@ export async function handleToolsCall(
 
 		if (!setId) {
 			const summaries = await getSetSummaries();
-			return toolJsonResult({
+			return toolJsonResult(era, {
 				sets: Object.entries(summaries).map(([id, count]) => ({ id, count })),
 				hint: "Pass { set: '<id>' } to list icon names for one set, or use search_icons to find icons by keyword.",
 			});
@@ -164,6 +183,7 @@ export async function handleToolsCall(
 		const summaries = await getSetSummaries();
 		if (!(setId in summaries)) {
 			return toolErrorResult(
+				era,
 				`Unknown set: ${setId}. Available sets: ${Object.keys(summaries).join(", ")}`,
 			);
 		}
@@ -174,7 +194,7 @@ export async function handleToolsCall(
 			Math.min(2000, typeof args?.limit === "number" ? args.limit : 500),
 		);
 		const page = await listIconNames(setId, offset, limit);
-		return toolJsonResult({
+		return toolJsonResult(era, {
 			set: setId,
 			total: page.total,
 			offset,
@@ -186,13 +206,14 @@ export async function handleToolsCall(
 	if (name === "get_icon_svg") {
 		const iconId = args?.iconId as string | undefined;
 		if (!iconId) {
-			return toolErrorResult("iconId is required");
+			return toolErrorResult(era, "iconId is required");
 		}
 
 		const knownSetIds = await getAllIconSetIds();
 		const parsed = parseIconId(iconId, knownSetIds);
 		if (!parsed) {
 			return toolErrorResult(
+				era,
 				`Could not resolve '${iconId}' to a known icon set. Expected format 'setId-iconName'. Available sets: ${knownSetIds.join(", ")}`,
 			);
 		}
@@ -204,11 +225,12 @@ export async function handleToolsCall(
 		});
 		if (!resolved) {
 			return toolErrorResult(
+				era,
 				`Icon '${parsed.name}' not found in set '${parsed.setId}'`,
 			);
 		}
 
-		return toolJsonResult({
+		return toolJsonResult(era, {
 			iconId,
 			setId: resolved.setId,
 			iconName: resolved.name,
@@ -217,10 +239,10 @@ export async function handleToolsCall(
 		});
 	}
 
-	return toolErrorResult(`Unknown tool: ${name}`);
+	return toolErrorResult(era, `Unknown tool: ${name}`);
 }
 
-export async function handleResourcesList() {
+export async function handleResourcesList(era: ProtocolEra = "modern") {
 	const summaries = await getSetSummaries();
 	const resources = [];
 	let total = 0;
@@ -242,13 +264,13 @@ export async function handleResourcesList() {
 		mimeType: "application/json",
 	});
 
-	return completeResult({
-		resources,
-		...LIST_CACHE,
-	});
+	return wrapEraResult(era, { resources }, LIST_CACHE);
 }
 
-export async function handleResourcesRead(uri: string) {
+export async function handleResourcesRead(
+	uri: string,
+	era: ProtocolEra = "modern",
+) {
 	if (!uri.startsWith("aria-icons://icons/")) {
 		throw new ResourceError(`Invalid resource URI: ${uri}`);
 	}
@@ -257,56 +279,65 @@ export async function handleResourcesRead(uri: string) {
 
 	if (path === "all") {
 		const namesBySet = await getNamesBySet();
-		return completeResult({
-			contents: [
-				{
-					uri,
-					mimeType: "application/json",
-					text: JSON.stringify({ "icons-names": namesBySet }, null, 2),
-				},
-			],
-			...READ_CACHE,
-		});
+		return wrapEraResult(
+			era,
+			{
+				contents: [
+					{
+						uri,
+						mimeType: "application/json",
+						text: JSON.stringify({ "icons-names": namesBySet }, null, 2),
+					},
+				],
+			},
+			READ_CACHE,
+		);
 	}
 
 	if (path.includes("/")) {
 		const [setId, iconName] = path.split("/");
 		const resolved = await resolveIconSvgByName(setId, iconName);
 		if (resolved) {
-			return completeResult({
-				contents: [
-					{
-						uri,
-						mimeType: "image/svg+xml",
-						text: resolved.svg,
-					},
-				],
-				...READ_CACHE,
-			});
+			return wrapEraResult(
+				era,
+				{
+					contents: [
+						{
+							uri,
+							mimeType: "image/svg+xml",
+							text: resolved.svg,
+						},
+					],
+				},
+				READ_CACHE,
+			);
 		}
 		throw new ResourceError(`Resource not found: ${uri}`);
 	}
 
 	const namesBySet = await getNamesBySet();
 	if (namesBySet[path]) {
-		return completeResult({
-			contents: [
-				{
-					uri,
-					mimeType: "application/json",
-					text: JSON.stringify(
-						{
-							setId: path,
-							icons: namesBySet[path],
-							count: namesBySet[path].length,
-						},
-						null,
-						2,
-					),
-				},
-			],
-			...READ_CACHE,
-		});
+		return wrapEraResult(
+			era,
+			{
+				contents: [
+					{
+						uri,
+						mimeType: "application/json",
+						text: JSON.stringify(
+							{
+								setId: path,
+								icons: namesBySet[path],
+								count: namesBySet[path].length,
+							},
+							null,
+							2,
+						),
+					},
+				],
+			},
+			READ_CACHE,
+		);
 	}
 
 	throw new ResourceError(`Resource not found: ${uri}`);

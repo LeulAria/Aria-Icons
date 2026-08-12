@@ -10,6 +10,19 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
 	{
+		date: "2026-08-13",
+		version: "dual-era",
+		title: "Cursor MCP compatibility",
+		tag: "MCP",
+		summary:
+			"The remote MCP endpoint now speaks both the stateless `2026-07-28` protocol and the handshake-based protocol Cursor still uses. No session stickiness — `initialize` is answered in-request and then forgotten.",
+		added: [
+			"Added dual-era Streamable HTTP: Cursor `initialize` / `tools/list` / `tools/call` work without the new MCP headers.",
+			"Added `ping` and `notifications/initialized` handling for handshake clients.",
+			"Kept `server/discover` and per-request `_meta` validation for `2026-07-28` clients.",
+		],
+	},
+	{
 		date: "2026-08-09",
 		version: "2026-07-28",
 		title: "Stateless MCP architecture",

@@ -34,15 +34,12 @@ export type JsonRpcError = {
 	};
 };
 
+export type ProtocolEra = "modern" | "legacy";
+
 export type JsonRpcSuccess<T> = {
 	jsonrpc: "2.0";
 	id: string | number | null;
-	result: T & {
-		resultType: "complete";
-		_meta?: {
-			"io.modelcontextprotocol/serverInfo": typeof SERVER_INFO;
-		};
-	};
+	result: T;
 };
 
 function decodeHeaderValue(value: string): string {
@@ -53,7 +50,7 @@ function decodeHeaderValue(value: string): string {
 	return value;
 }
 
-function getHeader(req: NextRequest, name: string): string | null {
+export function getHeader(req: NextRequest, name: string): string | null {
 	return req.headers.get(name) ?? req.headers.get(name.toLowerCase());
 }
 
@@ -74,6 +71,45 @@ export function completeResult<T extends Record<string, unknown>>(
 			"io.modelcontextprotocol/serverInfo": SERVER_INFO,
 		},
 	};
+}
+
+export function wrapEraResult<T extends Record<string, unknown>>(
+	era: ProtocolEra,
+	result: T,
+	cache?: { ttlMs: number; cacheScope: "public" | "private" },
+): Record<string, unknown> {
+	if (era === "modern") {
+		return completeResult({ ...result, ...cache });
+	}
+	return result;
+}
+
+/**
+ * Modern (2026-07-28) clients send per-request `_meta` / protocol headers.
+ * Cursor and other handshake clients send `initialize` first and omit those.
+ */
+export function isModernRequest(
+	req: NextRequest,
+	body: JsonRpcRequest,
+): boolean {
+	if (
+		body.method === "initialize" ||
+		body.method === "ping" ||
+		body.method === "notifications/initialized" ||
+		body.method === "initialized"
+	) {
+		return false;
+	}
+
+	const meta = getRequestMeta(body);
+	const metaVersion = meta["io.modelcontextprotocol/protocolVersion"];
+	const headerVersion = getHeader(req, "MCP-Protocol-Version");
+
+	return (
+		metaVersion === PROTOCOL_VERSION ||
+		headerVersion === PROTOCOL_VERSION ||
+		body.method === "server/discover"
+	);
 }
 
 export function jsonRpcError(
@@ -100,7 +136,7 @@ export function jsonResponse(
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Methods": "POST, OPTIONS",
 			"Access-Control-Allow-Headers":
-				"Content-Type, Accept, MCP-Protocol-Version, Mcp-Method, Mcp-Name, Mcp-Param-*",
+				"Content-Type, Accept, MCP-Protocol-Version, Mcp-Method, Mcp-Name, Mcp-Session-Id, Last-Event-ID, Mcp-Param-*",
 		},
 	});
 }

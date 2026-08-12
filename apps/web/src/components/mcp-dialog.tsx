@@ -96,7 +96,9 @@ url = "${mcpUrl}"`;
   const addToCursor = () => {
     const config = { url: mcpUrl };
     const base64Config = btoa(JSON.stringify(config));
-    window.location.href = `cursor://anysphere.cursor-deeplink/mcp/install?name=Aria%20Icons&config=${encodeURIComponent(base64Config)}`;
+    const name = encodeURIComponent("aria-icons");
+    const encoded = encodeURIComponent(base64Config);
+    window.location.href = `cursor://anysphere.cursor-deeplink/mcp/install?name=${name}&config=${encoded}`;
   };
 
   return (
