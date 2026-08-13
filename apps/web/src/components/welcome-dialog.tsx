@@ -81,6 +81,13 @@ export function WelcomeDialog({
         </button>
 
         <div className="relative z-[1] mt-auto px-8 pb-10 pt-24 text-center">
+          <img
+            src="/logo.svg"
+            alt=""
+            width={36}
+            height={36}
+            className="mx-auto mb-3 size-9"
+          />
           <p
             id="welcome-title"
             className="text-[1.65rem] font-semibold tracking-tight text-white"

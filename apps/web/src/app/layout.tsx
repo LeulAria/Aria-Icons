@@ -16,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "aria-icons",
-	description: "aria-icons",
+	title: "Aria Icons",
+	description:
+		"Search, customize, and export 340,000+ SVG icons — plus a remote MCP server for AI assistants.",
+	applicationName: "Aria Icons",
+	metadataBase: new URL("https://icons.leularia.com"),
 };
 
 export default function RootLayout({

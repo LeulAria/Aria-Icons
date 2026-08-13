@@ -684,8 +684,17 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
 					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
-							<div className="truncate text-[15px] font-semibold tracking-tight text-white">
-								Aria Icons
+							<div className="flex min-w-0 items-center gap-2.5">
+								<img
+									src="/logo.svg"
+									alt=""
+									width={22}
+									height={22}
+									className="size-[22px] shrink-0"
+								/>
+								<div className="truncate text-[15px] font-semibold tracking-tight text-white">
+									Aria Icons
+								</div>
 							</div>
 							<div className="mt-1 line-clamp-2 text-[11px] leading-4 text-white/40">
 								Search, customize, and export SVG icons from curated libraries.

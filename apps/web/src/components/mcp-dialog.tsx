@@ -122,12 +122,21 @@ url = "${mcpUrl}"`;
       >
         <div className="flex shrink-0 items-start gap-2 border-b border-[#333] px-2 pl-6 pt-4 pb-4">
           <div className="min-w-0 flex-1 py-2 pr-2">
-            <h2
-              id="mcp-dialog-title"
-              className="text-[18px] font-semibold leading-7 tracking-tight text-white"
-            >
-              Connect Aria Icons
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/logo.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="size-5 shrink-0"
+              />
+              <h2
+                id="mcp-dialog-title"
+                className="text-[18px] font-semibold leading-7 tracking-tight text-white"
+              >
+                Connect Aria Icons
+              </h2>
+            </div>
             <p className="mt-1 text-[13px] leading-5 text-white/50">
               Use Aria Icons from Cursor or any MCP-compatible client.
             </p>
