@@ -18,7 +18,7 @@ export function UnderlineTabs<T extends string>({
 }: {
   value: T;
   onChange: (value: T) => void;
-  items: { id: T; label: string; ariaLabel?: string }[];
+  items: readonly { id: T; label: string; ariaLabel?: string }[];
   ariaLabel: string;
   className?: string;
 }) {
