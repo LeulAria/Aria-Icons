@@ -10,6 +10,19 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
 	{
+		date: "2026-08-18",
+		version: "morph",
+		title: "Icon morph playground",
+		tag: "Product",
+		summary:
+			"Stroke icons can now morph into each other in the inspector, powered by [morphicons](https://www.morphicons.com/). Optimal rotation is solved in closed form; springs stay interruptible.",
+		added: [
+			"Added a Morph tab beside Static: pick two or more line icons, play the sequence, and scrub the interpolation.",
+			"Added drag-to-reorder on the morph sequence, plus copy/export for React, Vue, Svelte, React Native, HTML, and vanilla.",
+			"Added morph compatibility — path structure, geometry, stroke, and interpolation.",
+		],
+	},
+	{
 		date: "2026-08-13",
 		version: "dual-era",
 		title: "Cursor MCP compatibility",

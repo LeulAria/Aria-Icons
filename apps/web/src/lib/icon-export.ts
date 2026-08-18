@@ -46,7 +46,9 @@ function toSnakeCase(name: string) {
 }
 
 export function buildIconSvgUrl(
-  icon: Pick<IconExportRef, "setId" | "styleId" | "filePath">,
+  icon: Pick<IconExportRef, "setId" | "styleId" | "filePath"> & {
+    group?: string;
+  },
   customize: IconExportCustomize,
 ) {
   const params = new URLSearchParams();
@@ -56,8 +58,9 @@ export function buildIconSvgUrl(
   params.set("size", String(customize.size));
   params.set("strokeWidth", String(customize.stroke));
   params.set("color", customize.color);
-  // Bump when SVG tinting rules change so grids don't keep stale black SVGs.
-  params.set("v", "2");
+  if (icon.group) params.set("group", icon.group);
+  // Bump when SVG tinting / stroke mapping changes so grids don't keep stale SVGs.
+  params.set("v", "3");
   return `/api/icon-svg?${params.toString()}`;
 }
 

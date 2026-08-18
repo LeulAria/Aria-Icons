@@ -7,7 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Loader } from "@/components/ui/loader";
 import { toast } from "sonner";
 import JSZip from "jszip";
-import { Check, Copy, Download, Heart, X } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, Heart, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   buildIconSvgUrl,
@@ -20,8 +20,26 @@ import {
   type IconExportCustomize,
   type IconExportRef,
 } from "@/lib/icon-export";
+import {
+  formatMorphExport,
+  loadMorphPaths,
+  morphErrorMessage,
+  MORPH_COPY_FORMATS,
+  MORPH_COPY_LABELS,
+  MORPH_COPY_LOGOS,
+  MORPH_COPY_SETUP,
+  type MorphCopyFormat,
+  type MorphSpring,
+} from "@/lib/icon-morph";
+import { MorphPlayground } from "@/components/morph-playground";
+import { UnderlineTabs } from "@/components/ui/underline-tabs";
 
 type PreviewBg = "transparent" | "white" | "dark" | "checker";
+
+const PREVIEW_TABS = [
+  { id: "static", label: "Static" },
+  { id: "morph", label: "Morph" },
+] as const;
 
 const DEFAULT_CUSTOMIZE: IconExportCustomize = {
   size: 24,
@@ -72,14 +90,78 @@ function Section({
   );
 }
 
-const SET_ARROW_SRC = buildIconSvgUrl(
-  {
-    setId: "lucide-icons",
-    styleId: "line",
-    filePath: "arrow-right.svg",
-  },
-  { size: 12, stroke: 2, color: "#d4d4d4" },
-);
+const SIZE_INPUT = { min: 1, max: 512 } as const;
+const STROKE_INPUT = { min: 0, max: 16 } as const;
+const SIZE_SLIDER = { min: 12, max: 64, step: 1 } as const;
+const STROKE_SLIDER = { min: 0.5, max: 4, step: 0.5 } as const;
+
+function clampNumber(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function SliderValueInput({
+  value,
+  min,
+  max,
+  decimals = 0,
+  ariaLabel,
+  onCommit,
+}: {
+  value: number;
+  min: number;
+  max: number;
+  decimals?: number;
+  ariaLabel: string;
+  onCommit: (value: number) => void;
+}) {
+  const [draft, setDraft] = React.useState(() => String(value));
+  const focusedRef = React.useRef(false);
+
+  React.useEffect(() => {
+    if (!focusedRef.current) setDraft(String(value));
+  }, [value]);
+
+  const commit = (raw: string) => {
+    const parsed = Number(raw.trim());
+    if (!Number.isFinite(parsed)) {
+      setDraft(String(value));
+      return;
+    }
+    const factor = 10 ** decimals;
+    const next = clampNumber(
+      Math.round(parsed * factor) / factor,
+      min,
+      max,
+    );
+    onCommit(next);
+    setDraft(String(next));
+  };
+
+  return (
+    <input
+      aria-label={ariaLabel}
+      inputMode={decimals > 0 ? "decimal" : "numeric"}
+      value={draft}
+      onChange={(e) => setDraft(e.target.value)}
+      onFocus={(e) => {
+        focusedRef.current = true;
+        e.currentTarget.select();
+      }}
+      onBlur={(e) => {
+        focusedRef.current = false;
+        commit(e.currentTarget.value);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") e.currentTarget.blur();
+        if (e.key === "Escape") {
+          setDraft(String(value));
+          e.currentTarget.blur();
+        }
+      }}
+      className="size-8 rounded-md bg-white/4 text-center font-mono text-[12px] leading-none text-white ring-1 ring-inset ring-white/10 outline-none transition-colors focus:bg-white/6 focus:ring-white/25"
+    />
+  );
+}
 
 export function IconInspector({
   focusedIcon,
@@ -93,40 +175,68 @@ export function IconInspector({
   onCopySvg,
   onSelectSet,
   customizeRef,
+  morphMode = false,
+  morphIcons = [],
+  morphActiveKey = null,
+  onEnableMorph,
+  onDisableMorph,
+  onMorphSelect,
+  onMorphRemove,
+  onMorphReorder,
 }: {
   focusedIcon: IconExportRef | null;
   selectedIcons: IconExportRef[];
   selectedCount: number;
   setLabel?: string | null;
-  /** Line / Fill (or similar) — shown on the preview. */
+  /** Line / Fill — used to hide stroke controls on filled icons. */
   groupLabel?: string | null;
   favorited: boolean;
   onToggleFavorite: () => void;
   onClose: () => void;
   onCopySvg?: () => void;
-  /** Jump to this icon's library and clear search. */
+  /** Jump to this icon's library and clear search, keeping the current selection. */
   onSelectSet?: (setId: string) => void;
   customizeRef?: React.MutableRefObject<{
     copySvg: () => Promise<void>;
     download: () => Promise<void>;
     getCustomize: () => IconExportCustomize;
   } | null>;
+  morphMode?: boolean;
+  morphIcons?: IconExportRef[];
+  morphActiveKey?: string | null;
+  onEnableMorph?: () => void;
+  onDisableMorph?: () => void;
+  onMorphSelect?: (key: string) => void;
+  onMorphRemove?: (key: string) => void;
+  onMorphReorder?: (keys: string[]) => void;
 }) {
   const [size, setSize] = React.useState(DEFAULT_CUSTOMIZE.size);
   const [stroke, setStroke] = React.useState(DEFAULT_CUSTOMIZE.stroke);
   const [color, setColor] = React.useState(DEFAULT_CUSTOMIZE.color);
   const [previewBg, setPreviewBg] = React.useState<PreviewBg>("dark");
-  const [copying, setCopying] = React.useState<CopyFormat | null>(null);
-  const [copiedFormat, setCopiedFormat] = React.useState<CopyFormat | null>(
-    null,
-  );
-  const [setupOpen, setSetupOpen] = React.useState<CopyFormat | null>(null);
-  const [copiedSetup, setCopiedSetup] = React.useState<CopyFormat | null>(null);
+  const [spring, setSpring] = React.useState<MorphSpring>("snappy");
+  const [copying, setCopying] = React.useState<CopyFormat | MorphCopyFormat | null>(null);
+  const [copiedFormat, setCopiedFormat] = React.useState<
+    CopyFormat | MorphCopyFormat | null
+  >(null);
+  const [setupOpen, setSetupOpen] = React.useState<
+    CopyFormat | MorphCopyFormat | null
+  >(null);
+  const [copiedSetup, setCopiedSetup] = React.useState<
+    CopyFormat | MorphCopyFormat | null
+  >(null);
+  const [headerScrolled, setHeaderScrolled] = React.useState(false);
+  const bodyScrollRef = React.useRef<HTMLDivElement>(null);
 
   const previewCustomize = useDebouncedValue({ size, stroke, color }, 80);
   const previewSrc = focusedIcon
     ? buildIconSvgUrl(focusedIcon, previewCustomize)
     : null;
+
+  React.useEffect(() => {
+    setHeaderScrolled(false);
+    bodyScrollRef.current?.scrollTo({ top: 0 });
+  }, [focusedIcon?.setId, focusedIcon?.filePath, focusedIcon?.styleId]);
 
   const getCustomize = React.useCallback(
     (): IconExportCustomize => ({ size, stroke, color }),
@@ -137,7 +247,11 @@ export function IconInspector({
     setSize(DEFAULT_CUSTOMIZE.size);
     setStroke(DEFAULT_CUSTOMIZE.stroke);
     setColor(DEFAULT_CUSTOMIZE.color);
+    setSpring("snappy");
   };
+
+  const exportIcons = morphMode && morphIcons.length > 0 ? morphIcons : selectedIcons;
+  const exportCount = exportIcons.length;
 
   const copyAs = React.useCallback(
     async (format: CopyFormat) => {
@@ -165,8 +279,38 @@ export function IconInspector({
     [focusedIcon, getCustomize, onCopySvg],
   );
 
+  const copyMorph = React.useCallback(
+    async (format: MorphCopyFormat) => {
+      if (morphIcons.length < 2) {
+        toast.error("Add another icon", {
+          description: "A morph needs at least two stroke icons.",
+        });
+        return;
+      }
+      setCopying(format);
+      try {
+        const paths = await loadMorphPaths(morphIcons);
+        const text = formatMorphExport(paths, format, getCustomize(), spring);
+        await navigator.clipboard.writeText(text);
+        setCopiedFormat(format);
+        toast.success(`Copied ${MORPH_COPY_LABELS[format]} morph`, {
+          description: `${paths.length} icons · ${spring}`,
+        });
+        onCopySvg?.();
+        window.setTimeout(() => setCopiedFormat(null), 1400);
+      } catch (error) {
+        toast.error(`Failed to copy ${MORPH_COPY_LABELS[format]}`, {
+          description: morphErrorMessage(error),
+        });
+      } finally {
+        setCopying(null);
+      }
+    },
+    [getCustomize, morphIcons, onCopySvg, spring],
+  );
+
   const downloadSvg = React.useCallback(async () => {
-    if (selectedCount === 0) return;
+    if (exportCount === 0) return;
     const customize = getCustomize();
     const zip = new JSZip();
 
@@ -174,7 +318,7 @@ export function IconInspector({
 
     try {
       const svgs = await Promise.all(
-        selectedIcons.map(async (icon) => {
+        exportIcons.map(async (icon) => {
           const svg = await fetchIconSvg(icon, customize);
           return { name: icon.name, svg };
         }),
@@ -186,17 +330,17 @@ export function IconInspector({
       const a = document.createElement("a");
       a.href = url;
       a.download =
-        selectedIcons.length === 1
-          ? `${selectedIcons[0]?.name ?? "icon"}.svg`
-          : `icons-${selectedIcons.length}.zip`;
+        exportIcons.length === 1
+          ? `${exportIcons[0]?.name ?? "icon"}.svg`
+          : `icons-${exportIcons.length}.zip`;
 
-      if (selectedIcons.length === 1) {
+      if (exportIcons.length === 1) {
         const blob = new Blob([svgs[0]?.svg ?? ""], {
           type: "image/svg+xml",
         });
         const singleUrl = URL.createObjectURL(blob);
         a.href = singleUrl;
-        a.download = `${selectedIcons[0]?.name ?? "icon"}.svg`;
+        a.download = `${exportIcons[0]?.name ?? "icon"}.svg`;
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -210,7 +354,7 @@ export function IconInspector({
       }
 
       toast.success(
-        `Downloaded ${selectedIcons.length} icon${selectedIcons.length > 1 ? "s" : ""}`,
+        `Downloaded ${exportIcons.length} icon${exportIcons.length > 1 ? "s" : ""}`,
         { id: "download-zip" },
       );
     } catch (error) {
@@ -220,19 +364,19 @@ export function IconInspector({
         id: "download-zip",
       });
     }
-  }, [getCustomize, selectedCount, selectedIcons]);
+  }, [exportCount, exportIcons, getCustomize]);
 
   React.useEffect(() => {
     if (!customizeRef) return;
     customizeRef.current = {
-      copySvg: () => copyAs("svg"),
+      copySvg: () => (morphMode ? copyMorph("react") : copyAs("svg")),
       download: downloadSvg,
       getCustomize,
     };
     return () => {
       customizeRef.current = null;
     };
-  }, [copyAs, customizeRef, downloadSvg, getCustomize]);
+  }, [copyAs, copyMorph, customizeRef, downloadSvg, getCustomize, morphMode]);
 
   const previewFrameClass =
     previewBg === "white"
@@ -266,14 +410,21 @@ export function IconInspector({
 
   const body = focusedIcon ? (
     <>
-      <div className="flex h-14 shrink-0 items-center justify-between gap-3 px-5">
+      <div
+        className={cn(
+          "flex h-14 shrink-0 items-center justify-between gap-3 px-5 transition-[border-color] duration-200",
+          headerScrolled ? "border-b border-white/[0.08]" : "border-b border-transparent",
+        )}
+      >
         <div className="min-w-0">
           <div className="truncate text-[15px] font-medium tracking-tight text-white">
             {focusedIcon.name}
           </div>
           <div className="truncate text-[12px] text-white/40">
-            {setLabel ?? focusedIcon.setId}
-            {selectedCount > 1
+            {morphMode
+              ? `Morph · ${morphIcons.length} icon${morphIcons.length === 1 ? "" : "s"}`
+              : setLabel ?? focusedIcon.setId}
+            {!morphMode && selectedCount > 1
               ? ` · ${selectedCount.toLocaleString()} selected`
               : ""}
           </div>
@@ -303,53 +454,76 @@ export function IconInspector({
         </div>
       </div>
 
-      <div className="flex-1 overflow-auto">
-        <Section
-          title="Preview"
-          action={
-            setLabel || focusedIcon.setId ? (
+      <div
+        ref={bodyScrollRef}
+        className="flex-1 overflow-auto"
+        onScroll={(e) => {
+          setHeaderScrolled(e.currentTarget.scrollTop > 80);
+        }}
+      >
+        <section>
+          <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-5">
+            <UnderlineTabs
+              ariaLabel="Preview mode"
+              value={morphMode ? "morph" : "static"}
+              onChange={(mode) => {
+                if (mode === "morph") onEnableMorph?.();
+                else onDisableMorph?.();
+              }}
+              items={PREVIEW_TABS}
+            />
+            {setLabel || focusedIcon.setId ? (
               <button
                 type="button"
                 onClick={() => onSelectSet?.(focusedIcon.setId)}
                 title={`Open ${setLabel ?? focusedIcon.setId}`}
-                className="group/set inline-flex max-w-[13rem] items-center gap-1 text-[11px] font-medium text-white/55 transition-colors duration-150 hover:text-white"
+                className="group/set inline-flex h-6 max-w-36 shrink-0 items-center gap-1 rounded-full bg-white/4 pl-2.5 pr-1.5 text-[11px] font-medium text-white/65 ring-1 ring-inset ring-white/8 transition-colors hover:bg-white/8 hover:text-white"
               >
                 <span className="truncate">{setLabel ?? focusedIcon.setId}</span>
-                <img
-                  src={SET_ARROW_SRC}
-                  alt=""
-                  width={12}
-                  height={12}
-                  className="size-3 shrink-0 opacity-50 transition-opacity duration-150 group-hover/set:opacity-90"
-                />
+                <ArrowRight className="size-3 shrink-0 text-white/30 transition-colors group-hover/set:text-white/70" />
               </button>
-            ) : null
-          }
-        >
-          <div
-            className={cn(
-              "relative grid h-44 place-items-center rounded-xl ring-1 ring-inset ring-white/[0.06]",
-              previewFrameClass,
-            )}
-          >
-            {groupLabel ? (
-              <span className="absolute right-3 top-3 rounded-md bg-black/55 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-white/85 ring-1 ring-white/10 backdrop-blur-sm">
-                {groupLabel}
-              </span>
-            ) : null}
-            {previewSrc ? (
-              <img
-                key={previewSrc}
-                src={previewSrc}
-                alt={focusedIcon.name}
-                className="transition-transform duration-150"
-                style={{
-                  width: Math.min(previewCustomize.size * 2.2, 96),
-                  height: Math.min(previewCustomize.size * 2.2, 96),
-                }}
-              />
             ) : null}
           </div>
+          <div className="px-5 py-5">
+          {morphMode && morphIcons.length > 0 && morphActiveKey ? (
+            <MorphPlayground
+              icons={morphIcons}
+              activeKey={morphActiveKey}
+              size={size}
+              stroke={stroke}
+              color={color}
+              previewBg={previewBg}
+              spring={spring}
+              onPreviewBgChange={setPreviewBg}
+              onSpringChange={setSpring}
+              onSelect={onMorphSelect ?? (() => {})}
+              onRemove={onMorphRemove ?? (() => {})}
+              onReorder={onMorphReorder ?? (() => {})}
+            />
+          ) : (
+            <>
+              <div
+                className={cn(
+                  "relative grid h-44 place-items-center rounded-xl ring-1 ring-inset ring-white/[0.06]",
+                  previewFrameClass,
+                )}
+              >
+                {previewSrc ? (
+                  <img
+                    key={previewSrc}
+                    src={previewSrc}
+                    alt={focusedIcon.name}
+                    className="transition-transform duration-150"
+                    style={{
+                      width: Math.min(previewCustomize.size * 2.2, 96),
+                      height: Math.min(previewCustomize.size * 2.2, 96),
+                    }}
+                  />
+                ) : null}
+              </div>
+            </>
+          )}
+            {morphMode ? null : (
           <div className="mt-3 flex flex-wrap gap-1.5">
             {(
               [
@@ -374,7 +548,9 @@ export function IconInspector({
               </button>
             ))}
           </div>
-        </Section>
+          )}
+          </div>
+        </section>
 
         <div className="mx-5 h-px bg-white/[0.06]" />
 
@@ -394,36 +570,51 @@ export function IconInspector({
             <div>
               <div className="mb-3 flex items-center justify-between">
                 <label className="text-[13px] text-white/80">Size</label>
-                <span className="font-mono text-[11px] text-white/45">
-                  {size}
-                </span>
+                <SliderValueInput
+                  value={size}
+                  min={SIZE_INPUT.min}
+                  max={SIZE_INPUT.max}
+                  ariaLabel="Size"
+                  onCommit={setSize}
+                />
               </div>
               <Slider
-                min={12}
-                max={64}
-                step={1}
-                value={[size]}
+                min={SIZE_SLIDER.min}
+                max={SIZE_SLIDER.max}
+                step={SIZE_SLIDER.step}
+                value={[
+                  clampNumber(size, SIZE_SLIDER.min, SIZE_SLIDER.max),
+                ]}
                 onValueChange={(v) => setSize(v[0] ?? DEFAULT_CUSTOMIZE.size)}
               />
             </div>
 
+            {morphMode || groupLabel !== "Filled" ? (
             <div>
               <div className="mb-3 flex items-center justify-between">
                 <label className="text-[13px] text-white/80">Stroke</label>
-                <span className="font-mono text-[11px] text-white/45">
-                  {stroke}
-                </span>
+                <SliderValueInput
+                  value={stroke}
+                  min={STROKE_INPUT.min}
+                  max={STROKE_INPUT.max}
+                  decimals={2}
+                  ariaLabel="Stroke"
+                  onCommit={setStroke}
+                />
               </div>
               <Slider
-                min={0.5}
-                max={4}
-                step={0.5}
-                value={[stroke]}
+                min={STROKE_SLIDER.min}
+                max={STROKE_SLIDER.max}
+                step={STROKE_SLIDER.step}
+                value={[
+                  clampNumber(stroke, STROKE_SLIDER.min, STROKE_SLIDER.max),
+                ]}
                 onValueChange={(v) =>
                   setStroke(v[0] ?? DEFAULT_CUSTOMIZE.stroke)
                 }
               />
             </div>
+            ) : null}
 
             <div>
               <label className="mb-3 block text-[13px] text-white/80">
@@ -462,38 +653,64 @@ export function IconInspector({
 
         <Section title="Export">
           <div className="grid grid-cols-2 gap-2">
-            <Button
-              variant="outline"
-              onClick={() => copyAs("svg")}
-              disabled={!!copying}
-              className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
-            >
-              {copiedFormat === "svg" ? (
-                <Check className="mr-1.5 size-3.5" />
-              ) : null}
-              Copy SVG
-            </Button>
+            {morphMode ? (
+              <Button
+                variant="outline"
+                onClick={() => copyMorph("react")}
+                disabled={!!copying}
+                className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
+              >
+                {copiedFormat === "react" ? (
+                  <Check className="mr-1.5 size-3.5" />
+                ) : null}
+                Copy React
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                onClick={() => copyAs("svg")}
+                disabled={!!copying}
+                className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
+              >
+                {copiedFormat === "svg" ? (
+                  <Check className="mr-1.5 size-3.5" />
+                ) : null}
+                Copy SVG
+              </Button>
+            )}
             <Button
               variant="outline"
               onClick={downloadSvg}
-              disabled={selectedCount === 0}
+              disabled={exportCount === 0}
               className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
             >
               <Download className="mr-1.5 size-3.5" />
-              {selectedCount > 1 ? `Download ${selectedCount}` : "Download"}
+              {exportCount > 1 ? `Download ${exportCount}` : "Download"}
             </Button>
           </div>
 
           <div className="mt-4">
             <div className="mb-2 text-[12px] font-semibold text-white/40">
-              Copy as
+              {morphMode ? "Copy morph as" : "Copy as"}
             </div>
+            {morphMode ? (
+              <p className="mb-2 text-[11px] leading-4 text-white/35">
+                morphicons — React, Vue, Svelte, React Native, HTML, Vanilla.
+              </p>
+            ) : null}
             <div className="flex flex-col gap-0.5">
-              {COPY_FORMATS.map((format) => {
+              {(morphMode ? MORPH_COPY_FORMATS : COPY_FORMATS).map((format) => {
                 const busy = copying === format;
                 const done = copiedFormat === format;
-                const logo = COPY_FORMAT_LOGOS[format];
-                const setup = COPY_FORMAT_SETUP[format];
+                const logo = morphMode
+                  ? MORPH_COPY_LOGOS[format as MorphCopyFormat]
+                  : COPY_FORMAT_LOGOS[format as CopyFormat];
+                const setup = morphMode
+                  ? MORPH_COPY_SETUP[format as MorphCopyFormat]
+                  : COPY_FORMAT_SETUP[format as CopyFormat];
+                const label = morphMode
+                  ? MORPH_COPY_LABELS[format as MorphCopyFormat]
+                  : COPY_FORMAT_LABELS[format as CopyFormat];
                 const open = setupOpen === format;
                 return (
                   <div key={format} className="rounded-[2px]">
@@ -501,7 +718,11 @@ export function IconInspector({
                       <button
                         type="button"
                         disabled={!!copying}
-                        onClick={() => copyAs(format)}
+                        onClick={() =>
+                          morphMode
+                            ? copyMorph(format as MorphCopyFormat)
+                            : copyAs(format as CopyFormat)
+                        }
                         className="flex h-9 min-w-0 flex-1 items-center justify-between rounded-[2px] px-2.5 text-left text-[13px] text-white/70 transition-colors duration-150 hover:bg-white/[0.04] hover:text-white disabled:opacity-50"
                       >
                         <span className="flex min-w-0 items-center gap-2.5">
@@ -514,9 +735,7 @@ export function IconInspector({
                           ) : (
                             <span className="size-4 shrink-0 rounded-[2px] bg-white/10" />
                           )}
-                          <span className="truncate">
-                            {COPY_FORMAT_LABELS[format]}
-                          </span>
+                          <span className="truncate">{label}</span>
                         </span>
                         {busy ? (
                           <Loader size="sm" />
@@ -527,7 +746,7 @@ export function IconInspector({
                       {setup ? (
                         <button
                           type="button"
-                          aria-label={`How to run ${COPY_FORMAT_LABELS[format]}`}
+                          aria-label={`How to run ${label}`}
                           aria-expanded={open}
                           onClick={() =>
                             setSetupOpen((current) =>

@@ -1,4 +1,6 @@
 export type IconStyleGroup = "line" | "solid";
+/** Line / Fill / Both / Animated toggle in the icon browser. */
+export type IconStyleFilter = IconStyleGroup | "both" | "animated";
 
 /**
  * Style/set ids are open strings: filesystem sets use the ids below, while

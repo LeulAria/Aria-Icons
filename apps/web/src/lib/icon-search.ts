@@ -1,11 +1,12 @@
+import { isAnimatedSet } from "@/lib/animated-sets";
 import type { CatalogIcon } from "@/lib/icon-catalog";
-import type { IconStyleGroup } from "@/lib/icon-sets";
+import type { IconStyleFilter } from "@/lib/icon-sets";
 import { compareIconsForBrowse } from "@/lib/icon-set-order";
 import { iconKey } from "@/lib/icon-workspace";
 
 export type SearchFilters = {
 	collection: "all" | "favorites" | "recent" | string;
-	styleGroup: IconStyleGroup | "both";
+	styleGroup: IconStyleFilter;
 	selectedStyleId: string;
 	favoriteKeys?: Set<string>;
 	recentKeys?: Set<string>;
@@ -22,6 +23,8 @@ export function matchesFilters(icon: CatalogIcon, filters: SearchFilters): boole
 	}
 
 	if (collection !== "all" && icon.setId !== collection) return false;
+
+	if (styleGroup === "animated") return isAnimatedSet(icon.setId);
 
 	// Line / Fill / Both is the primary toggle. Line = stroke UI icons only
 	// (logos + colored sets are indexed as solid/Fill and never match here).

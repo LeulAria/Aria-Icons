@@ -4,16 +4,17 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { isAnimatedSet } from "@/lib/animated-sets";
 import {
 	ICON_SETS,
 	type IconSetConfig,
-	type IconStyleGroup,
+	type IconStyleFilter,
 } from "@/lib/icon-sets";
 import {
 	SIDEBAR_PINNED_ICONIFY_SET,
 	sidebarCuratedRank,
 } from "@/lib/icon-set-order";
-import { GitPullRequestArrow, Search } from "lucide-react";
+import { GitPullRequestArrow, Search, X } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -30,6 +31,7 @@ import {
 	type Density,
 	type VirtualIconGridHandle,
 } from "@/components/virtual-icon-grid";
+import { UnderlineTabs } from "@/components/ui/underline-tabs";
 import {
 	countForStyleGroup,
 	loadIconCatalog,
@@ -50,9 +52,13 @@ import {
 	type IconExportCustomize,
 } from "@/lib/icon-export";
 import { toast } from "sonner";
+import {
+	loadMorphPath,
+	morphErrorMessage,
+	MAX_MORPH_SEQUENCE,
+} from "@/lib/icon-morph";
 
 type CollectionId = "all" | "favorites" | "recent" | string;
-type UiStyleGroup = IconStyleGroup | "both";
 
 const DEFAULT_CUSTOMIZE: IconExportCustomize = {
 	size: 24,
@@ -60,55 +66,18 @@ const DEFAULT_CUSTOMIZE: IconExportCustomize = {
 	color: "#ffffff",
 };
 
-const STYLE_TABS: { id: UiStyleGroup; label: string }[] = [
+const STYLE_TABS: { id: IconStyleFilter; label: string }[] = [
+	{ id: "both", label: "All" },
 	{ id: "line", label: "Line" },
-	{ id: "solid", label: "Fill" },
-	{ id: "both", label: "Both" },
+	{ id: "solid", label: "Filled" },
+	{ id: "animated", label: "Animated" },
 ];
 
-function UnderlineTabs<T extends string>({
-	value,
-	onChange,
-	items,
-	ariaLabel,
-	className,
-}: {
-	value: T;
-	onChange: (value: T) => void;
-	items: { id: T; label: string; ariaLabel?: string }[];
-	ariaLabel: string;
-	className?: string;
-}) {
-	return (
-		<div
-			role="tablist"
-			aria-label={ariaLabel}
-			className={cn("flex", className)}
-		>
-			{items.map((tab) => {
-				const selected = value === tab.id;
-				return (
-					<button
-						key={tab.id}
-						type="button"
-						role="tab"
-						aria-selected={selected}
-						aria-label={tab.ariaLabel}
-						onClick={() => onChange(tab.id)}
-						className={cn(
-							"h-9 px-3 text-[13px] font-medium transition-colors",
-							selected
-								? "border-b-2 border-white text-white"
-								: "border-b-2 border-transparent text-white/45 hover:text-white/80",
-						)}
-					>
-						{tab.label}
-					</button>
-				);
-			})}
-		</div>
-	);
-}
+const DENSITY_TABS: { id: Density; label: string; ariaLabel: string }[] = [
+	{ id: "compact", label: "S", ariaLabel: "compact density" },
+	{ id: "comfortable", label: "M", ariaLabel: "comfortable density" },
+	{ id: "spacious", label: "L", ariaLabel: "spacious density" },
+];
 
 function isTypingTarget(target: EventTarget | null) {
 	if (!(target instanceof HTMLElement)) return false;
@@ -122,13 +91,18 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
-	const [styleGroup, setStyleGroup] = React.useState<UiStyleGroup>("both");
+	const [styleGroup, setStyleGroup] = React.useState<IconStyleFilter>("both");
 	const [search, setSearch] = React.useState("");
 	const [collection, setCollection] = React.useState<CollectionId>("all");
 	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("both");
 	const [focusedIcon, setFocusedIcon] = React.useState<CatalogIcon | null>(null);
 	const [selectedKeys, setSelectedKeys] = React.useState<Set<string>>(
 		() => new Set(),
+	);
+	const [morphMode, setMorphMode] = React.useState(false);
+	const [morphIcons, setMorphIcons] = React.useState<CatalogIcon[]>([]);
+	const [morphActiveKey, setMorphActiveKey] = React.useState<string | null>(
+		null,
 	);
 	const [mcpDialogOpen, setMcpDialogOpen] = React.useState(false);
 	const [commandOpen, setCommandOpen] = React.useState(false);
@@ -166,7 +140,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		}
 		const set = sets.find((s) => s.id === collection);
 		if (!set) return;
-		if (styleGroup === "both") {
+		if (styleGroup === "both" || styleGroup === "animated") {
 			setSelectedStyleId("both");
 			return;
 		}
@@ -257,11 +231,133 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		[setForSidebar, curatedSetIds],
 	);
 
+	const disableMorph = React.useCallback(() => {
+		setMorphMode(false);
+		setMorphIcons((current) => {
+			const active =
+				current.find((icon) => iconKey(icon) === morphActiveKey) ??
+				current[0] ??
+				null;
+			if (active) {
+				setFocusedIcon(active);
+				setSelectedKeys(new Set([iconKey(active)]));
+			}
+			return [];
+		});
+		setMorphActiveKey(null);
+	}, [morphActiveKey]);
+
+	const enableMorph = React.useCallback(async () => {
+		if (morphMode || !focusedIcon) return;
+		try {
+			await loadMorphPath(focusedIcon);
+		} catch (error) {
+			toast.error("Can't morph this icon", {
+				description: morphErrorMessage(error),
+			});
+			return;
+		}
+
+		const candidates =
+			selectedKeys.size > 1
+				? allIcons
+						.filter((icon) => selectedKeys.has(iconKey(icon)))
+						.slice(0, MAX_MORPH_SEQUENCE)
+				: [focusedIcon];
+		const ok: CatalogIcon[] = [];
+		for (const icon of candidates) {
+			try {
+				await loadMorphPath(icon);
+				ok.push(icon);
+			} catch {
+				// Skip fill / unsupported icons in a multi-select seed.
+			}
+		}
+		if (ok.length === 0) {
+			toast.error("Can't morph this icon", {
+				description: "Morphing needs stroke-based line icons.",
+			});
+			return;
+		}
+
+		setMorphIcons(ok);
+		setMorphActiveKey(iconKey(ok[0]!));
+		setFocusedIcon(ok[0]!);
+		setMorphMode(true);
+	}, [allIcons, focusedIcon, morphMode, selectedKeys]);
+
+	const addMorphIcon = React.useCallback(async (icon: WorkspaceIcon) => {
+		const key = iconKey(icon);
+		try {
+			await loadMorphPath(icon);
+		} catch (error) {
+			toast.error("Can't morph this icon", {
+				description: morphErrorMessage(error),
+			});
+			return;
+		}
+
+		setMorphIcons((prev) => {
+			if (prev.some((item) => iconKey(item) === key)) return prev;
+			if (prev.length >= MAX_MORPH_SEQUENCE) {
+				toast.error("Morph sequence is full", {
+					description: `Remove an icon to add another (${MAX_MORPH_SEQUENCE} max).`,
+				});
+				return prev;
+			}
+			return [...prev, icon as CatalogIcon];
+		});
+		setMorphActiveKey(key);
+		setFocusedIcon(icon as CatalogIcon);
+		pushRecent(icon);
+		setRecentVersion((v) => v + 1);
+	}, []);
+
+	const selectMorphIcon = React.useCallback((key: string) => {
+		setMorphActiveKey(key);
+		setMorphIcons((current) => {
+			const icon = current.find((item) => iconKey(item) === key);
+			if (icon) setFocusedIcon(icon);
+			return current;
+		});
+	}, []);
+
+	const removeMorphIcon = React.useCallback((key: string) => {
+		setMorphIcons((prev) => {
+			if (prev.length <= 1) return prev;
+			const next = prev.filter((icon) => iconKey(icon) !== key);
+			setMorphActiveKey((active) => {
+				if (active !== key) return active;
+				const fallback = next[next.length - 1];
+				if (fallback) {
+					setFocusedIcon(fallback);
+					return iconKey(fallback);
+				}
+				return active;
+			});
+			return next;
+		});
+	}, []);
+
+	const reorderMorphIcons = React.useCallback((keys: string[]) => {
+		setMorphIcons((prev) => {
+			const byKey = new Map(prev.map((icon) => [iconKey(icon), icon]));
+			const next = keys
+				.map((key) => byKey.get(key))
+				.filter((icon): icon is CatalogIcon => Boolean(icon));
+			if (next.length !== prev.length) return prev;
+			return next;
+		});
+	}, []);
+
 	const selectLibrary = React.useCallback(
 		(set: IconSetConfig & { countForGroup?: number }) => {
 			setCollection(set.id);
 			setSearch("");
-			if (styleGroup === "both") {
+			if (styleGroup === "both" || styleGroup === "animated") {
+				if (styleGroup === "animated" && !isAnimatedSet(set.id)) {
+					setStyleGroup("both");
+				}
 				setSelectedStyleId("both");
 			} else {
 				const preferred =
@@ -273,6 +369,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			setFocusedIcon(null);
 			setSelectedKeys(new Set());
 			lastSelectedIndexRef.current = null;
+			setMorphMode(false);
+			setMorphIcons([]);
+			setMorphActiveKey(null);
 		},
 		[styleGroup],
 	);
@@ -281,9 +380,24 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		(setId: string) => {
 			const set = sets.find((s) => s.id === setId);
 			if (!set) return;
-			selectLibrary(set);
+			setCollection(set.id);
+			setSearch("");
+			if (styleGroup === "animated" && !isAnimatedSet(set.id)) {
+				setStyleGroup("both");
+				setSelectedStyleId("both");
+				return;
+			}
+			if (styleGroup === "both" || styleGroup === "animated") {
+				setSelectedStyleId("both");
+				return;
+			}
+			const preferred =
+				set.styles.find((s) => s.group === styleGroup) ??
+				set.styles[0] ??
+				null;
+			if (preferred) setSelectedStyleId(preferred.id);
 		},
-		[sets, selectLibrary],
+		[sets, styleGroup],
 	);
 
 	const allCountForGroup = React.useMemo(() => {
@@ -329,11 +443,34 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			: `${recent.length.toLocaleString()} recent`
 		: `${totalShown.toLocaleString()} icons`;
 
+	const selectStyleGroup = React.useCallback(
+		(next: IconStyleFilter) => {
+			setStyleGroup(next);
+			if (next !== "animated") return;
+			if (
+				collection !== "all" &&
+				collection !== "favorites" &&
+				collection !== "recent" &&
+				!isAnimatedSet(collection)
+			) {
+				setCollection("all");
+				setSelectedStyleId("animated");
+				setFocusedIcon(null);
+				setSelectedKeys(new Set());
+				lastSelectedIndexRef.current = null;
+			}
+		},
+		[collection],
+	);
+
 	const selectCollection = (id: CollectionId) => {
 		setCollection(id);
 		setFocusedIcon(null);
 		setSelectedKeys(new Set());
 		lastSelectedIndexRef.current = null;
+		setMorphMode(false);
+		setMorphIcons([]);
+		setMorphActiveKey(null);
 		if (id === "all") setSelectedStyleId(styleGroup);
 	};
 
@@ -396,6 +533,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setFocusedIcon(null);
 		setSelectedKeys(new Set());
 		lastSelectedIndexRef.current = null;
+		setMorphMode(false);
+		setMorphIcons([]);
+		setMorphActiveKey(null);
 	}, []);
 
 	const handleGridClick = React.useCallback(
@@ -409,6 +549,12 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			const idx = Number(cell.dataset.iconIndex);
 			const icon = allIcons[idx];
 			if (!key || !icon) return;
+
+			if (morphMode) {
+				void addMorphIcon(icon);
+				lastSelectedIndexRef.current = idx;
+				return;
+			}
 
 			setFocusedIcon(icon);
 			markRecent(icon);
@@ -436,7 +582,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			});
 			lastSelectedIndexRef.current = idx;
 		},
-		[allIcons],
+		[addMorphIcon, allIcons, morphMode],
 	);
 
 	const moveFocus = React.useCallback(
@@ -473,6 +619,11 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			if (isTypingTarget(e.target)) return;
 
 			if (e.key === "Escape") {
+				if (morphMode) {
+					e.preventDefault();
+					disableMorph();
+					return;
+				}
 				if (focusedIcon) {
 					e.preventDefault();
 					clearSelection();
@@ -513,6 +664,27 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			}
 
 			const cols = gridRef.current?.columnCount ?? 9;
+			if (morphMode && morphIcons.length > 1) {
+				if (
+					e.key === "ArrowRight" ||
+					e.key === "ArrowDown" ||
+					e.key === "ArrowLeft" ||
+					e.key === "ArrowUp"
+				) {
+					e.preventDefault();
+					const dir =
+						e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : -1;
+					const idx = morphIcons.findIndex(
+						(icon) => iconKey(icon) === morphActiveKey,
+					);
+					const next =
+						morphIcons[
+							(idx + dir + morphIcons.length) % morphIcons.length
+						];
+					if (next) selectMorphIcon(iconKey(next));
+					return;
+				}
+			}
 			if (e.key === "ArrowRight") {
 				e.preventDefault();
 				moveFocus(1);
@@ -533,12 +705,17 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	}, [
 		clearSelection,
 		commandOpen,
+		disableMorph,
 		focusedIcon,
 		handleFavorite,
+		morphActiveKey,
+		morphIcons,
+		morphMode,
 		moveFocus,
 		quickCopy,
 		quickDownload,
 		search,
+		selectMorphIcon,
 	]);
 
 	const commands: CommandItem[] = React.useMemo(() => {
@@ -617,15 +794,21 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			},
 			{
 				id: "style-fill",
-				label: "Show Fill icons",
+				label: "Show Filled icons",
 				group: "Filters",
 				onSelect: () => setStyleGroup("solid"),
 			},
 			{
 				id: "style-both",
-				label: "Show Line & Fill",
+				label: "Show all icons",
 				group: "Filters",
 				onSelect: () => setStyleGroup("both"),
+			},
+			{
+				id: "style-animated",
+				label: "Show Animated icons",
+				group: "Filters",
+				onSelect: () => selectStyleGroup("animated"),
 			},
 			{
 				id: "mcp",
@@ -664,6 +847,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		handleFavorite,
 		quickCopy,
 		quickDownload,
+		selectStyleGroup,
 	]);
 
 	const showLoading =
@@ -674,7 +858,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		!isWorkspaceCollection &&
 		!showLoading &&
 		allIcons.length === 0 &&
-		search.trim().length > 0;
+		(search.trim().length > 0 || styleGroup === "animated");
 
 	return (
 		<div
@@ -835,9 +1019,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 				<main
 					ref={iconsScrollRef}
-					className="relative flex h-full min-h-0 min-w-0 flex-col overflow-auto bg-black"
+					className="icons-canvas relative flex h-full min-h-0 min-w-0 flex-col overflow-auto"
 				>
-					<div className="sticky top-0 z-10 bg-black/90 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
+					<div className="sticky top-0 z-10 bg-[#070809]/55 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
 						<div className="flex flex-col gap-4 pb-3 lg:flex-row lg:items-center lg:justify-between">
 							<div className="min-w-0">
 								<h1 className="truncate text-[22px] font-semibold tracking-tight text-white">
@@ -849,56 +1033,95 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								</p>
 							</div>
 
-							<div className="relative w-full max-w-xl lg:flex-1">
-								<Search className="absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-white/35" />
+							<label className="group/search relative w-full max-w-xl lg:flex-1">
+								<Search
+									aria-hidden
+									strokeWidth={1.6}
+									className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-white/30 transition-colors duration-200 group-focus-within/search:text-white/65"
+								/>
 								<Input
 									ref={searchInputRef}
-									className="h-11 rounded-[3px] border-[#2D2D2D] bg-white/[0.04] pr-16 pl-10 text-[14px] placeholder:text-white/35 focus-visible:border-[#2D2D2D] focus-visible:bg-white/[0.055]"
+									aria-label="Search icons"
+									className="h-10 rounded-lg border-white/14 bg-transparent pr-24 pl-10 text-[13px] tracking-tight placeholder:text-white/30 hover:border-white/22 focus-visible:border-white/28 focus-visible:bg-transparent"
 									placeholder="Search icons, collections, styles…"
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
 									onKeyDown={(e) => {
 										if (e.key === "Escape") {
-											(e.target as HTMLInputElement).blur();
+											if (search) setSearch("");
+											else (e.target as HTMLInputElement).blur();
 										}
 									}}
 								/>
-								<button
-									type="button"
-									onClick={() => {
-										setCommandOpen(true);
-										setCommandQuery(search);
-									}}
-									className="absolute top-1/2 right-2.5 -translate-y-1/2 rounded-[3px] border border-white/10 px-1.5 py-0.5 font-mono text-[10px] text-white/35 transition-colors hover:border-white/20 hover:text-white/60"
-								>
-									⌘K
-								</button>
-							</div>
+								<div className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center gap-1">
+									{search ? (
+										<button
+											type="button"
+											aria-label="Clear search"
+											onClick={() => {
+												setSearch("");
+												searchInputRef.current?.focus();
+											}}
+											className="grid size-6 place-items-center rounded-md text-white/30 transition-colors hover:text-white/70"
+										>
+											<X className="size-3.5" />
+										</button>
+									) : null}
+									<button
+										type="button"
+										aria-label="Open command palette"
+										onClick={() => {
+											setCommandOpen(true);
+											setCommandQuery(search);
+										}}
+										className="flex items-center gap-0.5"
+									>
+										<kbd className="grid size-5 place-items-center rounded-[5px] border border-white/[0.1] bg-transparent font-sans text-[10px] leading-none text-white/40">
+											⌘
+										</kbd>
+										<kbd className="grid size-5 place-items-center rounded-[5px] border border-white/[0.1] bg-transparent font-sans text-[10px] leading-none text-white/40">
+											K
+										</kbd>
+									</button>
+								</div>
+							</label>
 						</div>
 
 						<div className="-mx-4 flex flex-wrap items-end justify-between gap-3 border-b border-[#2D2D2D] px-4 sm:-mx-6 sm:px-6">
 							<UnderlineTabs
 								ariaLabel="Icon style"
 								value={styleGroup}
-								onChange={setStyleGroup}
+								onChange={selectStyleGroup}
 								items={STYLE_TABS}
+								className="-mb-px"
 							/>
 
 							<UnderlineTabs
 								ariaLabel="Grid density"
 								value={density}
 								onChange={setDensity}
-								items={[
-									{ id: "compact" as const, label: "S", ariaLabel: "compact density" },
-									{
-										id: "comfortable" as const,
-										label: "M",
-										ariaLabel: "comfortable density",
-									},
-									{ id: "spacious" as const, label: "L", ariaLabel: "spacious density" },
-								]}
+								className="-mb-px"
+								items={DENSITY_TABS}
 							/>
 						</div>
+						{morphMode ? (
+							<div className="-mx-4 flex items-center justify-between gap-3 border-b border-white/[0.06] bg-white/[0.03] px-4 py-2 text-[12px] text-white/55 sm:-mx-6 sm:px-6">
+								<span>
+									Morph playground · click icons to add them
+									<span className="text-white/30">
+										{" "}
+										· {morphIcons.length}/{MAX_MORPH_SEQUENCE}
+									</span>
+								</span>
+								<button
+									type="button"
+									onClick={disableMorph}
+									className="text-[11px] text-white/40 transition-colors hover:text-white/70"
+								>
+									Exit
+								</button>
+							</div>
+						) : null}
 					</div>
 
 					<div className="px-2 pb-8 sm:px-4 md:px-5">
@@ -922,10 +1145,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							<div className="grid h-[50vh] place-items-center">
 								<div className="max-w-sm px-6 text-center">
 									<div className="text-base font-medium text-white">
-										No icons found
+										{styleGroup === "animated" && search.trim().length === 0
+											? "No animated icons"
+											: "No icons found"}
 									</div>
 									<div className="mt-2 text-sm text-white/40">
-										Try a different name, library, or style.
+										{styleGroup === "animated" && search.trim().length === 0
+											? "Animated icons live in Material Line Icons, SVG Spinners, and Meteocons. Open All Icons to see them all."
+											: "Try a different name, library, or style."}
 									</div>
 								</div>
 							</div>
@@ -933,15 +1160,21 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							<VirtualIconGrid
 								ref={gridRef}
 								icons={allIcons}
-								selectedKeys={selectedKeys}
+								selectedKeys={
+									morphMode
+										? new Set(morphIcons.map((icon) => iconKey(icon)))
+										: selectedKeys
+								}
 								favoriteKeys={favoriteKeys}
+								morphActiveKey={morphMode ? morphActiveKey : null}
+								morphMode={morphMode}
 								density={density}
 								scrollParentRef={iconsScrollRef}
 								onGridClick={handleGridClick}
 								onFavorite={handleFavorite}
 								onCopy={quickCopy}
 								onDownload={quickDownload}
-								onCustomize={focusIcon}
+								onCustomize={morphMode ? addMorphIcon : focusIcon}
 							/>
 						)}
 					</div>
@@ -955,7 +1188,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					groupLabel={
 						focusedIcon
 							? focusedIcon.group === "solid"
-								? "Fill"
+								? "Filled"
 								: "Line"
 							: null
 					}
@@ -968,6 +1201,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					onClose={clearSelection}
 					onSelectSet={openFocusedSet}
 					customizeRef={inspectorActionsRef}
+					morphMode={morphMode}
+					morphIcons={morphIcons}
+					morphActiveKey={morphActiveKey}
+					onEnableMorph={() => void enableMorph()}
+					onDisableMorph={disableMorph}
+					onMorphSelect={selectMorphIcon}
+					onMorphRemove={removeMorphIcon}
+					onMorphReorder={reorderMorphIcons}
 				/>
 			</div>
 

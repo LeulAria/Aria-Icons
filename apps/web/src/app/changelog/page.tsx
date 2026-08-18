@@ -11,21 +11,36 @@ function formatDate(iso: string) {
 }
 
 function ChangelogText({ text }: { text: string }) {
-	const parts = text.split(/(`[^`]+`)/g);
+	const parts = text.split(/(\[[^\]]+\]\([^)]+\)|`[^`]+`)/g);
 	return (
 		<>
-			{parts.map((part, i) =>
-				part.startsWith("`") && part.endsWith("`") ? (
-					<code
-						key={i}
-						className="rounded bg-white/8 px-1 py-0.5 font-mono text-[12px] text-white/70"
-					>
-						{part.slice(1, -1)}
-					</code>
-				) : (
-					<span key={i}>{part}</span>
-				),
-			)}
+			{parts.map((part, i) => {
+				const link = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
+				if (link) {
+					return (
+						<a
+							key={i}
+							href={link[2]}
+							target="_blank"
+							rel="noreferrer"
+							className="text-white/80 underline decoration-white/25 underline-offset-2 transition-colors hover:text-white"
+						>
+							{link[1]}
+						</a>
+					);
+				}
+				if (part.startsWith("`") && part.endsWith("`")) {
+					return (
+						<code
+							key={i}
+							className="rounded bg-white/8 px-1 py-0.5 font-mono text-[12px] text-white/70"
+						>
+							{part.slice(1, -1)}
+						</code>
+					);
+				}
+				return <span key={i}>{part}</span>;
+			})}
 		</>
 	);
 }
@@ -46,8 +61,7 @@ export default function ChangelogPage() {
 					Changelog
 				</h1>
 				<p className="mt-2 text-[13px] leading-5 text-white/50">
-					All changes, fixes, and updates — every release shipped to the Aria
-					Icons MCP server.
+					Major product and MCP updates shipped to Aria Icons.
 				</p>
 
 				<ol className="relative mt-10 space-y-0">

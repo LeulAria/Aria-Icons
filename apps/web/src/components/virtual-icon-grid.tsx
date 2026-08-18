@@ -9,7 +9,11 @@ import { iconKey, type WorkspaceIcon } from "@/lib/icon-workspace";
 
 export type Density = "compact" | "comfortable" | "spacious";
 
-const GRID_ICON_SIZE = 24;
+const GRID_ICON_SIZE: Record<Density, number> = {
+	compact: 24,
+	comfortable: 24,
+	spacious: 32,
+};
 const GAP_PX = 4;
 
 /** Tailwind breakpoint column counts matching the previous CSS grid. */
@@ -37,6 +41,9 @@ const IconGridCell = React.memo(function IconGridCell({
 	keyId,
 	active,
 	favorited,
+	morphMode,
+	morphIndex,
+	iconSize,
 	onFavorite,
 	onCopy,
 	onDownload,
@@ -47,13 +54,16 @@ const IconGridCell = React.memo(function IconGridCell({
 	keyId: string;
 	active: boolean;
 	favorited: boolean;
+	morphMode?: boolean;
+	morphIndex?: number;
+	iconSize: number;
 	onFavorite: (icon: WorkspaceIcon) => void;
 	onCopy: (icon: WorkspaceIcon) => void;
 	onDownload: (icon: WorkspaceIcon) => void;
 	onCustomize: (icon: WorkspaceIcon) => void;
 }) {
 	const src = buildIconSvgUrl(icon, {
-		size: GRID_ICON_SIZE,
+		size: iconSize,
 		stroke: 1,
 		color: "#ffffff",
 	});
@@ -76,8 +86,15 @@ const IconGridCell = React.memo(function IconGridCell({
 				"group relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded-[2px] p-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150 [contain:content] [content-visibility:auto] [contain-intrinsic-size:80px]",
 				"hover:bg-white/[0.04] focus-visible:bg-white/[0.06] focus-visible:ring-1 focus-visible:ring-white/25",
 				active && "bg-white/[0.06] ring-1 ring-inset ring-[#2D2D2D]",
+				morphMode && morphIndex != null && "ring-1 ring-inset ring-white/20",
+				morphMode && active && "bg-white/[0.08] ring-white/55",
 			)}
 		>
+			{morphMode && morphIndex != null ? (
+				<span className="absolute left-1 top-1 grid size-4 place-items-center rounded-[3px] bg-white text-[9px] font-semibold text-black">
+					{morphIndex}
+				</span>
+			) : null}
 			<img
 				alt=""
 				loading="lazy"
@@ -86,7 +103,7 @@ const IconGridCell = React.memo(function IconGridCell({
 					"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
 					active && "scale-110",
 				)}
-				style={{ width: GRID_ICON_SIZE, height: GRID_ICON_SIZE }}
+				style={{ width: iconSize, height: iconSize }}
 				src={src}
 			/>
 
@@ -187,6 +204,8 @@ export const VirtualIconGrid = React.forwardRef<
 		icons: WorkspaceIcon[];
 		selectedKeys: Set<string>;
 		favoriteKeys: Set<string>;
+		morphActiveKey?: string | null;
+		morphMode?: boolean;
 		density: Density;
 		scrollParentRef: React.RefObject<HTMLDivElement | null>;
 		onGridClick: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -200,6 +219,8 @@ export const VirtualIconGrid = React.forwardRef<
 		icons,
 		selectedKeys,
 		favoriteKeys,
+		morphActiveKey = null,
+		morphMode = false,
 		density,
 		scrollParentRef,
 		onGridClick,
@@ -289,14 +310,24 @@ export const VirtualIconGrid = React.forwardRef<
 						{rowIcons.map((icon, col) => {
 							const index = start + col;
 							const key = iconKey(icon);
+							const morphIndex = morphMode
+								? [...selectedKeys].indexOf(key) + 1
+								: 0;
 							return (
 								<IconGridCell
 									key={key}
 									icon={icon}
 									index={index}
 									keyId={key}
-									active={selectedKeys.has(key)}
+									active={
+										morphMode
+											? morphActiveKey === key
+											: selectedKeys.has(key)
+									}
 									favorited={favoriteKeys.has(key)}
+									morphMode={morphMode}
+									morphIndex={morphIndex > 0 ? morphIndex : undefined}
+									iconSize={GRID_ICON_SIZE[density]}
 									onFavorite={onFavorite}
 									onCopy={onCopy}
 									onDownload={onDownload}

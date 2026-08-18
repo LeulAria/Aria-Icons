@@ -44,6 +44,7 @@ export type IconifyCollectionsFile = Record<
 		total: number;
 		palette?: boolean;
 		category?: string;
+		tags?: string[];
 		author?: { name?: string; url?: string };
 	}
 >;

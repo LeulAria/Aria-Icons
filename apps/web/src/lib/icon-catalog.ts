@@ -1,4 +1,5 @@
-import type { IconStyleGroup } from "@/lib/icon-sets";
+import { isAnimatedSet } from "@/lib/animated-sets";
+import type { IconStyleFilter, IconStyleGroup } from "@/lib/icon-sets";
 import type { WorkspaceIcon } from "@/lib/icon-workspace";
 
 export type CompactIconTuple = [number, number, 0 | 1, string, string, number?];
@@ -129,8 +130,12 @@ export function countForStyleGroup(
 	counts: Record<string, Record<string, number>>,
 	setId: string,
 	styles: Array<{ id: string; group: IconStyleGroup }>,
-	styleGroup: IconStyleGroup | "both",
+	styleGroup: IconStyleFilter,
 ) {
+	if (styleGroup === "animated") {
+		if (!isAnimatedSet(setId)) return 0;
+		return styles.reduce((acc, st) => acc + (counts[setId]?.[st.id] ?? 0), 0);
+	}
 	return styles
 		.filter((st) => (styleGroup === "both" ? true : st.group === styleGroup))
 		.reduce((acc, st) => acc + (counts[setId]?.[st.id] ?? 0), 0);

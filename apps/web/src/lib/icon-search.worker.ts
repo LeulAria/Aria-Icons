@@ -2,6 +2,13 @@
 
 export {};
 
+/** Keep in sync with ANIMATED_SET_IDS in animated-sets.ts. */
+const ANIMATED_SET_IDS = new Set(["line-md", "svg-spinners", "meteocons"]);
+
+function isAnimatedSet(setId: string) {
+	return ANIMATED_SET_IDS.has(setId);
+}
+
 type WorkerIcon = {
 	setId: string;
 	styleId: string;
@@ -13,7 +20,7 @@ type WorkerIcon = {
 
 type Filters = {
 	collection: string;
-	styleGroup: "line" | "solid" | "both";
+	styleGroup: "line" | "solid" | "both" | "animated";
 	selectedStyleId: string;
 };
 
@@ -73,6 +80,8 @@ function matchesFilters(icon: WorkerIcon, filters: Filters): boolean {
 	const { collection, styleGroup, selectedStyleId } = filters;
 
 	if (collection !== "all" && icon.setId !== collection) return false;
+
+	if (styleGroup === "animated") return isAnimatedSet(icon.setId);
 
 	// Line / Fill / Both is primary. Logos + colored sets are indexed as solid.
 	if (styleGroup !== "both" && icon.group !== styleGroup) return false;

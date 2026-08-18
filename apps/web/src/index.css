@@ -43,6 +43,17 @@ body {
   height: 100%;
 }
 
+/* Subtle aurora behind the All Icons canvas — keep it quiet. */
+.icons-canvas {
+  background-color: #070809;
+  background-image:
+    radial-gradient(ellipse 95% 75% at 18% 6%, rgba(42, 86, 92, 0.2) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 55% at 86% 10%, rgba(38, 68, 56, 0.12) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 70% at 8% 92%, rgba(58, 40, 82, 0.14) 0%, transparent 56%),
+    radial-gradient(ellipse 90% 75% at 92% 94%, rgba(86, 36, 62, 0.14) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 50% at 50% 40%, rgba(16, 24, 34, 0.22) 0%, transparent 72%);
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -242,4 +253,96 @@ body {
   text-align: right;
   color: rgba(255, 255, 255, 0.28);
   user-select: none;
+}
+
+/* Dark glass snack — matches the inspector, hugs copy, no colored chrome. */
+[data-sonner-toaster] {
+  font-family: inherit;
+}
+
+[data-sonner-toaster] [data-sonner-toast],
+.aria-toast {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  width: 250px !important;
+  max-width: min(250px, calc(100vw - 32px)) !important;
+  padding: 10px 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  background: rgba(14, 14, 16, 0.88) !important;
+  color: #fafafa !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-content] {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 1px;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-title],
+.aria-toast-title {
+  overflow: hidden;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffffff !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-description],
+.aria-toast-description {
+  overflow: hidden;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.42) !important;
+  opacity: 1 !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon],
+.aria-toast-icon {
+  display: grid !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] [data-icon] {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-close-button],
+.aria-toast-close {
+  display: none !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-button][data-action],
+.aria-toast-action {
+  height: auto;
+  margin: 0 0 0 4px;
+  padding: 0 2px;
+  border: 0;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-button][data-cancel],
+.aria-toast-cancel {
+  display: none !important;
 }
