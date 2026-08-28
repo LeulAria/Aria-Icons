@@ -163,6 +163,76 @@ function SliderValueInput({
   );
 }
 
+const INSPECTOR_MIN = 280;
+const INSPECTOR_MAX = 640;
+
+function InspectorResizeHandle({
+  width,
+  onWidthChange,
+}: {
+  width: number;
+  onWidthChange: (width: number) => void;
+}) {
+  const drag = React.useRef<{ x: number; width: number } | null>(null);
+
+  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    drag.current = { x: event.clientX, width };
+    document.body.style.cursor = "col-resize";
+    document.body.style.userSelect = "none";
+  };
+
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!drag.current) return;
+    onWidthChange(drag.current.width + (drag.current.x - event.clientX));
+  };
+
+  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!drag.current) return;
+    drag.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    document.body.style.cursor = "";
+    document.body.style.userSelect = "";
+  };
+
+  return (
+    <div
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="Resize customize panel"
+      aria-valuenow={width}
+      aria-valuemin={INSPECTOR_MIN}
+      aria-valuemax={INSPECTOR_MAX}
+      tabIndex={0}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          onWidthChange(width + 16);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          onWidthChange(width - 16);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          onWidthChange(INSPECTOR_MAX);
+        } else if (event.key === "End") {
+          event.preventDefault();
+          onWidthChange(INSPECTOR_MIN);
+        }
+      }}
+      className="group/resize absolute top-0 left-0 z-20 hidden h-full w-2 cursor-col-resize touch-none lg:block"
+    >
+      <span className="mx-auto block h-full w-px bg-transparent transition-colors group-hover/resize:bg-white/35 group-active/resize:bg-white/55 group-focus-visible/resize:bg-white/55" />
+    </div>
+  );
+}
+
 export function IconInspector({
   focusedIcon,
   selectedIcons,
@@ -183,6 +253,8 @@ export function IconInspector({
   onMorphSelect,
   onMorphRemove,
   onMorphReorder,
+  width,
+  onWidthChange,
 }: {
   focusedIcon: IconExportRef | null;
   selectedIcons: IconExportRef[];
@@ -209,6 +281,8 @@ export function IconInspector({
   onMorphSelect?: (key: string) => void;
   onMorphRemove?: (key: string) => void;
   onMorphReorder?: (keys: string[]) => void;
+  width?: number;
+  onWidthChange?: (width: number) => void;
 }) {
   const [size, setSize] = React.useState(DEFAULT_CUSTOMIZE.size);
   const [stroke, setStroke] = React.useState(DEFAULT_CUSTOMIZE.stroke);
@@ -818,13 +892,16 @@ export function IconInspector({
   return (
     <aside
       className={cn(
-        "z-40 flex h-full min-h-0 flex-col overflow-hidden bg-[#0b0b0b]",
+        "relative z-40 flex h-full min-h-0 flex-col overflow-hidden bg-[#0b0b0b]",
         // Always visible on large screens; mobile sheet only when an icon is selected
         focusedIcon
           ? "fixed inset-x-0 bottom-0 max-h-[85vh] rounded-t-2xl border border-white/[0.08] shadow-2xl lg:relative lg:inset-auto lg:h-full lg:max-h-none lg:rounded-none lg:border-0 lg:border-l lg:border-[#2D2D2D] lg:shadow-none"
           : "hidden h-full border-l border-[#2D2D2D] lg:flex",
       )}
     >
+      {width != null && onWidthChange ? (
+        <InspectorResizeHandle width={width} onWidthChange={onWidthChange} />
+      ) : null}
       {focusedIcon ? (
         <div className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-white/15 lg:hidden" />
       ) : null}

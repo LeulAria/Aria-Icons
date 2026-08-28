@@ -3,187 +3,162 @@
 import * as React from "react";
 import type { CatalogIcon } from "@/lib/icon-catalog";
 import {
-	createSearchContext,
-	searchWithContext,
-	type SearchContext,
-	type SearchFilters,
-} from "@/lib/icon-search";
+	expandCatalogIcon,
+	getCatalogProgress,
+	searchCatalogIndices,
+	startCatalogLoad,
+	subscribeCatalog,
+} from "@/lib/icon-catalog-runtime";
+import type { SearchFilters } from "@/lib/icon-search";
 import { iconKey } from "@/lib/icon-workspace";
 
-/**
- * Local catalog search. Prefers a Web Worker when available; falls back to
- * main-thread scoring + useDeferredValue so typing never blocks the UI.
- */
+function filterWorkspace(
+	items: CatalogIcon[] | undefined,
+	query: string,
+): CatalogIcon[] {
+	if (!items || items.length === 0) return [];
+	const needle = query.trim().toLowerCase();
+	if (!needle) return items;
+	return items.filter(
+		(icon) =>
+			icon.name.toLowerCase().includes(needle) ||
+			icon.setId.toLowerCase().includes(needle) ||
+			icon.styleId.toLowerCase().includes(needle) ||
+			icon.tags?.some((t) => t.includes(needle)),
+	);
+}
+
+export type IconSearchState = {
+	getIcon: (index: number) => CatalogIcon | undefined;
+	getByKey: (key: string) => CatalogIcon | undefined;
+	remember: (icon: CatalogIcon) => void;
+	ensureRange: (start: number, end: number) => void;
+	total: number;
+	ready: boolean;
+	isStale: boolean;
+	catalogReady: boolean;
+	loadedIcons: number;
+	loadedSets: number;
+	setCount: number;
+	counts: Record<string, Record<string, number>> | undefined;
+};
+
 export function useIconSearch(
-	icons: CatalogIcon[] | undefined,
 	query: string,
 	filters: SearchFilters,
-) {
+): IconSearchState {
 	const deferredQuery = React.useDeferredValue(query);
 	const deferredFilters = React.useDeferredValue(filters);
-	const [results, setResults] = React.useState<CatalogIcon[] | null>(null);
-	const [workerReady, setWorkerReady] = React.useState(false);
-	const workerRef = React.useRef<Worker | null>(null);
-	const searchIdRef = React.useRef(0);
-	const ctxRef = React.useRef<SearchContext | null>(null);
-	const iconsRef = React.useRef(icons);
-	iconsRef.current = icons;
+	const [version, setVersion] = React.useState(0);
+	const byKeyRef = React.useRef(new Map<string, CatalogIcon>());
+	const expandedRef = React.useRef(new Map<number, CatalogIcon>());
 
 	const isWorkspace =
 		deferredFilters.collection === "favorites" ||
 		deferredFilters.collection === "recent";
 
-	const runMainThreadSearch = React.useCallback(
-		(source: CatalogIcon[], q: string, f: SearchFilters) => {
-			if (f.collection === "favorites" || f.collection === "recent") {
-				const keySet =
-					f.collection === "favorites" ? f.favoriteKeys : f.recentKeys;
-				if (!keySet || keySet.size === 0) {
-					setResults([]);
-					return;
-				}
-				const byKey = new Map(source.map((icon) => [iconKey(icon), icon]));
-				const ordered: CatalogIcon[] = [];
-				for (const key of keySet) {
-					const icon = byKey.get(key);
-					if (icon) ordered.push(icon);
-				}
-				const needle = q.trim().toLowerCase();
-				if (!needle) {
-					setResults(ordered);
-					return;
-				}
-				setResults(
-					ordered.filter(
-						(icon) =>
-							icon.name.toLowerCase().includes(needle) ||
-							icon.setId.toLowerCase().includes(needle) ||
-							icon.styleId.toLowerCase().includes(needle) ||
-							icon.tags?.some((t) => t.includes(needle)),
-					),
-				);
-				return;
-			}
-
-			if (!ctxRef.current || ctxRef.current.icons !== source) {
-				ctxRef.current = createSearchContext(source);
-			}
-			setResults(searchWithContext(ctxRef.current, q, f));
-		},
-		[],
-	);
+	React.useEffect(() => subscribeCatalog(() => setVersion((n) => n + 1)), []);
 
 	React.useEffect(() => {
-		if (!icons || icons.length === 0) {
-			ctxRef.current = null;
-			workerRef.current?.terminate();
-			workerRef.current = null;
-			setWorkerReady(false);
-			return;
-		}
+		const collection = filters.collection;
+		const prefer =
+			collection === "all" ||
+			collection === "favorites" ||
+			collection === "recent"
+				? null
+				: collection;
+		void startCatalogLoad(prefer);
+	}, [filters.collection]);
 
-		let cancelled = false;
+	const progress = getCatalogProgress();
+	void version;
 
-		let worker: Worker | null = null;
-		try {
-			worker = new Worker(
-				new URL("../lib/icon-search.worker.ts", import.meta.url),
-				{ type: "module" },
-			);
-		} catch {
-			worker = null;
-		}
-
-		if (!worker) {
-			if (!cancelled) setWorkerReady(false);
-			return () => {
-				cancelled = true;
-			};
-		}
-
-		const failToMain = () => {
-			worker?.terminate();
-			workerRef.current = null;
-			if (!cancelled) setWorkerReady(false);
-		};
-
-		workerRef.current = worker;
-		worker.onmessage = (event: MessageEvent) => {
-			const msg = event.data as
-				| { type: "ready"; total: number }
-				| { type: "results"; id: number; indices: number[] };
-			if (msg.type === "ready") {
-				if (!cancelled) setWorkerReady(true);
-				return;
-			}
-			if (msg.type === "results" && msg.id === searchIdRef.current) {
-				const source = iconsRef.current;
-				if (!source) return;
-				setResults(
-					msg.indices.map((i) => source[i]).filter(Boolean) as CatalogIcon[],
-				);
-			}
-		};
-		worker.onerror = () => failToMain();
-
-		try {
-			worker.postMessage({ type: "init", icons });
-		} catch {
-			failToMain();
-		}
-
-		return () => {
-			cancelled = true;
-			worker?.terminate();
-			workerRef.current = null;
-			setWorkerReady(false);
-		};
-	}, [icons]);
-
-	React.useEffect(() => {
-		if (!icons) {
-			setResults(null);
-			return;
-		}
-
-		if (isWorkspace || !workerReady || !workerRef.current) {
-			runMainThreadSearch(icons, deferredQuery, deferredFilters);
-			return;
-		}
-
-		const id = ++searchIdRef.current;
-		workerRef.current.postMessage({
-			type: "search",
-			id,
-			query: deferredQuery,
-			filters: {
-				collection: deferredFilters.collection,
-				styleGroup: deferredFilters.styleGroup,
-				selectedStyleId: deferredFilters.selectedStyleId,
-			},
+	const indices = React.useMemo(() => {
+		if (isWorkspace) return [];
+		expandedRef.current = new Map();
+		return searchCatalogIndices(deferredQuery, {
+			collection: deferredFilters.collection,
+			styleGroup: deferredFilters.styleGroup,
+			selectedStyleId: deferredFilters.selectedStyleId,
 		});
-
-		// Safety: if the worker stalls, fall back so the UI never looks stuck.
-		const timer = window.setTimeout(() => {
-			if (searchIdRef.current === id) {
-				runMainThreadSearch(icons, deferredQuery, deferredFilters);
-			}
-		}, 250);
-
-		return () => window.clearTimeout(timer);
 	}, [
-		icons,
 		deferredQuery,
-		deferredFilters,
+		deferredFilters.collection,
+		deferredFilters.styleGroup,
+		deferredFilters.selectedStyleId,
 		isWorkspace,
-		workerReady,
-		runMainThreadSearch,
+		version,
 	]);
 
+	const remember = React.useCallback((icon: CatalogIcon) => {
+		byKeyRef.current.set(iconKey(icon), icon);
+	}, []);
+
+	const getIcon = React.useCallback(
+		(index: number) => {
+			const cached = expandedRef.current.get(index);
+			if (cached) return cached;
+			const tupleIndex = indices[index];
+			if (tupleIndex == null) return undefined;
+			const icon = expandCatalogIcon(tupleIndex);
+			if (icon) {
+				expandedRef.current.set(index, icon);
+				byKeyRef.current.set(iconKey(icon), icon);
+			}
+			return icon;
+		},
+		[indices],
+	);
+
+	const getByKey = React.useCallback((key: string) => {
+		return byKeyRef.current.get(key);
+	}, []);
+
+	const ensureRange = React.useCallback(
+		(start: number, end: number) => {
+			const lo = Math.max(0, start);
+			const hi = Math.min(indices.length, Math.max(lo, end));
+			for (let i = lo; i < hi; i++) getIcon(i);
+		},
+		[getIcon, indices.length],
+	);
+
+	const isStale = query !== deferredQuery || filters !== deferredFilters;
+
+	if (isWorkspace) {
+		const source =
+			deferredFilters.collection === "favorites"
+				? deferredFilters.favoriteIcons
+				: deferredFilters.recentIcons;
+		const items = filterWorkspace(source, deferredQuery);
+		return {
+			getIcon: (index) => items[index],
+			getByKey,
+			remember,
+			ensureRange,
+			total: items.length,
+			ready: true,
+			isStale,
+			catalogReady: true,
+			loadedIcons: items.length,
+			loadedSets: 1,
+			setCount: 1,
+			counts: progress.counts,
+		};
+	}
+
 	return {
-		results: results ?? [],
-		total: results?.length ?? 0,
-		ready: results !== null,
-		isStale: query !== deferredQuery || filters !== deferredFilters,
+		getIcon,
+		getByKey,
+		remember,
+		ensureRange,
+		total: indices.length,
+		ready: indices.length > 0 || progress.catalogReady,
+		isStale,
+		catalogReady: progress.catalogReady,
+		loadedIcons: progress.loadedIcons,
+		loadedSets: progress.loadedSets,
+		setCount: progress.setCount,
+		counts: progress.counts,
 	};
 }

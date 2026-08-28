@@ -1,8 +1,41 @@
 import { isAnimatedSet } from "@/lib/animated-sets";
 import type { CatalogIcon } from "@/lib/icon-catalog";
-import type { IconStyleFilter } from "@/lib/icon-sets";
+import { FORCE_FILL_SET_IDS, type IconStyleFilter } from "@/lib/icon-sets";
 import { compareIconsForBrowse } from "@/lib/icon-set-order";
+import { isFilledStyleId } from "@/lib/icon-stroke";
 import { iconKey } from "@/lib/icon-workspace";
+
+/** Fill / brand / color sets that should never appear under the Line tab. */
+const NON_LINE_SET =
+	/(^|[-_])(fill|filled|solid|bold|bulk|brands?|logo|logos|emoji|flag|flags|color)s?$/i;
+/** Name suffixes used by mixed packs (Phosphor, Solar, Heroicons, …). */
+const FILL_NAME_TOKEN =
+	/[-_](fill|filled|solid|bold|bulk|duotone)([-_]|$)/i;
+const FILLED_PREFIX = /^filled([-_]|$)/i;
+const LOGO_NAME_TOKEN = /(^|[-_])(logo|logos|brand|brands)([-_]|$)/i;
+
+export type StyleGroupIcon = {
+	setId: string;
+	styleId: string;
+	name: string;
+	group: "line" | "solid";
+};
+
+/**
+ * True when an icon is filled, branded, or otherwise not a stroke/line glyph.
+ * Catalog `group` is a fill="none" heuristic, so filled variants often leak
+ * into Line — this catches them by style, set, and name.
+ */
+export function isNonLineVariant(icon: StyleGroupIcon): boolean {
+	if (icon.group === "solid") return true;
+	if (FORCE_FILL_SET_IDS.has(icon.setId)) return true;
+	if (isFilledStyleId(icon.styleId)) return true;
+	if (/^(duotone|sharp)$/i.test(icon.styleId)) return true;
+	if (NON_LINE_SET.test(icon.setId)) return true;
+	if (FILL_NAME_TOKEN.test(icon.name) || FILLED_PREFIX.test(icon.name)) return true;
+	if (LOGO_NAME_TOKEN.test(icon.name)) return true;
+	return false;
+}
 
 export type SearchFilters = {
 	collection: "all" | "favorites" | "recent" | string;
@@ -10,6 +43,8 @@ export type SearchFilters = {
 	selectedStyleId: string;
 	favoriteKeys?: Set<string>;
 	recentKeys?: Set<string>;
+	favoriteIcons?: CatalogIcon[];
+	recentIcons?: CatalogIcon[];
 };
 
 export function matchesFilters(icon: CatalogIcon, filters: SearchFilters): boolean {
@@ -25,10 +60,8 @@ export function matchesFilters(icon: CatalogIcon, filters: SearchFilters): boole
 	if (collection !== "all" && icon.setId !== collection) return false;
 
 	if (styleGroup === "animated") return isAnimatedSet(icon.setId);
-
-	// Line / Fill / Both is the primary toggle. Line = stroke UI icons only
-	// (logos + colored sets are indexed as solid/Fill and never match here).
-	if (styleGroup !== "both" && icon.group !== styleGroup) return false;
+	if (styleGroup === "line" && isNonLineVariant(icon)) return false;
+	if (styleGroup === "solid" && !isNonLineVariant(icon)) return false;
 
 	// Within a specific library, optionally narrow to one concrete style
 	// (e.g. Tabler "outline", theSVG "mono").

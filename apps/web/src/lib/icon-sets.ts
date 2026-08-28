@@ -3,6 +3,12 @@ export type IconStyleGroup = "line" | "solid";
 export type IconStyleFilter = IconStyleGroup | "both" | "animated";
 
 /**
+ * Whole Iconify packs that are filled artwork and belong under Fill,
+ * even when some glyphs were indexed as line (fill="none" heuristic).
+ */
+export const FORCE_FILL_SET_IDS = new Set<string>(["at-icons"]);
+
+/**
  * Style/set ids are open strings: filesystem sets use the ids below, while
  * theSVG brand variants ("default", "mono", "wordmark", …) and Iconify sets
  * (prefixes like "ph", "mdi") are discovered dynamically.

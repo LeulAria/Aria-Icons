@@ -1,5 +1,9 @@
 import { isAnimatedSet } from "@/lib/animated-sets";
-import type { IconStyleFilter, IconStyleGroup } from "@/lib/icon-sets";
+import {
+	FORCE_FILL_SET_IDS,
+	type IconStyleFilter,
+	type IconStyleGroup,
+} from "@/lib/icon-sets";
 import type { WorkspaceIcon } from "@/lib/icon-workspace";
 
 export type CompactIconTuple = [number, number, 0 | 1, string, string, number?];
@@ -16,6 +20,16 @@ export type IconsMetaFile = {
 	counts: Record<string, Record<string, number>>;
 };
 
+export type IconsMetaIndex = {
+	v: 3;
+	generatedAt: string;
+	sets: string[];
+	styles: string[];
+	tagsList: string[][];
+	counts: Record<string, Record<string, number>>;
+	loadOrder: string[];
+};
+
 export type CatalogIcon = WorkspaceIcon & {
 	group: IconStyleGroup;
 	tags?: string[];
@@ -27,9 +41,10 @@ export type IconCatalog = {
 	counts: Record<string, Record<string, number>>;
 };
 
-const IDB_NAME = "aria-icons";
-const IDB_STORE = "catalog";
-const IDB_KEY = "icons-meta-v3-line-fill";
+export const IDB_NAME = "aria-icons";
+export const IDB_STORE = "catalog";
+export const IDB_KEY = "icons-meta-v3-line-fill";
+export const IDB_INDEX_KEY = "icons-meta-index-v3";
 
 function openDb(): Promise<IDBDatabase> {
 	return new Promise((resolve, reject) => {
@@ -45,23 +60,30 @@ function openDb(): Promise<IDBDatabase> {
 	});
 }
 
-async function idbGet<T>(key: string): Promise<T | null> {
+export async function idbGet<T>(key: string): Promise<T | null> {
 	if (typeof indexedDB === "undefined") return null;
 	try {
-		const db = await openDb();
-		return await new Promise((resolve, reject) => {
-			const tx = db.transaction(IDB_STORE, "readonly");
-			const store = tx.objectStore(IDB_STORE);
-			const req = store.get(key);
-			req.onsuccess = () => resolve((req.result as T | undefined) ?? null);
-			req.onerror = () => reject(req.error ?? new Error("IndexedDB get failed"));
-		});
+		const db = await Promise.race([
+			openDb(),
+			new Promise<null>((resolve) => setTimeout(() => resolve(null), 400)),
+		]);
+		if (!db) return null;
+		return await Promise.race([
+			new Promise<T | null>((resolve, reject) => {
+				const tx = db.transaction(IDB_STORE, "readonly");
+				const store = tx.objectStore(IDB_STORE);
+				const req = store.get(key);
+				req.onsuccess = () => resolve((req.result as T | undefined) ?? null);
+				req.onerror = () => reject(req.error ?? new Error("IndexedDB get failed"));
+			}),
+			new Promise<null>((resolve) => setTimeout(() => resolve(null), 400)),
+		]);
 	} catch {
 		return null;
 	}
 }
 
-async function idbSet(key: string, value: unknown): Promise<void> {
+export async function idbSet(key: string, value: unknown): Promise<void> {
 	if (typeof indexedDB === "undefined") return;
 	try {
 		const db = await openDb();
@@ -77,19 +99,27 @@ async function idbSet(key: string, value: unknown): Promise<void> {
 	}
 }
 
+export function expandCompactIcon(
+	sets: string[],
+	styles: string[],
+	tagsList: string[][],
+	tuple: CompactIconTuple,
+): CatalogIcon {
+	const [setIdx, styleIdx, group, name, filePath, tagIdx] = tuple;
+	const tags = tagIdx != null ? tagsList[tagIdx] : undefined;
+	return {
+		setId: sets[setIdx] ?? "unknown",
+		styleId: styles[styleIdx] ?? "line",
+		filePath: filePath === "" ? name : filePath,
+		name,
+		group: group === 1 ? "solid" : "line",
+		...(tags ? { tags } : {}),
+	};
+}
+
 export function expandIconsMeta(meta: IconsMetaFile): IconCatalog {
-	const icons: CatalogIcon[] = meta.icons.map(
-		([setIdx, styleIdx, group, name, filePath, tagIdx]) => {
-			const tags = tagIdx != null ? meta.tagsList[tagIdx] : undefined;
-			return {
-				setId: meta.sets[setIdx] ?? "unknown",
-				styleId: meta.styles[styleIdx] ?? "line",
-				filePath: filePath === "" ? name : filePath,
-				name,
-				group: group === 1 ? "solid" : "line",
-				...(tags ? { tags } : {}),
-			};
-		},
+	const icons: CatalogIcon[] = meta.icons.map((tuple) =>
+		expandCompactIcon(meta.sets, meta.styles, meta.tagsList, tuple),
 	);
 
 	return {
@@ -104,26 +134,87 @@ type CachedMeta = {
 	meta: IconsMetaFile;
 };
 
-export async function loadIconCatalog(): Promise<IconCatalog> {
-	const cached = await idbGet<CachedMeta>(IDB_KEY);
+function indexFromMeta(meta: IconsMetaFile, loadOrder?: string[]): IconsMetaIndex {
+	return {
+		v: 3,
+		generatedAt: meta.generatedAt,
+		sets: meta.sets,
+		styles: meta.styles,
+		tagsList: meta.tagsList,
+		counts: meta.counts,
+		loadOrder: loadOrder ?? meta.sets,
+	};
+}
 
+async function fetchJson<T>(url: string): Promise<T | null> {
 	try {
-		const res = await fetch("/icons-meta.json");
-		if (!res.ok) throw new Error(`HTTP ${res.status}`);
-		const meta = (await res.json()) as IconsMetaFile;
-
-		if (cached?.generatedAt === meta.generatedAt) {
-			return expandIconsMeta(cached.meta);
-		}
-
-		void idbSet(IDB_KEY, { generatedAt: meta.generatedAt, meta });
-		return expandIconsMeta(meta);
-	} catch (error) {
-		if (cached) return expandIconsMeta(cached.meta);
-		throw error instanceof Error
-			? error
-			: new Error("Failed to load icon catalog");
+		const res = await fetch(url);
+		if (!res.ok) return null;
+		return (await res.json()) as T;
+	} catch {
+		return null;
 	}
+}
+
+async function fetchAndCacheMeta(): Promise<IconsMetaFile | null> {
+	const meta = await fetchJson<IconsMetaFile>("/icons-meta.json");
+	if (!meta) return null;
+	void idbSet(IDB_KEY, { generatedAt: meta.generatedAt, meta } satisfies CachedMeta);
+	void idbSet(IDB_INDEX_KEY, indexFromMeta(meta));
+	return meta;
+}
+
+/** Compact catalog only — does not expand 300k+ icon objects. */
+export async function loadIconCatalogMeta(): Promise<IconsMetaFile> {
+	const cached = await idbGet<CachedMeta>(IDB_KEY);
+	if (cached?.meta) {
+		void (async () => {
+			const index = await fetchJson<IconsMetaIndex>("/icons-meta-index.json");
+			if (index && index.generatedAt === cached.generatedAt) return;
+			await fetchAndCacheMeta();
+		})();
+		return cached.meta;
+	}
+
+	const meta = await fetchAndCacheMeta();
+	if (meta) return meta;
+	throw new Error("Failed to load icon catalog");
+}
+
+export async function loadIconCatalogIndex(): Promise<IconsMetaIndex> {
+	const network = await fetchJson<IconsMetaIndex>("/icons-meta-index.json");
+	if (network) {
+		void idbSet(IDB_INDEX_KEY, network);
+		return network;
+	}
+
+	const cached = await idbGet<IconsMetaIndex>(IDB_INDEX_KEY);
+	if (cached) return cached;
+	const cachedMeta = await idbGet<CachedMeta>(IDB_KEY);
+	if (cachedMeta?.meta) return indexFromMeta(cachedMeta.meta);
+
+	return {
+		v: 3,
+		generatedAt: "",
+		sets: [],
+		styles: [],
+		tagsList: [],
+		counts: {},
+		loadOrder: [],
+	};
+}
+
+export async function loadIconSetShard(
+	setId: string,
+): Promise<CompactIconTuple[] | null> {
+	return fetchJson<CompactIconTuple[]>(
+		`/icons-meta/sets/${encodeURIComponent(setId)}.json`,
+	);
+}
+
+export async function loadIconCatalog(): Promise<IconCatalog> {
+	const meta = await loadIconCatalogMeta();
+	return expandIconsMeta(meta);
 }
 
 export function countForStyleGroup(
@@ -134,6 +225,10 @@ export function countForStyleGroup(
 ) {
 	if (styleGroup === "animated") {
 		if (!isAnimatedSet(setId)) return 0;
+		return styles.reduce((acc, st) => acc + (counts[setId]?.[st.id] ?? 0), 0);
+	}
+	if (FORCE_FILL_SET_IDS.has(setId)) {
+		if (styleGroup === "line") return 0;
 		return styles.reduce((acc, st) => acc + (counts[setId]?.[st.id] ?? 0), 0);
 	}
 	return styles

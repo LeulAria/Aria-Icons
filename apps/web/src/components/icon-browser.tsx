@@ -34,7 +34,7 @@ import {
 import { UnderlineTabs } from "@/components/ui/underline-tabs";
 import {
 	countForStyleGroup,
-	loadIconCatalog,
+	loadIconCatalogIndex,
 	type CatalogIcon,
 } from "@/lib/icon-catalog";
 import { useIconSearch } from "@/hooks/use-icon-search";
@@ -79,6 +79,15 @@ const DENSITY_TABS: { id: Density; label: string; ariaLabel: string }[] = [
 	{ id: "spacious", label: "L", ariaLabel: "spacious density" },
 ];
 
+const INSPECTOR_MIN = 280;
+const INSPECTOR_MAX = 640;
+const INSPECTOR_DEFAULT = 352;
+const INSPECTOR_WIDTH_KEY = "aria-inspector-width";
+
+function clampInspectorWidth(width: number) {
+	return Math.min(INSPECTOR_MAX, Math.max(INSPECTOR_MIN, Math.round(width)));
+}
+
 function isTypingTarget(target: EventTarget | null) {
 	if (!(target instanceof HTMLElement)) return false;
 	const tag = target.tagName;
@@ -108,6 +117,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	const [commandOpen, setCommandOpen] = React.useState(false);
 	const [commandQuery, setCommandQuery] = React.useState("");
 	const [density, setDensity] = React.useState<Density>("compact");
+	const [inspectorWidth, setInspectorWidth] = React.useState(INSPECTOR_DEFAULT);
 	const [favoritesVersion, setFavoritesVersion] = React.useState(0);
 	const [recentVersion, setRecentVersion] = React.useState(0);
 	const [workspaceReady, setWorkspaceReady] = React.useState(false);
@@ -125,9 +135,31 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setWorkspaceReady(true);
 	}, []);
 
+	React.useEffect(() => {
+		try {
+			const raw = localStorage.getItem(INSPECTOR_WIDTH_KEY);
+			const parsed = raw ? Number.parseInt(raw, 10) : NaN;
+			if (Number.isFinite(parsed)) {
+				setInspectorWidth(clampInspectorWidth(parsed));
+			}
+		} catch {
+			// ignore
+		}
+	}, []);
+
+	const handleInspectorWidthChange = React.useCallback((width: number) => {
+		const next = clampInspectorWidth(width);
+		setInspectorWidth(next);
+		try {
+			localStorage.setItem(INSPECTOR_WIDTH_KEY, String(next));
+		} catch {
+			// ignore
+		}
+	}, []);
+
 	const catalogQuery = useQuery({
-		queryKey: ["icon-catalog"],
-		queryFn: loadIconCatalog,
+		queryKey: ["icon-catalog-index"],
+		queryFn: loadIconCatalogIndex,
 		staleTime: Infinity,
 		gcTime: Infinity,
 	});
@@ -178,18 +210,27 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			selectedStyleId,
 			favoriteKeys,
 			recentKeys,
+			favoriteIcons: favorites as CatalogIcon[],
+			recentIcons: recent as CatalogIcon[],
 		}),
-		[collection, styleGroup, selectedStyleId, favoriteKeys, recentKeys],
+		[collection, styleGroup, selectedStyleId, favoriteKeys, recentKeys, favorites, recent],
 	);
 
 	const {
-		results: allIcons,
+		getIcon,
+		getByKey,
+		remember,
+		ensureRange,
 		total: totalShown,
 		ready: searchReady,
 		isStale,
-	} = useIconSearch(catalogQuery.data?.icons, search, searchFilters);
+		catalogReady,
+		loadedSets,
+		setCount,
+		counts: searchCounts,
+	} = useIconSearch(search, searchFilters);
 
-	const counts = catalogQuery.data?.counts;
+	const counts = catalogQuery.data?.counts ?? searchCounts;
 
 	const curatedSetIds = React.useMemo(
 		() => new Set(ICON_SETS.map((s) => s.id)),
@@ -260,8 +301,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 		const candidates =
 			selectedKeys.size > 1
-				? allIcons
-						.filter((icon) => selectedKeys.has(iconKey(icon)))
+				? [...selectedKeys]
+						.map((key) => getByKey(key))
+						.filter((icon): icon is CatalogIcon => Boolean(icon))
 						.slice(0, MAX_MORPH_SEQUENCE)
 				: [focusedIcon];
 		const ok: CatalogIcon[] = [];
@@ -284,7 +326,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setMorphActiveKey(iconKey(ok[0]!));
 		setFocusedIcon(ok[0]!);
 		setMorphMode(true);
-	}, [allIcons, focusedIcon, morphMode, selectedKeys]);
+	}, [focusedIcon, getByKey, morphMode, selectedKeys]);
 
 	const addMorphIcon = React.useCallback(async (icon: WorkspaceIcon) => {
 		const key = iconKey(icon);
@@ -311,7 +353,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setFocusedIcon(icon as CatalogIcon);
 		pushRecent(icon);
 		setRecentVersion((v) => v + 1);
-	}, []);
+		remember(icon as CatalogIcon);
+	}, [remember]);
 
 	const selectMorphIcon = React.useCallback((key: string) => {
 		setMorphActiveKey(key);
@@ -416,14 +459,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	const selectedIcons = React.useMemo(() => {
 		if (selectedKeys.size === 0) return [] as CatalogIcon[];
-		const byKey = new Map(allIcons.map((icon) => [iconKey(icon), icon]));
 		const out: CatalogIcon[] = [];
 		for (const key of selectedKeys) {
-			const icon = byKey.get(key);
+			const icon = getByKey(key);
 			if (icon) out.push(icon);
 		}
 		return out;
-	}, [allIcons, selectedKeys]);
+	}, [getByKey, selectedKeys]);
 
 	const isWorkspaceCollection =
 		collection === "favorites" || collection === "recent";
@@ -441,7 +483,11 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		? collection === "favorites"
 			? `${favorites.length.toLocaleString()} saved`
 			: `${recent.length.toLocaleString()} recent`
-		: `${totalShown.toLocaleString()} icons`;
+		: `${totalShown.toLocaleString()} icons${
+				!catalogReady && collection === "all" && setCount > 0
+					? ` · ${loadedSets}/${setCount} libraries`
+					: ""
+			}`;
 
 	const selectStyleGroup = React.useCallback(
 		(next: IconStyleFilter) => {
@@ -524,10 +570,11 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	}, []);
 
 	const focusIcon = React.useCallback((icon: CatalogIcon | WorkspaceIcon) => {
+		remember(icon as CatalogIcon);
 		setFocusedIcon(icon as CatalogIcon);
 		setSelectedKeys(new Set([iconKey(icon)]));
 		markRecent(icon);
-	}, []);
+	}, [remember]);
 
 	const clearSelection = React.useCallback(() => {
 		setFocusedIcon(null);
@@ -547,8 +594,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 			const key = cell.dataset.iconKey;
 			const idx = Number(cell.dataset.iconIndex);
-			const icon = allIcons[idx];
+			const icon = getIcon(idx);
 			if (!key || !icon) return;
+			remember(icon);
 
 			if (morphMode) {
 				void addMorphIcon(icon);
@@ -571,8 +619,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					const end = Math.max(lastSelectedIndexRef.current, idx);
 					const next = new Set(prev);
 					for (let j = start; j <= end; j++) {
-						const it = allIcons[j];
+						const it = getIcon(j);
 						if (!it) continue;
+						remember(it);
 						next.add(iconKey(it));
 					}
 					return next;
@@ -582,26 +631,27 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			});
 			lastSelectedIndexRef.current = idx;
 		},
-		[addMorphIcon, allIcons, morphMode],
+		[addMorphIcon, getIcon, morphMode, remember],
 	);
 
 	const moveFocus = React.useCallback(
 		(delta: number) => {
-			if (allIcons.length === 0) return;
-			const currentIdx = focusedIcon
-				? allIcons.findIndex((icon) => iconKey(icon) === iconKey(focusedIcon))
-				: -1;
+			if (totalShown === 0) return;
+			const currentIdx = lastSelectedIndexRef.current ?? -1;
 			const nextIdx = Math.min(
 				Math.max((currentIdx < 0 ? 0 : currentIdx) + delta, 0),
-				allIcons.length - 1,
+				totalShown - 1,
 			);
-			const next = allIcons[nextIdx];
-			if (!next) return;
+			const next = getIcon(nextIdx);
+			if (!next) {
+				ensureRange(nextIdx, nextIdx + 1);
+				return;
+			}
 			focusIcon(next);
 			lastSelectedIndexRef.current = nextIdx;
 			gridRef.current?.scrollToIndex(nextIdx);
 		},
-		[allIcons, focusIcon, focusedIcon],
+		[ensureRange, focusIcon, getIcon, totalShown],
 	);
 
 	React.useEffect(() => {
@@ -851,13 +901,17 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	]);
 
 	const showLoading =
-		catalogQuery.isLoading || (!searchReady && !catalogQuery.isError);
+		!isWorkspaceCollection &&
+		!searchReady &&
+		totalShown === 0 &&
+		!catalogQuery.isError;
 	const showEmptyWorkspace =
-		isWorkspaceCollection && allIcons.length === 0 && !showLoading;
+		isWorkspaceCollection && totalShown === 0 && !showLoading;
 	const showEmptySearch =
 		!isWorkspaceCollection &&
 		!showLoading &&
-		allIcons.length === 0 &&
+		searchReady &&
+		totalShown === 0 &&
 		(search.trim().length > 0 || styleGroup === "animated");
 
 	return (
@@ -865,7 +919,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			className="flex min-h-0 flex-1 flex-col overflow-hidden bg-black"
 			style={{ height: "100vh", minHeight: "100vh" }}
 		>
-			<div className="grid h-full min-h-0 flex-1 grid-rows-1 overflow-hidden lg:grid-cols-[15.5rem_minmax(0,1fr)_22rem]">
+			<div
+				className="grid h-full min-h-0 flex-1 grid-rows-1 overflow-hidden lg:grid-cols-[15.5rem_minmax(0,1fr)_var(--inspector-w)]"
+				style={
+					{
+						"--inspector-w": `${inspectorWidth}px`,
+					} as React.CSSProperties
+				}
+			>
 				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
 					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
@@ -1042,7 +1103,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<Input
 									ref={searchInputRef}
 									aria-label="Search icons"
-									className="h-10 rounded-lg border-white/14 bg-transparent pr-24 pl-10 text-[13px] tracking-tight placeholder:text-white/30 hover:border-white/22 focus-visible:border-white/28 focus-visible:bg-transparent"
+									className="h-10 rounded-[3px] border-white/14 bg-transparent pr-24 pl-10 text-[13px] tracking-tight placeholder:text-white/30 hover:border-white/22 focus-visible:border-white/28 focus-visible:bg-transparent"
 									placeholder="Search icons, collections, styles…"
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
@@ -1159,7 +1220,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 						) : (
 							<VirtualIconGrid
 								ref={gridRef}
-								icons={allIcons}
+								count={totalShown}
+								getIcon={getIcon}
+								ensureRange={ensureRange}
 								selectedKeys={
 									morphMode
 										? new Set(morphIcons.map((icon) => iconKey(icon)))
@@ -1181,6 +1244,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				</main>
 
 				<IconInspector
+					width={inspectorWidth}
+					onWidthChange={handleInspectorWidthChange}
 					focusedIcon={focusedIcon}
 					selectedIcons={selectedIcons}
 					selectedCount={selectedKeys.size}

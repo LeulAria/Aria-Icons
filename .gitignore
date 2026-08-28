@@ -48,6 +48,7 @@ coverage
 .cache
 tmp
 temp
+promo/
 
 # Fetched icon sources (rebuilt via apps/web scripts — see README)
 apps/web/icons/iconify/
@@ -55,4 +56,6 @@ apps/web/icons/thesvg/
 apps/web/icons/thesvg.json
 # Generated catalogs (rebuilt by `bun run generate-icons`)
 apps/web/public/icons-meta.json
+apps/web/public/icons-meta-index.json
+apps/web/public/icons-meta/
 apps/web/icons-name.json

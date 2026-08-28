@@ -314,6 +314,54 @@ async function generate() {
 	const metaPath = path.join(publicDir, "icons-meta.json");
 	await fs.writeFile(metaPath, JSON.stringify(meta), "utf8");
 
+	const vendored = new Set(ICON_SETS.map((s) => s.id));
+	const hasLine = new Set<string>();
+	const present = new Set<string>();
+	const bySet = new Map<string, IconsMetaFile["icons"]>();
+	for (const row of b.icons) {
+		const setId = b.sets[row[0]];
+		if (!setId) continue;
+		present.add(setId);
+		if (row[2] === 0) hasLine.add(setId);
+		const list = bySet.get(setId);
+		if (list) list.push(row);
+		else bySet.set(setId, [row]);
+	}
+	const iconify = b.sets.filter(
+		(id) => present.has(id) && !vendored.has(id) && id !== "thesvg",
+	);
+	const loadOrder = [
+		...iconify.filter((id) => hasLine.has(id)),
+		...iconify.filter((id) => !hasLine.has(id)),
+		...(present.has("thesvg") ? (["thesvg"] as const) : []),
+		...ICON_SETS.map((s) => s.id).filter((id) => present.has(id)),
+	];
+
+	const index = {
+		v: 3 as const,
+		generatedAt: meta.generatedAt,
+		sets: meta.sets,
+		styles: meta.styles,
+		tagsList: [] as string[][],
+		counts: meta.counts,
+		loadOrder,
+	};
+	const indexPath = path.join(publicDir, "icons-meta-index.json");
+	await fs.writeFile(indexPath, JSON.stringify(index), "utf8");
+
+	const setsDir = path.join(publicDir, "icons-meta", "sets");
+	await fs.rm(setsDir, { recursive: true, force: true });
+	await fs.mkdir(setsDir, { recursive: true });
+	await Promise.all(
+		[...bySet.entries()].map(([setId, icons]) =>
+			fs.writeFile(
+				path.join(setsDir, `${setId}.json`),
+				JSON.stringify(icons),
+				"utf8",
+			),
+		),
+	);
+
 	const namesOutput = {
 		"icons-names": b.iconsNames,
 		all: Array.from(b.allIcons).sort(),
@@ -322,8 +370,12 @@ async function generate() {
 	await fs.writeFile(namesPath, JSON.stringify(namesOutput), "utf-8");
 
 	const metaStat = await fs.stat(metaPath);
+	const indexStat = await fs.stat(indexPath);
 	console.log(
 		`✅ Generated public/icons-meta.json (${b.icons.length.toLocaleString()} icons, ${b.sets.length} sets, ${(metaStat.size / 1024 / 1024).toFixed(2)} MB)`,
+	);
+	console.log(
+		`✅ Generated public/icons-meta-index.json (${(indexStat.size / 1024).toFixed(1)} KB) + ${bySet.size} set shards`,
 	);
 	console.log(
 		`✅ Generated icons-name.json (${b.allIcons.size.toLocaleString()} unique names)`,

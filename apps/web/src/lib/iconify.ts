@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { FORCE_FILL_SET_IDS } from "./icon-sets";
 
 /**
  * Server-side support for Iconify icon sets (the data model behind Icônes).
@@ -66,6 +67,7 @@ export function isLogoOrColoredSet(
 	prefix: string,
 	collections: IconifyCollectionsFile | null | undefined,
 ): boolean {
+	if (FORCE_FILL_SET_IDS.has(prefix)) return true;
 	const info = collections?.[prefix];
 	if (info?.palette) return true;
 	const category = (info?.category ?? "").trim().toLowerCase();

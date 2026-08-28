@@ -5,7 +5,10 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { Copy, Download, Heart, SlidersHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buildIconSvgUrl } from "@/lib/icon-export";
+import { loadQueuedIconSrc } from "@/lib/icon-svg-queue";
 import { iconKey, type WorkspaceIcon } from "@/lib/icon-workspace";
+
+const ScrollRootContext = React.createContext<HTMLElement | null>(null);
 
 export type Density = "compact" | "comfortable" | "spacious";
 
@@ -62,14 +65,42 @@ const IconGridCell = React.memo(function IconGridCell({
 	onDownload: (icon: WorkspaceIcon) => void;
 	onCustomize: (icon: WorkspaceIcon) => void;
 }) {
-	const src = buildIconSvgUrl(icon, {
+	const url = buildIconSvgUrl(icon, {
 		size: iconSize,
 		stroke: 1,
 		color: "#ffffff",
 	});
+	const cellRef = React.useRef<HTMLDivElement | null>(null);
+	const scrollRoot = React.useContext(ScrollRootContext);
+	const [src, setSrc] = React.useState<string | undefined>();
+
+	React.useEffect(() => {
+		const node = cellRef.current;
+		if (!node) return;
+		let cancelled = false;
+		setSrc(undefined);
+		const io = new IntersectionObserver(
+			(entries) => {
+				if (!entries[0]?.isIntersecting) return;
+				io.disconnect();
+				void loadQueuedIconSrc(url)
+					.then((next) => {
+						if (!cancelled) setSrc(next);
+					})
+					.catch(() => {});
+			},
+			{ root: scrollRoot, rootMargin: "80px", threshold: 0.01 },
+		);
+		io.observe(node);
+		return () => {
+			cancelled = true;
+			io.disconnect();
+		};
+	}, [url, scrollRoot]);
 
 	return (
 		<div
+			ref={cellRef}
 			role="button"
 			tabIndex={0}
 			aria-label={icon.name}
@@ -95,17 +126,24 @@ const IconGridCell = React.memo(function IconGridCell({
 					{morphIndex}
 				</span>
 			) : null}
-			<img
-				alt=""
-				loading="lazy"
-				decoding="async"
-				className={cn(
-					"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
-					active && "scale-110",
-				)}
-				style={{ width: iconSize, height: iconSize }}
-				src={src}
-			/>
+			{src ? (
+				<img
+					alt=""
+					decoding="async"
+					className={cn(
+						"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+						active && "scale-110",
+					)}
+					style={{ width: iconSize, height: iconSize }}
+					src={src}
+				/>
+			) : (
+				<span
+					aria-hidden
+					className="rounded-[2px] bg-white/[0.06]"
+					style={{ width: iconSize, height: iconSize }}
+				/>
+			)}
 
 			<span
 				className={cn(
@@ -201,7 +239,9 @@ export type VirtualIconGridHandle = {
 export const VirtualIconGrid = React.forwardRef<
 	VirtualIconGridHandle,
 	{
-		icons: WorkspaceIcon[];
+		count: number;
+		getIcon: (index: number) => WorkspaceIcon | undefined;
+		ensureRange?: (start: number, end: number) => void;
 		selectedKeys: Set<string>;
 		favoriteKeys: Set<string>;
 		morphActiveKey?: string | null;
@@ -216,7 +256,9 @@ export const VirtualIconGrid = React.forwardRef<
 	}
 >(function VirtualIconGrid(
 	{
-		icons,
+		count,
+		getIcon,
+		ensureRange,
 		selectedKeys,
 		favoriteKeys,
 		morphActiveKey = null,
@@ -256,7 +298,7 @@ export const VirtualIconGrid = React.forwardRef<
 		[density, width],
 	);
 
-	const rowCount = Math.ceil(icons.length / columnCount) || 0;
+	const rowCount = Math.ceil(count / columnCount) || 0;
 	const rowHeight =
 		width > 0
 			? (width - GAP_PX * (columnCount - 1)) / columnCount + GAP_PX
@@ -266,7 +308,7 @@ export const VirtualIconGrid = React.forwardRef<
 		count: rowCount,
 		getScrollElement: () => scrollParentRef.current,
 		estimateSize: () => rowHeight,
-		overscan: 6,
+		overscan: 2,
 	});
 
 	React.useEffect(() => {
@@ -286,58 +328,87 @@ export const VirtualIconGrid = React.forwardRef<
 	);
 
 	const virtualRows = virtualizer.getVirtualItems();
+	const rangeStart = virtualRows[0] ? virtualRows[0].index * columnCount : 0;
+	const lastRow = virtualRows[virtualRows.length - 1];
+	const rangeEnd = lastRow ? (lastRow.index + 1) * columnCount : 0;
+
+	React.useEffect(() => {
+		ensureRange?.(rangeStart, rangeEnd);
+	}, [ensureRange, rangeStart, rangeEnd]);
 
 	return (
-		<div
-			className="relative w-full [contain:layout_paint]"
-			style={{ height: Math.max(rowCount * rowHeight, 0) }}
-			onClick={onGridClick}
-		>
-			{virtualRows.map((row) => {
-				const start = row.index * columnCount;
-				const rowIcons = icons.slice(start, start + columnCount);
-				return (
-					<div
-						key={row.key}
-						className="absolute top-0 left-0 grid w-full"
-						style={{
-							height: rowHeight,
-							transform: `translateY(${row.index * rowHeight}px)`,
-							gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
-							gap: GAP_PX,
-						}}
-					>
-						{rowIcons.map((icon, col) => {
-							const index = start + col;
-							const key = iconKey(icon);
-							const morphIndex = morphMode
-								? [...selectedKeys].indexOf(key) + 1
-								: 0;
-							return (
-								<IconGridCell
-									key={key}
-									icon={icon}
-									index={index}
-									keyId={key}
-									active={
-										morphMode
-											? morphActiveKey === key
-											: selectedKeys.has(key)
-									}
-									favorited={favoriteKeys.has(key)}
-									morphMode={morphMode}
-									morphIndex={morphIndex > 0 ? morphIndex : undefined}
-									iconSize={GRID_ICON_SIZE[density]}
-									onFavorite={onFavorite}
-									onCopy={onCopy}
-									onDownload={onDownload}
-									onCustomize={onCustomize}
-								/>
-							);
-						})}
-					</div>
-				);
-			})}
-		</div>
+		<ScrollRootContext.Provider value={scrollParentRef.current}>
+			<div
+				className="relative w-full [contain:layout_paint]"
+				style={{ height: Math.max(rowCount * rowHeight, 0) }}
+				onClick={onGridClick}
+			>
+				{virtualRows.map((row) => {
+					const start = row.index * columnCount;
+					const cells = Array.from(
+						{ length: Math.min(columnCount, count - start) },
+						(_, col) => start + col,
+					);
+					return (
+						<div
+							key={row.key}
+							className="absolute top-0 left-0 grid w-full"
+							style={{
+								height: rowHeight,
+								transform: `translateY(${row.index * rowHeight}px)`,
+								gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
+								gap: GAP_PX,
+							}}
+						>
+							{cells.map((index) => {
+								const icon = getIcon(index);
+								if (!icon) {
+									return (
+										<div
+											key={`pending-${index}`}
+											className="flex aspect-square items-center justify-center rounded-[2px]"
+										>
+											<span
+												aria-hidden
+												className="rounded-[2px] bg-white/[0.06]"
+												style={{
+													width: GRID_ICON_SIZE[density],
+													height: GRID_ICON_SIZE[density],
+												}}
+											/>
+										</div>
+									);
+								}
+								const key = iconKey(icon);
+								const morphIndex = morphMode
+									? [...selectedKeys].indexOf(key) + 1
+									: 0;
+								return (
+									<IconGridCell
+										key={key}
+										icon={icon}
+										index={index}
+										keyId={key}
+										active={
+											morphMode
+												? morphActiveKey === key
+												: selectedKeys.has(key)
+										}
+										favorited={favoriteKeys.has(key)}
+										morphMode={morphMode}
+										morphIndex={morphIndex > 0 ? morphIndex : undefined}
+										iconSize={GRID_ICON_SIZE[density]}
+										onFavorite={onFavorite}
+										onCopy={onCopy}
+										onDownload={onDownload}
+										onCustomize={onCustomize}
+									/>
+								);
+							})}
+						</div>
+					);
+				})}
+			</div>
+		</ScrollRootContext.Provider>
 	);
 });
