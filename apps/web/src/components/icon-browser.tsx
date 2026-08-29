@@ -14,9 +14,10 @@ import {
 	SIDEBAR_PINNED_ICONIFY_SET,
 	sidebarCuratedRank,
 } from "@/lib/icon-set-order";
-import { GitPullRequestArrow, Search, X } from "lucide-react";
+import { GitPullRequestArrow, Heart, Search, X } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { WelcomeDialog } from "@/components/welcome-dialog";
 import { GitHubStars } from "@/components/github-stars";
@@ -100,9 +101,13 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
+	const pathname = usePathname();
+	const router = useRouter();
 	const [styleGroup, setStyleGroup] = React.useState<IconStyleFilter>("both");
 	const [search, setSearch] = React.useState("");
-	const [collection, setCollection] = React.useState<CollectionId>("all");
+	const [collection, setCollection] = React.useState<CollectionId>(() =>
+		pathname === "/favorites" ? "favorites" : "all",
+	);
 	const [selectedStyleId, setSelectedStyleId] = React.useState<string>("both");
 	const [focusedIcon, setFocusedIcon] = React.useState<CatalogIcon | null>(null);
 	const [selectedKeys, setSelectedKeys] = React.useState<Set<string>>(
@@ -211,8 +216,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			selectedStyleId,
 			favoriteKeys,
 			recentKeys,
-			favoriteIcons: favorites as CatalogIcon[],
-			recentIcons: recent as CatalogIcon[],
+			favoriteIcons: favorites,
+			recentIcons: recent,
 		}),
 		[collection, styleGroup, selectedStyleId, favoriteKeys, recentKeys, favorites, recent],
 	);
@@ -420,8 +425,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			setMorphMode(false);
 			setMorphIcons([]);
 			setMorphActiveKey(null);
+			if (pathname === "/favorites") router.push("/");
 		},
-		[styleGroup],
+		[pathname, router, styleGroup],
 	);
 
 	const openFocusedSet = React.useCallback(
@@ -430,6 +436,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			if (!set) return;
 			setCollection(set.id);
 			setSearch("");
+			if (pathname === "/favorites") router.push("/");
 			if (styleGroup === "animated" && !isAnimatedSet(set.id)) {
 				setStyleGroup("both");
 				setSelectedStyleId("both");
@@ -445,7 +452,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				null;
 			if (preferred) setSelectedStyleId(preferred.id);
 		},
-		[sets, styleGroup],
+		[pathname, router, sets, styleGroup],
 	);
 
 	const allCountForGroup = React.useMemo(() => {
@@ -498,16 +505,36 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setStyleGroup(next);
 	}, []);
 
-	const selectCollection = (id: CollectionId) => {
-		setCollection(id);
+	const resetBrowseSelection = React.useCallback(() => {
 		setFocusedIcon(null);
 		setSelectedKeys(new Set());
 		lastSelectedIndexRef.current = null;
 		setMorphMode(false);
 		setMorphIcons([]);
 		setMorphActiveKey(null);
-		if (id === "all") setSelectedStyleId(styleGroup);
-	};
+	}, []);
+
+	const selectCollection = React.useCallback(
+		(id: CollectionId) => {
+			setCollection(id);
+			resetBrowseSelection();
+			if (id === "all") setSelectedStyleId(styleGroup);
+			const nextPath = id === "favorites" ? "/favorites" : "/";
+			if (pathname !== nextPath) router.push(nextPath);
+		},
+		[pathname, resetBrowseSelection, router, styleGroup],
+	);
+
+	React.useEffect(() => {
+		if (pathname === "/favorites") {
+			setCollection("favorites");
+			resetBrowseSelection();
+			return;
+		}
+		if (pathname === "/") {
+			setCollection((id) => (id === "favorites" ? "all" : id));
+		}
+	}, [pathname, resetBrowseSelection]);
 
 	const markRecent = (icon: WorkspaceIcon) => {
 		pushRecent(icon);
@@ -886,6 +913,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		handleFavorite,
 		quickCopy,
 		quickDownload,
+		selectCollection,
 		selectStyleGroup,
 	]);
 
@@ -919,7 +947,15 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
 							<div className="flex min-w-0 items-center justify-between gap-2">
-								<div className="flex min-w-0 items-center gap-2.5">
+								<Link
+									href="/"
+									aria-label="Aria Icons home"
+									onClick={(e) => {
+										e.preventDefault();
+										selectCollection("all");
+									}}
+									className="flex min-w-0 items-center gap-2.5 rounded-md outline-none transition-opacity hover:opacity-80 focus-visible:ring-1 focus-visible:ring-white/25"
+								>
 									<img
 										src="/logo.svg"
 										alt=""
@@ -930,18 +966,45 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									<div className="truncate text-[15px] font-semibold tracking-tight text-white">
 										Aria Icons
 									</div>
-								</div>
+								</Link>
 								<GitHubStars />
 							</div>
 							<div className="mt-1 line-clamp-2 text-[11px] leading-4 text-white/40">
 								Search, customize, and export SVG icons from curated libraries.
 							</div>
-							<div className="mt-2 flex flex-row flex-wrap items-center gap-1">
+							<div className="mt-2 flex flex-col items-stretch">
 								<Button
 									variant="ghost"
 									size="sm"
 									asChild
-									className="h-auto px-2 py-2 text-xs text-muted-foreground hover:text-white"
+									className={cn(
+										"h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs has-[>svg]:px-2 hover:text-white",
+										collection === "favorites"
+											? "text-white"
+											: "text-muted-foreground",
+									)}
+								>
+									<Link
+										href="/favorites"
+										onClick={(e) => {
+											e.preventDefault();
+											selectCollection("favorites");
+										}}
+									>
+										<Heart
+											className={cn(
+												"size-3.5",
+												collection === "favorites" && "fill-current",
+											)}
+										/>
+										Favorites
+									</Link>
+								</Button>
+								<Button
+									variant="ghost"
+									size="sm"
+									asChild
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
 								>
 									<Link href="/changelog">
 										<img
@@ -949,7 +1012,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 											alt=""
 											width={14}
 											height={14}
-											className="mr-1.5"
+											className="size-3.5"
 										/>
 										View Changelogs
 									</Link>
@@ -958,14 +1021,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									variant="ghost"
 									size="sm"
 									onClick={() => setMcpDialogOpen(true)}
-									className="h-auto px-2 py-2 text-xs text-muted-foreground hover:text-white"
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
 								>
 									<img
 										src="/mcp.svg"
 										alt=""
 										width={14}
 										height={14}
-										className="mr-1.5"
+										className="size-3.5"
 									/>
 									Add MCP Server
 								</Button>
@@ -973,10 +1036,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									variant="ghost"
 									size="sm"
 									asChild
-									className="h-auto px-2 py-2 text-xs text-muted-foreground hover:text-white"
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
 								>
 									<Link href="/contribute">
-										<GitPullRequestArrow className="mr-1.5 size-3.5" />
+										<GitPullRequestArrow className="size-3.5" />
 										Contribute Icons
 									</Link>
 								</Button>
@@ -1024,13 +1087,6 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									count={allCountForGroup}
 									active={collection === "all"}
 									onClick={() => selectCollection("all")}
-								/>
-								<SidebarRow
-									label="Favorites"
-									subtitle="Saved icons"
-									count={favorites.length}
-									active={collection === "favorites"}
-									onClick={() => selectCollection("favorites")}
 								/>
 								<SidebarRow
 									label="Recently Used"

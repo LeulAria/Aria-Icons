@@ -1,6 +1,7 @@
 import { isAnimatedSet } from "@/lib/animated-sets";
 import type { CatalogIcon } from "@/lib/icon-catalog";
 import { FORCE_FILL_SET_IDS, type IconStyleFilter } from "@/lib/icon-sets";
+import type { WorkspaceIcon } from "@/lib/icon-workspace";
 import { compareIconsForBrowse } from "@/lib/icon-set-order";
 import { isFilledStyleId } from "@/lib/icon-stroke";
 import { iconKey } from "@/lib/icon-workspace";
@@ -43,8 +44,8 @@ export type SearchFilters = {
 	selectedStyleId: string;
 	favoriteKeys?: Set<string>;
 	recentKeys?: Set<string>;
-	favoriteIcons?: CatalogIcon[];
-	recentIcons?: CatalogIcon[];
+	favoriteIcons?: WorkspaceIcon[];
+	recentIcons?: WorkspaceIcon[];
 };
 
 export function matchesFilters(icon: CatalogIcon, filters: SearchFilters): boolean {

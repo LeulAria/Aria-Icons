@@ -1,15 +1,27 @@
 "use client";
 
 import * as React from "react";
-import { Check, Copy, X } from "lucide-react";
+import { Check, ChevronDown, Copy, X } from "lucide-react";
 import { CodeBlock } from "@/components/code-block";
 import { Mask } from "@/components/ui/mask";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import type { BundledLanguage } from "shiki";
+import {
+  CLI_RUNNER_PREFIX,
+  CLI_RUNNERS,
+  type CliRunner,
+} from "@/lib/icon-export";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type ClientTab = "cursor" | "claude" | "opencode" | "codex";
-type CliRunner = "npx" | "bunx" | "bash";
+type InstallRunner = CliRunner | "bash";
 
 const TABS: {
   id: ClientTab;
@@ -23,10 +35,9 @@ const TABS: {
   { id: "codex", label: "Codex", lang: "toml", icon: "/codex.svg" },
 ];
 
-const CLI_RUNNERS: { id: CliRunner; label: string }[] = [
-  { id: "npx", label: "npx" },
-  { id: "bunx", label: "bunx" },
-  { id: "bash", label: "bash" },
+const INSTALL_RUNNERS: { id: InstallRunner; label: string; logo?: string }[] = [
+  ...CLI_RUNNERS,
+  { id: "bash", label: "bash", logo: "/package-managers/bash.svg" },
 ];
 
 function useMcpUrl() {
@@ -72,7 +83,7 @@ export function McpDialog({
 }) {
   const mcpUrl = useMcpUrl();
   const [tab, setTab] = React.useState<ClientTab>("cursor");
-  const [cliRunner, setCliRunner] = React.useState<CliRunner>("npx");
+  const [cliRunner, setCliRunner] = React.useState<InstallRunner>("npx");
   const [origin, setOrigin] = React.useState("https://icons.leularia.com");
 
   React.useEffect(() => {
@@ -80,11 +91,9 @@ export function McpDialog({
   }, []);
 
   const cliCommand =
-    cliRunner === "npx"
-      ? "npx -y aria-icons@latest setup"
-      : cliRunner === "bunx"
-        ? "bunx aria-icons@latest setup"
-        : `curl -fsSL ${origin}/install.sh | bash`;
+    cliRunner === "bash"
+      ? `curl -fsSL ${origin}/install.sh | bash`
+      : `${CLI_RUNNER_PREFIX[cliRunner]} setup`;
 
   const configs = React.useMemo(() => {
     const cursor = `{
@@ -127,12 +136,12 @@ url = "${mcpUrl}"`;
       onOpenChange={onOpenChange}
       dismissible
       variant="blur"
-      className="flex items-center justify-center bg-black/20 p-4 backdrop-blur-[2px] sm:p-6"
+      className="flex items-center justify-center bg-[#2a2a2a]/70 p-4 backdrop-blur-[2px] sm:p-6"
     >
       <div
         className={cn(
           "relative flex max-h-[min(640px,calc(100vh-2rem))] w-full max-w-[560px] flex-col overflow-hidden rounded-2xl",
-          "border border-white/10 bg-[#111]/90 shadow-2xl backdrop-blur-[2px]",
+          "border border-white/10 bg-[#111] shadow-2xl",
           "animate-in fade-in-0 zoom-in-95 duration-100"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -190,42 +199,27 @@ url = "${mcpUrl}"`;
           </section>
 
           <section className="pb-5">
-            <h3 className="mb-2 text-[14px] font-medium leading-5 text-white">
-              Install CLI
-            </h3>
-            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-white/10 bg-transparent pl-4 pr-1.5">
-              <code className="min-w-0 flex-1 truncate font-mono text-[13px] text-white/80">
-                {cliCommand}
-              </code>
-              <div
-                role="tablist"
-                aria-label="Install runner"
-                className="flex shrink-0 items-center gap-0.5 rounded-full bg-white/[0.04] p-0.5"
-              >
-                {CLI_RUNNERS.map((runner) => {
-                  const selected = cliRunner === runner.id;
-                  return (
-                    <button
-                      key={runner.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={selected}
-                      onClick={() => setCliRunner(runner.id)}
-                      className={cn(
-                        "h-7 rounded-full px-2.5 font-mono text-[11px] font-medium transition-colors",
-                        selected
-                          ? "bg-white/10 text-white"
-                          : "text-white/40 hover:text-white/70",
-                      )}
-                    >
-                      {runner.label}
-                    </button>
-                  );
-                })}
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <h3 className="text-[14px] font-medium leading-5 text-white">
+                Install CLI
+              </h3>
+              <InstallRunnerDropdown
+                value={cliRunner}
+                onChange={setCliRunner}
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-[2px] border border-white/10 bg-black/30">
+              <div className="absolute right-1 top-1 z-10">
+                <CopyIconButton
+                  value={cliCommand}
+                  successLabel="Copied install command"
+                />
               </div>
-              <CopyIconButton
-                value={cliCommand}
-                successLabel="Copied install command"
+              <CodeBlock
+                key={cliCommand}
+                code={cliCommand}
+                lang="bash"
+                className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 text-[13px] [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-white/35"
               />
             </div>
           </section>
@@ -336,5 +330,64 @@ url = "${mcpUrl}"`;
         </div>
       </div>
     </Mask>
+  );
+}
+
+function InstallRunnerDropdown({
+  value,
+  onChange,
+}: {
+  value: InstallRunner;
+  onChange: (value: InstallRunner) => void;
+}) {
+  const selected =
+    INSTALL_RUNNERS.find((item) => item.id === value) ?? INSTALL_RUNNERS[0];
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          aria-label="Install runner"
+          className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[2px] border border-white/10 bg-white/[0.04] px-2.5 text-[12px] text-white/80 transition-colors hover:bg-white/[0.07] hover:text-white"
+        >
+          {selected?.logo ? (
+            <img
+              src={selected.logo}
+              alt=""
+              className="size-3.5 shrink-0 object-contain"
+            />
+          ) : null}
+          <span className="font-mono">{selected?.label}</span>
+          <ChevronDown className="size-3 shrink-0 text-white/40" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="end"
+        className="min-w-[8rem] border-white/10 bg-[#2a2a2a]/70 text-white backdrop-blur-md"
+      >
+        <DropdownMenuRadioGroup
+          value={value}
+          onValueChange={(next) => onChange(next as InstallRunner)}
+        >
+          {INSTALL_RUNNERS.map((item) => (
+            <DropdownMenuRadioItem
+              key={item.id}
+              value={item.id}
+              className="gap-2 text-[12px] text-white/75"
+            >
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt=""
+                  className="size-3.5 shrink-0 object-contain"
+                />
+              ) : null}
+              {item.label}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

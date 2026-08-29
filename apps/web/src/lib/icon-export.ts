@@ -184,6 +184,112 @@ export const COPY_FORMAT_LOGOS: Partial<Record<CopyFormat, string>> = {
   flutter: "/frameworks/flutter.svg",
 };
 
+export type CliFramework =
+  | "react"
+  | "vue"
+  | "svelte"
+  | "solid"
+  | "flutter"
+  | "react-native"
+  | "svg";
+
+export type CliAction = "add" | "get";
+export type CliRunner = "npx" | "bunx" | "pnpx" | "yarn";
+
+export const CLI_RUNNER_PREFIX: Record<CliRunner, string> = {
+  npx: "npx -y aria-icons@latest",
+  bunx: "bunx aria-icons@latest",
+  pnpx: "pnpx aria-icons@latest",
+  yarn: "yarn dlx aria-icons@latest",
+};
+
+export const CLI_RUNNERS: {
+  id: CliRunner;
+  label: string;
+  logo: string;
+}[] = [
+  { id: "npx", label: "npx", logo: "/package-managers/npx.svg" },
+  { id: "bunx", label: "bunx", logo: "/package-managers/bun.svg" },
+  { id: "pnpx", label: "pnpx", logo: "/package-managers/pnpm.svg" },
+  { id: "yarn", label: "yarn", logo: "/package-managers/yarn.svg" },
+];
+
+export const CLI_FRAMEWORKS: {
+  id: CliFramework;
+  label: string;
+  logo?: string;
+}[] = [
+  { id: "react", label: "React", logo: "/frameworks/react.svg" },
+  { id: "vue", label: "Vue", logo: "/frameworks/vue.svg" },
+  { id: "svelte", label: "Svelte", logo: "/frameworks/svelte.svg" },
+  { id: "solid", label: "Solid", logo: "/frameworks/solid.svg" },
+  { id: "flutter", label: "Flutter", logo: "/frameworks/flutter.svg" },
+  { id: "react-native", label: "React Native", logo: "/frameworks/react-native.svg" },
+  { id: "svg", label: "SVG", logo: "/frameworks/svg.svg" },
+];
+
+export const CLI_ACTIONS: { id: CliAction; label: string; hint: string }[] = [
+  {
+    id: "add",
+    label: "add",
+    hint: "Writes the icon into your project as source files. Run from the repo root.",
+  },
+  {
+    id: "get",
+    label: "get",
+    hint: "Prints the icon source to the terminal. Does not write files.",
+  },
+];
+
+function shellQuote(value: string) {
+  if (/^[A-Za-z0-9_./:@+-]+$/.test(value)) return value;
+  return `'${value.replace(/'/g, `'\\''`)}'`;
+}
+
+const SHORT_COLLECTION_NAMES: Record<string, string> = {
+  "lucide-icons": "lucide",
+  "tabler-icons": "tabler",
+  feathers: "feather",
+  ionicons: "ion",
+  "akar-icons": "akar",
+  "bytesize-icons": "bytesize",
+  iconicicons: "iconic",
+};
+
+export function toCliIconId(setId: string, name: string) {
+  return `${SHORT_COLLECTION_NAMES[setId] ?? setId}:${name}`;
+}
+
+export function buildAriaIconsCliCommand({
+  runner,
+  action,
+  ids,
+  framework,
+  size,
+  color,
+}: {
+  runner: CliRunner;
+  action: CliAction;
+  ids: string[];
+  framework: CliFramework;
+  size: number;
+  color: string;
+}) {
+  const bin = CLI_RUNNER_PREFIX[runner];
+  const iconIds = (action === "get" ? ids.slice(0, 1) : ids).map(shellQuote);
+  const flags: string[] = [];
+  if (action === "add") {
+    if (framework !== "svg") flags.push(`--framework ${framework}`);
+  } else if (framework !== "svg") {
+    flags.push(`--format ${framework}`);
+  }
+  if (size !== 24) flags.push(`--size ${size}`);
+  if (color.toLowerCase() !== "#ffffff") {
+    flags.push(`--color ${shellQuote(color)}`);
+  }
+  return [bin, action, ...iconIds, ...flags].join(" ");
+}
+
 export const COPY_FORMAT_SETUP: Partial<Record<CopyFormat, CopyFormatSetup>> = {
   "react-native": {
     install: "npm install react-native-svg\n# or with Expo:\nnpx expo install react-native-svg",

@@ -114,9 +114,10 @@ const IconGridCell = React.memo(function IconGridCell({
 				}
 			}}
 			className={cn(
-				"group relative flex aspect-square cursor-pointer flex-col items-center px-1.5 pb-1.5 pt-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150 [content-visibility:auto] [contain-intrinsic-size:80px]",
-				"hover:bg-white/[0.04] focus-visible:bg-white/[0.06] focus-visible:ring-1 focus-visible:ring-white/25",
-				active && "bg-white/[0.06] ring-1 ring-inset ring-[#2D2D2D]",
+				"group relative z-0 flex aspect-square cursor-pointer flex-col items-center overflow-visible px-1.5 pb-1.5 pt-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150",
+				"hover:z-20 hover:bg-white/[0.04] focus-visible:bg-white/[0.06] focus-visible:ring-1 focus-visible:ring-white/25",
+				"focus-within:z-20",
+				active && "z-20 bg-white/[0.06] ring-1 ring-inset ring-[#2D2D2D]",
 				morphMode && morphIndex != null && "ring-1 ring-inset ring-white/20",
 				morphMode && active && "bg-white/[0.08] ring-white/55",
 			)}
@@ -159,40 +160,42 @@ const IconGridCell = React.memo(function IconGridCell({
 			<div
 				aria-hidden={!active}
 				className={cn(
-					"pointer-events-none absolute inset-x-1 bottom-6 flex items-center justify-center gap-0.5 rounded-[2px] bg-[#141414]/95 px-1 py-1 opacity-0 shadow-lg ring-1 ring-white/[0.06] transition-opacity duration-150 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100",
+					"pointer-events-none absolute left-1/2 top-full z-20 flex -translate-x-1/2 pt-1 opacity-0 transition-opacity duration-150 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100",
 					active && "pointer-events-auto opacity-100",
 				)}
 				onClick={(e) => e.stopPropagation()}
 				onMouseDown={(e) => e.stopPropagation()}
 			>
-				<ActionIcon
-					label="Copy SVG"
-					interactive={active}
-					onClick={() => onCopy(icon)}
-					icon={<Copy className="size-3" />}
-				/>
-				<ActionIcon
-					label="Download"
-					interactive={active}
-					onClick={() => onDownload(icon)}
-					icon={<Download className="size-3" />}
-				/>
-				<ActionIcon
-					label={favorited ? "Unfavorite" : "Favorite"}
-					interactive={active}
-					onClick={() => onFavorite(icon)}
-					icon={
-						<Heart
-							className={cn("size-3", favorited && "fill-white text-white")}
-						/>
-					}
-				/>
-				<ActionIcon
-					label="Customize"
-					interactive={active}
-					onClick={() => onCustomize(icon)}
-					icon={<SlidersHorizontal className="size-3" />}
-				/>
+				<div className="flex items-center justify-center gap-0.5 rounded-[2px] bg-[#141414] px-1 py-1 shadow-lg ring-1 ring-white/[0.06]">
+					<ActionIcon
+						label="Copy SVG"
+						interactive={active}
+						onClick={() => onCopy(icon)}
+						icon={<Copy className="size-3" />}
+					/>
+					<ActionIcon
+						label="Download"
+						interactive={active}
+						onClick={() => onDownload(icon)}
+						icon={<Download className="size-3" />}
+					/>
+					<ActionIcon
+						label={favorited ? "Unfavorite" : "Favorite"}
+						interactive={active}
+						onClick={() => onFavorite(icon)}
+						icon={
+							<Heart
+								className={cn("size-3", favorited && "fill-white text-white")}
+							/>
+						}
+					/>
+					<ActionIcon
+						label="Customize"
+						interactive={active}
+						onClick={() => onCustomize(icon)}
+						icon={<SlidersHorizontal className="size-3" />}
+					/>
+				</div>
 			</div>
 		</div>
 	);
@@ -341,7 +344,7 @@ export const VirtualIconGrid = React.forwardRef<
 	return (
 		<ScrollRootContext.Provider value={scrollParentRef.current}>
 			<div
-				className="relative w-full [contain:layout_paint]"
+				className="relative w-full overflow-visible [contain:layout]"
 				style={{ height: Math.max(rowCount * rowHeight, 0) }}
 				onClick={onGridClick}
 			>
@@ -351,10 +354,21 @@ export const VirtualIconGrid = React.forwardRef<
 						{ length: Math.min(columnCount, count - start) },
 						(_, col) => start + col,
 					);
+					const rowHasActive = cells.some((index) => {
+						const icon = getIcon(index);
+						if (!icon) return false;
+						const key = iconKey(icon);
+						return morphMode
+							? morphActiveKey === key
+							: selectedKeys.has(key);
+					});
 					return (
 						<div
 							key={row.key}
-							className="absolute top-0 left-0 grid w-full"
+							className={cn(
+								"absolute top-0 left-0 grid w-full overflow-visible hover:z-20 focus-within:z-20",
+								rowHasActive && "z-20",
+							)}
 							style={{
 								height: rowHeight,
 								transform: `translateY(${row.index * rowHeight}px)`,

@@ -255,6 +255,18 @@ body {
   user-select: none;
 }
 
+.code-block-wrap pre,
+.code-block-wrap code,
+.code-block-wrap .line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.code-block-wrap .line {
+  display: block;
+}
+
 /* Dark glass snack — matches the inspector, hugs copy, no colored chrome. */
 [data-sonner-toaster] {
   font-family: inherit;

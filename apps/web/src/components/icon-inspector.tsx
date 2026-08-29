@@ -7,19 +7,34 @@ import { Slider } from "@/components/ui/slider";
 import { Loader } from "@/components/ui/loader";
 import { toast } from "sonner";
 import JSZip from "jszip";
-import { ArrowRight, Check, Copy, Download, Heart, X } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Copy, Download, Heart, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
+  buildAriaIconsCliCommand,
   buildIconSvgUrl,
+  CLI_ACTIONS,
+  CLI_FRAMEWORKS,
+  CLI_RUNNERS,
   COPY_FORMAT_LABELS,
   COPY_FORMAT_LOGOS,
   COPY_FORMAT_SETUP,
   fetchIconSvg,
   formatIconExport,
+  toCliIconId,
+  type CliAction,
+  type CliFramework,
+  type CliRunner,
   type CopyFormat,
   type IconExportCustomize,
   type IconExportRef,
 } from "@/lib/icon-export";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   formatMorphExport,
   loadMorphPaths,
@@ -33,6 +48,7 @@ import {
 } from "@/lib/icon-morph";
 import { MorphPlayground } from "@/components/morph-playground";
 import { UnderlineTabs } from "@/components/ui/underline-tabs";
+import { CodeBlock } from "@/components/code-block";
 
 type PreviewBg = "transparent" | "white" | "dark" | "checker";
 
@@ -57,6 +73,13 @@ const COPY_FORMATS: CopyFormat[] = [
   "solid",
   "flutter",
 ];
+
+const EXPORT_TABS = [
+  { id: "copy", label: "Copy" },
+  { id: "cli", label: "CLI" },
+] as const;
+
+type ExportTab = (typeof EXPORT_TABS)[number]["id"];
 
 function useDebouncedValue<T>(value: T, delayMs: number): T {
   const [debounced, setDebounced] = React.useState(value);
@@ -300,6 +323,11 @@ export function IconInspector({
   const [copiedSetup, setCopiedSetup] = React.useState<
     CopyFormat | MorphCopyFormat | null
   >(null);
+  const [exportTab, setExportTab] = React.useState<ExportTab>("copy");
+  const [cliFramework, setCliFramework] = React.useState<CliFramework>("react");
+  const [cliAction, setCliAction] = React.useState<CliAction>("add");
+  const [cliRunner, setCliRunner] = React.useState<CliRunner>("npx");
+  const [copiedCli, setCopiedCli] = React.useState(false);
   const [headerScrolled, setHeaderScrolled] = React.useState(false);
   const bodyScrollRef = React.useRef<HTMLDivElement>(null);
 
@@ -327,6 +355,41 @@ export function IconInspector({
 
   const exportIcons = morphMode && morphIcons.length > 0 ? morphIcons : selectedIcons;
   const exportCount = exportIcons.length;
+
+  const cliCommand = React.useMemo(() => {
+    const source =
+      cliAction === "get" && focusedIcon ? [focusedIcon] : exportIcons;
+    const ids = source.map((icon) => toCliIconId(icon.setId, icon.name));
+    if (ids.length === 0) return "";
+    return buildAriaIconsCliCommand({
+      runner: cliRunner,
+      action: cliAction,
+      ids,
+      framework: cliFramework,
+      size,
+      color,
+    });
+  }, [
+    cliAction,
+    cliFramework,
+    cliRunner,
+    color,
+    exportIcons,
+    focusedIcon,
+    size,
+  ]);
+
+  const copyCliCommand = React.useCallback(async () => {
+    if (!cliCommand) return;
+    try {
+      await navigator.clipboard.writeText(cliCommand);
+      setCopiedCli(true);
+      toast.success("Copied CLI command");
+      window.setTimeout(() => setCopiedCli(false), 1400);
+    } catch {
+      toast.error("Failed to copy CLI command");
+    }
+  }, [cliCommand]);
 
   const copyAs = React.useCallback(
     async (format: CopyFormat) => {
@@ -727,6 +790,72 @@ export function IconInspector({
         <div className="mx-5 h-px bg-white/[0.06]" />
 
         <Section title="Export">
+          <UnderlineTabs
+            ariaLabel="Export method"
+            value={exportTab}
+            onChange={setExportTab}
+            items={EXPORT_TABS}
+            className="mb-4"
+          />
+
+          {exportTab === "cli" ? (
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <CliDropdown
+                  label="Package runner"
+                  value={cliRunner}
+                  options={CLI_RUNNERS}
+                  onChange={setCliRunner}
+                />
+                <CliDropdown
+                  label="Framework"
+                  value={cliFramework}
+                  options={CLI_FRAMEWORKS.map((item) => ({
+                    id: item.id,
+                    label: item.label,
+                    logo: item.logo,
+                  }))}
+                  onChange={setCliFramework}
+                />
+                <CliDropdown
+                  label="Command"
+                  value={cliAction}
+                  options={CLI_ACTIONS}
+                  onChange={setCliAction}
+                />
+              </div>
+
+              <div className="relative overflow-hidden rounded-[2px] border border-white/10 bg-black/40">
+                <div className="absolute right-1 top-1 z-10">
+                  <button
+                    type="button"
+                    aria-label="Copy CLI command"
+                    disabled={!cliCommand}
+                    onClick={() => void copyCliCommand()}
+                    className="inline-flex size-8 items-center justify-center rounded-full text-white/55 transition-colors hover:text-white disabled:opacity-40"
+                  >
+                    {copiedCli ? (
+                      <Check className="size-3.5 text-white" />
+                    ) : (
+                      <Copy className="size-3.5" />
+                    )}
+                  </button>
+                </div>
+                {cliCommand ? (
+                  <CodeBlock
+                    code={cliCommand}
+                    lang="bash"
+                    className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-white/35"
+                  />
+                ) : (
+                  <pre className="p-3 pr-11 font-mono text-[12px] leading-[1.55] text-white/40">
+                    Select an icon to generate a command.
+                  </pre>
+                )}
+              </div>
+            </div>
+          ) : (
+            <>
           <div className="grid grid-cols-2 gap-2">
             {morphMode ? (
               <Button
@@ -883,6 +1012,8 @@ export function IconInspector({
               })}
             </div>
           </div>
+            </>
+          )}
         </Section>
       </div>
     </>
@@ -908,5 +1039,87 @@ export function IconInspector({
       ) : null}
       {body}
     </aside>
+  );
+}
+
+function CliDropdown<T extends string>({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: T;
+  options: { id: T; label: string; logo?: string; hint?: string }[];
+  onChange: (value: T) => void;
+}) {
+  const selected = options.find((item) => item.id === value) ?? options[0];
+  const described = options.some((item) => item.hint);
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          aria-label={label}
+          className="inline-flex h-8 min-w-0 max-w-full items-center gap-1.5 rounded-[2px] border border-white/10 bg-white/[0.04] px-2.5 text-[12px] text-white/80 transition-colors hover:bg-white/[0.07] hover:text-white"
+        >
+          {selected?.logo ? (
+            <img
+              src={selected.logo}
+              alt=""
+              className="size-3.5 shrink-0 object-contain"
+            />
+          ) : null}
+          <span className="truncate font-mono">{selected?.label}</span>
+          <ChevronDown className="size-3 shrink-0 text-white/40" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="start"
+        className={
+          described
+            ? "w-64 border-white/10 bg-[#171717] p-1.5 text-white shadow-xl"
+            : "min-w-40 border-white/10 bg-[#141414] text-white"
+        }
+      >
+        <DropdownMenuRadioGroup
+          value={value}
+          onValueChange={(next) => onChange(next as T)}
+        >
+          {options.map((item) => (
+            <DropdownMenuRadioItem
+              key={item.id}
+              value={item.id}
+              className={
+                described
+                  ? "items-start gap-0 py-2 px-2.5 text-white/75"
+                  : "gap-2 text-[12px] text-white/75"
+              }
+            >
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt=""
+                  className="size-3.5 shrink-0 object-contain"
+                />
+              ) : null}
+              {item.hint ? (
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <span className="text-[11px] font-semibold text-white">
+                    {item.label}
+                  </span>
+                  <span className="text-[11px] leading-4 whitespace-normal text-white/55">
+                    {item.hint}
+                  </span>
+                </span>
+              ) : (
+                <span>{item.label}</span>
+              )}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

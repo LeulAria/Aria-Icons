@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import type { CatalogIcon } from "@/lib/icon-catalog";
+import { asCatalogIcon, type CatalogIcon } from "@/lib/icon-catalog";
 import {
 	expandCatalogIcon,
 	getCatalogProgress,
@@ -10,22 +10,23 @@ import {
 	subscribeCatalog,
 } from "@/lib/icon-catalog-runtime";
 import type { SearchFilters } from "@/lib/icon-search";
-import { iconKey } from "@/lib/icon-workspace";
+import { iconKey, type WorkspaceIcon } from "@/lib/icon-workspace";
 
 function filterWorkspace(
-	items: CatalogIcon[] | undefined,
+	items: WorkspaceIcon[] | undefined,
 	query: string,
 ): CatalogIcon[] {
 	if (!items || items.length === 0) return [];
 	const needle = query.trim().toLowerCase();
-	if (!needle) return items;
-	return items.filter(
-		(icon) =>
-			icon.name.toLowerCase().includes(needle) ||
-			icon.setId.toLowerCase().includes(needle) ||
-			icon.styleId.toLowerCase().includes(needle) ||
-			icon.tags?.some((t) => t.includes(needle)),
-	);
+	const matched = !needle
+		? items
+		: items.filter(
+				(icon) =>
+					icon.name.toLowerCase().includes(needle) ||
+					icon.setId.toLowerCase().includes(needle) ||
+					icon.styleId.toLowerCase().includes(needle),
+			);
+	return matched.map(asCatalogIcon);
 }
 
 export type IconSearchState = {

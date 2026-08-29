@@ -35,6 +35,18 @@ export type CatalogIcon = WorkspaceIcon & {
 	tags?: string[];
 };
 
+export function asCatalogIcon(icon: WorkspaceIcon): CatalogIcon {
+	if ("group" in icon && (icon.group === "line" || icon.group === "solid")) {
+		return icon as CatalogIcon;
+	}
+	return {
+		...icon,
+		group: /^(solid|filled|fill|bulk|bold)$/i.test(icon.styleId)
+			? "solid"
+			: "line",
+	};
+}
+
 export type IconCatalog = {
 	generatedAt: string;
 	icons: CatalogIcon[];

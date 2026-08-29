@@ -17,11 +17,21 @@ if command -v bunx >/dev/null 2>&1; then
   exec bunx aria-icons@latest setup "$@"
 fi
 
+if command -v pnpx >/dev/null 2>&1; then
+  exec pnpx aria-icons@latest setup "$@"
+fi
+
+if command -v yarn >/dev/null 2>&1; then
+  exec yarn dlx aria-icons@latest setup "$@"
+fi
+
 if command -v npx >/dev/null 2>&1; then
   exec npx -y aria-icons@latest setup "$@"
 fi
 
-echo "Need bun or npm (npx) to install aria-icons." >&2
-echo "  bun: https://bun.sh" >&2
-echo "  npm: https://nodejs.org" >&2
+echo "Need bun, pnpm, yarn, or npm to install aria-icons." >&2
+echo "  bun:  https://bun.sh" >&2
+echo "  pnpm: https://pnpm.io" >&2
+echo "  yarn: https://yarnpkg.com" >&2
+echo "  npm:  https://nodejs.org" >&2
 exit 1
