@@ -1,0 +1,61 @@
+{
+  "name": "aria-icons",
+  "version": "0.1.1",
+  "description": "Find any icon, put it in your codebase, and let AI use it. CLI + MCP server for Aria Icons.",
+  "author": "Leul Aria",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "aria-icons.d.ts",
+  "bin": {
+    "aria-icons": "dist/index.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "skills",
+    "aria-icons.d.ts"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir dist --target node --minify --banner:'#!/usr/bin/env node' && chmod +x dist/index.js",
+    "dev": "bun run src/index.ts",
+    "test": "bun test",
+    "check-types": "bun test",
+    "prepublishOnly": "bun run build",
+    "release": "bumpp --commit \"chore(cli): release v%s\" --tag \"v%s\" --push"
+  },
+  "keywords": [
+    "mcp",
+    "icons",
+    "svg",
+    "cli",
+    "lucide",
+    "iconify",
+    "cursor",
+    "claude",
+    "model-context-protocol"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeulAria/Aria-Icons.git"
+  },
+  "homepage": "https://icons.leularia.com",
+  "bugs": {
+    "url": "https://github.com/LeulAria/Aria-Icons/issues"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bumpp": "^10.4.0",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

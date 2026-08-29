@@ -52,6 +52,7 @@ const COPY_FORMATS: CopyFormat[] = [
   "react",
   "react-native",
   "vue",
+  "svelte",
   "html",
   "solid",
   "flutter",

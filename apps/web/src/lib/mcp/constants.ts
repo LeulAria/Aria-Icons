@@ -33,7 +33,7 @@ export const SERVER_CAPABILITIES = {
 } as const;
 
 export const SERVER_INSTRUCTIONS =
-	"Aria Icons MCP server: 340k+ icons across UI sets (lucide, heroicons, tabler, …), theSVG brand logos, and 200+ Iconify sets (ph, mdi, ri, logos, …). Use search_icons to find icons by keyword (searches names, brand titles, aliases, and categories), list_icons to browse sets, and get_icon_svg with an iconId like 'heroicons-academic-cap' or 'thesvg-github' to retrieve SVG content.";
+	"Aria Icons MCP server: 340k+ icons across UI sets (lucide, heroicons, tabler, …), theSVG brand logos, and 200+ Iconify sets (ph, mdi, ri, logos, …). Prefer search_icons (ids like lucide:house), then get_icon / get_icon_component / add_icon_to_project. icon_id and iconId are both accepted. Use find_similar_icons / find_equivalent_icon when swapping collections. Remote HTTP cannot write the user's disk — add_icon_to_project returns source for the agent to save, or use stdio `npx -y aria-icons`.";
 
 /** Cache hints for static icon metadata (1 hour). */
 export const LIST_CACHE = {

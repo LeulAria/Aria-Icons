@@ -114,7 +114,7 @@ const IconGridCell = React.memo(function IconGridCell({
 				}
 			}}
 			className={cn(
-				"group relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded-[2px] p-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150 [contain:content] [content-visibility:auto] [contain-intrinsic-size:80px]",
+				"group relative flex aspect-square cursor-pointer flex-col items-center px-1.5 pb-1.5 pt-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150 [content-visibility:auto] [contain-intrinsic-size:80px]",
 				"hover:bg-white/[0.04] focus-visible:bg-white/[0.06] focus-visible:ring-1 focus-visible:ring-white/25",
 				active && "bg-white/[0.06] ring-1 ring-inset ring-[#2D2D2D]",
 				morphMode && morphIndex != null && "ring-1 ring-inset ring-white/20",
@@ -122,33 +122,35 @@ const IconGridCell = React.memo(function IconGridCell({
 			)}
 		>
 			{morphMode && morphIndex != null ? (
-				<span className="absolute left-1 top-1 grid size-4 place-items-center rounded-[3px] bg-white text-[9px] font-semibold text-black">
+				<span className="absolute left-1 top-1 z-10 grid size-4 place-items-center rounded-[3px] bg-white text-[9px] font-semibold text-black">
 					{morphIndex}
 				</span>
 			) : null}
-			{src ? (
-				<img
-					alt=""
-					decoding="async"
-					className={cn(
-						"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
-						active && "scale-110",
-					)}
-					style={{ width: iconSize, height: iconSize }}
-					src={src}
-				/>
-			) : (
-				<span
-					aria-hidden
-					className="rounded-[2px] bg-white/[0.06]"
-					style={{ width: iconSize, height: iconSize }}
-				/>
-			)}
+			<div className="flex min-h-0 flex-1 items-center justify-center">
+				{src ? (
+					<img
+						alt=""
+						decoding="async"
+						className={cn(
+							"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+							active && "scale-110",
+						)}
+						style={{ width: iconSize, height: iconSize }}
+						src={src}
+					/>
+				) : (
+					<span
+						aria-hidden
+						className="rounded-[2px] bg-white/[0.06]"
+						style={{ width: iconSize, height: iconSize }}
+					/>
+				)}
+			</div>
 
 			<span
 				className={cn(
-					"mt-2 max-w-full truncate px-1 text-[10px] leading-none text-white/0 transition-colors duration-150 group-hover:text-white/45",
-					active && "text-white/45",
+					"mt-1 w-full truncate px-0.5 text-center text-[10px] leading-tight text-white/55 transition-colors duration-150 group-hover:text-white/70",
+					active && "text-white/70",
 				)}
 			>
 				{icon.name}
@@ -157,7 +159,7 @@ const IconGridCell = React.memo(function IconGridCell({
 			<div
 				aria-hidden={!active}
 				className={cn(
-					"pointer-events-none absolute inset-x-1 bottom-1 flex items-center justify-center gap-0.5 rounded-[2px] bg-[#141414]/95 px-1 py-1 opacity-0 shadow-lg ring-1 ring-white/[0.06] transition-opacity duration-150 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100",
+					"pointer-events-none absolute inset-x-1 bottom-6 flex items-center justify-center gap-0.5 rounded-[2px] bg-[#141414]/95 px-1 py-1 opacity-0 shadow-lg ring-1 ring-white/[0.06] transition-opacity duration-150 group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100",
 					active && "pointer-events-auto opacity-100",
 				)}
 				onClick={(e) => e.stopPropagation()}

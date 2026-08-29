@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import type { BundledLanguage } from "shiki";
 
 type ClientTab = "cursor" | "claude" | "opencode" | "codex";
+type CliRunner = "npx" | "bunx" | "bash";
 
 const TABS: {
   id: ClientTab;
@@ -20,6 +21,12 @@ const TABS: {
   { id: "claude", label: "Claude Code", lang: "bash", icon: "/claude.svg" },
   { id: "opencode", label: "OpenCode", lang: "json", icon: "/opencode.svg" },
   { id: "codex", label: "Codex", lang: "toml", icon: "/codex.svg" },
+];
+
+const CLI_RUNNERS: { id: CliRunner; label: string }[] = [
+  { id: "npx", label: "npx" },
+  { id: "bunx", label: "bunx" },
+  { id: "bash", label: "bash" },
 ];
 
 function useMcpUrl() {
@@ -65,6 +72,19 @@ export function McpDialog({
 }) {
   const mcpUrl = useMcpUrl();
   const [tab, setTab] = React.useState<ClientTab>("cursor");
+  const [cliRunner, setCliRunner] = React.useState<CliRunner>("npx");
+  const [origin, setOrigin] = React.useState("https://icons.leularia.com");
+
+  React.useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
+
+  const cliCommand =
+    cliRunner === "npx"
+      ? "npx -y aria-icons@latest setup"
+      : cliRunner === "bunx"
+        ? "bunx aria-icons@latest setup"
+        : `curl -fsSL ${origin}/install.sh | bash`;
 
   const configs = React.useMemo(() => {
     const cursor = `{
@@ -138,7 +158,7 @@ url = "${mcpUrl}"`;
               </h2>
             </div>
             <p className="mt-1 text-[13px] leading-5 text-white/50">
-              Use Aria Icons from Cursor or any MCP-compatible client.
+              Remote MCP, or install the CLI with npx, bunx, or a bash one-liner.
             </p>
           </div>
           <div className="pr-1.5 pt-1.5">
@@ -165,6 +185,47 @@ url = "${mcpUrl}"`;
               <CopyIconButton
                 value={mcpUrl}
                 successLabel="Copied server URL"
+              />
+            </div>
+          </section>
+
+          <section className="pb-5">
+            <h3 className="mb-2 text-[14px] font-medium leading-5 text-white">
+              Install CLI
+            </h3>
+            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-white/10 bg-transparent pl-4 pr-1.5">
+              <code className="min-w-0 flex-1 truncate font-mono text-[13px] text-white/80">
+                {cliCommand}
+              </code>
+              <div
+                role="tablist"
+                aria-label="Install runner"
+                className="flex shrink-0 items-center gap-0.5 rounded-full bg-white/[0.04] p-0.5"
+              >
+                {CLI_RUNNERS.map((runner) => {
+                  const selected = cliRunner === runner.id;
+                  return (
+                    <button
+                      key={runner.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      onClick={() => setCliRunner(runner.id)}
+                      className={cn(
+                        "h-7 rounded-full px-2.5 font-mono text-[11px] font-medium transition-colors",
+                        selected
+                          ? "bg-white/10 text-white"
+                          : "text-white/40 hover:text-white/70",
+                      )}
+                    >
+                      {runner.label}
+                    </button>
+                  );
+                })}
+              </div>
+              <CopyIconButton
+                value={cliCommand}
+                successLabel="Copied install command"
               />
             </div>
           </section>
@@ -235,9 +296,9 @@ url = "${mcpUrl}"`;
             </h3>
             <ul className="divide-y divide-white/10 overflow-hidden rounded-[2px] border border-white/10 bg-transparent">
               {[
-                "List all available icons",
-                "Get the SVG for heroicons-academic-cap",
-                'Search icons named "arrow"',
+                "Search for a minimal outline calendar icon",
+                "Get lucide:house as a React component",
+                "Add lucide:house to this project",
               ].map((prompt) => (
                 <li
                   key={prompt}

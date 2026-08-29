@@ -9,6 +9,7 @@ export type CopyFormat =
   | "react"
   | "react-native"
   | "vue"
+  | "svelte"
   | "html"
   | "jsx"
   | "solid"
@@ -145,7 +146,9 @@ export function formatIconExport(
     case "react-native":
       return `// How to run:\n//   npm install react-native-svg\n//   # or with Expo:\n//   npx expo install react-native-svg\n\nimport Svg, { Path, G, Circle, Rect, Line, Polyline, Polygon } from "react-native-svg";\n\nexport function ${component}(props) {\n  return (\n    ${toReactNativeSvg(jsx)}\n  );\n}\n`;
     case "vue":
-      return `<template>\n  ${svg}\n</template>\n`;
+      return `<template>\n  ${svg.replace("<svg", '<svg v-bind="$attrs"')}\n</template>\n`;
+    case "svelte":
+      return `<script lang="ts">\n  let props = $props();\n</script>\n\n${svg.replace("<svg", "<svg {...props}")}\n`;
     case "solid":
       return `export function ${component}(props) {\n  return (\n    ${solidJsx.replace("<svg", "<svg {...props}")}\n  );\n}\n`;
     case "flutter":
@@ -162,6 +165,7 @@ export const COPY_FORMAT_LABELS: Record<CopyFormat, string> = {
   react: "React",
   "react-native": "React Native",
   vue: "Vue",
+  svelte: "Svelte",
   html: "HTML",
   jsx: "JSX",
   solid: "Solid",
@@ -174,6 +178,7 @@ export const COPY_FORMAT_LOGOS: Partial<Record<CopyFormat, string>> = {
   react: "/frameworks/react.svg",
   "react-native": "/frameworks/react-native.svg",
   vue: "/frameworks/vue.svg",
+  svelte: "/frameworks/svelte.svg",
   html: "/frameworks/html.svg",
   solid: "/frameworks/solid.svg",
   flutter: "/frameworks/flutter.svg",

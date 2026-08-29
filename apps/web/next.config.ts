@@ -20,6 +20,19 @@ const nextConfig: NextConfig = {
 			"./icons/iconify/prefixes.json",
 		],
 	},
+	async headers() {
+		return [
+			{
+				source: "/install.sh",
+				headers: [
+					{
+						key: "Content-Type",
+						value: "text/plain; charset=utf-8",
+					},
+				],
+			},
+		];
+	},
 };
 
 export default nextConfig;

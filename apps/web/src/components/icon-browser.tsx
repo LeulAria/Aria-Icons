@@ -117,6 +117,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	const [commandOpen, setCommandOpen] = React.useState(false);
 	const [commandQuery, setCommandQuery] = React.useState("");
 	const [density, setDensity] = React.useState<Density>("compact");
+	const [sidebarSearch, setSidebarSearch] = React.useState("");
 	const [inspectorWidth, setInspectorWidth] = React.useState(INSPECTOR_DEFAULT);
 	const [favoritesVersion, setFavoritesVersion] = React.useState(0);
 	const [recentVersion, setRecentVersion] = React.useState(0);
@@ -245,32 +246,36 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					: 0;
 				return { ...s, countForGroup };
 			})
-			.filter((s) => !counts || s.countForGroup > 0);
-	}, [sets, styleGroup, counts]);
+			.filter(
+				(s) => !counts || s.countForGroup > 0 || s.id === collection,
+			);
+	}, [sets, styleGroup, counts, collection]);
 
-	const sidebarCurated = React.useMemo(
-		() =>
-			setForSidebar
-				.filter(
-					(s) =>
-						curatedSetIds.has(s.id) ||
-						s.id === "thesvg" ||
-						SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
-				)
-				.sort((a, b) => sidebarCuratedRank(a.id) - sidebarCuratedRank(b.id)),
-		[setForSidebar, curatedSetIds],
-	);
-
-	const sidebarIconify = React.useMemo(
-		() =>
-			setForSidebar.filter(
+	const sidebarLibraries = React.useMemo(() => {
+		const curated = setForSidebar
+			.filter(
 				(s) =>
-					!curatedSetIds.has(s.id) &&
-					s.id !== "thesvg" &&
-					!SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
-			),
-		[setForSidebar, curatedSetIds],
-	);
+					curatedSetIds.has(s.id) ||
+					s.id === "thesvg" ||
+					SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
+			)
+			.sort((a, b) => sidebarCuratedRank(a.id) - sidebarCuratedRank(b.id));
+		const rest = setForSidebar.filter(
+			(s) =>
+				!curatedSetIds.has(s.id) &&
+				s.id !== "thesvg" &&
+				!SIDEBAR_PINNED_ICONIFY_SET.has(s.id),
+		);
+		const merged = [...curated, ...rest];
+		const q = sidebarSearch.trim().toLowerCase();
+		if (!q) return merged;
+		return merged.filter(
+			(s) =>
+				s.label.toLowerCase().includes(q) ||
+				s.id.toLowerCase().includes(q) ||
+				(s.homepage?.toLowerCase().includes(q) ?? false),
+		);
+	}, [setForSidebar, curatedSetIds, sidebarSearch]);
 
 	const disableMorph = React.useCallback(() => {
 		setMorphMode(false);
@@ -489,25 +494,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					: ""
 			}`;
 
-	const selectStyleGroup = React.useCallback(
-		(next: IconStyleFilter) => {
-			setStyleGroup(next);
-			if (next !== "animated") return;
-			if (
-				collection !== "all" &&
-				collection !== "favorites" &&
-				collection !== "recent" &&
-				!isAnimatedSet(collection)
-			) {
-				setCollection("all");
-				setSelectedStyleId("animated");
-				setFocusedIcon(null);
-				setSelectedKeys(new Set());
-				lastSelectedIndexRef.current = null;
-			}
-		},
-		[collection],
-	);
+	const selectStyleGroup = React.useCallback((next: IconStyleFilter) => {
+		setStyleGroup(next);
+	}, []);
 
 	const selectCollection = (id: CollectionId) => {
 		setCollection(id);
@@ -911,8 +900,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		!isWorkspaceCollection &&
 		!showLoading &&
 		searchReady &&
-		totalShown === 0 &&
-		(search.trim().length > 0 || styleGroup === "animated");
+		totalShown === 0;
 
 	return (
 		<div
@@ -999,6 +987,36 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							<div className="px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
 								Collections
 							</div>
+							<label className="group/search relative mx-5 mb-3 block">
+								<Search
+									aria-hidden
+									strokeWidth={1.6}
+									className="pointer-events-none absolute top-1/2 left-2 size-3.5 -translate-y-1/2 text-white/30 transition-colors duration-200 group-focus-within/search:text-white/65"
+								/>
+								<Input
+									aria-label="Search collections"
+									className="h-8 rounded-[3px] border-white/12 bg-transparent pr-7 pl-7 text-[12px] tracking-tight placeholder:text-white/30 hover:border-white/20 focus-visible:border-white/28 focus-visible:bg-transparent"
+									placeholder="Search collections…"
+									value={sidebarSearch}
+									onChange={(e) => setSidebarSearch(e.target.value)}
+									onKeyDown={(e) => {
+										if (e.key === "Escape") {
+											if (sidebarSearch) setSidebarSearch("");
+											else (e.target as HTMLInputElement).blur();
+										}
+									}}
+								/>
+								{sidebarSearch ? (
+									<button
+										type="button"
+										aria-label="Clear collection search"
+										onClick={() => setSidebarSearch("")}
+										className="absolute top-1/2 right-1.5 grid size-5 -translate-y-1/2 place-items-center text-white/30 transition-colors hover:text-white/70"
+									>
+										<X className="size-3" />
+									</button>
+								) : null}
+							</label>
 							<nav className="grid min-w-0">
 								<SidebarRow
 									label="All Icons"
@@ -1024,55 +1042,31 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							</nav>
 
 							{catalogQuery.isLoading ? (
-								<div className="mt-6 flex items-center gap-2 px-5 py-2 text-sm text-white/40">
+								<div className="mt-4 flex items-center gap-2 px-5 py-2 text-sm text-white/40">
 									<Loader size="sm" />
 									<span>Loading…</span>
 								</div>
 							) : catalogQuery.isError ? (
-								<div className="mt-6 px-5 py-2 text-sm text-destructive">
+								<div className="mt-4 px-5 py-2 text-sm text-destructive">
 									Failed to load libraries
 								</div>
+							) : sidebarLibraries.length > 0 ? (
+								<nav className="mt-1 grid min-w-0">
+									{sidebarLibraries.map((set) => (
+										<SidebarRow
+											key={set.id}
+											label={set.label}
+											subtitle={set.homepage ?? set.id}
+											count={set.countForGroup}
+											active={collection === set.id}
+											onClick={() => selectLibrary(set)}
+										/>
+									))}
+								</nav>
 							) : (
-								<>
-									{sidebarCurated.length > 0 ? (
-										<>
-											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
-												Curated
-											</div>
-											<nav className="grid min-w-0">
-												{sidebarCurated.map((set) => (
-													<SidebarRow
-														key={set.id}
-														label={set.label}
-														subtitle={set.homepage ?? set.id}
-														count={set.countForGroup}
-														active={collection === set.id}
-														onClick={() => selectLibrary(set)}
-													/>
-												))}
-											</nav>
-										</>
-									) : null}
-									{sidebarIconify.length > 0 ? (
-										<>
-											<div className="mt-6 px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
-												Iconify
-											</div>
-											<nav className="grid min-w-0">
-												{sidebarIconify.map((set) => (
-													<SidebarRow
-														key={set.id}
-														label={set.label}
-														subtitle={set.homepage ?? set.id}
-														count={set.countForGroup}
-														active={collection === set.id}
-														onClick={() => selectLibrary(set)}
-													/>
-												))}
-											</nav>
-										</>
-									) : null}
-								</>
+								<div className="px-5 py-3 text-[12px] text-white/35">
+									No collections match
+								</div>
 							)}
 						</div>
 					</div>
@@ -1203,20 +1197,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								hasQuery={search.trim().length > 0}
 							/>
 						) : showEmptySearch ? (
-							<div className="grid h-[50vh] place-items-center">
-								<div className="max-w-sm px-6 text-center">
-									<div className="text-base font-medium text-white">
-										{styleGroup === "animated" && search.trim().length === 0
-											? "No animated icons"
-											: "No icons found"}
-									</div>
-									<div className="mt-2 text-sm text-white/40">
-										{styleGroup === "animated" && search.trim().length === 0
-											? "Animated icons live in Material Line Icons, SVG Spinners, and Meteocons. Open All Icons to see them all."
-											: "Try a different name, library, or style."}
-									</div>
-								</div>
-							</div>
+							<EmptyStyleState
+								styleGroup={styleGroup}
+								hasQuery={search.trim().length > 0}
+							/>
 						) : (
 							<VirtualIconGrid
 								ref={gridRef}
@@ -1345,6 +1329,81 @@ function SidebarRow({
 	);
 }
 
+function SearchListIcon({
+	className,
+	...props
+}: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			className={className}
+			{...props}
+		>
+			<path
+				fill="none"
+				stroke="currentColor"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth="1"
+				d="M14 5h6m-6 3h3m4 3.5c0 5.25-4.25 9.5-9.5 9.5S2 16.75 2 11.5S6.25 2 11.5 2M22 22l-2-2"
+			/>
+		</svg>
+	);
+}
+
+function EmptyStyleState({
+	styleGroup,
+	hasQuery,
+}: {
+	styleGroup: IconStyleFilter;
+	hasQuery: boolean;
+}) {
+	const copy = hasQuery
+		? {
+				title: "No icons found",
+				description: "Try a different name, library, or style.",
+			}
+		: styleGroup === "animated"
+			? {
+					title: "No animated icons",
+					description:
+						"Animated icons live in Material Line Icons, SVG Spinners, and Meteocons. Open All Icons to see them all.",
+				}
+			: styleGroup === "solid"
+				? {
+						title: "No filled icons",
+						description:
+							"This collection has no filled icons. Switch to Line or All, or pick another library.",
+					}
+				: styleGroup === "line"
+					? {
+							title: "No line icons",
+							description:
+								"This collection has no line icons. Switch to Filled or All, or pick another library.",
+						}
+					: {
+							title: "No icons",
+							description: "This collection is empty.",
+						};
+
+	return (
+		<div className="grid h-[50vh] place-items-center">
+			<div className="max-w-sm px-6 text-center">
+				<SearchListIcon
+					aria-hidden
+					className="mx-auto mb-3 size-8 text-white/30"
+				/>
+				<div className="text-base font-medium text-white">{copy.title}</div>
+				<div className="mt-2 text-sm text-white/40">{copy.description}</div>
+			</div>
+		</div>
+	);
+}
+
 function EmptyWorkspace({
 	kind,
 	hasQuery,
@@ -1355,6 +1414,10 @@ function EmptyWorkspace({
 	return (
 		<div className="grid h-[50vh] place-items-center">
 			<div className="max-w-sm px-6 text-center">
+				<SearchListIcon
+					aria-hidden
+					className="mx-auto mb-3 size-8 text-white/30"
+				/>
 				<div className="text-base font-medium text-white">
 					{hasQuery
 						? "No matching icons"

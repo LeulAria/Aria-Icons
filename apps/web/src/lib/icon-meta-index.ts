@@ -150,7 +150,7 @@ export async function searchIcons(params: {
 	limit?: number;
 }): Promise<{ total: number; results: IconSearchResult[] }> {
 	const index = await loadIndex();
-	const limit = Math.max(1, Math.min(100, params.limit ?? 24));
+	const limit = Math.max(1, Math.min(999, params.limit ?? 24));
 	const tokens = params.query.toLowerCase().trim().split(/\s+/).filter(Boolean);
 	if (tokens.length === 0) return { total: 0, results: [] };
 

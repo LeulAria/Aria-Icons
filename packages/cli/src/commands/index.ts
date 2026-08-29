@@ -1,0 +1,12 @@
+export { searchCommand } from "./search.ts";
+export { getCommand } from "./get.ts";
+export { addCommand } from "./add.ts";
+export { migrateCommand } from "./migrate.ts";
+export { doctorCommand } from "./doctor.ts";
+export { suggestCommand } from "./suggest.ts";
+export { initCommand } from "./init.ts";
+export { setupCommand } from "./setup.ts";
+export { configCommand } from "./config.ts";
+export { collectionsCommand } from "./collections.ts";
+export { similarCommand } from "./similar.ts";
+export { equivalentCommand } from "./equivalent.ts";

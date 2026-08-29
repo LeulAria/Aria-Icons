@@ -1,5 +1,5 @@
 {
-  "name": "aria-icons",
+  "name": "@aria-icons/monorepo",
   "private": true,
   "type": "module",
   "workspaces": {
@@ -22,7 +22,12 @@
     "build": "turbo build",
     "check-types": "turbo check-types",
     "dev:native": "turbo -F native dev",
-    "dev:web": "turbo -F web dev"
+    "dev:web": "turbo -F web dev",
+    "cli": "bun run --cwd packages/cli",
+    "cli:dev": "bun run --cwd packages/cli dev",
+    "cli:build": "bun run --cwd packages/cli build",
+    "cli:test": "bun run --cwd packages/cli test",
+    "cli:release": "bun run --cwd packages/cli release"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
