@@ -118,6 +118,17 @@ const SIZE_INPUT = { min: 1, max: 512 } as const;
 const STROKE_INPUT = { min: 0, max: 16 } as const;
 const SIZE_SLIDER = { min: 12, max: 64, step: 1 } as const;
 const STROKE_SLIDER = { min: 0.5, max: 4, step: 0.5 } as const;
+/** Preview magnification; cap stays inside the h-44 stage so the icon never clips. */
+const PREVIEW_SCALE = 2;
+const PREVIEW_MIN_PX = 20;
+const PREVIEW_MAX_PX = 128;
+
+function previewDisplaySize(size: number) {
+  return Math.min(
+    Math.max(Math.round(size * PREVIEW_SCALE), PREVIEW_MIN_PX),
+    PREVIEW_MAX_PX,
+  );
+}
 
 function clampNumber(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
@@ -331,7 +342,11 @@ export function IconInspector({
   const [headerScrolled, setHeaderScrolled] = React.useState(false);
   const bodyScrollRef = React.useRef<HTMLDivElement>(null);
 
-  const previewCustomize = useDebouncedValue({ size, stroke, color }, 80);
+  const previewPx = previewDisplaySize(size);
+  const previewCustomize = useDebouncedValue(
+    { size: previewPx, stroke, color },
+    80,
+  );
   const previewSrc = focusedIcon
     ? buildIconSvgUrl(focusedIcon, previewCustomize)
     : null;
@@ -642,7 +657,7 @@ export function IconInspector({
             <>
               <div
                 className={cn(
-                  "relative grid h-44 place-items-center rounded-xl ring-1 ring-inset ring-white/[0.06]",
+                  "relative grid h-44 place-items-center overflow-hidden rounded-xl ring-1 ring-inset ring-white/[0.06]",
                   previewFrameClass,
                 )}
               >
@@ -651,10 +666,12 @@ export function IconInspector({
                     key={previewSrc}
                     src={previewSrc}
                     alt={focusedIcon.name}
-                    className="transition-transform duration-150"
+                    width={previewCustomize.size}
+                    height={previewCustomize.size}
+                    className="max-h-full max-w-full object-contain"
                     style={{
-                      width: Math.min(previewCustomize.size * 2.2, 96),
-                      height: Math.min(previewCustomize.size * 2.2, 96),
+                      width: previewCustomize.size,
+                      height: previewCustomize.size,
                     }}
                   />
                 ) : null}
