@@ -121,9 +121,9 @@ export async function loadCatalogSets(preferSetId?: string | null) {
 	if (generation !== loadGeneration) return;
 
 	const rest = order.filter((id) => !loadedSets.has(id));
-	for (let i = 0; i < rest.length; i += 4) {
+	for (let i = 0; i < rest.length; i += 8) {
 		if (generation !== loadGeneration) return;
-		await Promise.all(rest.slice(i, i + 4).map((id) => loadOneSet(id)));
+		await Promise.all(rest.slice(i, i + 8).map((id) => loadOneSet(id)));
 		notify();
 		await new Promise((resolve) => setTimeout(resolve, 0));
 	}

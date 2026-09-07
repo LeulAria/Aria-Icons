@@ -5,7 +5,12 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { Copy, Download, Heart, SlidersHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buildIconSvgUrl } from "@/lib/icon-export";
-import { loadQueuedIconSrc } from "@/lib/icon-svg-queue";
+import {
+	FIRST_VIEWPORT_ICON_COUNT,
+	loadQueuedIconSrc,
+	peekCachedIconSrc,
+	prefetchIconBatch,
+} from "@/lib/icon-svg-queue";
 import { iconKey, type WorkspaceIcon } from "@/lib/icon-workspace";
 
 const ScrollRootContext = React.createContext<HTMLElement | null>(null);
@@ -18,6 +23,43 @@ const GRID_ICON_SIZE: Record<Density, number> = {
 	spacious: 32,
 };
 const GAP_PX = 4;
+
+let lastKickKey = "";
+
+function kickFirstViewportLoad(
+	getIcon: (index: number) => WorkspaceIcon | undefined,
+	count: number,
+	customize: { size: number; stroke: number; color: string },
+) {
+	const first = getIcon(0);
+	if (!first) return;
+	const firstUrl = buildIconSvgUrl(first, customize);
+	const key = `${firstUrl}:${count}:${customize.size}`;
+	if (key === lastKickKey) return;
+	lastKickKey = key;
+
+	if (typeof document !== "undefined") {
+		const existing = document.querySelector(
+			`link[data-aria-icon-preload="${CSS.escape(firstUrl)}"]`,
+		);
+		if (!existing) {
+			const link = document.createElement("link");
+			link.rel = "preload";
+			link.as = "image";
+			link.href = firstUrl;
+			link.setAttribute("fetchpriority", "high");
+			link.dataset.ariaIconPreload = firstUrl;
+			document.head.appendChild(link);
+		}
+	}
+
+	const batch: WorkspaceIcon[] = [];
+	for (let i = 1; i < Math.min(FIRST_VIEWPORT_ICON_COUNT, count); i++) {
+		const icon = getIcon(i);
+		if (icon) batch.push(icon);
+	}
+	if (batch.length > 0) void prefetchIconBatch(batch, customize);
+}
 
 /** Tailwind breakpoint column counts matching the previous CSS grid. */
 export const DENSITY_COL_COUNTS: Record<
@@ -72,31 +114,55 @@ const IconGridCell = React.memo(function IconGridCell({
 	});
 	const cellRef = React.useRef<HTMLDivElement | null>(null);
 	const scrollRoot = React.useContext(ScrollRootContext);
-	const [src, setSrc] = React.useState<string | undefined>();
+	const [src, setSrc] = React.useState<string | undefined>(() => {
+		return peekCachedIconSrc(url) ?? (index === 0 ? url : undefined);
+	});
+	const [ready, setReady] = React.useState(() => Boolean(peekCachedIconSrc(url)));
 
 	React.useEffect(() => {
+		const cached = peekCachedIconSrc(url);
+		setSrc(cached ?? (index === 0 ? url : undefined));
+		setReady(Boolean(cached));
+
+		let cancelled = false;
+		const apply = (next: string) => {
+			if (cancelled) return;
+			setSrc(next);
+		};
+
+		if (index === 0) {
+			return () => {
+				cancelled = true;
+			};
+		}
+
+		if (index < FIRST_VIEWPORT_ICON_COUNT) {
+			void loadQueuedIconSrc(url, index)
+				.then(apply)
+				.catch(() => {});
+			return () => {
+				cancelled = true;
+			};
+		}
+
 		const node = cellRef.current;
 		if (!node) return;
-		let cancelled = false;
-		setSrc(undefined);
 		const io = new IntersectionObserver(
 			(entries) => {
 				if (!entries[0]?.isIntersecting) return;
 				io.disconnect();
-				void loadQueuedIconSrc(url)
-					.then((next) => {
-						if (!cancelled) setSrc(next);
-					})
+				void loadQueuedIconSrc(url, 100 + index)
+					.then(apply)
 					.catch(() => {});
 			},
-			{ root: scrollRoot, rootMargin: "80px", threshold: 0.01 },
+			{ root: scrollRoot, rootMargin: "160px", threshold: 0.01 },
 		);
 		io.observe(node);
 		return () => {
 			cancelled = true;
 			io.disconnect();
 		};
-	}, [url, scrollRoot]);
+	}, [url, scrollRoot, index]);
 
 	return (
 		<div
@@ -127,25 +193,31 @@ const IconGridCell = React.memo(function IconGridCell({
 					{morphIndex}
 				</span>
 			) : null}
-			<div className="flex min-h-0 flex-1 items-center justify-center">
+			<div className="grid min-h-0 flex-1 place-items-center">
 				{src ? (
 					<img
 						alt=""
-						decoding="async"
+						decoding={index === 0 ? "sync" : "async"}
+						fetchPriority={index === 0 ? "high" : index < 12 ? "high" : "auto"}
+						loading="eager"
+						onLoad={() => setReady(true)}
+						onError={() => setReady(true)}
 						className={cn(
-							"transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+							"col-start-1 row-start-1 transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+							!ready && "invisible",
 							active && "scale-110",
 						)}
 						style={{ width: iconSize, height: iconSize }}
 						src={src}
 					/>
-				) : (
+				) : null}
+				{!ready ? (
 					<span
 						aria-hidden
-						className="rounded-[2px] bg-white/[0.06]"
+						className="col-start-1 row-start-1 rounded-[2px] bg-white/[0.06]"
 						style={{ width: iconSize, height: iconSize }}
 					/>
-				)}
+				) : null}
 			</div>
 
 			<span
@@ -340,6 +412,19 @@ export const VirtualIconGrid = React.forwardRef<
 	React.useEffect(() => {
 		ensureRange?.(rangeStart, rangeEnd);
 	}, [ensureRange, rangeStart, rangeEnd]);
+
+	const gridCustomize = React.useMemo(
+		() => ({
+			size: GRID_ICON_SIZE[density],
+			stroke: 1,
+			color: "#ffffff",
+		}),
+		[density],
+	);
+
+	// Start the first-icon preload + first-viewport batch during render so
+	// cell effects can wait on the in-flight batch instead of 24 separate GETs.
+	kickFirstViewportLoad(getIcon, count, gridCustomize);
 
 	return (
 		<ScrollRootContext.Provider value={scrollParentRef.current}>

@@ -222,57 +222,96 @@ export function resolveIconifyIcon(
 	return null;
 }
 
-/**
- * Fetch a single icon from the Iconify API (used on Vercel after local set
- * bodies are pruned). Response is a partial set JSON for the requested icons.
- */
-async function fetchIconifyIconRemote(
-	prefix: string,
-	name: string,
-): Promise<{
+type RemoteIcon = {
 	icon: IconifyIconData;
 	width?: number;
 	height?: number;
-} | null> {
-	if (!/^[a-z0-9-]+$/.test(prefix) || !/^[a-zA-Z0-9:_-]+$/.test(name)) {
-		return null;
-	}
-	const cache = getCache();
-	const key = `${prefix}:${name}`;
-	if (cache.remoteIcons.has(key)) {
-		const cached = cache.remoteIcons.get(key);
-		return cached ? { icon: cached } : null;
-	}
+};
 
+function cacheKey(prefix: string, name: string) {
+	return `${prefix}:${name}`;
+}
+
+function readCachedRemote(
+	prefix: string,
+	name: string,
+): RemoteIcon | null | undefined {
+	const cache = getCache();
+	const key = cacheKey(prefix, name);
+	if (!cache.remoteIcons.has(key)) return undefined;
+	const cached = cache.remoteIcons.get(key);
+	return cached ? { icon: cached } : null;
+}
+
+/**
+ * Fetch many icons from the Iconify API in one request (used on Vercel after
+ * local set bodies are pruned). Results are cached in-memory and in Next's
+ * data cache so the first viewport is one remote call, not one per cell.
+ */
+export async function prefetchIconifyIcons(
+	prefix: string,
+	names: string[],
+): Promise<Map<string, RemoteIcon>> {
+	const found = new Map<string, RemoteIcon>();
+	if (!/^[a-z0-9-]+$/.test(prefix)) return found;
+
+	const unique = [
+		...new Set(names.filter((name) => /^[a-zA-Z0-9:_-]+$/.test(name))),
+	];
+	const missing: string[] = [];
+	for (const name of unique) {
+		const cached = readCachedRemote(prefix, name);
+		if (cached) found.set(name, cached);
+		else if (cached === undefined) missing.push(name);
+	}
+	if (missing.length === 0) return found;
+
+	const cache = getCache();
 	try {
-		const url = `${ICONIFY_API}/${prefix}.json?icons=${encodeURIComponent(name)}`;
-		const res = await fetch(url);
+		const url = `${ICONIFY_API}/${prefix}.json?icons=${missing
+			.map(encodeURIComponent)
+			.join(",")}`;
+		const res = await fetch(url, {
+			next: { revalidate: 60 * 60 * 24 * 7 },
+		});
 		if (!res.ok) {
-			cache.remoteIcons.set(key, null);
-			return null;
+			for (const name of missing) cache.remoteIcons.set(cacheKey(prefix, name), null);
+			return found;
 		}
 		const data = (await res.json()) as IconifySetFile & {
 			not_found?: string[];
 		};
-		const icon =
-			data.icons?.[name] ??
-			(data.aliases?.[name]
-				? data.icons?.[data.aliases[name].parent]
-				: undefined);
-		if (!icon) {
-			cache.remoteIcons.set(key, null);
-			return null;
+		for (const name of missing) {
+			const icon =
+				data.icons?.[name] ??
+				(data.aliases?.[name]
+					? data.icons?.[data.aliases[name].parent]
+					: undefined);
+			if (!icon) {
+				cache.remoteIcons.set(cacheKey(prefix, name), null);
+				continue;
+			}
+			cache.remoteIcons.set(cacheKey(prefix, name), icon);
+			found.set(name, {
+				icon,
+				width: icon.width ?? data.width,
+				height: icon.height ?? data.height,
+			});
 		}
-		cache.remoteIcons.set(key, icon);
-		return {
-			icon,
-			width: icon.width ?? data.width,
-			height: icon.height ?? data.height,
-		};
 	} catch {
-		cache.remoteIcons.set(key, null);
-		return null;
+		for (const name of missing) cache.remoteIcons.set(cacheKey(prefix, name), null);
 	}
+	return found;
+}
+
+async function fetchIconifyIconRemote(
+	prefix: string,
+	name: string,
+): Promise<RemoteIcon | null> {
+	const cached = readCachedRemote(prefix, name);
+	if (cached !== undefined) return cached;
+	const found = await prefetchIconifyIcons(prefix, [name]);
+	return found.get(name) ?? null;
 }
 
 /**

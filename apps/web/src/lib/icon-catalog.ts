@@ -197,6 +197,8 @@ export async function loadIconCatalogIndex(): Promise<IconsMetaIndex> {
 	const network = await fetchJson<IconsMetaIndex>("/icons-meta-index.json");
 	if (network) {
 		void idbSet(IDB_INDEX_KEY, network);
+		const first = network.loadOrder[0];
+		if (first) void loadIconSetShard(first);
 		return network;
 	}
 
@@ -216,12 +218,18 @@ export async function loadIconCatalogIndex(): Promise<IconsMetaIndex> {
 	};
 }
 
+const shardPromises = new Map<string, Promise<CompactIconTuple[] | null>>();
+
 export async function loadIconSetShard(
 	setId: string,
 ): Promise<CompactIconTuple[] | null> {
-	return fetchJson<CompactIconTuple[]>(
+	const hit = shardPromises.get(setId);
+	if (hit) return hit;
+	const next = fetchJson<CompactIconTuple[]>(
 		`/icons-meta/sets/${encodeURIComponent(setId)}.json`,
 	);
+	shardPromises.set(setId, next);
+	return next;
 }
 
 export async function loadIconCatalog(): Promise<IconCatalog> {
