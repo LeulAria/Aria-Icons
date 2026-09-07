@@ -1,7 +1,7 @@
 # Publish the `aria-icons` npm package (`packages/cli`).
 #
-#   make publish                 test + build, then wait for a fresh OTP
-#   make publish-only OTP=123456 upload now (no extra test/build delay)
+#   make publish                 test + build, then publish (browser 2FA)
+#   make publish-only            upload now (no extra test/build delay)
 #   make dry-run                 pack without uploading
 #   make release                 bump version, tag v*, push
 
@@ -16,8 +16,8 @@ help:
 	@echo "  make test                       Run CLI tests"
 	@echo "  make build                      Bundle the CLI"
 	@echo "  make dry-run                    Test, build, npm publish --dry-run"
-	@echo "  make publish                    Test + build, then print the OTP command"
-	@echo "  make publish-only OTP=123456    Publish immediately (use a fresh code)"
+	@echo "  make publish                    Test + build, then publish (browser 2FA)"
+	@echo "  make publish-only               Publish immediately (browser 2FA; OTP=123456 for TOTP)"
 	@echo "  make release                    Bump version, tag v*, and push"
 
 test:
@@ -29,18 +29,17 @@ build:
 dry-run: test build
 	cd $(CLI) && npm publish --access public --tag $(NPM_TAG) --workspaces=false --ignore-scripts --dry-run
 
-publish: test build
-	@npm whoami >/dev/null 2>&1 || { echo "Not logged in. Run: npm login && npm whoami"; exit 1; }
-	@echo ""
-	@echo "Build is ready. OTP codes expire in ~30s, so pass a fresh one now:"
-	@echo ""
-	@echo "  make publish-only OTP=123456"
-	@echo ""
+publish: test build publish-only
 
+# Publishes via npm's web-based 2FA (opens a browser to approve).
+# Pass OTP=123456 only if your account still uses TOTP codes.
 publish-only:
-	@test -n "$(OTP)" || { echo "Usage: make publish-only OTP=123456"; exit 1; }
 	@npm whoami >/dev/null 2>&1 || { echo "Not logged in. Run: npm login && npm whoami"; exit 1; }
+ifdef OTP
 	cd $(CLI) && CI=1 npm publish --access public --tag $(NPM_TAG) --workspaces=false --ignore-scripts --otp=$(OTP) </dev/null
+else
+	cd $(CLI) && npm publish --access public --tag $(NPM_TAG) --workspaces=false --ignore-scripts
+endif
 
 release:
 	bun run --cwd $(CLI) release
