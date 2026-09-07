@@ -38,6 +38,12 @@ export type IconifySetFile = {
 	height?: number;
 };
 
+type RemoteIcon = {
+	icon: IconifyIconData;
+	width?: number;
+	height?: number;
+};
+
 export type IconifyCollectionsFile = Record<
 	string,
 	{
@@ -88,7 +94,8 @@ function iconifyDir() {
 
 type IconifyCache = {
 	sets: Map<string, IconifySetFile | null>;
-	remoteIcons: Map<string, IconifyIconData | null>;
+	remoteIcons: Map<string, RemoteIcon | null>;
+	setSizes: Map<string, { width: number; height: number }>;
 	prefixes: string[] | null;
 	prefixesDirMtimeMs: number;
 	collections: IconifyCollectionsFile | null;
@@ -100,10 +107,13 @@ function getCache(): IconifyCache {
 		g.__ariaIconifyCache = {
 			sets: new Map(),
 			remoteIcons: new Map(),
+			setSizes: new Map(),
 			prefixes: null,
 			prefixesDirMtimeMs: 0,
 			collections: null,
 		};
+	} else if (!g.__ariaIconifyCache.setSizes) {
+		g.__ariaIconifyCache.setSizes = new Map();
 	}
 	return g.__ariaIconifyCache;
 }
@@ -222,12 +232,6 @@ export function resolveIconifyIcon(
 	return null;
 }
 
-type RemoteIcon = {
-	icon: IconifyIconData;
-	width?: number;
-	height?: number;
-};
-
 function cacheKey(prefix: string, name: string) {
 	return `${prefix}:${name}`;
 }
@@ -240,7 +244,13 @@ function readCachedRemote(
 	const key = cacheKey(prefix, name);
 	if (!cache.remoteIcons.has(key)) return undefined;
 	const cached = cache.remoteIcons.get(key);
-	return cached ? { icon: cached } : null;
+	if (!cached) return null;
+	const setSize = cache.setSizes.get(prefix);
+	return {
+		icon: cached.icon,
+		width: cached.icon.width ?? cached.width ?? setSize?.width,
+		height: cached.icon.height ?? cached.height ?? setSize?.height,
+	};
 }
 
 /**
@@ -281,6 +291,12 @@ export async function prefetchIconifyIcons(
 		const data = (await res.json()) as IconifySetFile & {
 			not_found?: string[];
 		};
+		if (data.width || data.height) {
+			cache.setSizes.set(prefix, {
+				width: data.width ?? data.height ?? 24,
+				height: data.height ?? data.width ?? 24,
+			});
+		}
 		for (const name of missing) {
 			const icon =
 				data.icons?.[name] ??
@@ -291,12 +307,13 @@ export async function prefetchIconifyIcons(
 				cache.remoteIcons.set(cacheKey(prefix, name), null);
 				continue;
 			}
-			cache.remoteIcons.set(cacheKey(prefix, name), icon);
-			found.set(name, {
+			const remote: RemoteIcon = {
 				icon,
 				width: icon.width ?? data.width,
 				height: icon.height ?? data.height,
-			});
+			};
+			cache.remoteIcons.set(cacheKey(prefix, name), remote);
+			found.set(name, remote);
 		}
 	} catch {
 		for (const name of missing) cache.remoteIcons.set(cacheKey(prefix, name), null);
@@ -377,8 +394,8 @@ export async function renderIconifyIcon(
 	const remote = await fetchIconifyIconRemote(prefix, name);
 	if (!remote) return null;
 	return renderIconifyIconData(remote.icon, {
-		width: remote.icon.width ?? remote.width ?? 16,
-		height: remote.icon.height ?? remote.height ?? 16,
+		width: remote.icon.width ?? remote.width ?? 24,
+		height: remote.icon.height ?? remote.height ?? 24,
 		left: remote.icon.left ?? 0,
 		top: remote.icon.top ?? 0,
 		...options,

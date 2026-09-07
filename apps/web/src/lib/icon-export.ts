@@ -61,7 +61,7 @@ export function buildIconSvgUrl(
   params.set("color", customize.color);
   if (icon.group) params.set("group", icon.group);
   // Bump when SVG tinting / stroke mapping changes so grids don't keep stale SVGs.
-  params.set("v", "3");
+  params.set("v", "4");
   return `/api/icon-svg?${params.toString()}`;
 }
 
