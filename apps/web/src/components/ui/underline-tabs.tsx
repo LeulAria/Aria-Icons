@@ -131,7 +131,7 @@ export function UnderlineTabs<T extends string>({
             onClick={() => select(tab.id)}
             className={cn(
               "relative z-10 h-9 px-3 text-[13px] font-medium transition-colors duration-200",
-              selected ? "text-white" : "text-white/45 hover:text-white/80",
+              selected ? "text-foreground" : "text-foreground/45 hover:text-foreground/80",
             )}
           >
             {tab.label}
@@ -141,7 +141,7 @@ export function UnderlineTabs<T extends string>({
       <span
         ref={indicatorRef}
         aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 h-0.5 rounded-full bg-white will-change-transform"
+        className="pointer-events-none absolute bottom-0 left-0 h-0.5 rounded-full bg-foreground will-change-transform"
       />
     </div>
   );

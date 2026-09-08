@@ -66,20 +66,20 @@ git push -u origin add-my-icon-set`,
 
 export default function ContributePage() {
 	return (
-		<div className="h-full overflow-y-auto bg-black">
+		<div className="h-full overflow-y-auto bg-background">
 			<div className="mx-auto max-w-2xl px-6 py-10">
 				<Link
 					href="/"
-					className="mb-8 inline-flex items-center gap-1.5 text-[13px] text-white/50 transition-colors hover:text-white"
+					className="mb-8 inline-flex items-center gap-1.5 text-[13px] text-foreground/50 transition-colors hover:text-foreground"
 				>
 					<ArrowLeft className="size-3.5" />
 					Back to Aria Icons
 				</Link>
 
-				<h1 className="text-2xl font-semibold tracking-tight text-white">
+				<h1 className="text-2xl font-semibold tracking-tight text-foreground">
 					Contribute Icons
 				</h1>
-				<p className="mt-2 text-[13px] leading-5 text-white/50">
+				<p className="mt-2 text-[13px] leading-5 text-foreground/50">
 					Aria Icons is open source — every icon set here was contributed or
 					curated by the community. Adding your own set takes about ten
 					minutes.
@@ -89,7 +89,7 @@ export default function ContributePage() {
 					href={REPO_URL}
 					target="_blank"
 					rel="noreferrer"
-					className="mt-5 inline-flex items-center gap-2 rounded-[3px] border border-white/10 bg-white/[0.04] px-3 py-2 text-[13px] font-medium text-white/80 transition-colors hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+					className="mt-5 inline-flex items-center gap-2 rounded-[3px] border border-foreground/10 bg-foreground/[0.04] px-3 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:border-foreground/20 hover:bg-foreground/[0.07] hover:text-foreground"
 				>
 					<GitPullRequestArrow className="size-4" />
 					github.com/LeulAria/Aria-Icons
@@ -103,24 +103,24 @@ export default function ContributePage() {
 								{!isLast && (
 									<span
 										aria-hidden
-										className="absolute left-[11px] top-8 h-[calc(100%-32px)] w-px bg-white/15"
+										className="absolute left-[11px] top-8 h-[calc(100%-32px)] w-px bg-foreground/15"
 									/>
 								)}
 								<span
 									aria-hidden
-									className="absolute left-0 top-0.5 grid size-6 place-items-center rounded-full border border-white/20 bg-black font-mono text-[11px] text-white/70"
+									className="absolute left-0 top-0.5 grid size-6 place-items-center rounded-full border border-foreground/20 bg-background font-mono text-[11px] text-foreground/70"
 								>
 									{i + 1}
 								</span>
 
-								<h2 className="text-[15px] font-medium text-white">
+								<h2 className="text-[15px] font-medium text-foreground">
 									{step.title}
 								</h2>
-								<p className="mt-1 text-[13px] leading-5 text-white/55">
+								<p className="mt-1 text-[13px] leading-5 text-foreground/55">
 									{step.description}
 								</p>
 								{step.code ? (
-									<pre className="mt-3 overflow-x-auto rounded-[3px] border border-white/10 bg-white/[0.03] p-3 font-mono text-[12px] leading-5 text-white/70">
+									<pre className="mt-3 overflow-x-auto rounded-[3px] border border-foreground/10 bg-foreground/[0.03] p-3 font-mono text-[12px] leading-5 text-foreground/70">
 										{step.code}
 									</pre>
 								) : null}
@@ -129,45 +129,45 @@ export default function ContributePage() {
 					})}
 				</ol>
 
-				<div className="mt-2 rounded-[3px] border border-white/10 bg-white/[0.03] p-4">
-					<h2 className="text-[13px] font-medium text-white">
+				<div className="mt-2 rounded-[3px] border border-foreground/10 bg-foreground/[0.03] p-4">
+					<h2 className="text-[13px] font-medium text-foreground">
 						Other ways to contribute
 					</h2>
-					<ul className="mt-2 space-y-1.5 text-[13px] leading-5 text-white/55">
+					<ul className="mt-2 space-y-1.5 text-[13px] leading-5 text-foreground/55">
 						<li>
-							<span className="text-white/80">Brand icons</span> — brand logos
+							<span className="text-foreground/80">Brand icons</span> — brand logos
 							come from{" "}
 							<a
 								href="https://thesvg.org"
 								target="_blank"
 								rel="noreferrer"
-								className="text-white/80 underline underline-offset-2 hover:text-white"
+								className="text-foreground/80 underline underline-offset-2 hover:text-foreground"
 							>
 								theSVG
 							</a>
 							; contribute new brands upstream, then refresh with{" "}
-							<code className="rounded bg-white/8 px-1 py-0.5 font-mono text-[12px] text-white/70">
+							<code className="rounded bg-foreground/8 px-1 py-0.5 font-mono text-[12px] text-foreground/70">
 								bun run fetch:thesvg
 							</code>
 							.
 						</li>
 						<li>
-							<span className="text-white/80">Iconify sets</span> — pull any of
+							<span className="text-foreground/80">Iconify sets</span> — pull any of
 							the 200+ Iconify collections with{" "}
-							<code className="rounded bg-white/8 px-1 py-0.5 font-mono text-[12px] text-white/70">
+							<code className="rounded bg-foreground/8 px-1 py-0.5 font-mono text-[12px] text-foreground/70">
 								bun run fetch:iconify -- --sets &lt;prefix&gt;
 							</code>
 							.
 						</li>
 						<li>
-							<span className="text-white/80">Metadata</span> — better tags,
+							<span className="text-foreground/80">Metadata</span> — better tags,
 							aliases, and categories make search smarter. PRs improving
 							metadata are just as valuable as new icons.
 						</li>
 					</ul>
 				</div>
 
-				<p className="mt-6 text-[12px] leading-5 text-white/35">
+				<p className="mt-6 text-[12px] leading-5 text-foreground/35">
 					Only submit icons you have the right to share. Include the license in
 					your PR — MIT, CC0, or similarly permissive licenses are preferred.
 				</p>

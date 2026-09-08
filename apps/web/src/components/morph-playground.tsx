@@ -42,8 +42,8 @@ function ControlSlider({
   return (
     <div>
       <div className="mb-2.5 flex items-center justify-between">
-        <label className="text-[13px] text-white/80">{label}</label>
-        <span className="text-[11px] font-normal capitalize text-white/45">
+        <label className="text-[13px] text-foreground/80">{label}</label>
+        <span className="text-[11px] font-normal capitalize text-foreground/45">
           {valueLabel}
         </span>
       </div>
@@ -54,25 +54,25 @@ function ControlSlider({
 
 function MorphCompatibilityCard({ compat }: { compat: MorphCompatibility }) {
   return (
-    <div className="w-[260px] rounded-lg border border-white/10 bg-[#141416]/95 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-md">
+    <div className="w-[260px] rounded-lg border border-foreground/10 bg-popover/95 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-md">
       <div className="flex items-baseline justify-between gap-3">
-        <div className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/40">
+        <div className="text-[11px] font-medium uppercase tracking-[0.08em] text-foreground/40">
           Morph compatibility
         </div>
-        <div className="font-mono text-[12px] tabular-nums text-white/80">
+        <div className="font-mono text-[12px] tabular-nums text-foreground/80">
           {compat.ready ? `${compat.score}%` : "—"}
         </div>
       </div>
-      <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-white/10">
+      <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-foreground/10">
         <div
-          className="h-full rounded-full bg-white transition-[width] duration-300"
+          className="h-full rounded-full bg-foreground transition-[width] duration-300"
           style={{ width: compat.ready ? `${compat.score}%` : "0%" }}
         />
       </div>
       {compat.pair ? (
-        <div className="mt-2 truncate text-[11px] text-white/35">{compat.pair}</div>
+        <div className="mt-2 truncate text-[11px] text-foreground/35">{compat.pair}</div>
       ) : (
-        <div className="mt-2 text-[11px] text-white/35">
+        <div className="mt-2 text-[11px] text-foreground/35">
           Add a second icon to score this pair.
         </div>
       )}
@@ -81,14 +81,14 @@ function MorphCompatibilityCard({ compat }: { compat: MorphCompatibility }) {
           {compat.checks.map((check) => (
             <div key={check.label} className="flex items-center gap-2">
               {check.ok ? (
-                <Check className="size-3.5 shrink-0 text-white/70" strokeWidth={2.25} />
+                <Check className="size-3.5 shrink-0 text-foreground/70" strokeWidth={2.25} />
               ) : (
-                <AlertTriangle className="size-3.5 shrink-0 text-white/35" strokeWidth={2} />
+                <AlertTriangle className="size-3.5 shrink-0 text-foreground/35" strokeWidth={2} />
               )}
               <span
                 className={cn(
                   "text-[12px] leading-4",
-                  check.ok ? "text-white/70" : "text-white/40",
+                  check.ok ? "text-foreground/70" : "text-foreground/40",
                 )}
               >
                 {check.label}
@@ -97,7 +97,7 @@ function MorphCompatibilityCard({ compat }: { compat: MorphCompatibility }) {
           ))}
         </div>
       ) : (
-        <p className="mt-3 text-[11px] leading-4 text-white/30">
+        <p className="mt-3 text-[11px] leading-4 text-foreground/30">
           Select two stroke icons to evaluate path structure and interpolation.
         </p>
       )}
@@ -340,7 +340,7 @@ export function MorphPlayground({
 
   const stageClass =
     previewBg === "white"
-      ? "bg-white"
+      ? "bg-[#fff]"
       : previewBg === "dark"
         ? "bg-[#0a0a0a]"
         : previewBg === "checker"
@@ -366,7 +366,7 @@ export function MorphPlayground({
     <div className="space-y-4">
       <div
         className={cn(
-          "relative grid min-h-[13.5rem] place-items-center overflow-hidden rounded-xl ring-1 ring-inset ring-white/[0.06]",
+          "relative grid min-h-[13.5rem] place-items-center overflow-hidden rounded-xl ring-1 ring-inset ring-foreground/[0.06]",
           stageClass,
         )}
       >
@@ -375,7 +375,7 @@ export function MorphPlayground({
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(255,255,255,0.07),transparent_62%)]"
         />
         {toError ? (
-          <p className="relative z-10 max-w-[14rem] px-4 text-center text-[12px] leading-5 text-white/50">
+          <p className="relative z-10 max-w-[14rem] px-4 text-center text-[12px] leading-5 text-foreground/50">
             {toError}
           </p>
         ) : toPath ? (
@@ -397,7 +397,7 @@ export function MorphPlayground({
             />
           </div>
         ) : (
-          <Loader className="relative z-10 text-white/40" />
+          <Loader className="relative z-10 text-foreground/40" />
         )}
       </div>
 
@@ -410,8 +410,8 @@ export function MorphPlayground({
             className={cn(
               "rounded-md px-2.5 py-1 text-[11px] transition-colors duration-150",
               previewBg === bg.id
-                ? "bg-white/[0.1] text-white"
-                : "text-white/40 hover:bg-white/[0.04] hover:text-white/70",
+                ? "bg-foreground/[0.1] text-foreground"
+                : "text-foreground/40 hover:bg-foreground/[0.04] hover:text-foreground/70",
             )}
           >
             {bg.label}
@@ -490,8 +490,8 @@ export function MorphPlayground({
                         "group/chip relative grid size-10 shrink-0 place-items-center rounded-lg ring-1 transition-[opacity,background-color,box-shadow] duration-150",
                         sortable && "cursor-grab touch-none select-none active:cursor-grabbing",
                         selected
-                          ? "bg-white/[0.08] ring-white/80"
-                          : "bg-white/[0.03] ring-white/[0.08] hover:bg-white/[0.06] hover:ring-white/20",
+                          ? "bg-foreground/[0.08] ring-foreground/80"
+                          : "bg-foreground/[0.03] ring-foreground/[0.08] hover:bg-foreground/[0.06] hover:ring-foreground/20",
                         failed && "opacity-40",
                         dragging && "opacity-50",
                       )}
@@ -518,7 +518,7 @@ export function MorphPlayground({
                             onRemove(key);
                           }}
                           onPointerDown={(e) => e.stopPropagation()}
-                          className="absolute -right-1 -top-1 grid size-3.5 place-items-center rounded-full bg-white text-black opacity-0 shadow-sm transition-opacity group-hover/chip:opacity-100"
+                          className="absolute -right-1 -top-1 grid size-3.5 place-items-center rounded-full bg-foreground text-background opacity-0 shadow-sm transition-opacity group-hover/chip:opacity-100"
                         >
                           <X className="size-2.5" />
                         </span>
@@ -530,7 +530,7 @@ export function MorphPlayground({
               {canAdd && !overflowing ? (
                 <div
                   title="Click icons in the grid to add them"
-                  className="grid size-10 shrink-0 place-items-center rounded-lg border border-dashed border-white/15 text-white/30"
+                  className="grid size-10 shrink-0 place-items-center rounded-lg border border-dashed border-foreground/15 text-foreground/30"
                 >
                   <Plus className="size-3.5" />
                 </div>
@@ -540,7 +540,7 @@ export function MorphPlayground({
           <div
             aria-hidden
             className={cn(
-              "pointer-events-none absolute inset-y-0 right-0 w-9 bg-gradient-to-l from-[#0b0b0b] to-transparent transition-opacity duration-200",
+              "pointer-events-none absolute inset-y-0 right-0 w-9 bg-gradient-to-l from-card to-transparent transition-opacity duration-200",
               fadeRight ? "opacity-100" : "opacity-0",
             )}
           />
@@ -548,7 +548,7 @@ export function MorphPlayground({
         {canAdd && overflowing ? (
           <div
             title="Click icons in the grid to add them"
-            className="grid size-10 shrink-0 place-items-center rounded-lg border border-dashed border-white/15 text-white/30"
+            className="grid size-10 shrink-0 place-items-center rounded-lg border border-dashed border-foreground/15 text-foreground/30"
           >
             <Plus className="size-3.5" />
           </div>
@@ -565,10 +565,10 @@ export function MorphPlayground({
                 type="button"
                 aria-label="Morph compatibility"
                 className={cn(
-                  "grid size-10 shrink-0 place-items-center rounded-lg ring-1 ring-white/8 transition-colors duration-150",
+                  "grid size-10 shrink-0 place-items-center rounded-lg ring-1 ring-foreground/8 transition-colors duration-150",
                   readout.ready && readout.score < 55
-                    ? "text-white/55 hover:bg-white/6 hover:text-white"
-                    : "text-white/40 hover:bg-white/6 hover:text-white/80",
+                    ? "text-foreground/55 hover:bg-foreground/6 hover:text-foreground"
+                    : "text-foreground/40 hover:bg-foreground/6 hover:text-foreground/80",
                 )}
               >
                 <Info className="size-3.5" strokeWidth={1.75} />
@@ -595,8 +595,8 @@ export function MorphPlayground({
             className={cn(
               "grid size-10 shrink-0 place-items-center rounded-full transition-colors duration-150",
               canPlay
-                ? "bg-white text-black hover:bg-white/90"
-                : "bg-white/10 text-white/30",
+                ? "bg-foreground text-background hover:bg-foreground/90"
+                : "bg-foreground/10 text-foreground/30",
             )}
           >
             {playing ? (
@@ -619,7 +619,7 @@ export function MorphPlayground({
             onSpringChange(next);
           }}
         />
-        <div className="mt-1.5 flex justify-between text-[11px] font-normal text-white/35">
+        <div className="mt-1.5 flex justify-between text-[11px] font-normal text-foreground/35">
           <span>Smooth</span>
           <span>Snappy</span>
           <span>Bouncy</span>
@@ -640,7 +640,7 @@ export function MorphPlayground({
             setProgress(value[0] ?? 1);
           }}
         />
-        <span className="w-12 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+        <span className="w-12 shrink-0 text-right text-[10px] tabular-nums text-foreground/40">
           t={progress.toFixed(2)}
         </span>
       </div>

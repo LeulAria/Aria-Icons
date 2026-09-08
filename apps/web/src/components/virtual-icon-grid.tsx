@@ -181,15 +181,15 @@ const IconGridCell = React.memo(function IconGridCell({
 			}}
 			className={cn(
 				"group relative z-0 flex aspect-square cursor-pointer flex-col items-center overflow-visible px-1.5 pb-1.5 pt-2 text-left outline-none transition-[background-color,box-shadow,transform] duration-150",
-				"hover:z-20 hover:bg-white/[0.04] focus-visible:bg-white/[0.06] focus-visible:ring-1 focus-visible:ring-white/25",
+				"hover:z-20 hover:bg-foreground/[0.04] focus-visible:bg-foreground/[0.06] focus-visible:ring-1 focus-visible:ring-foreground/25",
 				"focus-within:z-20",
-				active && "z-20 bg-white/[0.06] ring-1 ring-inset ring-[#2D2D2D]",
-				morphMode && morphIndex != null && "ring-1 ring-inset ring-white/20",
-				morphMode && active && "bg-white/[0.08] ring-white/55",
+				active && "z-20 bg-foreground/[0.06] ring-1 ring-inset ring-border",
+				morphMode && morphIndex != null && "ring-1 ring-inset ring-foreground/20",
+				morphMode && active && "bg-foreground/[0.08] ring-foreground/55",
 			)}
 		>
 			{morphMode && morphIndex != null ? (
-				<span className="absolute left-1 top-1 z-10 grid size-4 place-items-center rounded-[3px] bg-white text-[9px] font-semibold text-black">
+				<span className="absolute left-1 top-1 z-10 grid size-4 place-items-center rounded-[3px] bg-foreground text-[9px] font-semibold text-background">
 					{morphIndex}
 				</span>
 			) : null}
@@ -203,7 +203,7 @@ const IconGridCell = React.memo(function IconGridCell({
 						onLoad={() => setReady(true)}
 						onError={() => setReady(true)}
 						className={cn(
-							"col-start-1 row-start-1 transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+							"col-start-1 row-start-1 theme-invert transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
 							!ready && "invisible",
 							active && "scale-110",
 						)}
@@ -214,7 +214,7 @@ const IconGridCell = React.memo(function IconGridCell({
 				{!ready ? (
 					<span
 						aria-hidden
-						className="col-start-1 row-start-1 rounded-[2px] bg-white/[0.06]"
+						className="col-start-1 row-start-1 rounded-[2px] bg-foreground/[0.06]"
 						style={{ width: iconSize, height: iconSize }}
 					/>
 				) : null}
@@ -222,8 +222,8 @@ const IconGridCell = React.memo(function IconGridCell({
 
 			<span
 				className={cn(
-					"mt-1 w-full truncate px-0.5 text-center text-[10px] leading-tight text-white/55 transition-colors duration-150 group-hover:text-white/70",
-					active && "text-white/70",
+					"mt-1 w-full truncate px-0.5 text-center text-[10px] leading-tight text-foreground/55 transition-colors duration-150 group-hover:text-foreground/70",
+					active && "text-foreground/70",
 				)}
 			>
 				{icon.name}
@@ -238,7 +238,7 @@ const IconGridCell = React.memo(function IconGridCell({
 				onClick={(e) => e.stopPropagation()}
 				onMouseDown={(e) => e.stopPropagation()}
 			>
-				<div className="flex items-center justify-center gap-0.5 rounded-[2px] bg-[#141414] px-1 py-1 shadow-lg ring-1 ring-white/[0.06]">
+				<div className="flex items-center justify-center gap-0.5 rounded-[2px] bg-popover px-1 py-1 shadow-lg ring-1 ring-foreground/[0.06]">
 					<ActionIcon
 						label="Copy SVG"
 						interactive={active}
@@ -257,7 +257,7 @@ const IconGridCell = React.memo(function IconGridCell({
 						onClick={() => onFavorite(icon)}
 						icon={
 							<Heart
-								className={cn("size-3", favorited && "fill-white text-white")}
+								className={cn("size-3", favorited && "fill-foreground text-foreground")}
 							/>
 						}
 					/>
@@ -301,7 +301,7 @@ function ActionIcon({
 					onClick();
 				}
 			}}
-			className="inline-flex size-6 cursor-pointer items-center justify-center rounded-[2px] text-white/55 transition-colors duration-100 hover:bg-white/[0.08] hover:text-white"
+			className="inline-flex size-6 cursor-pointer items-center justify-center rounded-[2px] text-foreground/55 transition-colors duration-100 hover:bg-foreground/[0.08] hover:text-foreground"
 		>
 			{icon}
 		</span>
@@ -471,7 +471,7 @@ export const VirtualIconGrid = React.forwardRef<
 										>
 											<span
 												aria-hidden
-												className="rounded-[2px] bg-white/[0.06]"
+												className="rounded-[2px] bg-foreground/[0.06]"
 												style={{
 													width: GRID_ICON_SIZE[density],
 													height: GRID_ICON_SIZE[density],

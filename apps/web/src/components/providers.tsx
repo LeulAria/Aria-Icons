@@ -13,7 +13,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 			defaultTheme="dark"
 			enableSystem={false}
 			disableTransitionOnChange
-			forcedTheme="dark"
+			storageKey="aria-icons-theme"
 		>
 			<QueryClientProvider client={queryClient}>
 				<div

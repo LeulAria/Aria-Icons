@@ -67,9 +67,9 @@ function CopyIconButton({
         toast.success(successLabel);
         window.setTimeout(() => setCopied(false), 1600);
       }}
-      className="inline-flex size-8 shrink-0 items-center justify-center rounded-full text-white/60 transition-colors hover:text-white"
+      className="inline-flex size-8 shrink-0 items-center justify-center rounded-full text-foreground/60 transition-colors hover:text-foreground"
     >
-      {copied ? <Check className="size-4 text-white" /> : <Copy className="size-4" />}
+      {copied ? <Check className="size-4 text-foreground" /> : <Copy className="size-4" />}
     </button>
   );
 }
@@ -136,12 +136,12 @@ url = "${mcpUrl}"`;
       onOpenChange={onOpenChange}
       dismissible
       variant="blur"
-      className="flex items-center justify-center bg-[#2a2a2a]/70 p-4 backdrop-blur-[2px] sm:p-6"
+      className="flex items-center justify-center bg-black/50 p-4 backdrop-blur-[2px] sm:p-6"
     >
       <div
         className={cn(
           "relative flex max-h-[min(640px,calc(100vh-2rem))] w-full max-w-[560px] flex-col overflow-hidden rounded-2xl",
-          "border border-white/10 bg-[#111] shadow-2xl",
+          "border border-foreground/10 bg-card shadow-2xl",
           "animate-in fade-in-0 zoom-in-95 duration-100"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -161,12 +161,12 @@ url = "${mcpUrl}"`;
               />
               <h2
                 id="mcp-dialog-title"
-                className="text-[18px] font-semibold leading-7 tracking-tight text-white"
+                className="text-[18px] font-semibold leading-7 tracking-tight text-foreground"
               >
                 Connect Aria Icons
               </h2>
             </div>
-            <p className="mt-1 text-[13px] leading-5 text-white/50">
+            <p className="mt-1 text-[13px] leading-5 text-foreground/50">
               Remote MCP, or install the CLI with npx, bunx, or a bash one-liner.
             </p>
           </div>
@@ -175,7 +175,7 @@ url = "${mcpUrl}"`;
               type="button"
               onClick={() => onOpenChange(false)}
               aria-label="Close"
-              className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-[#222] text-white/70 transition-colors hover:bg-[#333] hover:text-white"
+              className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-foreground/70 transition-colors hover:bg-accent hover:text-foreground"
             >
               <X className="size-4" strokeWidth={1.75} />
             </button>
@@ -184,11 +184,11 @@ url = "${mcpUrl}"`;
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-2">
           <section className="pb-5">
-            <h3 className="mb-2 text-[14px] font-medium leading-5 text-white">
+            <h3 className="mb-2 text-[14px] font-medium leading-5 text-foreground">
               Server URL
             </h3>
-            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-white/10 bg-transparent pl-4 pr-1.5">
-              <code className="min-w-0 flex-1 truncate font-mono text-[13px] text-white/80">
+            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-foreground/10 bg-transparent pl-4 pr-1.5">
+              <code className="min-w-0 flex-1 truncate font-mono text-[13px] text-foreground/80">
                 {mcpUrl}
               </code>
               <CopyIconButton
@@ -200,7 +200,7 @@ url = "${mcpUrl}"`;
 
           <section className="pb-5">
             <div className="mb-2 flex items-center justify-between gap-2">
-              <h3 className="text-[14px] font-medium leading-5 text-white">
+              <h3 className="text-[14px] font-medium leading-5 text-foreground">
                 Install CLI
               </h3>
               <InstallRunnerDropdown
@@ -208,7 +208,7 @@ url = "${mcpUrl}"`;
                 onChange={setCliRunner}
               />
             </div>
-            <div className="relative overflow-hidden rounded-[2px] border border-white/10 bg-black/30">
+            <div className="relative overflow-hidden rounded-[2px] border border-foreground/10 bg-background/30">
               <div className="absolute right-1 top-1 z-10">
                 <CopyIconButton
                   value={cliCommand}
@@ -219,20 +219,20 @@ url = "${mcpUrl}"`;
                 key={cliCommand}
                 code={cliCommand}
                 lang="bash"
-                className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 text-[13px] [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-white/35"
+                className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 text-[13px] [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-foreground/35"
               />
             </div>
           </section>
 
           <section className="pb-5">
-            <h3 className="mb-1 text-[14px] font-medium leading-5 text-white">
+            <h3 className="mb-1 text-[14px] font-medium leading-5 text-foreground">
               Manual setup
             </h3>
 
             <div
               role="tablist"
               aria-label="Client"
-              className="flex overflow-x-auto border-b border-white/10"
+              className="flex overflow-x-auto border-b border-foreground/10"
             >
               {TABS.map((t) => {
                 const selected = tab === t.id;
@@ -246,8 +246,8 @@ url = "${mcpUrl}"`;
                     className={cn(
                       "inline-flex h-11 shrink-0 items-center gap-2 px-3 text-[13px] font-medium transition-colors sm:px-4 sm:text-[14px]",
                       selected
-                        ? "border-b-2 border-white text-white"
-                        : "border-b-2 border-transparent text-white/45 hover:text-white/80"
+                        ? "border-b-2 border-white text-foreground"
+                        : "border-b-2 border-transparent text-foreground/45 hover:text-foreground/80"
                     )}
                   >
                     <img
@@ -268,7 +268,7 @@ url = "${mcpUrl}"`;
 
             <div
               role="tabpanel"
-              className="relative mt-3 overflow-hidden rounded-[2px] border border-white/10 bg-black/30"
+              className="relative mt-3 overflow-hidden rounded-[2px] border border-foreground/10 bg-background/30"
             >
               <div className="absolute right-1 top-1 z-10">
                 <CopyIconButton
@@ -285,10 +285,10 @@ url = "${mcpUrl}"`;
           </section>
 
           <section className="pb-4">
-            <h3 className="mb-2 text-[14px] font-medium leading-5 text-white">
+            <h3 className="mb-2 text-[14px] font-medium leading-5 text-foreground">
               Example prompts
             </h3>
-            <ul className="divide-y divide-white/10 overflow-hidden rounded-[2px] border border-white/10 bg-transparent">
+            <ul className="divide-y divide-foreground/10 overflow-hidden rounded-[2px] border border-foreground/10 bg-transparent">
               {[
                 "Search for a minimal outline calendar icon",
                 "Get lucide:house as a React component",
@@ -296,7 +296,7 @@ url = "${mcpUrl}"`;
               ].map((prompt) => (
                 <li
                   key={prompt}
-                  className="px-4 py-3 text-[13px] leading-5 text-white/55"
+                  className="px-4 py-3 text-[13px] leading-5 text-foreground/55"
                 >
                   {prompt}
                 </li>
@@ -309,21 +309,21 @@ url = "${mcpUrl}"`;
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="h-10 min-w-[64px] rounded-[5px] px-4 text-[14px] font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            className="h-10 min-w-[64px] rounded-[5px] px-4 text-[14px] font-medium text-foreground/70 transition-colors hover:bg-foreground/10 hover:text-foreground"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={addToCursor}
-            className="inline-flex h-10 min-w-[64px] items-center justify-center gap-2 rounded-[5px] bg-white px-5 text-[14px] font-medium text-black transition-colors hover:bg-white/90"
+            className="inline-flex h-10 min-w-[64px] items-center justify-center gap-2 rounded-[5px] bg-foreground px-5 text-[14px] font-medium text-background transition-colors hover:bg-foreground/90"
           >
             <img
               src="/cursor.svg"
               alt=""
               width={14}
               height={16}
-              className="brightness-0"
+              className="brightness-0 invert dark:invert-0"
             />
             Add to Cursor
           </button>
@@ -349,7 +349,7 @@ function InstallRunnerDropdown({
         <button
           type="button"
           aria-label="Install runner"
-          className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[2px] border border-white/10 bg-white/[0.04] px-2.5 text-[12px] text-white/80 transition-colors hover:bg-white/[0.07] hover:text-white"
+          className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[2px] border border-foreground/10 bg-foreground/[0.04] px-2.5 text-[12px] text-foreground/80 transition-colors hover:bg-foreground/[0.07] hover:text-foreground"
         >
           {selected?.logo ? (
             <img
@@ -359,12 +359,12 @@ function InstallRunnerDropdown({
             />
           ) : null}
           <span className="font-mono">{selected?.label}</span>
-          <ChevronDown className="size-3 shrink-0 text-white/40" />
+          <ChevronDown className="size-3 shrink-0 text-foreground/40" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="min-w-[8rem] border-white/10 bg-[#2a2a2a]/70 text-white backdrop-blur-md"
+        className="min-w-[8rem] border-foreground/10 bg-popover/90 text-foreground backdrop-blur-md"
       >
         <DropdownMenuRadioGroup
           value={value}
@@ -374,7 +374,7 @@ function InstallRunnerDropdown({
             <DropdownMenuRadioItem
               key={item.id}
               value={item.id}
-              className="gap-2 text-[12px] text-white/75"
+              className="gap-2 text-[12px] text-foreground/75"
             >
               {item.logo ? (
                 <img

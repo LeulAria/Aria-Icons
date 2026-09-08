@@ -24,7 +24,7 @@ const Dialog = ({ open, onOpenChange, children }: DialogProps) => {
     >
       <div
         className={cn(
-          "relative w-full max-w-2xl bg-black border border-white/10 rounded-lg shadow-xl",
+          "relative w-full max-w-2xl bg-background border border-foreground/10 rounded-lg shadow-xl",
           "animate-in fade-in-0 zoom-in-95 duration-200"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -68,7 +68,7 @@ const DialogTitle = React.forwardRef<
   return (
     <h2
       ref={ref}
-      className={cn("text-lg font-semibold text-white", className)}
+      className={cn("text-lg font-semibold text-foreground", className)}
       {...props}
     />
   );
@@ -87,7 +87,7 @@ const DialogClose = React.forwardRef<
       type="button"
       onClick={onClose}
       className={cn(
-        "absolute right-4 top-4 rounded-full p-1.5 text-white/60 hover:text-white hover:bg-white/10 transition-colors",
+        "absolute right-4 top-4 rounded-full p-1.5 text-foreground/60 hover:text-foreground hover:bg-foreground/10 transition-colors",
         className
       )}
       {...props}

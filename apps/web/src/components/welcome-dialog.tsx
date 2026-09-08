@@ -47,11 +47,11 @@ export function WelcomeDialog({
       }}
       dismissible
       variant="blur"
-      className="flex items-center justify-center bg-black/20 p-4 backdrop-blur-[2px]"
+      className="flex items-center justify-center bg-black/30 p-4 backdrop-blur-[2px]"
     >
       <div
         className={cn(
-          "relative flex aspect-[6/4] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl",
+          "relative flex aspect-[6/4] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-2xl",
           "animate-in fade-in-0 zoom-in-95 duration-100"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -74,7 +74,7 @@ export function WelcomeDialog({
         <button
           type="button"
           onClick={dismiss}
-          className="absolute right-3.5 top-3.5 z-10 flex size-8 items-center justify-center rounded-full bg-[#444] text-white/70 transition-colors hover:bg-[#555] hover:text-white"
+          className="absolute right-3.5 top-3.5 z-10 flex size-8 items-center justify-center rounded-full bg-white/15 text-white/70 transition-colors hover:bg-white/25 hover:text-white"
         >
           <X className="size-4" />
           <span className="sr-only">Close</span>
@@ -111,7 +111,7 @@ export function WelcomeDialog({
             <Button
               size="lg"
               onClick={dismiss}
-              className="px-7 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              className="px-7 bg-white text-black hover:bg-white/90 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
               Get started
             </Button>

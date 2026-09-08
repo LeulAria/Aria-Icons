@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import JSZip from "jszip";
 import { ArrowRight, Check, ChevronDown, Copy, Download, Heart, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import {
   buildAriaIconsCliCommand,
   buildIconSvgUrl,
@@ -20,6 +21,8 @@ import {
   COPY_FORMAT_SETUP,
   fetchIconSvg,
   formatIconExport,
+  isThemeDefaultIconColor,
+  themeIconColor,
   toCliIconId,
   type CliAction,
   type CliFramework,
@@ -104,7 +107,7 @@ function Section({
   return (
     <section className="px-5 py-5">
       <div className="mb-4 flex items-center justify-between gap-3">
-        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/40">
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-foreground/40">
           {title}
         </h3>
         {action}
@@ -193,7 +196,7 @@ function SliderValueInput({
           e.currentTarget.blur();
         }
       }}
-      className="size-8 rounded-md bg-white/4 text-center font-mono text-[12px] leading-none text-white ring-1 ring-inset ring-white/10 outline-none transition-colors focus:bg-white/6 focus:ring-white/25"
+      className="size-8 rounded-md bg-foreground/4 text-center font-mono text-[12px] leading-none text-foreground ring-1 ring-inset ring-foreground/10 outline-none transition-colors focus:bg-foreground/6 focus:ring-foreground/25"
     />
   );
 }
@@ -263,7 +266,7 @@ function InspectorResizeHandle({
       }}
       className="group/resize absolute top-0 left-0 z-20 hidden h-full w-2 cursor-col-resize touch-none lg:block"
     >
-      <span className="mx-auto block h-full w-px bg-transparent transition-colors group-hover/resize:bg-white/35 group-active/resize:bg-white/55 group-focus-visible/resize:bg-white/55" />
+      <span className="mx-auto block h-full w-px bg-transparent transition-colors group-hover/resize:bg-foreground/35 group-active/resize:bg-foreground/55 group-focus-visible/resize:bg-foreground/55" />
     </div>
   );
 }
@@ -319,6 +322,7 @@ export function IconInspector({
   width?: number;
   onWidthChange?: (width: number) => void;
 }) {
+  const { resolvedTheme } = useTheme();
   const [size, setSize] = React.useState(DEFAULT_CUSTOMIZE.size);
   const [stroke, setStroke] = React.useState(DEFAULT_CUSTOMIZE.stroke);
   const [color, setColor] = React.useState(DEFAULT_CUSTOMIZE.color);
@@ -341,6 +345,19 @@ export function IconInspector({
   const [copiedCli, setCopiedCli] = React.useState(false);
   const [headerScrolled, setHeaderScrolled] = React.useState(false);
   const bodyScrollRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (resolvedTheme !== "light" && resolvedTheme !== "dark") return;
+    const nextColor = themeIconColor(resolvedTheme);
+    setColor((current) =>
+      isThemeDefaultIconColor(current) ? nextColor : current,
+    );
+    setPreviewBg((bg) => {
+      if (resolvedTheme === "light" && bg === "dark") return "white";
+      if (resolvedTheme === "dark" && bg === "white") return "dark";
+      return bg;
+    });
+  }, [resolvedTheme]);
 
   const previewPx = previewDisplaySize(size);
   const previewCustomize = useDebouncedValue(
@@ -533,7 +550,7 @@ export function IconInspector({
 
   const previewFrameClass =
     previewBg === "white"
-      ? "bg-white"
+      ? "bg-[#fff]"
       : previewBg === "dark"
         ? "bg-[#0a0a0a]"
         : previewBg === "checker"
@@ -544,19 +561,19 @@ export function IconInspector({
     <>
       <div className="flex h-14 shrink-0 items-center justify-between px-5">
         <div>
-          <div className="text-[15px] font-medium text-white">Customize</div>
-          <div className="text-[12px] text-white/45">Appearance & export</div>
+          <div className="text-[15px] font-medium text-foreground">Customize</div>
+          <div className="text-[12px] text-foreground/45">Appearance & export</div>
         </div>
       </div>
       <div className="flex flex-1 flex-col items-center justify-center px-6 pb-10 text-center">
-        <div className="grid size-20 place-items-center rounded-full bg-white/5 ring-1 ring-inset ring-white/10">
-          <div className="size-6 rounded-sm border border-dashed border-white/25" />
+        <div className="grid size-20 place-items-center rounded-full bg-foreground/5 ring-1 ring-inset ring-foreground/10">
+          <div className="size-6 rounded-sm border border-dashed border-foreground/25" />
         </div>
-        <p className="mt-4 text-[14px] font-medium text-white">Select an icon</p>
-        <p className="mt-1.5 max-w-[16rem] text-[12px] leading-5 text-white/40">
+        <p className="mt-4 text-[14px] font-medium text-foreground">Select an icon</p>
+        <p className="mt-1.5 max-w-[16rem] text-[12px] leading-5 text-foreground/40">
           Choose an icon to preview, customize, and export it.
         </p>
-        <p className="mt-4 font-mono text-[11px] text-white/30">⌘K Search</p>
+        <p className="mt-4 font-mono text-[11px] text-foreground/30">⌘K Search</p>
       </div>
     </>
   );
@@ -566,14 +583,14 @@ export function IconInspector({
       <div
         className={cn(
           "flex h-14 shrink-0 items-center justify-between gap-3 px-5 transition-[border-color] duration-200",
-          headerScrolled ? "border-b border-white/[0.08]" : "border-b border-transparent",
+          headerScrolled ? "border-b border-foreground/[0.08]" : "border-b border-transparent",
         )}
       >
         <div className="min-w-0">
-          <div className="truncate text-[15px] font-medium tracking-tight text-white">
+          <div className="truncate text-[15px] font-medium tracking-tight text-foreground">
             {focusedIcon.name}
           </div>
-          <div className="truncate text-[12px] text-white/40">
+          <div className="truncate text-[12px] text-foreground/40">
             {morphMode
               ? `Morph · ${morphIcons.length} icon${morphIcons.length === 1 ? "" : "s"}`
               : setLabel ?? focusedIcon.setId}
@@ -587,12 +604,12 @@ export function IconInspector({
             type="button"
             aria-label={favorited ? "Remove favorite" : "Favorite"}
             onClick={onToggleFavorite}
-            className="inline-flex size-8 items-center justify-center rounded-md text-white/50 transition-colors duration-150 hover:bg-white/[0.06] hover:text-white"
+            className="inline-flex size-8 items-center justify-center rounded-md text-foreground/50 transition-colors duration-150 hover:bg-foreground/[0.06] hover:text-foreground"
           >
             <Heart
               className={cn(
                 "size-4 transition-transform duration-150",
-                favorited && "fill-white text-white scale-110",
+                favorited && "fill-foreground text-foreground scale-110",
               )}
             />
           </button>
@@ -600,7 +617,7 @@ export function IconInspector({
             type="button"
             aria-label="Clear selection"
             onClick={onClose}
-            className="inline-flex size-8 items-center justify-center rounded-md text-white/50 transition-colors duration-150 hover:bg-white/[0.06] hover:text-white"
+            className="inline-flex size-8 items-center justify-center rounded-md text-foreground/50 transition-colors duration-150 hover:bg-foreground/[0.06] hover:text-foreground"
           >
             <X className="size-4" />
           </button>
@@ -615,7 +632,7 @@ export function IconInspector({
         }}
       >
         <section>
-          <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-5">
+          <div className="flex items-center justify-between gap-3 border-b border-foreground/[0.06] px-5">
             <UnderlineTabs
               ariaLabel="Preview mode"
               value={morphMode ? "morph" : "static"}
@@ -630,10 +647,10 @@ export function IconInspector({
                 type="button"
                 onClick={() => onSelectSet?.(focusedIcon.setId)}
                 title={`Open ${setLabel ?? focusedIcon.setId}`}
-                className="group/set inline-flex h-6 max-w-36 shrink-0 items-center gap-1 rounded-full bg-white/4 pl-2.5 pr-1.5 text-[11px] font-medium text-white/65 ring-1 ring-inset ring-white/8 transition-colors hover:bg-white/8 hover:text-white"
+                className="group/set inline-flex h-6 max-w-36 shrink-0 items-center gap-1 rounded-full bg-foreground/4 pl-2.5 pr-1.5 text-[11px] font-medium text-foreground/65 ring-1 ring-inset ring-foreground/8 transition-colors hover:bg-foreground/8 hover:text-foreground"
               >
                 <span className="truncate">{setLabel ?? focusedIcon.setId}</span>
-                <ArrowRight className="size-3 shrink-0 text-white/30 transition-colors group-hover/set:text-white/70" />
+                <ArrowRight className="size-3 shrink-0 text-foreground/30 transition-colors group-hover/set:text-foreground/70" />
               </button>
             ) : null}
           </div>
@@ -657,7 +674,7 @@ export function IconInspector({
             <>
               <div
                 className={cn(
-                  "relative grid h-44 place-items-center overflow-hidden rounded-xl ring-1 ring-inset ring-white/[0.06]",
+                  "relative grid h-44 place-items-center overflow-hidden rounded-xl ring-1 ring-inset ring-foreground/[0.06]",
                   previewFrameClass,
                 )}
               >
@@ -695,8 +712,8 @@ export function IconInspector({
                 className={cn(
                   "rounded-md px-2.5 py-1 text-[11px] transition-colors duration-150",
                   previewBg === id
-                    ? "bg-white/[0.1] text-white"
-                    : "text-white/40 hover:bg-white/[0.04] hover:text-white/70",
+                    ? "bg-foreground/[0.1] text-foreground"
+                    : "text-foreground/40 hover:bg-foreground/[0.04] hover:text-foreground/70",
                 )}
               >
                 {label}
@@ -707,7 +724,7 @@ export function IconInspector({
           </div>
         </section>
 
-        <div className="mx-5 h-px bg-white/[0.06]" />
+        <div className="mx-5 h-px bg-foreground/[0.06]" />
 
         <Section
           title="Appearance"
@@ -715,7 +732,7 @@ export function IconInspector({
             <button
               type="button"
               onClick={reset}
-              className="text-[11px] text-white/40 transition-colors hover:text-white/70"
+              className="text-[11px] text-foreground/40 transition-colors hover:text-foreground/70"
             >
               Reset
             </button>
@@ -724,7 +741,7 @@ export function IconInspector({
           <div className="space-y-6">
             <div>
               <div className="mb-3 flex items-center justify-between">
-                <label className="text-[13px] text-white/80">Size</label>
+                <label className="text-[13px] text-foreground/80">Size</label>
                 <SliderValueInput
                   value={size}
                   min={SIZE_INPUT.min}
@@ -747,7 +764,7 @@ export function IconInspector({
             {morphMode || groupLabel !== "Filled" ? (
             <div>
               <div className="mb-3 flex items-center justify-between">
-                <label className="text-[13px] text-white/80">Stroke</label>
+                <label className="text-[13px] text-foreground/80">Stroke</label>
                 <SliderValueInput
                   value={stroke}
                   min={STROKE_INPUT.min}
@@ -772,11 +789,11 @@ export function IconInspector({
             ) : null}
 
             <div>
-              <label className="mb-3 block text-[13px] text-white/80">
+              <label className="mb-3 block text-[13px] text-foreground/80">
                 Color
               </label>
               <div className="flex items-center gap-3">
-                <label className="relative size-9 shrink-0 cursor-pointer overflow-hidden rounded-full ring-1 ring-white/15 transition-opacity duration-150 hover:opacity-90">
+                <label className="relative size-9 shrink-0 cursor-pointer overflow-hidden rounded-full ring-1 ring-foreground/15 transition-opacity duration-150 hover:opacity-90">
                   <span
                     className="absolute inset-0"
                     style={{ backgroundColor: color }}
@@ -796,15 +813,15 @@ export function IconInspector({
                     if (e.key === "Enter")
                       (e.currentTarget as HTMLInputElement).blur();
                   }}
-                  className="h-9 flex-1 rounded-md border-0 bg-white/[0.04] font-mono text-[13px] text-white/80 focus-visible:bg-white/[0.06]"
-                  placeholder="#ffffff"
+                  className="h-9 flex-1 rounded-md border-0 bg-foreground/[0.04] font-mono text-[13px] text-foreground/80 focus-visible:bg-foreground/[0.06]"
+                  placeholder={themeIconColor(resolvedTheme)}
                 />
               </div>
             </div>
           </div>
         </Section>
 
-        <div className="mx-5 h-px bg-white/[0.06]" />
+        <div className="mx-5 h-px bg-foreground/[0.06]" />
 
         <Section title="Export">
           <UnderlineTabs
@@ -842,17 +859,17 @@ export function IconInspector({
                 />
               </div>
 
-              <div className="relative overflow-hidden rounded-[2px] border border-white/10 bg-black/40">
+              <div className="relative overflow-hidden rounded-[2px] border border-foreground/10 bg-background/40">
                 <div className="absolute right-1 top-1 z-10">
                   <button
                     type="button"
                     aria-label="Copy CLI command"
                     disabled={!cliCommand}
                     onClick={() => void copyCliCommand()}
-                    className="inline-flex size-8 items-center justify-center rounded-full text-white/55 transition-colors hover:text-white disabled:opacity-40"
+                    className="inline-flex size-8 items-center justify-center rounded-full text-foreground/55 transition-colors hover:text-foreground disabled:opacity-40"
                   >
                     {copiedCli ? (
-                      <Check className="size-3.5 text-white" />
+                      <Check className="size-3.5 text-foreground" />
                     ) : (
                       <Copy className="size-3.5" />
                     )}
@@ -862,10 +879,10 @@ export function IconInspector({
                   <CodeBlock
                     code={cliCommand}
                     lang="bash"
-                    className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-white/35"
+                    className="code-block-wrap max-h-none overflow-x-hidden p-3 pr-11 [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_.line::before]:mr-2.5 [&_.line::before]:w-auto [&_.line::before]:content-['$']! [&_.line::before]:text-foreground/35"
                   />
                 ) : (
-                  <pre className="p-3 pr-11 font-mono text-[12px] leading-[1.55] text-white/40">
+                  <pre className="p-3 pr-11 font-mono text-[12px] leading-[1.55] text-foreground/40">
                     Select an icon to generate a command.
                   </pre>
                 )}
@@ -879,7 +896,7 @@ export function IconInspector({
                 variant="outline"
                 onClick={() => copyMorph("react")}
                 disabled={!!copying}
-                className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
+                className="h-10 justify-center rounded-lg border-foreground/[0.1] bg-transparent text-[13px] text-foreground/85 hover:bg-foreground/[0.04]"
               >
                 {copiedFormat === "react" ? (
                   <Check className="mr-1.5 size-3.5" />
@@ -891,7 +908,7 @@ export function IconInspector({
                 variant="outline"
                 onClick={() => copyAs("svg")}
                 disabled={!!copying}
-                className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
+                className="h-10 justify-center rounded-lg border-foreground/[0.1] bg-transparent text-[13px] text-foreground/85 hover:bg-foreground/[0.04]"
               >
                 {copiedFormat === "svg" ? (
                   <Check className="mr-1.5 size-3.5" />
@@ -903,7 +920,7 @@ export function IconInspector({
               variant="outline"
               onClick={downloadSvg}
               disabled={exportCount === 0}
-              className="h-10 justify-center rounded-lg border-white/[0.1] bg-transparent text-[13px] text-white/85 hover:bg-white/[0.04]"
+              className="h-10 justify-center rounded-lg border-foreground/[0.1] bg-transparent text-[13px] text-foreground/85 hover:bg-foreground/[0.04]"
             >
               <Download className="mr-1.5 size-3.5" />
               {exportCount > 1 ? `Download ${exportCount}` : "Download"}
@@ -911,11 +928,11 @@ export function IconInspector({
           </div>
 
           <div className="mt-4">
-            <div className="mb-2 text-[12px] font-semibold text-white/40">
+            <div className="mb-2 text-[12px] font-semibold text-foreground/40">
               {morphMode ? "Copy morph as" : "Copy as"}
             </div>
             {morphMode ? (
-              <p className="mb-2 text-[11px] leading-4 text-white/35">
+              <p className="mb-2 text-[11px] leading-4 text-foreground/35">
                 morphicons — React, Vue, Svelte, React Native, HTML, Vanilla.
               </p>
             ) : null}
@@ -944,7 +961,7 @@ export function IconInspector({
                             ? copyMorph(format as MorphCopyFormat)
                             : copyAs(format as CopyFormat)
                         }
-                        className="flex h-9 min-w-0 flex-1 items-center justify-between rounded-[2px] px-2.5 text-left text-[13px] text-white/70 transition-colors duration-150 hover:bg-white/[0.04] hover:text-white disabled:opacity-50"
+                        className="flex h-9 min-w-0 flex-1 items-center justify-between rounded-[2px] px-2.5 text-left text-[13px] text-foreground/70 transition-colors duration-150 hover:bg-foreground/[0.04] hover:text-foreground disabled:opacity-50"
                       >
                         <span className="flex min-w-0 items-center gap-2.5">
                           {logo ? (
@@ -954,14 +971,14 @@ export function IconInspector({
                               className="size-4 shrink-0 object-contain"
                             />
                           ) : (
-                            <span className="size-4 shrink-0 rounded-[2px] bg-white/10" />
+                            <span className="size-4 shrink-0 rounded-[2px] bg-foreground/10" />
                           )}
                           <span className="truncate">{label}</span>
                         </span>
                         {busy ? (
                           <Loader size="sm" />
                         ) : done ? (
-                          <Check className="size-3.5 shrink-0 text-white" />
+                          <Check className="size-3.5 shrink-0 text-foreground" />
                         ) : null}
                       </button>
                       {setup ? (
@@ -977,8 +994,8 @@ export function IconInspector({
                           className={cn(
                             "inline-flex h-9 shrink-0 items-center rounded-[2px] px-2 text-[11px] transition-colors duration-150",
                             open
-                              ? "bg-white/[0.08] text-white"
-                              : "text-white/40 hover:bg-white/[0.04] hover:text-white/70",
+                              ? "bg-foreground/[0.08] text-foreground"
+                              : "text-foreground/40 hover:bg-foreground/[0.04] hover:text-foreground/70",
                           )}
                         >
                           Setup
@@ -986,14 +1003,14 @@ export function IconInspector({
                       ) : null}
                     </div>
                     {setup && open ? (
-                      <div className="mb-1 mt-0.5 space-y-2 rounded-[2px] bg-white/[0.03] px-2.5 py-2.5">
-                        <div className="text-[11px] leading-4 text-white/45">
+                      <div className="mb-1 mt-0.5 space-y-2 rounded-[2px] bg-foreground/[0.03] px-2.5 py-2.5">
+                        <div className="text-[11px] leading-4 text-foreground/45">
                           How to run
                         </div>
-                        <pre className="overflow-x-auto whitespace-pre-wrap rounded-[2px] bg-black/40 px-2.5 py-2 font-mono text-[11px] leading-4 text-white/75">
+                        <pre className="overflow-x-auto whitespace-pre-wrap rounded-[2px] bg-background/40 px-2.5 py-2 font-mono text-[11px] leading-4 text-foreground/75">
                           {setup.install}
                         </pre>
-                        <p className="text-[11px] leading-4 text-white/40">
+                        <p className="text-[11px] leading-4 text-foreground/40">
                           {setup.usage}
                         </p>
                         <button
@@ -1013,7 +1030,7 @@ export function IconInspector({
                               toast.error("Failed to copy install command");
                             }
                           }}
-                          className="inline-flex h-7 items-center gap-1.5 rounded-[2px] px-2 text-[11px] text-white/55 transition-colors hover:bg-white/[0.06] hover:text-white"
+                          className="inline-flex h-7 items-center gap-1.5 rounded-[2px] px-2 text-[11px] text-foreground/55 transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
                         >
                           {copiedSetup === format ? (
                             <Check className="size-3" />
@@ -1041,18 +1058,18 @@ export function IconInspector({
   return (
     <aside
       className={cn(
-        "relative z-40 flex h-full min-h-0 flex-col overflow-hidden bg-[#0b0b0b]",
+        "relative z-40 flex h-full min-h-0 flex-col overflow-hidden bg-card",
         // Always visible on large screens; mobile sheet only when an icon is selected
         focusedIcon
-          ? "fixed inset-x-0 bottom-0 max-h-[85vh] rounded-t-2xl border border-white/[0.08] shadow-2xl lg:relative lg:inset-auto lg:h-full lg:max-h-none lg:rounded-none lg:border-0 lg:border-l lg:border-[#2D2D2D] lg:shadow-none"
-          : "hidden h-full border-l border-[#2D2D2D] lg:flex",
+          ? "fixed inset-x-0 bottom-0 max-h-[85vh] rounded-t-2xl border border-foreground/[0.08] shadow-2xl lg:relative lg:inset-auto lg:h-full lg:max-h-none lg:rounded-none lg:border-0 lg:border-l lg:border-border lg:shadow-none"
+          : "hidden h-full border-l border-border lg:flex",
       )}
     >
       {width != null && onWidthChange ? (
         <InspectorResizeHandle width={width} onWidthChange={onWidthChange} />
       ) : null}
       {focusedIcon ? (
-        <div className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-white/15 lg:hidden" />
+        <div className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-foreground/15 lg:hidden" />
       ) : null}
       {body}
     </aside>
@@ -1079,7 +1096,7 @@ function CliDropdown<T extends string>({
         <button
           type="button"
           aria-label={label}
-          className="inline-flex h-8 min-w-0 max-w-full items-center gap-1.5 rounded-[2px] border border-white/10 bg-white/[0.04] px-2.5 text-[12px] text-white/80 transition-colors hover:bg-white/[0.07] hover:text-white"
+          className="inline-flex h-8 min-w-0 max-w-full items-center gap-1.5 rounded-[2px] border border-foreground/10 bg-foreground/[0.04] px-2.5 text-[12px] text-foreground/80 transition-colors hover:bg-foreground/[0.07] hover:text-foreground"
         >
           {selected?.logo ? (
             <img
@@ -1089,15 +1106,15 @@ function CliDropdown<T extends string>({
             />
           ) : null}
           <span className="truncate font-mono">{selected?.label}</span>
-          <ChevronDown className="size-3 shrink-0 text-white/40" />
+          <ChevronDown className="size-3 shrink-0 text-foreground/40" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
         className={
           described
-            ? "w-64 border-white/10 bg-[#171717] p-1.5 text-white shadow-xl"
-            : "min-w-40 border-white/10 bg-[#141414] text-white"
+            ? "w-64 border-foreground/10 bg-popover p-1.5 text-foreground shadow-xl"
+            : "min-w-40 border-foreground/10 bg-popover text-foreground"
         }
       >
         <DropdownMenuRadioGroup
@@ -1110,8 +1127,8 @@ function CliDropdown<T extends string>({
               value={item.id}
               className={
                 described
-                  ? "items-start gap-0 py-2 px-2.5 text-white/75"
-                  : "gap-2 text-[12px] text-white/75"
+                  ? "items-start gap-0 py-2 px-2.5 text-foreground/75"
+                  : "gap-2 text-[12px] text-foreground/75"
               }
             >
               {item.logo ? (
@@ -1123,10 +1140,10 @@ function CliDropdown<T extends string>({
               ) : null}
               {item.hint ? (
                 <span className="flex min-w-0 flex-col gap-0.5">
-                  <span className="text-[11px] font-semibold text-white">
+                  <span className="text-[11px] font-semibold text-foreground">
                     {item.label}
                   </span>
-                  <span className="text-[11px] leading-4 whitespace-normal text-white/55">
+                  <span className="text-[11px] leading-4 whitespace-normal text-foreground/55">
                     {item.hint}
                   </span>
                 </span>

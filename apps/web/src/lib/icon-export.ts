@@ -4,6 +4,18 @@ export type IconExportCustomize = {
   color: string;
 };
 
+export const DARK_ICON_COLOR = "#ffffff";
+export const LIGHT_ICON_COLOR = "#171717";
+
+export function themeIconColor(theme?: string | null) {
+  return theme === "light" ? LIGHT_ICON_COLOR : DARK_ICON_COLOR;
+}
+
+export function isThemeDefaultIconColor(color: string) {
+  const value = color.toLowerCase();
+  return value === DARK_ICON_COLOR || value === LIGHT_ICON_COLOR;
+}
+
 export type CopyFormat =
   | "svg"
   | "react"

@@ -21,6 +21,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { WelcomeDialog } from "@/components/welcome-dialog";
 import { GitHubStars } from "@/components/github-stars";
+import { ModeToggle } from "@/components/mode-toggle";
 import { McpDialog } from "@/components/mcp-dialog";
 import { IconInspector } from "@/components/icon-inspector";
 import {
@@ -47,9 +48,11 @@ import {
 	toggleFavorite,
 	type WorkspaceIcon,
 } from "@/lib/icon-workspace";
+import { useTheme } from "next-themes";
 import {
 	fetchIconSvg,
 	formatIconExport,
+	themeIconColor,
 	type IconExportCustomize,
 } from "@/lib/icon-export";
 import { toast } from "sonner";
@@ -60,12 +63,6 @@ import {
 } from "@/lib/icon-morph";
 
 type CollectionId = "all" | "favorites" | "recent" | string;
-
-const DEFAULT_CUSTOMIZE: IconExportCustomize = {
-	size: 24,
-	stroke: 1,
-	color: "#ffffff",
-};
 
 const STYLE_TABS: { id: IconStyleFilter; label: string }[] = [
 	{ id: "both", label: "All" },
@@ -103,6 +100,15 @@ function isTypingTarget(target: EventTarget | null) {
 export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 	const pathname = usePathname();
 	const router = useRouter();
+	const { resolvedTheme } = useTheme();
+	const defaultCustomize = React.useMemo<IconExportCustomize>(
+		() => ({
+			size: 24,
+			stroke: 1,
+			color: themeIconColor(resolvedTheme),
+		}),
+		[resolvedTheme],
+	);
 	const [styleGroup, setStyleGroup] = React.useState<IconStyleFilter>("both");
 	const [search, setSearch] = React.useState("");
 	const [collection, setCollection] = React.useState<CollectionId>(() =>
@@ -551,7 +557,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	const quickCopy = React.useCallback(async (icon: WorkspaceIcon) => {
 		try {
-			const svg = await fetchIconSvg(icon, DEFAULT_CUSTOMIZE);
+			const svg = await fetchIconSvg(icon, defaultCustomize);
 			await navigator.clipboard.writeText(
 				formatIconExport(svg, icon.name, "svg"),
 			);
@@ -562,11 +568,11 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				description: error instanceof Error ? error.message : "Unknown error",
 			});
 		}
-	}, []);
+	}, [defaultCustomize]);
 
 	const quickDownload = React.useCallback(async (icon: WorkspaceIcon) => {
 		try {
-			const svg = await fetchIconSvg(icon, DEFAULT_CUSTOMIZE);
+			const svg = await fetchIconSvg(icon, defaultCustomize);
 			const blob = new Blob([svg], { type: "image/svg+xml" });
 			const url = URL.createObjectURL(blob);
 			const a = document.createElement("a");
@@ -583,7 +589,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				description: error instanceof Error ? error.message : "Unknown error",
 			});
 		}
-	}, []);
+	}, [defaultCustomize]);
 
 	const focusIcon = React.useCallback((icon: CatalogIcon | WorkspaceIcon) => {
 		remember(icon as CatalogIcon);
@@ -932,7 +938,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	return (
 		<div
-			className="flex min-h-0 flex-1 flex-col overflow-hidden bg-black"
+			className="flex min-h-0 flex-1 flex-col overflow-hidden bg-background"
 			style={{ height: "100vh", minHeight: "100vh" }}
 		>
 			<div
@@ -943,7 +949,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					} as React.CSSProperties
 				}
 			>
-				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-[#2D2D2D] bg-[#0d0d0d] lg:block">
+				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-border bg-sidebar lg:block">
 					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
 							<div className="flex min-w-0 items-center justify-between gap-2">
@@ -954,22 +960,25 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 										e.preventDefault();
 										selectCollection("all");
 									}}
-									className="flex min-w-0 items-center gap-2.5 rounded-md outline-none transition-opacity hover:opacity-80 focus-visible:ring-1 focus-visible:ring-white/25"
+									className="flex min-w-0 items-center gap-2.5 rounded-md outline-none transition-opacity hover:opacity-80 focus-visible:ring-1 focus-visible:ring-foreground/25"
 								>
 									<img
 										src="/logo.svg"
 										alt=""
 										width={22}
 										height={22}
-										className="size-[22px] shrink-0"
+										className="size-[22px] shrink-0 theme-invert"
 									/>
-									<div className="truncate text-[15px] font-semibold tracking-tight text-white">
+									<div className="truncate text-[15px] font-semibold tracking-tight text-foreground">
 										Aria Icons
 									</div>
 								</Link>
-								<GitHubStars />
+								<div className="flex shrink-0 items-center gap-0.5">
+									<ModeToggle />
+									<GitHubStars />
+								</div>
 							</div>
-							<div className="mt-1 line-clamp-2 text-[11px] leading-4 text-white/40">
+							<div className="mt-1 line-clamp-2 text-[11px] leading-4 text-foreground/40">
 								Search, customize, and export SVG icons from curated libraries.
 							</div>
 							<div className="mt-2 flex flex-col items-stretch">
@@ -978,9 +987,9 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									size="sm"
 									asChild
 									className={cn(
-										"h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs has-[>svg]:px-2 hover:text-white",
+										"h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs has-[>svg]:px-2 hover:text-foreground",
 										collection === "favorites"
-											? "text-white"
+											? "text-foreground"
 											: "text-muted-foreground",
 									)}
 								>
@@ -1004,7 +1013,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									variant="ghost"
 									size="sm"
 									asChild
-									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-foreground"
 								>
 									<Link href="/changelog">
 										<img
@@ -1012,7 +1021,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 											alt=""
 											width={14}
 											height={14}
-											className="size-3.5"
+											className="size-3.5 theme-invert"
 										/>
 										View Changelogs
 									</Link>
@@ -1021,14 +1030,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									variant="ghost"
 									size="sm"
 									onClick={() => setMcpDialogOpen(true)}
-									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-foreground"
 								>
 									<img
 										src="/mcp.svg"
 										alt=""
 										width={14}
 										height={14}
-										className="size-3.5"
+										className="size-3.5 theme-invert"
 									/>
 									Add MCP Server
 								</Button>
@@ -1036,7 +1045,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									variant="ghost"
 									size="sm"
 									asChild
-									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-white"
+									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-foreground"
 								>
 									<Link href="/contribute">
 										<GitPullRequestArrow className="size-3.5" />
@@ -1047,18 +1056,18 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 						</div>
 
 						<div className="min-h-0 min-w-0 flex-1 overflow-auto pb-6">
-							<div className="px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/30">
+							<div className="px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-foreground/30">
 								Collections
 							</div>
 							<label className="group/search relative mx-5 mb-3 block">
 								<Search
 									aria-hidden
 									strokeWidth={1.6}
-									className="pointer-events-none absolute top-1/2 left-2 size-3.5 -translate-y-1/2 text-white/30 transition-colors duration-200 group-focus-within/search:text-white/65"
+									className="pointer-events-none absolute top-1/2 left-2 size-3.5 -translate-y-1/2 text-foreground/30 transition-colors duration-200 group-focus-within/search:text-foreground/65"
 								/>
 								<Input
 									aria-label="Search collections"
-									className="h-8 rounded-[3px] border-white/12 bg-transparent pr-7 pl-7 text-[12px] tracking-tight placeholder:text-white/30 hover:border-white/20 focus-visible:border-white/28 focus-visible:bg-transparent"
+									className="h-8 rounded-[3px] border-foreground/12 bg-transparent pr-7 pl-7 text-[12px] tracking-tight placeholder:text-foreground/30 hover:border-foreground/20 focus-visible:border-foreground/28 focus-visible:bg-transparent"
 									placeholder="Search collections…"
 									value={sidebarSearch}
 									onChange={(e) => setSidebarSearch(e.target.value)}
@@ -1074,7 +1083,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 										type="button"
 										aria-label="Clear collection search"
 										onClick={() => setSidebarSearch("")}
-										className="absolute top-1/2 right-1.5 grid size-5 -translate-y-1/2 place-items-center text-white/30 transition-colors hover:text-white/70"
+										className="absolute top-1/2 right-1.5 grid size-5 -translate-y-1/2 place-items-center text-foreground/30 transition-colors hover:text-foreground/70"
 									>
 										<X className="size-3" />
 									</button>
@@ -1098,7 +1107,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							</nav>
 
 							{catalogQuery.isLoading ? (
-								<div className="mt-4 flex items-center gap-2 px-5 py-2 text-sm text-white/40">
+								<div className="mt-4 flex items-center gap-2 px-5 py-2 text-sm text-foreground/40">
 									<Loader size="sm" />
 									<span>Loading…</span>
 								</div>
@@ -1120,7 +1129,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									))}
 								</nav>
 							) : (
-								<div className="px-5 py-3 text-[12px] text-white/35">
+								<div className="px-5 py-3 text-[12px] text-foreground/35">
 									No collections match
 								</div>
 							)}
@@ -1132,13 +1141,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					ref={iconsScrollRef}
 					className="icons-canvas relative flex h-full min-h-0 min-w-0 flex-col overflow-auto"
 				>
-					<div className="sticky top-0 z-10 bg-[#070809]/55 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
+					<div className="sticky top-0 z-10 bg-canvas/55 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
 						<div className="flex flex-col gap-4 pb-3 lg:flex-row lg:items-center lg:justify-between">
 							<div className="min-w-0">
-								<h1 className="truncate text-[22px] font-semibold tracking-tight text-white">
+								<h1 className="truncate text-[22px] font-semibold tracking-tight text-foreground">
 									{title}
 								</h1>
-								<p className="mt-0.5 text-[13px] text-white/40">
+								<p className="mt-0.5 text-[13px] text-foreground/40">
 									{subtitle}
 									{isStale ? "…" : ""}
 								</p>
@@ -1148,12 +1157,12 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<Search
 									aria-hidden
 									strokeWidth={1.6}
-									className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-white/30 transition-colors duration-200 group-focus-within/search:text-white/65"
+									className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-foreground/30 transition-colors duration-200 group-focus-within/search:text-foreground/65"
 								/>
 								<Input
 									ref={searchInputRef}
 									aria-label="Search icons"
-									className="h-10 rounded-[3px] border-white/14 bg-transparent pr-24 pl-10 text-[13px] tracking-tight placeholder:text-white/30 hover:border-white/22 focus-visible:border-white/28 focus-visible:bg-transparent"
+									className="h-10 rounded-[3px] border-foreground/14 bg-transparent pr-24 pl-10 text-[13px] tracking-tight placeholder:text-foreground/30 hover:border-foreground/22 focus-visible:border-foreground/28 focus-visible:bg-transparent"
 									placeholder="Search icons, collections, styles…"
 									value={search}
 									onChange={(e) => setSearch(e.target.value)}
@@ -1173,7 +1182,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 												setSearch("");
 												searchInputRef.current?.focus();
 											}}
-											className="grid size-6 place-items-center rounded-md text-white/30 transition-colors hover:text-white/70"
+											className="grid size-6 place-items-center rounded-md text-foreground/30 transition-colors hover:text-foreground/70"
 										>
 											<X className="size-3.5" />
 										</button>
@@ -1187,10 +1196,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 										}}
 										className="flex items-center gap-0.5"
 									>
-										<kbd className="grid size-5 place-items-center rounded-[5px] border border-white/[0.1] bg-transparent font-sans text-[10px] leading-none text-white/40">
+										<kbd className="grid size-5 place-items-center rounded-[5px] border border-foreground/[0.1] bg-transparent font-sans text-[10px] leading-none text-foreground/40">
 											⌘
 										</kbd>
-										<kbd className="grid size-5 place-items-center rounded-[5px] border border-white/[0.1] bg-transparent font-sans text-[10px] leading-none text-white/40">
+										<kbd className="grid size-5 place-items-center rounded-[5px] border border-foreground/[0.1] bg-transparent font-sans text-[10px] leading-none text-foreground/40">
 											K
 										</kbd>
 									</button>
@@ -1198,7 +1207,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							</label>
 						</div>
 
-						<div className="-mx-4 flex flex-wrap items-end justify-between gap-3 border-b border-[#2D2D2D] px-4 sm:-mx-6 sm:px-6">
+						<div className="-mx-4 flex flex-wrap items-end justify-between gap-3 border-b border-border px-4 sm:-mx-6 sm:px-6">
 							<UnderlineTabs
 								ariaLabel="Icon style"
 								value={styleGroup}
@@ -1216,10 +1225,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							/>
 						</div>
 						{morphMode ? (
-							<div className="-mx-4 flex items-center justify-between gap-3 border-b border-white/[0.06] bg-white/[0.03] px-4 py-2 text-[12px] text-white/55 sm:-mx-6 sm:px-6">
+							<div className="-mx-4 flex items-center justify-between gap-3 border-b border-foreground/[0.06] bg-foreground/[0.03] px-4 py-2 text-[12px] text-foreground/55 sm:-mx-6 sm:px-6">
 								<span>
 									Morph playground · click icons to add them
-									<span className="text-white/30">
+									<span className="text-foreground/30">
 										{" "}
 										· {morphIcons.length}/{MAX_MORPH_SEQUENCE}
 									</span>
@@ -1227,7 +1236,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<button
 									type="button"
 									onClick={disableMorph}
-									className="text-[11px] text-white/40 transition-colors hover:text-white/70"
+									className="text-[11px] text-foreground/40 transition-colors hover:text-foreground/70"
 								>
 									Exit
 								</button>
@@ -1237,14 +1246,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 					<div className="px-2 pb-8 sm:px-4 md:px-5">
 						{showLoading ? (
-							<div className="flex items-center gap-2 px-2 py-8 text-sm text-white/40">
+							<div className="flex items-center gap-2 px-2 py-8 text-sm text-foreground/40">
 								<Loader size="sm" />
 								<span>Loading icons…</span>
 							</div>
 						) : catalogQuery.isError ? (
 							<div className="px-2 py-8 text-sm text-destructive">
 								Failed to load icons. Run{" "}
-								<code className="text-white/70">bun run generate-icons</code>{" "}
+								<code className="text-foreground/70">bun run generate-icons</code>{" "}
 								and restart.
 							</div>
 						) : showEmptyWorkspace ? (
@@ -1349,10 +1358,10 @@ function SidebarRow({
 			onClick={onClick}
 			className={cn(
 				"flex w-full min-w-0 items-center justify-between gap-3 px-5 py-2 text-left outline-none transition-colors duration-150",
-				"focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/20",
+				"focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground/20",
 				active
-					? "bg-white/[0.07] text-white"
-					: "text-white/55 hover:bg-white/[0.035] hover:text-white/85",
+					? "bg-foreground/[0.07] text-foreground"
+					: "text-foreground/55 hover:bg-foreground/[0.035] hover:text-foreground/85",
 			)}
 			title={subtitle ? `${label} — ${subtitle}` : label}
 		>
@@ -1451,10 +1460,10 @@ function EmptyStyleState({
 			<div className="max-w-sm px-6 text-center">
 				<SearchListIcon
 					aria-hidden
-					className="mx-auto mb-3 size-8 text-white/30"
+					className="mx-auto mb-3 size-8 text-foreground/30"
 				/>
-				<div className="text-base font-medium text-white">{copy.title}</div>
-				<div className="mt-2 text-sm text-white/40">{copy.description}</div>
+				<div className="text-base font-medium text-foreground">{copy.title}</div>
+				<div className="mt-2 text-sm text-foreground/40">{copy.description}</div>
 			</div>
 		</div>
 	);
@@ -1472,16 +1481,16 @@ function EmptyWorkspace({
 			<div className="max-w-sm px-6 text-center">
 				<SearchListIcon
 					aria-hidden
-					className="mx-auto mb-3 size-8 text-white/30"
+					className="mx-auto mb-3 size-8 text-foreground/30"
 				/>
-				<div className="text-base font-medium text-white">
+				<div className="text-base font-medium text-foreground">
 					{hasQuery
 						? "No matching icons"
 						: kind === "favorites"
 							? "No favorites yet"
 							: "No recent icons"}
 				</div>
-				<p className="mt-2 text-sm leading-6 text-white/40">
+				<p className="mt-2 text-sm leading-6 text-foreground/40">
 					{hasQuery
 						? "Try a different search."
 						: kind === "favorites"

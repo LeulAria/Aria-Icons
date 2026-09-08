@@ -2,12 +2,15 @@
 
 import type { CSSProperties } from "react";
 import { Check, CircleAlert, LoaderCircle } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 
 const Toaster = ({ ...props }: ToasterProps) => {
+	const { resolvedTheme } = useTheme();
+
 	return (
 		<Sonner
-			theme="dark"
+			theme={resolvedTheme === "light" ? "light" : "dark"}
 			className="toaster"
 			position="bottom-center"
 			offset={24}
@@ -20,7 +23,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
 				error: <CircleAlert className="size-3.5" strokeWidth={2.25} />,
 				warning: <CircleAlert className="size-3.5" strokeWidth={2.25} />,
 				info: <Check className="size-3.5" strokeWidth={2.25} />,
-				loading: <LoaderCircle className="size-3.5 animate-spin" strokeWidth={2.25} />,
+				loading: (
+					<LoaderCircle className="size-3.5 animate-spin" strokeWidth={2.25} />
+				),
 			}}
 			style={
 				{

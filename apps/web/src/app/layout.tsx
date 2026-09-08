@@ -33,7 +33,7 @@ export default function RootLayout({
 			lang="en"
 			suppressHydrationWarning
 			className="dark"
-			style={{ height: "100%", minHeight: "100vh", backgroundColor: "#000" }}
+			style={{ height: "100%", minHeight: "100vh" }}
 		>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -43,8 +43,6 @@ export default function RootLayout({
 					margin: 0,
 					display: "flex",
 					flexDirection: "column",
-					backgroundColor: "#000",
-					color: "#fff",
 				}}
 			>
 				<Analytics />
@@ -58,7 +56,6 @@ export default function RootLayout({
 							height: "100vh",
 							minHeight: "100vh",
 							overflow: "hidden",
-							backgroundColor: "#000",
 						}}
 					>
 						<Header />

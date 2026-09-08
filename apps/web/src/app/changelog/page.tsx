@@ -23,7 +23,7 @@ function ChangelogText({ text }: { text: string }) {
 							href={link[2]}
 							target="_blank"
 							rel="noreferrer"
-							className="text-white/80 underline decoration-white/25 underline-offset-2 transition-colors hover:text-white"
+							className="text-foreground/80 underline decoration-foreground/25 underline-offset-2 transition-colors hover:text-foreground"
 						>
 							{link[1]}
 						</a>
@@ -33,7 +33,7 @@ function ChangelogText({ text }: { text: string }) {
 					return (
 						<code
 							key={i}
-							className="rounded bg-white/8 px-1 py-0.5 font-mono text-[12px] text-white/70"
+							className="rounded bg-foreground/8 px-1 py-0.5 font-mono text-[12px] text-foreground/70"
 						>
 							{part.slice(1, -1)}
 						</code>
@@ -47,20 +47,20 @@ function ChangelogText({ text }: { text: string }) {
 
 export default function ChangelogPage() {
 	return (
-		<div className="h-full overflow-y-auto bg-black">
+		<div className="h-full overflow-y-auto bg-background">
 			<div className="mx-auto max-w-2xl px-6 py-10">
 				<Link
 					href="/"
-					className="mb-8 inline-flex items-center gap-1.5 text-[13px] text-white/50 transition-colors hover:text-white"
+					className="mb-8 inline-flex items-center gap-1.5 text-[13px] text-foreground/50 transition-colors hover:text-foreground"
 				>
 					<ArrowLeft className="size-3.5" />
 					Back to Aria Icons
 				</Link>
 
-				<h1 className="text-2xl font-semibold tracking-tight text-white">
+				<h1 className="text-2xl font-semibold tracking-tight text-foreground">
 					Changelog
 				</h1>
-				<p className="mt-2 text-[13px] leading-5 text-white/50">
+				<p className="mt-2 text-[13px] leading-5 text-foreground/50">
 					Major product and MCP updates shipped to Aria Icons.
 				</p>
 
@@ -72,33 +72,33 @@ export default function ChangelogPage() {
 								{!isLast && (
 									<span
 										aria-hidden
-										className="absolute left-[7px] top-3 h-[calc(100%-12px)] w-px bg-white/15"
+										className="absolute left-[7px] top-3 h-[calc(100%-12px)] w-px bg-foreground/15"
 									/>
 								)}
 								<span
 									aria-hidden
-									className="absolute left-0 top-1.5 size-[15px] rounded-full border-2 border-white/30 bg-black"
+									className="absolute left-0 top-1.5 size-[15px] rounded-full border-2 border-foreground/30 bg-background"
 								/>
 
 								<div className="flex flex-wrap items-center gap-2">
-									<span className="font-mono text-[12px] font-medium text-white/70">
+									<span className="font-mono text-[12px] font-medium text-foreground/70">
 										{entry.version}
 									</span>
 									<time
 										dateTime={entry.date}
-										className="font-mono text-[12px] text-white/40"
+										className="font-mono text-[12px] text-foreground/40"
 									>
 										{formatDate(entry.date)}
 									</time>
-									<span className="rounded-full border border-white/10 px-2 py-0.5 text-[11px] text-white/50">
+									<span className="rounded-full border border-foreground/10 px-2 py-0.5 text-[11px] text-foreground/50">
 										{entry.tag}
 									</span>
 								</div>
 
-								<h2 className="mt-2 text-[16px] font-medium text-white">
+								<h2 className="mt-2 text-[16px] font-medium text-foreground">
 									{entry.title}
 								</h2>
-								<p className="mt-1 text-[13px] leading-5 text-white/55">
+								<p className="mt-1 text-[13px] leading-5 text-foreground/55">
 									<ChangelogText text={entry.summary} />
 								</p>
 
@@ -111,7 +111,7 @@ export default function ChangelogPage() {
 											{entry.removed.map((item) => (
 												<li
 													key={item}
-													className="flex gap-2 text-[13px] leading-5 text-white/50"
+													className="flex gap-2 text-[13px] leading-5 text-foreground/50"
 												>
 													<span className="shrink-0 text-red-400/60">−</span>
 													<span>
@@ -132,7 +132,7 @@ export default function ChangelogPage() {
 											{entry.added.map((item) => (
 												<li
 													key={item}
-													className="flex gap-2 text-[13px] leading-5 text-white/50"
+													className="flex gap-2 text-[13px] leading-5 text-foreground/50"
 												>
 													<span className="shrink-0 text-emerald-400/60">
 														+

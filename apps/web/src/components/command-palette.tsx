@@ -32,7 +32,7 @@ function shortcutParts(shortcut: string) {
 
 function Kbd({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="inline-flex h-5 min-w-5 items-center justify-center rounded-md border border-white/[0.08] bg-white/[0.04] px-1 font-sans text-[10px] leading-none text-white/45">
+    <kbd className="inline-flex h-5 min-w-5 items-center justify-center rounded-md border border-foreground/[0.08] bg-foreground/[0.04] px-1 font-sans text-[10px] leading-none text-foreground/45">
       {children}
     </kbd>
   );
@@ -141,7 +141,7 @@ export function CommandPalette({
         role="dialog"
         aria-label="Command palette"
         aria-modal="true"
-        className="animate-in fade-in-0 zoom-in-95 w-full max-w-[40rem] overflow-hidden rounded-2xl border border-white/[0.1] bg-[#101010]/90 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.7),inset_0_1px_0_0_rgba(255,255,255,0.06)] duration-150 backdrop-blur-xl"
+        className="animate-in fade-in-0 zoom-in-95 w-full max-w-[40rem] overflow-hidden rounded-2xl border border-foreground/[0.1] bg-popover/90 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.7),inset_0_1px_0_0_rgba(255,255,255,0.06)] duration-150 backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3 px-4">
@@ -150,14 +150,14 @@ export function CommandPalette({
             alt=""
             width={18}
             height={18}
-            className="size-[18px] shrink-0 opacity-55"
+            className="size-[18px] shrink-0 opacity-55 theme-invert"
           />
           <input
             ref={inputRef}
             value={searchValue}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search icons & commands…"
-            className="w-full bg-transparent py-3.5 text-[15px] tracking-tight text-white outline-none placeholder:text-white/30"
+            className="w-full bg-transparent py-3.5 text-[15px] tracking-tight text-foreground outline-none placeholder:text-foreground/30"
           />
           <button
             type="button"
@@ -168,7 +168,7 @@ export function CommandPalette({
           </button>
         </div>
 
-        <div className="mx-4 h-px bg-white/[0.06]" />
+        <div className="mx-4 h-px bg-foreground/[0.06]" />
 
         <div
           ref={listRef}
@@ -181,17 +181,17 @@ export function CommandPalette({
                 alt=""
                 width={20}
                 height={20}
-                className="mb-3 size-5 opacity-30"
+                className="mb-3 size-5 opacity-30 theme-invert"
               />
-              <div className="text-[13px] text-white/50">No matching commands</div>
-              <div className="mt-1 text-[12px] text-white/30">
+              <div className="text-[13px] text-foreground/50">No matching commands</div>
+              <div className="mt-1 text-[12px] text-foreground/30">
                 Try a different name or shortcut
               </div>
             </div>
           ) : (
             groups.map((group) => (
               <div key={group.name} className="mb-1 last:mb-0">
-                <div className="px-2.5 pb-1 pt-2 text-[10px] font-medium uppercase tracking-[0.08em] text-white/28">
+                <div className="px-2.5 pb-1 pt-2 text-[10px] font-medium uppercase tracking-[0.08em] text-foreground/28">
                   {group.name}
                 </div>
                 {group.items.map(({ cmd, index }) => (
@@ -209,8 +209,8 @@ export function CommandPalette({
                     className={cn(
                       "flex w-full items-center justify-between gap-3 rounded-xl px-2.5 py-2 text-left text-[13px] transition-colors duration-100",
                       index === activeIndex
-                        ? "bg-white/[0.08] text-white"
-                        : "text-white/70",
+                        ? "bg-foreground/[0.08] text-foreground"
+                        : "text-foreground/70",
                       cmd.disabled && "opacity-40",
                     )}
                   >
@@ -229,7 +229,7 @@ export function CommandPalette({
           )}
         </div>
 
-        <div className="flex items-center justify-between border-t border-white/[0.06] px-4 py-2.5 text-[11px] text-white/30">
+        <div className="flex items-center justify-between border-t border-foreground/[0.06] px-4 py-2.5 text-[11px] text-foreground/30">
           <span className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
               <Kbd>↑</Kbd>
