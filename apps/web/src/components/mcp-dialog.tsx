@@ -141,7 +141,7 @@ url = "${mcpUrl}"`;
       <div
         className={cn(
           "relative flex max-h-[min(640px,calc(100vh-2rem))] w-full max-w-[560px] flex-col overflow-hidden rounded-2xl",
-          "border border-foreground/10 bg-card shadow-2xl",
+          "border border-border bg-card shadow-2xl",
           "animate-in fade-in-0 zoom-in-95 duration-100"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -149,7 +149,7 @@ url = "${mcpUrl}"`;
         aria-modal="true"
         aria-labelledby="mcp-dialog-title"
       >
-        <div className="flex shrink-0 items-start gap-2 border-b border-[#333] px-2 pl-6 pt-4 pb-4">
+        <div className="flex shrink-0 items-start gap-2 border-b border-border px-2 pl-6 pt-4 pb-4">
           <div className="min-w-0 flex-1 py-2 pr-2">
             <div className="flex items-center gap-2.5">
               <img
@@ -187,7 +187,7 @@ url = "${mcpUrl}"`;
             <h3 className="mb-2 text-[14px] font-medium leading-5 text-foreground">
               Server URL
             </h3>
-            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-foreground/10 bg-transparent pl-4 pr-1.5">
+            <div className="flex h-12 items-center gap-1 rounded-[2px] border border-border bg-transparent pl-4 pr-1.5">
               <code className="min-w-0 flex-1 truncate font-mono text-[13px] text-foreground/80">
                 {mcpUrl}
               </code>
@@ -208,7 +208,7 @@ url = "${mcpUrl}"`;
                 onChange={setCliRunner}
               />
             </div>
-            <div className="relative overflow-hidden rounded-[2px] border border-foreground/10 bg-background/30">
+            <div className="relative overflow-hidden rounded-[2px] border border-border bg-background/30">
               <div className="absolute right-1 top-1 z-10">
                 <CopyIconButton
                   value={cliCommand}
@@ -232,7 +232,7 @@ url = "${mcpUrl}"`;
             <div
               role="tablist"
               aria-label="Client"
-              className="flex overflow-x-auto border-b border-foreground/10"
+              className="relative flex overflow-x-auto border-b border-border"
             >
               {TABS.map((t) => {
                 const selected = tab === t.id;
@@ -244,10 +244,10 @@ url = "${mcpUrl}"`;
                     aria-selected={selected}
                     onClick={() => setTab(t.id)}
                     className={cn(
-                      "inline-flex h-11 shrink-0 items-center gap-2 px-3 text-[13px] font-medium transition-colors sm:px-4 sm:text-[14px]",
+                      "relative inline-flex h-11 shrink-0 items-center gap-2 px-3 text-[13px] font-medium transition-colors sm:px-4 sm:text-[14px]",
                       selected
-                        ? "border-b-2 border-white text-foreground"
-                        : "border-b-2 border-transparent text-foreground/45 hover:text-foreground/80"
+                        ? "text-foreground shadow-[inset_0_-2px_0_0_currentColor]"
+                        : "text-foreground/45 hover:text-foreground/80",
                     )}
                   >
                     <img
@@ -268,7 +268,7 @@ url = "${mcpUrl}"`;
 
             <div
               role="tabpanel"
-              className="relative mt-3 overflow-hidden rounded-[2px] border border-foreground/10 bg-background/30"
+              className="relative mt-3 overflow-hidden rounded-[2px] border border-border bg-background/30"
             >
               <div className="absolute right-1 top-1 z-10">
                 <CopyIconButton
@@ -288,7 +288,7 @@ url = "${mcpUrl}"`;
             <h3 className="mb-2 text-[14px] font-medium leading-5 text-foreground">
               Example prompts
             </h3>
-            <ul className="divide-y divide-foreground/10 overflow-hidden rounded-[2px] border border-foreground/10 bg-transparent">
+            <ul className="divide-y divide-border overflow-hidden rounded-[2px] border border-border bg-transparent">
               {[
                 "Search for a minimal outline calendar icon",
                 "Get lucide:house as a React component",
@@ -305,7 +305,7 @@ url = "${mcpUrl}"`;
           </section>
         </div>
 
-        <div className="flex shrink-0 items-center justify-end gap-2 border-t border-[#333] px-3 py-3">
+        <div className="flex shrink-0 items-center justify-end gap-2 border-t border-border px-3 py-3">
           <button
             type="button"
             onClick={() => onOpenChange(false)}
@@ -349,7 +349,7 @@ function InstallRunnerDropdown({
         <button
           type="button"
           aria-label="Install runner"
-          className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[2px] border border-foreground/10 bg-foreground/[0.04] px-2.5 text-[12px] text-foreground/80 transition-colors hover:bg-foreground/[0.07] hover:text-foreground"
+          className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[2px] border border-border bg-foreground/[0.04] px-2.5 text-[12px] text-foreground/80 transition-colors hover:bg-foreground/[0.07] hover:text-foreground"
         >
           {selected?.logo ? (
             <img
@@ -364,7 +364,7 @@ function InstallRunnerDropdown({
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="min-w-[8rem] border-foreground/10 bg-popover/90 text-foreground backdrop-blur-md"
+        className="min-w-[8rem] border-border bg-popover/90 text-foreground backdrop-blur-md"
       >
         <DropdownMenuRadioGroup
           value={value}
