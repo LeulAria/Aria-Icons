@@ -232,3 +232,7 @@ Inside `apps/web`:
 - `bun run fetch:iconify`: Fetch Iconify sets (`-- --sets a,b`, `-- --all`)
 - `bun run pack:icons`: Collapse loose SVG folders into one JSON per set (`-- --delete` removes sources)
 - `bun run generate-icons`: Rebuild the icon search catalog
+
+## License
+
+[MIT](LICENSE) © Leul Aria
