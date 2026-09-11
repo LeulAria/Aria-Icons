@@ -460,6 +460,33 @@ html.theme-flushing::after {
   }
 }
 
+@keyframes family-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.family-playground-strip {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+
+.family-playground-strip::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.family-playground-card {
+  animation: family-card-in 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(root),
   ::view-transition-old(root),
@@ -469,6 +496,10 @@ html.theme-flushing::after {
 
   html.theme-flushing::after {
     display: none;
+  }
+
+  .family-playground-card {
+    animation: none;
   }
 }
 

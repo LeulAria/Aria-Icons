@@ -135,6 +135,15 @@ export function startCatalogLoad(preferSetId?: string | null) {
 	return loadPromise;
 }
 
+/** Load specific catalog shards without cancelling the background full load. */
+export async function ensureSetsLoaded(setIds: string[]): Promise<void> {
+	await ensureCatalogIndex();
+	const unique = [...new Set(setIds.filter(Boolean))];
+	if (unique.length === 0) return;
+	await Promise.all(unique.map((id) => loadOneSet(id)));
+	notify();
+}
+
 function matchesFilters(tupleIndex: number, filters: CompactFilters): boolean {
 	const tuple = icons[tupleIndex];
 	if (!tuple || !index) return false;

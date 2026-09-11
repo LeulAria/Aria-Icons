@@ -14,7 +14,14 @@ import {
 	SIDEBAR_PINNED_ICONIFY_SET,
 	sidebarCuratedRank,
 } from "@/lib/icon-set-order";
-import { GitPullRequestArrow, Heart, Search, X } from "lucide-react";
+import {
+	ChevronRight,
+	Columns3,
+	GitPullRequestArrow,
+	Heart,
+	Search,
+	X,
+} from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -24,6 +31,7 @@ import { GitHubStars } from "@/components/github-stars";
 import { ModeToggle } from "@/components/mode-toggle";
 import { McpDialog } from "@/components/mcp-dialog";
 import { IconInspector } from "@/components/icon-inspector";
+import { IconFamilyPlayground } from "@/components/icon-family-playground";
 import {
 	CommandPalette,
 	type CommandItem,
@@ -125,6 +133,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		null,
 	);
 	const [mcpDialogOpen, setMcpDialogOpen] = React.useState(false);
+	const [playgroundMode, setPlaygroundMode] = React.useState(false);
+	const [libraryDrawerOpen, setLibraryDrawerOpen] = React.useState(false);
 	const [commandOpen, setCommandOpen] = React.useState(false);
 	const [commandQuery, setCommandQuery] = React.useState("");
 	const [density, setDensity] = React.useState<Density>("compact");
@@ -431,6 +441,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			setMorphMode(false);
 			setMorphIcons([]);
 			setMorphActiveKey(null);
+			setPlaygroundMode(false);
+			setLibraryDrawerOpen(false);
 			if (pathname === "/favorites") router.push("/");
 		},
 		[pathname, router, styleGroup],
@@ -518,6 +530,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		setMorphMode(false);
 		setMorphIcons([]);
 		setMorphActiveKey(null);
+		setPlaygroundMode(false);
 	}, []);
 
 	const selectCollection = React.useCallback(
@@ -527,6 +540,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			if (id === "all") setSelectedStyleId(styleGroup);
 			const nextPath = id === "favorites" ? "/favorites" : "/";
 			if (pathname !== nextPath) router.push(nextPath);
+			setLibraryDrawerOpen(false);
 		},
 		[pathname, resetBrowseSelection, router, styleGroup],
 	);
@@ -541,6 +555,17 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			setCollection((id) => (id === "favorites" ? "all" : id));
 		}
 	}, [pathname, resetBrowseSelection]);
+
+	React.useEffect(() => {
+		if (!libraryDrawerOpen) return;
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key !== "Escape") return;
+			e.preventDefault();
+			setLibraryDrawerOpen(false);
+		};
+		window.addEventListener("keydown", onKeyDown);
+		return () => window.removeEventListener("keydown", onKeyDown);
+	}, [libraryDrawerOpen]);
 
 	const markRecent = (icon: WorkspaceIcon) => {
 		pushRecent(icon);
@@ -690,6 +715,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			if (commandOpen) return;
 			if (isTypingTarget(e.target)) return;
 
+			if (playgroundMode) {
+				if (e.key === "Escape") {
+					e.preventDefault();
+					setPlaygroundMode(false);
+				}
+				return;
+			}
+
 			if (e.key === "Escape") {
 				if (morphMode) {
 					e.preventDefault();
@@ -784,6 +817,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		morphIcons,
 		morphMode,
 		moveFocus,
+		playgroundMode,
 		quickCopy,
 		quickDownload,
 		search,
@@ -942,14 +976,28 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 			style={{ height: "100vh", minHeight: "100vh" }}
 		>
 			<div
-				className="grid h-full min-h-0 flex-1 grid-rows-1 overflow-hidden lg:grid-cols-[15.5rem_minmax(0,1fr)_var(--inspector-w)]"
+				className={cn(
+					"grid h-full min-h-0 flex-1 grid-rows-1 overflow-hidden",
+					playgroundMode
+						? "lg:grid-cols-[15.5rem_minmax(0,1fr)]"
+						: "lg:grid-cols-[15.5rem_minmax(0,1fr)_var(--inspector-w)]",
+				)}
 				style={
 					{
 						"--inspector-w": `${inspectorWidth}px`,
 					} as React.CSSProperties
 				}
 			>
-				<aside className="hidden h-full min-h-0 min-w-0 overflow-hidden border-r border-border bg-sidebar lg:block">
+				<aside
+					className={cn(
+						"h-full min-h-0 min-w-0 overflow-hidden border-r border-border bg-sidebar",
+						"fixed inset-y-0 left-0 z-50 w-[15.5rem] transition-transform duration-200 ease-out",
+						libraryDrawerOpen
+							? "translate-x-0 shadow-[8px_0_32px_rgba(0,0,0,0.4)]"
+							: "-translate-x-full pointer-events-none",
+						"lg:relative lg:z-auto lg:w-auto lg:translate-x-0 lg:pointer-events-auto lg:shadow-none",
+					)}
+				>
 					<div className="flex h-full min-h-0 min-w-0 flex-col">
 						<div className="min-w-0 px-5 pb-4 pt-5">
 							<div className="flex min-w-0 items-center justify-between gap-2">
@@ -976,6 +1024,14 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<div className="flex shrink-0 items-center gap-0.5">
 									<ModeToggle />
 									<GitHubStars />
+									<button
+										type="button"
+										aria-label="Close libraries"
+										onClick={() => setLibraryDrawerOpen(false)}
+										className="grid size-8 place-items-center rounded-md text-foreground/40 transition-colors hover:bg-foreground/[0.06] hover:text-foreground lg:hidden"
+									>
+										<X className="size-4" />
+									</button>
 								</div>
 							</div>
 							<div className="mt-1 line-clamp-2 text-[11px] leading-4 text-foreground/40">
@@ -1029,7 +1085,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 								<Button
 									variant="ghost"
 									size="sm"
-									onClick={() => setMcpDialogOpen(true)}
+									onClick={() => {
+										setMcpDialogOpen(true);
+										setLibraryDrawerOpen(false);
+									}}
 									className="h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs text-muted-foreground has-[>svg]:px-2 hover:text-foreground"
 								>
 									<img
@@ -1052,43 +1111,66 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 										Contribute Icons
 									</Link>
 								</Button>
+								<Button
+									variant="ghost"
+									size="sm"
+									aria-pressed={playgroundMode}
+									onClick={() => {
+										setPlaygroundMode((open) => !open);
+										setLibraryDrawerOpen(false);
+									}}
+									className={cn(
+										"h-auto w-full justify-start gap-1.5 rounded-md px-2 py-2 text-xs has-[>svg]:px-2 hover:text-foreground",
+										playgroundMode
+											? "text-foreground"
+											: "text-muted-foreground",
+									)}
+								>
+									<Columns3 className="size-3.5" />
+									Explore Families
+								</Button>
 							</div>
 						</div>
 
-						<div className="min-h-0 min-w-0 flex-1 overflow-auto pb-6">
-							<div className="px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-foreground/30">
-								Collections
+						<div className="flex min-h-0 min-w-0 flex-1 flex-col">
+							<div className="z-10 w-full shrink-0 border-b border-border bg-sidebar">
+								<div className="px-5 pb-2 text-[10px] font-medium uppercase tracking-[0.08em] text-foreground/30">
+									Collections
+								</div>
+								<label className="group/search block w-full px-5 pb-3">
+									<span className="relative block">
+										<Search
+											aria-hidden
+											strokeWidth={1.6}
+											className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-foreground/30 transition-colors duration-200 group-focus-within/search:text-foreground/65"
+										/>
+										<Input
+											aria-label="Search collections"
+											className="h-8 w-full rounded-[3px] border-foreground/12 bg-transparent pr-7 pl-7 text-left text-[12px] tracking-tight placeholder:text-foreground/30 hover:border-foreground/20 focus-visible:border-foreground/28 focus-visible:bg-transparent"
+											placeholder="Search collections…"
+											value={sidebarSearch}
+											onChange={(e) => setSidebarSearch(e.target.value)}
+											onKeyDown={(e) => {
+												if (e.key === "Escape") {
+													if (sidebarSearch) setSidebarSearch("");
+													else (e.target as HTMLInputElement).blur();
+												}
+											}}
+										/>
+										{sidebarSearch ? (
+											<button
+												type="button"
+												aria-label="Clear collection search"
+												onClick={() => setSidebarSearch("")}
+												className="absolute top-1/2 right-2 grid size-5 -translate-y-1/2 place-items-center text-foreground/30 transition-colors hover:text-foreground/70"
+											>
+												<X className="size-3" />
+											</button>
+										) : null}
+									</span>
+								</label>
 							</div>
-							<label className="group/search relative mx-5 mb-3 block">
-								<Search
-									aria-hidden
-									strokeWidth={1.6}
-									className="pointer-events-none absolute top-1/2 left-2 size-3.5 -translate-y-1/2 text-foreground/30 transition-colors duration-200 group-focus-within/search:text-foreground/65"
-								/>
-								<Input
-									aria-label="Search collections"
-									className="h-8 rounded-[3px] border-foreground/12 bg-transparent pr-7 pl-7 text-[12px] tracking-tight placeholder:text-foreground/30 hover:border-foreground/20 focus-visible:border-foreground/28 focus-visible:bg-transparent"
-									placeholder="Search collections…"
-									value={sidebarSearch}
-									onChange={(e) => setSidebarSearch(e.target.value)}
-									onKeyDown={(e) => {
-										if (e.key === "Escape") {
-											if (sidebarSearch) setSidebarSearch("");
-											else (e.target as HTMLInputElement).blur();
-										}
-									}}
-								/>
-								{sidebarSearch ? (
-									<button
-										type="button"
-										aria-label="Clear collection search"
-										onClick={() => setSidebarSearch("")}
-										className="absolute top-1/2 right-1.5 grid size-5 -translate-y-1/2 place-items-center text-foreground/30 transition-colors hover:text-foreground/70"
-									>
-										<X className="size-3" />
-									</button>
-								) : null}
-							</label>
+							<div className="min-h-0 min-w-0 flex-1 overflow-auto pb-6">
 							<nav className="grid min-w-0">
 								<SidebarRow
 									label="All Icons"
@@ -1133,24 +1215,59 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 									No collections match
 								</div>
 							)}
+							</div>
 						</div>
 					</div>
 				</aside>
 
+				{libraryDrawerOpen ? (
+					<button
+						type="button"
+						aria-label="Close libraries"
+						className="fixed inset-0 z-40 bg-black/45 lg:hidden"
+						onClick={() => setLibraryDrawerOpen(false)}
+					/>
+				) : null}
+
+				{playgroundMode ? (
+					<IconFamilyPlayground
+						sets={setForSidebar}
+						onSelectFamily={selectLibrary}
+						onExit={() => setPlaygroundMode(false)}
+					/>
+				) : (
+					<>
 				<main
 					ref={iconsScrollRef}
 					className="icons-canvas relative flex h-full min-h-0 min-w-0 flex-col overflow-auto"
 				>
 					<div className="sticky top-0 z-10 bg-canvas/55 px-4 pt-4 backdrop-blur-md sm:px-6 sm:pt-5">
 						<div className="flex flex-col gap-4 pb-3 lg:flex-row lg:items-center lg:justify-between">
-							<div className="min-w-0">
-								<h1 className="truncate text-[22px] font-semibold tracking-tight text-foreground">
-									{title}
-								</h1>
-								<p className="mt-0.5 text-[13px] text-foreground/40">
-									{subtitle}
-									{isStale ? "…" : ""}
-								</p>
+							<div className="flex min-w-0 items-start justify-between gap-3">
+								<div className="min-w-0">
+									<h1 className="truncate text-[22px] font-semibold tracking-tight text-foreground">
+										{title}
+									</h1>
+									<p className="mt-0.5 text-[13px] text-foreground/40">
+										{subtitle}
+										{isStale ? "…" : ""}
+									</p>
+								</div>
+								<button
+									type="button"
+									aria-label={`Open libraries, ${title}`}
+									aria-expanded={libraryDrawerOpen}
+									onClick={() => setLibraryDrawerOpen(true)}
+									className="mt-0.5 inline-flex max-w-[min(100%,14.5rem)] shrink-0 items-center gap-0.5 rounded-md px-1.5 py-1 text-left outline-none transition-colors hover:bg-foreground/[0.05] focus-visible:ring-1 focus-visible:ring-foreground/25 lg:hidden"
+								>
+									<span className="truncate text-[12px] text-foreground/40">
+										Libraries
+									</span>
+									<ChevronRight className="size-3 shrink-0 text-foreground/25" />
+									<span className="min-w-0 truncate text-[12px] font-medium text-foreground/80">
+										{title}
+									</span>
+								</button>
 							</div>
 
 							<label className="group/search relative w-full max-w-xl lg:flex-1">
@@ -1324,6 +1441,8 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					onMorphRemove={removeMorphIcon}
 					onMorphReorder={reorderMorphIcons}
 				/>
+					</>
+				)}
 			</div>
 
 			<WelcomeDialog onConnectMcp={() => setMcpDialogOpen(true)} />
