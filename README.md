@@ -1,3 +1,5 @@
+<img width="1512" height="827" alt="image" src="https://github.com/user-attachments/assets/af85a5b1-41ba-4341-9b0a-262b602e27f8" />
+
 # Aria Icons
 
 **340,000+ SVG icons — searchable, customizable, and a package manager for your icon codebase.**
