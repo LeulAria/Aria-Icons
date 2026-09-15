@@ -1217,6 +1217,30 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 							)}
 							</div>
 						</div>
+						<div className="shrink-0 border-t border-border px-5 py-3">
+							<a
+								href="https://twelve.tools"
+								target="_blank"
+								rel="noreferrer"
+								className="inline-flex opacity-70 transition-opacity hover:opacity-100"
+								title="Aria Icons on twelve.tools"
+							>
+								<img
+									src="https://twelve.tools/badge0-white.svg"
+									alt="Featured on twelve.tools"
+									width={160}
+									height={43}
+									className="hidden h-auto w-[160px] max-w-full dark:block"
+								/>
+								<img
+									src="https://twelve.tools/badge0-dark.svg"
+									alt="Featured on twelve.tools"
+									width={160}
+									height={43}
+									className="block h-auto w-[160px] max-w-full dark:hidden"
+								/>
+							</a>
+						</div>
 					</div>
 				</aside>
 
