@@ -31,6 +31,24 @@ const nextConfig: NextConfig = {
 					},
 				],
 			},
+			{
+				// Belt-and-suspenders for MCP discovery (route also sets these).
+				source: "/.well-known/mcp.json",
+				headers: [
+					{
+						key: "Access-Control-Allow-Origin",
+						value: "*",
+					},
+					{
+						key: "Access-Control-Allow-Methods",
+						value: "GET, OPTIONS",
+					},
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600",
+					},
+				],
+			},
 		];
 	},
 };
