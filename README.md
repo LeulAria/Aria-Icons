@@ -2,11 +2,24 @@
 
 # Aria Icons
 
+[![npm](https://img.shields.io/npm/v/aria-icons)](https://www.npmjs.com/package/aria-icons)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-remote%20%2B%20stdio-blue)](https://icons.leularia.com/api/mcp)
+
 **340,000+ SVG icons — searchable, customizable, and a package manager for your icon codebase.**
 
 Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
 
 Repo: [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons)
+
+## Try it / star it
+
+- **Site:** https://icons.leularia.com  
+- **Install:** `npx -y aria-icons@latest setup`  
+- **Remote MCP:** `https://icons.leularia.com/api/mcp`  
+- **npm:** [`aria-icons`](https://www.npmjs.com/package/aria-icons)
+
+If this saves you from a fat icon dependency or copy-paste SVG hell, a GitHub star helps others find it.
 
 ```bash
 npx -y aria-icons@latest setup
