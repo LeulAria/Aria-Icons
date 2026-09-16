@@ -2,11 +2,17 @@
 
 # Aria Icons
 
-**340,000+ SVG icons — searchable, customizable, and a package manager for your icon codebase.**
+**340k SVG icons — browse them, add them as source with a CLI, and wire the same catalog into Cursor/Claude via MCP.**
 
-Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
+Not another Lucide clone. Aria indexes Lucide, Tabler, Heroicons, Iconify, brand logos, and more in one search — then writes only the icons you pick into your repo (no giant icon dependency). Same engine powers the [website](https://icons.leularia.com), CLI, REST API, and MCP.
 
-Repo: [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons)
+| | |
+|---|---|
+| **Site** | [icons.leularia.com](https://icons.leularia.com) |
+| **Repo** | [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons) |
+| **MCP** | `npx -y aria-icons` (stdio) or `https://icons.leularia.com/api/mcp` (HTTP) |
+
+### Quickstart
 
 ```bash
 npx -y aria-icons@latest setup
@@ -16,7 +22,7 @@ bunx aria-icons@latest setup
 curl -fsSL https://icons.leularia.com/install.sh | bash
 ```
 
-The npm package name is `aria-icons` (verified unused on the registry at the time of adding the CLI). The CLI is tiny: it talks to the Aria Icons API and only downloads the icons you request.
+The npm package is `aria-icons`. The CLI is tiny: it talks to the Aria Icons API and only downloads the icons you request.
 
 ## CLI (published package)
 
@@ -238,3 +244,7 @@ Inside `apps/web`:
 ## License
 
 [MIT](LICENSE) © Leul Aria
+
+---
+
+If Aria Icons saves you time finding or shipping icons, a ⭐ on [the repo](https://github.com/LeulAria/Aria-Icons) helps others discover it.
