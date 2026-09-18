@@ -2,11 +2,21 @@
 
 # Aria Icons
 
-**340,000+ SVG icons — searchable, customizable, and a package manager for your icon codebase.**
+[![npm](https://img.shields.io/npm/v/aria-icons)](https://www.npmjs.com/package/aria-icons)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-remote%20%2B%20stdio-blue)](https://icons.leularia.com/api/mcp)
 
-Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
+**340k SVG icons — browse, CLI that writes icons as source, MCP for Cursor/Claude.**
 
-Repo: [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons)
+Not another Lucide clone. One searchable catalog (Lucide, Tabler, Heroicons, Iconify, brand logos, and more) that writes only the icons you pick into your repo — no giant dependency. Same engine powers the site, CLI, REST API, and MCP.
+
+| | |
+|---|---|
+| **Site** | [icons.leularia.com](https://icons.leularia.com) |
+| **Repo** | [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons) · **⭐ Star** if this helps you |
+| **MCP** | [`npx aria-icons`](https://www.npmjs.com/package/aria-icons) (stdio) or [icons.leularia.com/api/mcp](https://icons.leularia.com/api/mcp) (HTTP) |
+
+### Quickstart
 
 ```bash
 npx -y aria-icons@latest setup
@@ -16,7 +26,39 @@ bunx aria-icons@latest setup
 curl -fsSL https://icons.leularia.com/install.sh | bash
 ```
 
-The npm package name is `aria-icons` (verified unused on the registry at the time of adding the CLI). The CLI is tiny: it talks to the Aria Icons API and only downloads the icons you request.
+```bash
+npx -y aria-icons@latest search house
+npx -y aria-icons@latest add lucide:house
+```
+
+### MCP (Cursor / Claude / VS Code)
+
+**Local (stdio):**
+
+```json
+{
+  "mcpServers": {
+    "aria-icons": {
+      "command": "npx",
+      "args": ["-y", "aria-icons"]
+    }
+  }
+}
+```
+
+**Remote HTTP:**
+
+```json
+{
+  "mcpServers": {
+    "aria-icons": {
+      "url": "https://icons.leularia.com/api/mcp"
+    }
+  }
+}
+```
+
+The npm package is `aria-icons`. The CLI is tiny: it talks to the Aria Icons API and only downloads the icons you request.
 
 ## CLI (published package)
 
@@ -46,34 +88,7 @@ bun add -g aria-icons
 
 Icon ids: `collection:name` (`lucide:house`, `tabler:arrow-up`, `thesvg:github`).
 
-Full CLI docs: [`packages/cli/README.md`](packages/cli/README.md).
-
-### MCP
-
-**Local (stdio)** — what `aria-icons setup` writes:
-
-```json
-{
-  "mcpServers": {
-    "aria-icons": {
-      "command": "npx",
-      "args": ["-y", "aria-icons"]
-    }
-  }
-}
-```
-
-**Remote HTTP** — same catalog, hosted with the website:
-
-```json
-{
-  "mcpServers": {
-    "aria-icons": {
-      "url": "https://icons.leularia.com/api/mcp"
-    }
-  }
-}
-```
+Full CLI docs: [`packages/cli/README.md`](packages/cli/README.md). MCP snippets are above (stdio + [remote HTTP](https://icons.leularia.com/api/mcp)).
 
 Public REST used by the CLI (tiny payloads, no icon database in the package):
 
@@ -238,3 +253,7 @@ Inside `apps/web`:
 ## License
 
 [MIT](LICENSE) © Leul Aria
+
+---
+
+If Aria Icons saves you time finding or shipping icons, a ⭐ on [the repo](https://github.com/LeulAria/Aria-Icons) helps others discover it.
