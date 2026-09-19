@@ -1,12 +1,16 @@
 <img width="1512" height="827" alt="image" src="https://github.com/user-attachments/assets/af85a5b1-41ba-4341-9b0a-262b602e27f8" />
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
 # Aria Icons
 
-**340,000+ SVG icons — searchable, customizable, and a package manager for your icon codebase.**
+**340,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
 
 Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
 
 Repo: [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons)
+
+Test the MCP Server:
+[<MCP. Playground/>](https://mcpplaygroundonline.com/mcp-test-server?url=https%3A%2F%2Ficons.leularia.com%2Fapi%2Fmcp)
 
 ```bash
 npx -y aria-icons@latest setup
