@@ -9,6 +9,8 @@
 [![Show HN](https://img.shields.io/badge/Show%20HN-discussion-FF6600)](https://news.ycombinator.com/item?id=49717692)
 [![MCP Repository](https://img.shields.io/badge/Listed%20on-MCP%20Repository-5C6BC0)](https://mcprepository.com/leularia/aria-icons)
 [![Not Human Search](https://img.shields.io/badge/Listed%20on-Not%20Human%20Search-111111)](https://nothumansearch.ai/site/icons.leularia.com)
+[![Listed on Founderhood](https://founderhood.app/api/badge/aria-icons)](https://founderhood.app/business/aria-icons?utm_source=badge&utm_medium=embed&utm_campaign=founder_badge)
+[![Listed on Influzer](https://img.shields.io/badge/Listed%20on-Influzer-E91E63)](https://influzer.ai/mcp/aria-icons)
 
 # Aria Icons
 
