@@ -3,7 +3,7 @@
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
 # Aria Icons
 
-**340,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
+**380,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
 
 Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
 
