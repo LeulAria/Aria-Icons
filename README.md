@@ -1,6 +1,15 @@
 <img width="1512" height="827" alt="image" src="https://github.com/user-attachments/assets/af85a5b1-41ba-4341-9b0a-262b602e27f8" />
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
+[![AllMCPs](https://allmcps.com/api/badge/aria-icons?style=directory)](https://allmcps.com/mcp/aria-icons)
+[![npm](https://img.shields.io/npm/v/aria-icons)](https://www.npmjs.com/package/aria-icons)
+[![Listed Startups](https://img.shields.io/badge/Listed%20on-Listed%20Startups-0A7CFF)](https://listedstartups.com/products/aria-icons)
+[![Directory Index](https://img.shields.io/badge/Listed%20on-Directory%20Index-2EA44F)](https://directory-index.com/technology/aria-icons/)
+[![Open Source Startups](https://img.shields.io/badge/Listed%20on-Open%20Source%20Startups-6F42C1)](https://www.opensourcestartups.com/project/aria-icons)
+[![Show HN](https://img.shields.io/badge/Show%20HN-discussion-FF6600)](https://news.ycombinator.com/item?id=49717692)
+[![MCP Repository](https://img.shields.io/badge/Listed%20on-MCP%20Repository-5C6BC0)](https://mcprepository.com/leularia/aria-icons)
+[![Not Human Search](https://img.shields.io/badge/Listed%20on-Not%20Human%20Search-111111)](https://nothumansearch.ai/site/icons.leularia.com)
+
 # Aria Icons
 
 **380,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
