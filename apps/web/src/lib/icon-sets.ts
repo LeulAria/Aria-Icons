@@ -304,6 +304,54 @@ export const ICON_SETS: IconSetConfig[] = [
 		homepage: "https://github.com/catamphetamine/country-flag-icons",
 		styles: [{ id: "solid", label: "Flags", group: "solid", roots: ["./"] }],
 	},
+	{
+		id: "cloudscape-icons",
+		label: "Cloudscape",
+		homepage: "https://cloudscape.design/foundation/visual-foundation/iconography/",
+		styles: [{ id: "line", label: "Icons", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "semi-icons",
+		label: "Semi Icons",
+		homepage: "https://semi.design/en-US/basic/icon",
+		styles: [
+			{ id: "line", label: "Stroked", group: "line", roots: ["line"] },
+			{ id: "solid", label: "Filled", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "arco-icons",
+		label: "Arco Icons",
+		homepage: "https://arco.design/react/components/icon",
+		styles: [
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "fill", label: "Fill", group: "solid", roots: ["fill"] },
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+		],
+	},
+	{
+		id: "evil-icons",
+		label: "Evil Icons",
+		homepage: "https://github.com/evil-icons/evil-icons",
+		styles: [{ id: "line", label: "All", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "homelab-icons",
+		label: "Homelab Icons",
+		homepage: "https://github.com/loganmarchione/homelab-svg-assets",
+		styles: [{ id: "solid", label: "Logos", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "muffin-payment-icons",
+		label: "Payment Icons (MPL)",
+		homepage: "https://github.com/muffinresearch/payment-icons",
+		styles: [
+			{ id: "flat", label: "Flat", group: "solid", roots: ["flat"] },
+			{ id: "mono", label: "Mono", group: "solid", roots: ["mono"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "single", label: "Single", group: "solid", roots: ["single"] },
+		],
+	},
 ];
 
 export function getIconSet(setId: string) {

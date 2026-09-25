@@ -32,10 +32,18 @@ export type IndexedIcon = {
 
 export type IconSearchResult = IndexedIcon & { score: number };
 
+export type StyleGroupCounts = {
+	/** Icons shown on the Line tab (same rule as browse). */
+	line: Record<string, number>;
+	/** Icons shown on the Filled tab. */
+	solid: Record<string, number>;
+};
+
 type IndexCache = {
 	icons: IndexedIcon[];
 	meta: MetaFile;
 	countsBySet: Record<string, number>;
+	styleCounts: StyleGroupCounts;
 	generatedAt: string;
 	mtimeMs: number;
 } | null;
@@ -52,7 +60,9 @@ async function loadIndex() {
 	// Cheap staleness check so a regenerated catalog is picked up without a
 	// server restart.
 	const stat = await fs.stat(metaPath);
-	if (cache.index && cache.index.mtimeMs === stat.mtimeMs) return cache.index;
+	if (cache.index?.styleCounts && cache.index.mtimeMs === stat.mtimeMs) {
+		return cache.index;
+	}
 
 	const raw = await fs.readFile(metaPath, "utf8");
 	const meta = JSON.parse(raw) as MetaFile;
@@ -60,9 +70,15 @@ async function loadIndex() {
 	// Collapse style variants: one searchable entry per (set, name).
 	const byId = new Map<string, IndexedIcon>();
 	const countsBySet: Record<string, number> = {};
-	for (const [setIdx, styleIdx, , name, , tagIdx] of meta.icons) {
+	const styleCounts: StyleGroupCounts = { line: {}, solid: {} };
+	for (const [setIdx, styleIdx, groupBit, name, , tagIdx] of meta.icons) {
 		const setId = meta.sets[setIdx] ?? "unknown";
 		const styleId = meta.styles[styleIdx] ?? "line";
+		const group = groupBit === 1 ? "solid" : "line";
+		const bucket = isNonLineVariant({ setId, styleId, name, group })
+			? styleCounts.solid
+			: styleCounts.line;
+		bucket[setId] = (bucket[setId] ?? 0) + 1;
 		countsBySet[setId] = (countsBySet[setId] ?? 0) + 1;
 		const id = `${setId}-${name.toLowerCase()}`;
 		const tags = tagIdx != null ? meta.tagsList[tagIdx] : undefined;
@@ -87,6 +103,7 @@ async function loadIndex() {
 		icons: Array.from(byId.values()),
 		meta,
 		countsBySet,
+		styleCounts,
 		generatedAt: meta.generatedAt,
 		mtimeMs: stat.mtimeMs,
 	};
@@ -96,6 +113,12 @@ async function loadIndex() {
 export async function getSetSummaries() {
 	const index = await loadIndex();
 	return index.countsBySet;
+}
+
+/** Per-set counts for the Line / Filled / All tabs. Matches `/api/browse`. */
+export async function getStyleGroupCounts(): Promise<StyleGroupCounts> {
+	const index = await loadIndex();
+	return index.styleCounts;
 }
 
 /** Unique icon names grouped by set id. */

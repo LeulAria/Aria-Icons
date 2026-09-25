@@ -376,8 +376,121 @@ async function importAtlaskit() {
 	console.log(`  ${count.toLocaleString()} icons`);
 }
 
+async function importCloudscape() {
+	console.log("→ Cloudscape");
+	const root = await sparseClone("cloudscape-design/components", "main", ["src/icon/icons"]);
+	const dest = path.join(ICONS_ROOT, "cloudscape-icons");
+	await fs.rm(dest, { recursive: true, force: true });
+	const count = await copySvgTree(path.join(root, "src/icon/icons"), dest, new Set());
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importSemi() {
+	console.log("→ Semi Icons");
+	const root = await sparseClone("DouyinFE/semi-design", "main", ["packages/semi-icons/src/svgs"]);
+	const destRoot = path.join(ICONS_ROOT, "semi-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = { line: new Set<string>(), solid: new Set<string>() };
+	const src = path.join(root, "packages/semi-icons/src/svgs");
+	let count = 0;
+	for (const file of await fs.readdir(src)) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(src, file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		const stroked = /_stroked\.svg$/i.test(file);
+		const name = file.replace(/_stroked\.svg$/i, ".svg");
+		await writeSvg(path.join(destRoot, stroked ? "line" : "solid"), name, raw, used[stroked ? "line" : "solid"]);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importArco() {
+	console.log("→ Arco Icons");
+	const root = await sparseClone("arco-design/arco-design", "main", ["icon/_svgs"]);
+	const destRoot = path.join(ICONS_ROOT, "arco-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = new Map<string, Set<string>>();
+	let count = 0;
+	async function walk(dir: string) {
+		for (const ent of await fs.readdir(dir, { withFileTypes: true })) {
+			const abs = path.join(dir, ent.name);
+			if (ent.isDirectory()) {
+				await walk(abs);
+				continue;
+			}
+			if (!ent.name.toLowerCase().endsWith(".svg")) continue;
+			const rel = path.relative(path.join(root, "icon/_svgs"), abs);
+			const parts = rel.split(path.sep);
+			const style = parts.length > 1 ? parts[parts.length - 2]! : "outline";
+			const bucket = style === "outline" || style === "fill" || style === "color" ? style : "outline";
+			const raw = await fs.readFile(abs, "utf8");
+			if (!raw.includes("<svg")) continue;
+			const set = used.get(bucket) ?? new Set<string>();
+			used.set(bucket, set);
+			await writeSvg(path.join(destRoot, bucket), ent.name, raw, set);
+			count++;
+		}
+	}
+	await walk(path.join(root, "icon/_svgs"));
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importEvil() {
+	console.log("→ Evil Icons");
+	const root = await sparseClone("evil-icons/evil-icons", "master", ["assets/icons"]);
+	const dest = path.join(ICONS_ROOT, "evil-icons");
+	await fs.rm(dest, { recursive: true, force: true });
+	const used = new Set<string>();
+	const src = path.join(root, "assets/icons");
+	let count = 0;
+	for (const file of await fs.readdir(src)) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(src, file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		await writeSvg(dest, file.replace(/^ei-/i, ""), raw, used);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importHomelab() {
+	console.log("→ Homelab Icons");
+	const root = await sparseClone("loganmarchione/homelab-svg-assets", "main", ["assets"]);
+	const dest = path.join(ICONS_ROOT, "homelab-icons");
+	await fs.rm(dest, { recursive: true, force: true });
+	const count = await copySvgTree(path.join(root, "assets"), dest, new Set());
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importMuffinPayment() {
+	console.log("→ Payment Icons (MPL)");
+	const root = await sparseClone("muffinresearch/payment-icons", "master", ["svg"]);
+	const destRoot = path.join(ICONS_ROOT, "muffin-payment-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["flat", "mono", "outline", "single"]) {
+		count += await copySvgTree(
+			path.join(root, "svg", style),
+			path.join(destRoot, style),
+			new Set(),
+		);
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
 async function main() {
 	await fs.mkdir(TMP, { recursive: true });
+	if (process.argv.includes("--related")) {
+		await importCloudscape();
+		await importSemi();
+		await importArco();
+		await importEvil();
+		await importHomelab();
+		await importMuffinPayment();
+		console.log("Done.");
+		return;
+	}
 	await importAtlas();
 	await importFlat(
 		"Dashboard Icons",

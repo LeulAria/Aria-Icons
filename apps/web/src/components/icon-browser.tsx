@@ -43,10 +43,10 @@ import {
 } from "@/components/virtual-icon-grid";
 import { UnderlineTabs } from "@/components/ui/underline-tabs";
 import {
-	countForStyleGroup,
 	loadIconCatalogIndex,
 	type CatalogIcon,
 } from "@/lib/icon-catalog";
+import type { StyleGroupCounts } from "@/lib/icon-meta-index";
 import { useIconSearch } from "@/hooks/use-icon-search";
 import {
 	getFavorites,
@@ -105,7 +105,26 @@ function isTypingTarget(target: EventTarget | null) {
 	);
 }
 
-export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
+function countForVisibleGroup(
+	styleCounts: StyleGroupCounts,
+	setId: string,
+	styleGroup: IconStyleFilter,
+) {
+	const line = styleCounts?.line?.[setId] ?? 0;
+	const solid = styleCounts?.solid?.[setId] ?? 0;
+	if (styleGroup === "animated") return isAnimatedSet(setId) ? line + solid : 0;
+	if (styleGroup === "line") return line;
+	if (styleGroup === "solid") return solid;
+	return line + solid;
+}
+
+export function IconBrowser({
+	sets,
+	styleCounts,
+}: {
+	sets: IconSetConfig[];
+	styleCounts: StyleGroupCounts;
+}) {
 	const pathname = usePathname();
 	const router = useRouter();
 	const { resolvedTheme } = useTheme();
@@ -188,20 +207,10 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	React.useEffect(() => {
 		if (collection === "favorites" || collection === "recent") return;
-		if (collection === "all") {
-			setSelectedStyleId(styleGroup);
-			return;
-		}
-		const set = sets.find((s) => s.id === collection);
-		if (!set) return;
-		if (styleGroup === "both" || styleGroup === "animated") {
-			setSelectedStyleId("both");
-			return;
-		}
-		const preferred = set.styles.find((s) => s.group === styleGroup);
-		if (!preferred) return;
-		if (preferred.id !== selectedStyleId) setSelectedStyleId(preferred.id);
-	}, [styleGroup, sets, collection, selectedStyleId]);
+		// Line / Filled apply to every icon in the library, not just the first style.
+		const next = styleGroup === "both" || styleGroup === "animated" ? "both" : styleGroup;
+		if (selectedStyleId !== next) setSelectedStyleId(next);
+	}, [styleGroup, collection, selectedStyleId]);
 
 	const favorites = React.useMemo(() => {
 		void favoritesVersion;
@@ -249,10 +258,7 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		catalogReady,
 		loadedSets,
 		setCount,
-		counts: searchCounts,
 	} = useIconSearch(search, searchFilters);
-
-	const counts = catalogQuery.data?.counts ?? searchCounts;
 
 	const curatedSetIds = React.useMemo(
 		() => new Set(ICON_SETS.map((s) => s.id)),
@@ -261,16 +267,12 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 
 	const setForSidebar = React.useMemo(() => {
 		return sets
-			.map((s) => {
-				const countForGroup = counts
-					? countForStyleGroup(counts, s.id, s.styles, styleGroup)
-					: 0;
-				return { ...s, countForGroup };
-			})
-			.filter(
-				(s) => !counts || s.countForGroup > 0 || s.id === collection,
-			);
-	}, [sets, styleGroup, counts, collection]);
+			.map((s) => ({
+				...s,
+				countForGroup: countForVisibleGroup(styleCounts, s.id, styleGroup),
+			}))
+			.filter((s) => s.countForGroup > 0 || s.id === collection);
+	}, [sets, styleGroup, styleCounts, collection]);
 
 	const sidebarLibraries = React.useMemo(() => {
 		const curated = setForSidebar
@@ -423,17 +425,13 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 		(set: IconSetConfig & { countForGroup?: number }) => {
 			setCollection(set.id);
 			setSearch("");
-			if (styleGroup === "both" || styleGroup === "animated") {
-				if (styleGroup === "animated" && !isAnimatedSet(set.id)) {
-					setStyleGroup("both");
-				}
+			if (styleGroup === "animated" && !isAnimatedSet(set.id)) {
+				setStyleGroup("both");
+				setSelectedStyleId("both");
+			} else if (styleGroup === "both" || styleGroup === "animated") {
 				setSelectedStyleId("both");
 			} else {
-				const preferred =
-					set.styles.find((s) => s.group === styleGroup) ??
-					set.styles[0] ??
-					null;
-				if (preferred) setSelectedStyleId(preferred.id);
+				setSelectedStyleId(styleGroup);
 			}
 			setFocusedIcon(null);
 			setSelectedKeys(new Set());
@@ -460,26 +458,19 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 				setSelectedStyleId("both");
 				return;
 			}
-			if (styleGroup === "both" || styleGroup === "animated") {
-				setSelectedStyleId("both");
-				return;
-			}
-			const preferred =
-				set.styles.find((s) => s.group === styleGroup) ??
-				set.styles[0] ??
-				null;
-			if (preferred) setSelectedStyleId(preferred.id);
+			setSelectedStyleId(
+				styleGroup === "both" || styleGroup === "animated" ? "both" : styleGroup,
+			);
 		},
 		[pathname, router, sets, styleGroup],
 	);
 
 	const allCountForGroup = React.useMemo(() => {
-		if (!counts) return 0;
 		return sets.reduce(
-			(acc, s) => acc + countForStyleGroup(counts, s.id, s.styles, styleGroup),
+			(acc, s) => acc + countForVisibleGroup(styleCounts, s.id, styleGroup),
 			0,
 		);
-	}, [sets, styleGroup, counts]);
+	}, [sets, styleGroup, styleCounts]);
 
 	const selectedSet = React.useMemo(() => {
 		if (collection === "all" || collection === "favorites" || collection === "recent")
@@ -509,11 +500,16 @@ export function IconBrowser({ sets }: { sets: IconSetConfig[] }) {
 					? "Recently Used"
 					: (selectedSet?.label ?? "Icons");
 
+	const visibleCatalogCount =
+		collection === "all"
+			? allCountForGroup
+			: countForVisibleGroup(styleCounts, collection, styleGroup);
+
 	const subtitle = isWorkspaceCollection
 		? collection === "favorites"
 			? `${favorites.length.toLocaleString()} saved`
 			: `${recent.length.toLocaleString()} recent`
-		: `${totalShown.toLocaleString()} icons${
+		: `${(search.trim() ? totalShown : visibleCatalogCount).toLocaleString()} icons${
 				!catalogReady && collection === "all" && setCount > 0
 					? ` · ${loadedSets}/${setCount} libraries`
 					: ""
