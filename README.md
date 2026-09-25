@@ -1,4 +1,4 @@
-<img width="1510" height="827" alt="image" src="https://github.com/user-attachments/assets/0e0fb1de-268b-454a-85c6-46e8140d62f2" />
+<img width="1510" height="827" alt="image" src="https://github.com/user-attachments/assets/5a663af7-c9a9-487a-9ba2-c76f8b7248f8" />
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
 
