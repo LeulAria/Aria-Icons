@@ -1,7 +1,8 @@
 <img width="1510" height="827" alt="image" src="https://github.com/user-attachments/assets/5a663af7-c9a9-487a-9ba2-c76f8b7248f8" />
 
-[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
+---
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
 [![npm](https://img.shields.io/npm/v/aria-icons)](https://www.npmjs.com/package/aria-icons)
 [![Listed Startups](https://img.shields.io/badge/Listed%20on-Listed%20Startups-0A7CFF)](https://listedstartups.com/products/aria-icons)
 [![Directory Index](https://img.shields.io/badge/Listed%20on-Directory%20Index-2EA44F)](https://directory-index.com/technology/aria-icons/)
