@@ -173,6 +173,137 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "solid", label: "Solid", group: "solid", roots: ["src/solid"] },
 		],
 	},
+	{
+		id: "atlas-icons",
+		label: "Atlas Icons",
+		homepage: "https://iconsatlas.com/",
+		styles: [
+			{ id: "thin", label: "Thin", group: "line", roots: ["thin"] },
+			{ id: "regular", label: "Regular", group: "line", roots: ["regular"] },
+			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
+		],
+	},
+	{
+		id: "dashboard-icons",
+		label: "Dashboard Icons",
+		homepage: "https://dashboardicons.com",
+		styles: [{ id: "solid", label: "Logos", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "svgl",
+		label: "SVGL",
+		homepage: "https://svgl.app",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "light", label: "Light", group: "solid", roots: ["light"] },
+			{ id: "dark", label: "Dark", group: "solid", roots: ["dark"] },
+		],
+	},
+	{
+		id: "lobe-icons",
+		label: "Lobe Icons",
+		homepage: "https://github.com/lobehub/lobe-icons",
+		styles: [{ id: "solid", label: "Logos", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "super-tiny-icons",
+		label: "Super Tiny Icons",
+		homepage: "https://github.com/edent/SuperTinyIcons",
+		styles: [{ id: "solid", label: "Logos", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "browser-logos",
+		label: "Browser Logos",
+		homepage: "https://github.com/alrra/browser-logos",
+		styles: [{ id: "solid", label: "Logos", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "themify-icons",
+		label: "Themify Icons",
+		homepage: "https://github.com/lykmapipo/themify-icons",
+		styles: [{ id: "line", label: "All", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "spectrum-icons",
+		label: "Adobe Spectrum",
+		homepage: "https://github.com/adobe/spectrum-css-workflow-icons",
+		styles: [{ id: "line", label: "Workflow", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "blueprint-icons",
+		label: "Blueprint",
+		homepage: "https://blueprintjs.com/docs/#icons",
+		styles: [
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "20", label: "20", group: "solid", roots: ["20"] },
+		],
+	},
+	{
+		id: "patternfly-icons",
+		label: "PatternFly",
+		homepage: "https://www.patternfly.org/design-foundations/icons",
+		styles: [{ id: "solid", label: "Icons", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "atlaskit-icons",
+		label: "Atlaskit",
+		homepage: "https://atlassian.design/foundations/iconography",
+		styles: [
+			{ id: "core", label: "Core", group: "solid", roots: ["core"] },
+			{ id: "editor", label: "Editor", group: "line", roots: ["editor"] },
+			{ id: "emoji", label: "Emoji", group: "solid", roots: ["emoji"] },
+			{ id: "jira", label: "Jira", group: "solid", roots: ["jira"] },
+			{ id: "bitbucket", label: "Bitbucket", group: "solid", roots: ["bitbucket"] },
+			{ id: "media-services", label: "Media", group: "solid", roots: ["media-services"] },
+			{ id: "hipchat", label: "Hipchat", group: "solid", roots: ["hipchat"] },
+		],
+	},
+	{
+		id: "payment-icons",
+		label: "Payment Icons",
+		homepage: "https://github.com/aaronfagan/svg-credit-card-payment-icons",
+		styles: [
+			{ id: "flat", label: "Flat", group: "solid", roots: ["flat"] },
+			{ id: "flat-rounded", label: "Flat Rounded", group: "solid", roots: ["flat-rounded"] },
+			{ id: "logo", label: "Logo", group: "solid", roots: ["logo"] },
+			{ id: "logo-border", label: "Logo Border", group: "solid", roots: ["logo-border"] },
+			{ id: "mono", label: "Mono", group: "solid", roots: ["mono"] },
+			{ id: "mono-outline", label: "Mono Outline", group: "line", roots: ["mono-outline"] },
+		],
+	},
+	{
+		id: "trinil",
+		label: "Trinil",
+		homepage: "https://github.com/5e1y/trinil",
+		styles: [{ id: "line", label: "Line", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "vivid",
+		label: "Vivid",
+		homepage: "https://github.com/webkul/vivid",
+		styles: [{ id: "line", label: "All", group: "line", roots: ["./"] }],
+	},
+	{
+		id: "fork-awesome",
+		label: "Fork Awesome",
+		homepage: "https://github.com/ForkAwesome/Fork-Awesome",
+		styles: [{ id: "solid", label: "Icons", group: "solid", roots: ["./"] }],
+	},
+	{
+		id: "iconic",
+		label: "ICONIC",
+		homepage: "https://github.com/YuheshPandian/ICONIC",
+		styles: [
+			{ id: "dark", label: "Dark", group: "solid", roots: ["dark"] },
+			{ id: "light", label: "Light", group: "solid", roots: ["light"] },
+		],
+	},
+	{
+		id: "country-flag-icons",
+		label: "Country Flag Icons",
+		homepage: "https://github.com/catamphetamine/country-flag-icons",
+		styles: [{ id: "solid", label: "Flags", group: "solid", roots: ["./"] }],
+	},
 ];
 
 export function getIconSet(setId: string) {

@@ -11,6 +11,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 function run(command: string, args: string[]) {
 	return new Promise<void>((resolve, reject) => {
@@ -26,6 +27,12 @@ function run(command: string, args: string[]) {
 			else reject(new Error(`${command} ${args.join(" ")} exited ${code}`));
 		});
 	});
+}
+
+/** Run a repo script with the local tsx binary (Vercel calls `next build`, not `bun`). */
+function runScript(script: string, args: string[] = []) {
+	const tsxCli = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
+	return run(process.execPath, [tsxCli, script, ...args]);
 }
 
 async function writePrefixesManifest() {
@@ -67,14 +74,23 @@ async function pruneIconifyBodies() {
 	);
 }
 
-async function main() {
+function iconifyManifestPath() {
+	return path.join(process.cwd(), "icons", "iconify", "collections.json");
+}
+
+export async function prepareProductionIcons() {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 
 	if (onVercel) {
-		console.log("→ Production icon prepare: fetching theSVG + Iconify…");
-		await run("bun", ["run", "fetch:thesvg"]);
-		await run("bun", ["run", "fetch:iconify", "--", "--all"]);
-		await writePrefixesManifest();
+		try {
+			await fs.access(iconifyManifestPath());
+			console.log("→ Iconify manifest already present — skip fetch");
+		} catch {
+			console.log("→ Production icon prepare: fetching theSVG + Iconify…");
+			await runScript("scripts/fetch-thesvg.ts");
+			await runScript("scripts/fetch-iconify.ts", ["--all"]);
+			await writePrefixesManifest();
+		}
 	} else {
 		console.log(
 			"→ Local prebuild: regenerating catalog from existing icon sources…",
@@ -87,7 +103,7 @@ async function main() {
 		}
 	}
 
-	await run("bun", ["run", "generate-icons"]);
+	await runScript("scripts/generate-icons-meta.ts");
 
 	if (onVercel) {
 		await pruneIconifyBodies();
@@ -96,7 +112,13 @@ async function main() {
 	console.log("✅ Icon catalog ready for build");
 }
 
-main().catch((error) => {
-	console.error("prepare-production-icons failed:", error);
-	process.exit(1);
-});
+const invokedDirectly = process.argv[1]
+	? path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+	: false;
+
+if (invokedDirectly) {
+	prepareProductionIcons().catch((error) => {
+		console.error("prepare-production-icons failed:", error);
+		process.exit(1);
+	});
+}

@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import fs from "node:fs";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
 	typedRoutes: true,
@@ -10,14 +12,12 @@ const nextConfig: NextConfig = {
 		"/api/**": [
 			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
-			"./icons/iconify/collections.json",
-			"./icons/iconify/prefixes.json",
+			"./icons/iconify/*.json",
 		],
 		"/*": [
 			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
-			"./icons/iconify/collections.json",
-			"./icons/iconify/prefixes.json",
+			"./icons/iconify/*.json",
 		],
 	},
 	async headers() {
@@ -53,4 +53,19 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default nextConfig;
+/**
+ * Vercel invokes `next build` directly, which skips the package `prebuild`
+ * script. Iconify manifests are gitignored, so create them before file tracing
+ * lstats `icons/iconify/collections.json`.
+ */
+export default async function config(): Promise<NextConfig> {
+	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
+	const manifest = path.join(process.cwd(), "icons", "iconify", "collections.json");
+	if (onVercel && !fs.existsSync(manifest)) {
+		const { prepareProductionIcons } = await import(
+			"./scripts/prepare-production-icons"
+		);
+		await prepareProductionIcons();
+	}
+	return nextConfig;
+}

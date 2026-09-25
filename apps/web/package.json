@@ -10,6 +10,7 @@
     "generate-icons:names": "tsx scripts/generate-icons-names.ts",
     "fetch:thesvg": "tsx scripts/fetch-thesvg.ts",
     "fetch:iconify": "tsx scripts/fetch-iconify.ts",
+    "fetch:extra": "tsx scripts/fetch-extra-families.ts",
     "pack:icons": "tsx scripts/pack-icon-sets.ts",
     "prepare:icons": "tsx scripts/prepare-production-icons.ts",
     "prebuild": "tsx scripts/prepare-production-icons.ts"
