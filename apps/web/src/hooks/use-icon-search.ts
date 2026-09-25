@@ -2,13 +2,7 @@
 
 import * as React from "react";
 import { asCatalogIcon, type CatalogIcon } from "@/lib/icon-catalog";
-import {
-	expandCatalogIcon,
-	getCatalogProgress,
-	searchCatalogIndices,
-	startCatalogLoad,
-	subscribeCatalog,
-} from "@/lib/icon-catalog-runtime";
+import { getCatalogProgress } from "@/lib/icon-catalog-runtime";
 import type { SearchFilters } from "@/lib/icon-search";
 import { iconKey, type WorkspaceIcon } from "@/lib/icon-workspace";
 
@@ -52,44 +46,67 @@ export function useIconSearch(
 	const deferredFilters = React.useDeferredValue(filters);
 	const [version, setVersion] = React.useState(0);
 	const byKeyRef = React.useRef(new Map<string, CatalogIcon>());
-	const expandedRef = React.useRef(new Map<number, CatalogIcon>());
+	const pagesRef = React.useRef(new Map<number, CatalogIcon[]>());
+	const totalRef = React.useRef(0);
+	const inflightRef = React.useRef(new Set<number>());
+	const requestRef = React.useRef(0);
 
 	const isWorkspace =
 		deferredFilters.collection === "favorites" ||
 		deferredFilters.collection === "recent";
 
-	React.useEffect(() => subscribeCatalog(() => setVersion((n) => n + 1)), []);
+	const progress = getCatalogProgress();
+	const pageSize = 96;
+
+	const filterKey = isWorkspace
+		? ""
+		: `${deferredQuery}\n${deferredFilters.collection}\n${deferredFilters.styleGroup}\n${deferredFilters.selectedStyleId}`;
+
+	const loadPage = React.useCallback(
+		async (offset: number, requestId: number) => {
+			const page = Math.floor(offset / pageSize) * pageSize;
+			if (pagesRef.current.has(page) || inflightRef.current.has(page)) return;
+			inflightRef.current.add(page);
+			try {
+				const params = new URLSearchParams({
+					offset: String(page),
+					limit: String(pageSize),
+					q: deferredQuery,
+					collection: deferredFilters.collection,
+					style: deferredFilters.styleGroup,
+					styleId: deferredFilters.selectedStyleId,
+				});
+				const res = await fetch(`/api/browse?${params}`);
+				if (!res.ok || requestId !== requestRef.current) return;
+				const data = (await res.json()) as {
+					total: number;
+					icons: CatalogIcon[];
+				};
+				if (requestId !== requestRef.current) return;
+				pagesRef.current.set(page, data.icons);
+				totalRef.current = data.total;
+				for (const icon of data.icons) byKeyRef.current.set(iconKey(icon), icon);
+				setVersion((n) => n + 1);
+			} finally {
+				inflightRef.current.delete(page);
+			}
+		},
+		[
+			deferredQuery,
+			deferredFilters.collection,
+			deferredFilters.styleGroup,
+			deferredFilters.selectedStyleId,
+		],
+	);
 
 	React.useEffect(() => {
-		const collection = filters.collection;
-		const prefer =
-			collection === "all" ||
-			collection === "favorites" ||
-			collection === "recent"
-				? null
-				: collection;
-		void startCatalogLoad(prefer);
-	}, [filters.collection]);
-
-	const progress = getCatalogProgress();
-	void version;
-
-	const indices = React.useMemo(() => {
-		if (isWorkspace) return [];
-		expandedRef.current = new Map();
-		return searchCatalogIndices(deferredQuery, {
-			collection: deferredFilters.collection,
-			styleGroup: deferredFilters.styleGroup,
-			selectedStyleId: deferredFilters.selectedStyleId,
-		});
-	}, [
-		deferredQuery,
-		deferredFilters.collection,
-		deferredFilters.styleGroup,
-		deferredFilters.selectedStyleId,
-		isWorkspace,
-		version,
-	]);
+		if (isWorkspace) return;
+		const requestId = ++requestRef.current;
+		pagesRef.current = new Map();
+		inflightRef.current = new Set();
+		totalRef.current = 0;
+		void loadPage(0, requestId);
+	}, [filterKey, isWorkspace, loadPage]);
 
 	const remember = React.useCallback((icon: CatalogIcon) => {
 		byKeyRef.current.set(iconKey(icon), icon);
@@ -97,18 +114,13 @@ export function useIconSearch(
 
 	const getIcon = React.useCallback(
 		(index: number) => {
-			const cached = expandedRef.current.get(index);
-			if (cached) return cached;
-			const tupleIndex = indices[index];
-			if (tupleIndex == null) return undefined;
-			const icon = expandCatalogIcon(tupleIndex);
-			if (icon) {
-				expandedRef.current.set(index, icon);
-				byKeyRef.current.set(iconKey(icon), icon);
-			}
+			void version;
+			const page = Math.floor(index / pageSize) * pageSize;
+			const icon = pagesRef.current.get(page)?.[index - page];
+			if (icon) byKeyRef.current.set(iconKey(icon), icon);
 			return icon;
 		},
-		[indices],
+		[version],
 	);
 
 	const getByKey = React.useCallback((key: string) => {
@@ -117,11 +129,14 @@ export function useIconSearch(
 
 	const ensureRange = React.useCallback(
 		(start: number, end: number) => {
+			const requestId = requestRef.current;
 			const lo = Math.max(0, start);
-			const hi = Math.min(indices.length, Math.max(lo, end));
-			for (let i = lo; i < hi; i++) getIcon(i);
+			const hi = Math.max(lo, end);
+			for (let page = Math.floor(lo / pageSize) * pageSize; page <= hi; page += pageSize) {
+				void loadPage(page, requestId);
+			}
 		},
-		[getIcon, indices.length],
+		[loadPage],
 	);
 
 	const isStale = query !== deferredQuery || filters !== deferredFilters;
@@ -153,12 +168,12 @@ export function useIconSearch(
 		getByKey,
 		remember,
 		ensureRange,
-		total: indices.length,
-		ready: indices.length > 0 || progress.catalogReady,
+		total: totalRef.current,
+		ready: version > 0 && (totalRef.current > 0 || pagesRef.current.has(0)),
 		isStale,
-		catalogReady: progress.catalogReady,
-		loadedIcons: progress.loadedIcons,
-		loadedSets: progress.loadedSets,
+		catalogReady: true,
+		loadedIcons: totalRef.current,
+		loadedSets: progress.setCount,
 		setCount: progress.setCount,
 		counts: progress.counts,
 	};

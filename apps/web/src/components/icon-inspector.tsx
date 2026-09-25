@@ -142,6 +142,7 @@ function SliderValueInput({
   min,
   max,
   decimals = 0,
+  suffix,
   ariaLabel,
   onCommit,
 }: {
@@ -149,6 +150,7 @@ function SliderValueInput({
   min: number;
   max: number;
   decimals?: number;
+  suffix?: string;
   ariaLabel: string;
   onCommit: (value: number) => void;
 }) {
@@ -176,28 +178,31 @@ function SliderValueInput({
   };
 
   return (
-    <input
-      aria-label={ariaLabel}
-      inputMode={decimals > 0 ? "decimal" : "numeric"}
-      value={draft}
-      onChange={(e) => setDraft(e.target.value)}
-      onFocus={(e) => {
-        focusedRef.current = true;
-        e.currentTarget.select();
-      }}
-      onBlur={(e) => {
-        focusedRef.current = false;
-        commit(e.currentTarget.value);
-      }}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") e.currentTarget.blur();
-        if (e.key === "Escape") {
-          setDraft(String(value));
-          e.currentTarget.blur();
-        }
-      }}
-      className="size-8 rounded-md bg-foreground/4 text-center font-mono text-[12px] leading-none text-foreground ring-1 ring-inset ring-foreground/10 outline-none transition-colors focus:bg-foreground/6 focus:ring-foreground/25"
-    />
+    <span className="inline-flex h-7 w-[72px] shrink-0 items-center justify-center gap-1 rounded-[4px] border border-foreground/15 bg-foreground/[0.03] text-[13px] tabular-nums text-foreground/50 focus-within:border-foreground/30">
+      <input
+        aria-label={ariaLabel}
+        inputMode={decimals > 0 ? "decimal" : "numeric"}
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        onFocus={(e) => {
+          focusedRef.current = true;
+          e.currentTarget.select();
+        }}
+        onBlur={(e) => {
+          focusedRef.current = false;
+          commit(e.currentTarget.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") e.currentTarget.blur();
+          if (e.key === "Escape") {
+            setDraft(String(value));
+            e.currentTarget.blur();
+          }
+        }}
+        className="w-[4ch] bg-transparent text-right text-foreground outline-none"
+      />
+      {suffix ? <span>{suffix}</span> : null}
+    </span>
   );
 }
 
@@ -738,33 +743,51 @@ export function IconInspector({
             </button>
           }
         >
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div>
-              <div className="mb-3 flex items-center justify-between">
-                <label className="text-[13px] text-foreground/80">Size</label>
+              <label className="mb-2 block text-[13px] text-foreground/80">
+                Size
+              </label>
+              <div className="flex items-center gap-3">
+                <Slider
+                  variant="ticks"
+                  min={SIZE_SLIDER.min}
+                  max={SIZE_SLIDER.max}
+                  step={SIZE_SLIDER.step}
+                  value={[
+                    clampNumber(size, SIZE_SLIDER.min, SIZE_SLIDER.max),
+                  ]}
+                  onValueChange={(v) => setSize(v[0] ?? DEFAULT_CUSTOMIZE.size)}
+                />
                 <SliderValueInput
                   value={size}
                   min={SIZE_INPUT.min}
                   max={SIZE_INPUT.max}
+                  suffix="px"
                   ariaLabel="Size"
                   onCommit={setSize}
                 />
               </div>
-              <Slider
-                min={SIZE_SLIDER.min}
-                max={SIZE_SLIDER.max}
-                step={SIZE_SLIDER.step}
-                value={[
-                  clampNumber(size, SIZE_SLIDER.min, SIZE_SLIDER.max),
-                ]}
-                onValueChange={(v) => setSize(v[0] ?? DEFAULT_CUSTOMIZE.size)}
-              />
             </div>
 
             {morphMode || groupLabel !== "Filled" ? (
             <div>
-              <div className="mb-3 flex items-center justify-between">
-                <label className="text-[13px] text-foreground/80">Stroke</label>
+              <label className="mb-2 block text-[13px] text-foreground/80">
+                Stroke
+              </label>
+              <div className="flex items-center gap-3">
+                <Slider
+                  variant="ticks"
+                  min={STROKE_SLIDER.min}
+                  max={STROKE_SLIDER.max}
+                  step={STROKE_SLIDER.step}
+                  value={[
+                    clampNumber(stroke, STROKE_SLIDER.min, STROKE_SLIDER.max),
+                  ]}
+                  onValueChange={(v) =>
+                    setStroke(v[0] ?? DEFAULT_CUSTOMIZE.stroke)
+                  }
+                />
                 <SliderValueInput
                   value={stroke}
                   min={STROKE_INPUT.min}
@@ -774,17 +797,6 @@ export function IconInspector({
                   onCommit={setStroke}
                 />
               </div>
-              <Slider
-                min={STROKE_SLIDER.min}
-                max={STROKE_SLIDER.max}
-                step={STROKE_SLIDER.step}
-                value={[
-                  clampNumber(stroke, STROKE_SLIDER.min, STROKE_SLIDER.max),
-                ]}
-                onValueChange={(v) =>
-                  setStroke(v[0] ?? DEFAULT_CUSTOMIZE.stroke)
-                }
-              />
             </div>
             ) : null}
 

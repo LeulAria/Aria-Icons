@@ -15,7 +15,6 @@ import {
 const RESERVED_ICONIFY_PREFIXES = new Set([
 	...ICON_SETS.map((s) => s.id),
 	THESVG_SET_ID,
-	"thesvg-color",
 ]);
 
 /**

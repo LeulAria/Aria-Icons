@@ -155,6 +155,24 @@ export const ICON_SETS: IconSetConfig[] = [
 		label: "Iconpack",
 		styles: [{ id: "line", label: "All", group: "line", roots: ["source"] }],
 	},
+	{
+		id: "bubbles",
+		label: "Bubbles",
+		homepage: "https://github.com/leemonade/bubbles",
+		styles: [
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "heroicons-v1",
+		label: "Heroicons v1",
+		homepage: "https://github.com/tailwindlabs/heroicons/tree/v1.0.6",
+		styles: [
+			{ id: "outline", label: "Outline", group: "line", roots: ["src/outline"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["src/solid"] },
+		],
+	},
 ];
 
 export function getIconSet(setId: string) {

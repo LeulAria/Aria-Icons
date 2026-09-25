@@ -1,5 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { isAnimatedSet } from "@/lib/animated-sets";
+import { isNonLineVariant } from "@/lib/icon-search";
+import type { IconStyleFilter } from "@/lib/icon-sets";
 
 /**
  * Server-side search index over the generated icon catalog
@@ -31,6 +34,7 @@ export type IconSearchResult = IndexedIcon & { score: number };
 
 type IndexCache = {
 	icons: IndexedIcon[];
+	meta: MetaFile;
 	countsBySet: Record<string, number>;
 	generatedAt: string;
 	mtimeMs: number;
@@ -81,6 +85,7 @@ async function loadIndex() {
 
 	cache.index = {
 		icons: Array.from(byId.values()),
+		meta,
 		countsBySet,
 		generatedAt: meta.generatedAt,
 		mtimeMs: stat.mtimeMs,
@@ -175,4 +180,137 @@ export async function searchIcons(params: {
 
 	scored.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
 	return { total: scored.length, results: scored.slice(0, limit) };
+}
+
+export type BrowseIcon = {
+	setId: string;
+	styleId: string;
+	filePath: string;
+	name: string;
+	group: "line" | "solid";
+};
+
+const browseLists = new Map<string, number[]>();
+let browseOrder: number[] | null = null;
+let browseOrderAt = "";
+
+function getBrowseOrder(meta: MetaFile): number[] {
+	if (browseOrder && browseOrderAt === meta.generatedAt) return browseOrder;
+	const buckets: number[][] = meta.sets.map(() => []);
+	for (let i = 0; i < meta.icons.length; i++) {
+		const setIdx = meta.icons[i]?.[0] ?? 0;
+		buckets[setIdx]?.push(i);
+	}
+	browseOrder = buckets.flat();
+	browseOrderAt = meta.generatedAt;
+	return browseOrder;
+}
+
+function tupleMatches(
+	meta: MetaFile,
+	tuple: MetaFile["icons"][number],
+	collection: string,
+	styleGroup: IconStyleFilter,
+	styleId: string,
+): boolean {
+	const setId = meta.sets[tuple[0]] ?? "";
+	const iconStyle = meta.styles[tuple[1]] ?? "";
+	const name = tuple[3];
+	const group = tuple[2] === 1 ? "solid" : "line";
+	if (collection !== "all" && setId !== collection) return false;
+	if (styleGroup === "animated") return isAnimatedSet(setId);
+	if (styleGroup === "line" && isNonLineVariant({ setId, styleId: iconStyle, name, group })) {
+		return false;
+	}
+	if (styleGroup === "solid" && !isNonLineVariant({ setId, styleId: iconStyle, name, group })) {
+		return false;
+	}
+	if (
+		collection !== "all" &&
+		styleId !== "both" &&
+		styleId !== styleGroup &&
+		iconStyle !== styleId
+	) {
+		return false;
+	}
+	return true;
+}
+
+function toBrowseIcon(meta: MetaFile, tuple: MetaFile["icons"][number]): BrowseIcon {
+	const filePath = tuple[4] || tuple[3];
+	return {
+		setId: meta.sets[tuple[0]] ?? "",
+		styleId: meta.styles[tuple[1]] ?? "line",
+		filePath,
+		name: tuple[3],
+		group: tuple[2] === 1 ? "solid" : "line",
+	};
+}
+
+export async function browseIcons(params: {
+	query?: string;
+	collection?: string;
+	styleGroup?: IconStyleFilter;
+	styleId?: string;
+	offset: number;
+	limit: number;
+}): Promise<{ total: number; icons: BrowseIcon[] }> {
+	const index = await loadIndex();
+	const meta = index.meta;
+	const collection = params.collection && params.collection !== "all" ? params.collection : "all";
+	const styleGroup = params.styleGroup ?? "both";
+	const styleId = params.styleId ?? "both";
+	const offset = Math.max(0, params.offset);
+	const limit = Math.max(1, Math.min(120, params.limit));
+	const query = (params.query ?? "").trim().toLowerCase();
+	const unfiltered = !query && collection === "all" && styleGroup === "both";
+
+	const order = getBrowseOrder(meta);
+	let indexes: number[];
+	if (unfiltered) {
+		const end = Math.min(order.length, offset + limit);
+		const icons: BrowseIcon[] = [];
+		for (let i = offset; i < end; i++) {
+			const tuple = meta.icons[order[i] ?? -1];
+			if (tuple) icons.push(toBrowseIcon(meta, tuple));
+		}
+		return { total: order.length, icons };
+	}
+
+	const key = `${index.generatedAt}|${collection}|${styleGroup}|${styleId}|${query}`;
+	const cached = browseLists.get(key);
+	if (cached) {
+		indexes = cached;
+	} else {
+		indexes = [];
+		const tokens = query.split(/\s+/).filter(Boolean);
+		for (const i of order) {
+			const tuple = meta.icons[i];
+			if (!tuple || !tupleMatches(meta, tuple, collection, styleGroup, styleId)) continue;
+			if (tokens.length > 0) {
+				const name = tuple[3].toLowerCase();
+				let ok = true;
+				for (const token of tokens) {
+					if (!name.includes(token) && !(meta.sets[tuple[0]] ?? "").includes(token)) {
+						ok = false;
+						break;
+					}
+				}
+				if (!ok) continue;
+			}
+			indexes.push(i);
+			if (tokens.length > 0 && indexes.length >= 2000) break;
+		}
+		if (browseLists.size > 24) browseLists.clear();
+		browseLists.set(key, indexes);
+	}
+
+	const slice = indexes.slice(offset, offset + limit);
+	return {
+		total: indexes.length,
+		icons: slice.flatMap((i) => {
+			const tuple = meta.icons[i];
+			return tuple ? [toBrowseIcon(meta, tuple)] : [];
+		}),
+	};
 }

@@ -223,7 +223,6 @@ async function collectTheSvg(b: Builder) {
 const RESERVED_SET_IDS = new Set([
 	...ICON_SETS.map((s) => s.id),
 	THESVG_SET_ID,
-	"thesvg-color",
 ]);
 
 async function collectIconify(b: Builder) {
