@@ -4,10 +4,18 @@
  * Writes loose SVGs under icons/<setId>/, ready for `bun run pack:icons -- --only vendored --delete`.
  *
  * Skipped on purpose (license forbids redistributing the pack, or no SVG source):
- * Untitled UI, Iconsax, Iconizer, Shopify Polaris, Susty (empty repo),
- * Elastic EUI (Elastic License), AWS/Azure architecture packs, Tetrisly, Doodle Icons.
+ * Untitled UI (no redistribute), Iconsax, Iconizer, Shopify Polaris, Susty (empty),
+ * Elastic EUI (Elastic License), AWS/Azure architecture packs, Tetrisly (no SVG assets),
+ * Scaleflex (personal-use-only), 3dicons (raster), React Kawaii (illustration components),
+ * Moving Icons / Its Hover / LivelyIcons / useAnimations (animated TSX/JSON, not static SVG),
+ * Geist Icons (archived; source blob not usable), Oxygen UI (only a handful of brand SVGs).
+ * Doodle / Eyecons / Next Icons: --batch2-tsx (TSX→SVG extract).
  *
- * Run from apps/web: bun run fetch:extra
+ * Run from apps/web:
+ *   bun run fetch:extra           # original batch
+ *   bun run fetch:extra -- --related
+ *   bun run fetch:extra -- --batch2
+ *   bun run fetch:extra -- --batch2-tsx
  */
 import { execFile } from "node:child_process";
 import fs from "node:fs/promises";
@@ -479,6 +487,561 @@ async function importMuffinPayment() {
 	console.log(`  ${count.toLocaleString()} icons`);
 }
 
+async function importEmblemicons() {
+	console.log("→ Emblemicons");
+	const root = await sparseClone("emblemicons/emblemicons", "master", ["assets/svg"]);
+	const destRoot = path.join(ICONS_ROOT, "emblemicons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = { line: new Set<string>(), solid: new Set<string>() };
+	let count = 0;
+	for (const file of await fs.readdir(path.join(root, "assets/svg"))) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(root, "assets/svg", file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		const filled = /-fill\.svg$/i.test(file);
+		const name = file.replace(/-fill\.svg$/i, ".svg");
+		await writeSvg(
+			path.join(destRoot, filled ? "solid" : "line"),
+			name,
+			raw,
+			used[filled ? "solid" : "line"],
+		);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importProxicons() {
+	console.log("→ ProXIcons");
+	const root = await sparseClone("ProgrammerKR/ProXIcons", "main", ["svg"]);
+	const destRoot = path.join(ICONS_ROOT, "proxicons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["regular", "solid", "logos"] as const) {
+		const used = new Set<string>();
+		const src = path.join(root, "svg", style);
+		for (const file of await fs.readdir(src)) {
+			if (!file.toLowerCase().endsWith(".svg")) continue;
+			const raw = await fs.readFile(path.join(src, file), "utf8");
+			if (!raw.includes("<svg")) continue;
+			const name = file.replace(/^px[ls]?-/i, "");
+			await writeSvg(path.join(destRoot, style), name, raw, used);
+			count++;
+		}
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importFinmarks() {
+	console.log("→ Finmarks");
+	const root = await sparseClone("Finmarks/finmarks", "main", ["entities"]);
+	const destRoot = path.join(ICONS_ROOT, "finmarks");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = { icon: new Set<string>(), full: new Set<string>() };
+	let count = 0;
+	const entities = path.join(root, "entities");
+	for (const ent of await fs.readdir(entities, { withFileTypes: true })) {
+		if (!ent.isDirectory()) continue;
+		for (const style of ["icon", "full"] as const) {
+			const file = path.join(entities, ent.name, `${style}.svg`);
+			try {
+				const raw = await fs.readFile(file, "utf8");
+				if (!raw.includes("<svg")) continue;
+				await writeSvg(path.join(destRoot, style), ent.name, raw, used[style]);
+				count++;
+			} catch {
+				/* missing variant */
+			}
+		}
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importPaymentFont() {
+	console.log("→ PaymentFont");
+	const root = await sparseClone("AlexanderPoellmann/PaymentFont", "master", ["fonts"]);
+	const dest = path.join(ICONS_ROOT, "paymentfont");
+	await fs.rm(dest, { recursive: true, force: true });
+	const used = new Set<string>();
+	const raw = await fs.readFile(path.join(root, "fonts/paymentfont-webfont.svg"), "utf8");
+	const glyphRe = /<glyph\b([^>]*)\/?>/g;
+	let match: RegExpExecArray | null;
+	let count = 0;
+	while ((match = glyphRe.exec(raw))) {
+		const attrs = match[1] ?? "";
+		const name = /glyph-name="([^"]+)"/.exec(attrs)?.[1];
+		const d = /(?:^|\s)d="([^"]+)"/.exec(attrs)?.[1];
+		if (!name || !d) continue;
+		const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" fill="currentColor"><g transform="translate(0 960) scale(1 -1)"><path d="${d}"/></g></svg>`;
+		await writeSvg(dest, name, svg, used);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} glyphs`);
+}
+
+async function importDooIconik() {
+	console.log("→ doo-iconik");
+	const root = await sparseClone("ajentik/doo-iconik", "main", ["packages/core/src"]);
+	const dest = path.join(ICONS_ROOT, "doo-iconik");
+	await fs.rm(dest, { recursive: true, force: true });
+	const used = new Set<string>();
+	const raw = await fs.readFile(path.join(root, "packages/core/src/icon-data.ts"), "utf8");
+	const entryRe =
+		/"([^"]+)":\s*\{\s*viewBox:\s*"([^"]+)",\s*paths:\s*\[([^\]]*)\]([\s\S]*?)(?=\n\s*"[^"]+":\s*\{|\n\};)/g;
+	let match: RegExpExecArray | null;
+	let count = 0;
+	while ((match = entryRe.exec(raw))) {
+		const name = match[1]!;
+		const viewBox = match[2]!;
+		const pathsBlock = match[3]!;
+		const rest = match[4] ?? "";
+		const paths = [...pathsBlock.matchAll(/"([^"]+)"/g)].map((m) => m[1]!);
+		if (paths.length === 0) continue;
+		const body = paths.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`).join("");
+		const circles = [...rest.matchAll(/\{\s*cx:\s*([\d.]+),\s*cy:\s*([\d.]+),\s*r:\s*([\d.]+)\s*\}/g)]
+			.map((m) => `<circle cx="${m[1]}" cy="${m[2]}" r="${m[3]}" fill="none" stroke="currentColor" stroke-width="1.5"/>`)
+			.join("");
+		const lines = [
+			...rest.matchAll(
+				/\{\s*x1:\s*([\d.]+),\s*y1:\s*([\d.]+),\s*x2:\s*([\d.]+),\s*y2:\s*([\d.]+)\s*\}/g,
+			),
+		]
+			.map(
+				(m) =>
+					`<line x1="${m[1]}" y1="${m[2]}" x2="${m[3]}" y2="${m[4]}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`,
+			)
+			.join("");
+		const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" fill="none">${body}${circles}${lines}</svg>`;
+		await writeSvg(dest, name, svg, used);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importVkIcons() {
+	console.log("→ VK Icons");
+	const root = await sparseClone("VKCOM/icons", "master", ["packages/icons/src/svg"]);
+	const destRoot = path.join(ICONS_ROOT, "vk-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	const svgRoot = path.join(root, "packages/icons/src/svg");
+	for (const size of await fs.readdir(svgRoot)) {
+		const abs = path.join(svgRoot, size);
+		const st = await fs.stat(abs);
+		if (!st.isDirectory()) continue;
+		count += await copySvgTree(abs, path.join(destRoot, size), new Set());
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importFlightIcons() {
+	console.log("→ HashiCorp Flight Icons");
+	const root = await sparseClone("hashicorp/design-system", "main", [
+		"packages/flight-icons/svg",
+	]);
+	const destRoot = path.join(ICONS_ROOT, "flight-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = {
+		"16": new Set<string>(),
+		"24": new Set<string>(),
+	};
+	let count = 0;
+	const src = path.join(root, "packages/flight-icons/svg");
+	for (const file of await fs.readdir(src)) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(src, file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		const size = file.endsWith("-24.svg") ? "24" : "16";
+		const name = file.replace(/-1[64]\.svg$/i, "");
+		await writeSvg(path.join(destRoot, size), name, raw, used[size]);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importKendo() {
+	console.log("→ Kendo SVG Icons");
+	const root = await sparseClone("telerik/kendo-icons", "develop", ["src/telerik-icons"]);
+	const destRoot = path.join(ICONS_ROOT, "kendo-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["outline", "solid", "duotone"]) {
+		count += await copySvgTree(
+			path.join(root, "src/telerik-icons", style),
+			path.join(destRoot, style),
+			new Set(),
+		);
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importSwm() {
+	console.log("→ SWM Icon Pack");
+	const root = await sparseClone("software-mansion-labs/swm-icon-pack-react", "main", [
+		"icons",
+	]);
+	const destRoot = path.join(ICONS_ROOT, "swm-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["outline", "curved", "broken"]) {
+		try {
+			count += await copySvgTree(
+				path.join(root, "icons", style),
+				path.join(destRoot, style),
+				new Set(),
+			);
+		} catch {
+			/* style missing */
+		}
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importJedd() {
+	console.log("→ Jedd Icons");
+	const root = await sparseClone("jedd-labs/jedd-icons", "main", ["icons"]);
+	const destRoot = path.join(ICONS_ROOT, "jedd-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["stroke", "fill"]) {
+		count += await copySvgTree(
+			path.join(root, "icons", style),
+			path.join(destRoot, style),
+			new Set(),
+		);
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importGlobalBankLogos() {
+	console.log("→ Global Bank Logos");
+	const root = await sparseClone("auraveni/global-bank-logos", "main", ["assets/bank"]);
+	const destRoot = path.join(ICONS_ROOT, "global-bank-logos");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	let count = 0;
+	for (const style of ["indian-bank", "international-bank"]) {
+		count += await copySvgTree(
+			path.join(root, "assets/bank", style),
+			path.join(destRoot, style),
+			new Set(),
+		);
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importJetbrains() {
+	console.log("→ JetBrains Icons");
+	const root = await sparseClone("JetBrains/icons", "master", ["src"]);
+	const destRoot = path.join(ICONS_ROOT, "jetbrains-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = {
+		default: new Set<string>(),
+		"12": new Set<string>(),
+		"20": new Set<string>(),
+	};
+	let count = 0;
+	for (const file of await fs.readdir(path.join(root, "src"))) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(root, "src", file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		let style: "default" | "12" | "20" = "default";
+		let name = file;
+		if (/-12px\.svg$/i.test(file)) {
+			style = "12";
+			name = file.replace(/-12px\.svg$/i, ".svg");
+		} else if (/-20px\.svg$/i.test(file)) {
+			style = "20";
+			name = file.replace(/-20px\.svg$/i, ".svg");
+		}
+		await writeSvg(path.join(destRoot, style), name, raw, used[style]);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importKoobiq() {
+	console.log("→ Koobiq Icons");
+	const root = await sparseClone("koobiq/icons", "main", ["packages/icons/svg"]);
+	const destRoot = path.join(ICONS_ROOT, "koobiq-icons");
+	await fs.rm(destRoot, { recursive: true, force: true });
+	const used = new Map<string, Set<string>>();
+	let count = 0;
+	for (const file of await fs.readdir(path.join(root, "packages/icons/svg"))) {
+		if (!file.toLowerCase().endsWith(".svg")) continue;
+		const raw = await fs.readFile(path.join(root, "packages/icons/svg", file), "utf8");
+		if (!raw.includes("<svg")) continue;
+		const m = /_(\d+)\.svg$/i.exec(file);
+		const size = m?.[1] ?? "24";
+		const name = file.replace(/_\d+\.svg$/i, "");
+		const set = used.get(size) ?? new Set<string>();
+		used.set(size, set);
+		await writeSvg(path.join(destRoot, size), name, raw, set);
+		count++;
+	}
+	console.log(`  ${count.toLocaleString()} icons`);
+}
+
+async function importBatch2() {
+	await importFlat(
+		"Developer Icons",
+		"xandemon/developer-icons",
+		"main",
+		["icons"],
+		"icons",
+		"developer-icons",
+	);
+	await importFlat(
+		"Aegis Icons",
+		"aegis-icons/aegis-icons",
+		"master",
+		["icons"],
+		"icons",
+		"aegis-icons",
+	);
+	await importFlat(
+		"Forge Icon",
+		"Liberty-slug/forge-icon",
+		"main",
+		["icons-svg"],
+		"icons-svg",
+		"forge-icon",
+	);
+	await importFlat(
+		"Duma Icons",
+		"DudychMarian/duma-icons",
+		"main",
+		["icons/SVG"],
+		"icons/SVG",
+		"duma-icons",
+	);
+	await importFlat(
+		"TinyGlyphs",
+		"madebyankur/tinyglyphs",
+		"main",
+		["icons"],
+		"icons",
+		"tinyglyphs",
+	);
+	await importFlat("Kivex", "MotionMind2007/Kivex", "main", ["icons"], "icons", "kivex");
+	await importProxicons();
+	await importEmblemicons();
+	await importFlat(
+		"MOBAIcons",
+		"Artist-MOBAI/MOBAIcons",
+		"main",
+		["icons"],
+		"icons",
+		"mobaicons",
+	);
+	await importFlat(
+		"FamFamFam Silk SVG",
+		"Simandara/famfamfam-silk-svg",
+		"main",
+		["icons"],
+		"icons",
+		"famfamfam-silk",
+	);
+	await importFlat(
+		"Game Icon Pack",
+		"Nieobie/game-icon-pack",
+		"main",
+		["svg/no-padding"],
+		"svg/no-padding",
+		"game-icon-pack",
+	);
+	await importJedd();
+	await importSwm();
+	await importFlat(
+		"Payment Methods SVG",
+		"Webkadabra/payment-methods-svg-pack",
+		"main",
+		["src/assets"],
+		"src/assets",
+		"payment-methods-svg",
+	);
+	await importFlat(
+		"React Pay Icons",
+		"twltwl/react-pay-icons",
+		"master",
+		["IconsSource"],
+		"IconsSource",
+		"react-pay-icons",
+	);
+	await importGlobalBankLogos();
+	await importFinmarks();
+	await importFlat("Terrane", "uxKero/terrane", "main", ["icons"], "icons", "terrane");
+	await importFlat(
+		"React Suite Icons",
+		"rsuite/rsuite-icons",
+		"main",
+		["src/svg"],
+		"src/svg",
+		"rsuite-icons",
+	);
+	await importJetbrains();
+	await importFlightIcons();
+	await importKendo();
+	await importFlat(
+		"HV UI Kit Icons",
+		"pentaho/hv-uikit-react",
+		"master",
+		["packages/icons/assets"],
+		"packages/icons/assets",
+		"hv-uikit-icons",
+	);
+	await importFlat(
+		"Twilio Paste Icons",
+		"twilio-labs/paste",
+		"main",
+		["packages/paste-icons/svg"],
+		"packages/paste-icons/svg",
+		"paste-icons",
+	);
+	await importFlat(
+		"Uber Base Web Icons",
+		"uber/baseweb",
+		"main",
+		["src/icon/svg"],
+		"src/icon/svg",
+		"baseweb-icons",
+	);
+	await importKoobiq();
+	await importVkIcons();
+	await importPaymentFont();
+	await importDooIconik();
+}
+
+const JSX_ATTR_TO_SVG: Record<string, string> = {
+	strokeWidth: "stroke-width",
+	strokeLinecap: "stroke-linecap",
+	strokeLinejoin: "stroke-linejoin",
+	strokeDasharray: "stroke-dasharray",
+	strokeDashoffset: "stroke-dashoffset",
+	strokeMiterlimit: "stroke-miterlimit",
+	strokeOpacity: "stroke-opacity",
+	fillOpacity: "fill-opacity",
+	fillRule: "fill-rule",
+	clipPath: "clip-path",
+	clipRule: "clip-rule",
+	fontFamily: "font-family",
+	fontSize: "font-size",
+	fontWeight: "font-weight",
+	stopColor: "stop-color",
+	stopOpacity: "stop-opacity",
+	colorInterpolation: "color-interpolation",
+	colorInterpolationFilters: "color-interpolation-filters",
+};
+
+function tsxToSvg(raw: string): string | null {
+	const match = /<svg\b[\s\S]*?<\/svg>/i.exec(raw);
+	if (!match) return null;
+	let svg = match[0];
+	svg = svg
+		.replace(/\{\s*\.\.\.(?:props|rest)\s*\}/g, "")
+		.replace(/\bref=\{[^}]+\}/g, "")
+		.replace(/\bclassName=\{[^}]+\}/g, "")
+		.replace(/\bclassName="[^"]*"/g, "")
+		.replace(/=\{color\}/g, '="currentColor"')
+		.replace(/=\{size\}/g, '="24"')
+		.replace(/=\{strokeWidth\}/g, '="1.5"')
+		.replace(/\{color\}/g, "currentColor")
+		.replace(/\{size\}/g, "24")
+		.replace(/\{strokeWidth\}/g, "1.5");
+	for (const [jsx, svgAttr] of Object.entries(JSX_ATTR_TO_SVG)) {
+		svg = svg.replace(new RegExp(`\\b${jsx}=`, "g"), `${svgAttr}=`);
+	}
+	svg = svg
+		.replace(/\s{2,}/g, " ")
+		.replace(/\s+>/g, ">")
+		.replace(/>\s+</g, "><")
+		.trim();
+	if (!svg.includes("<svg")) return null;
+	return svg;
+}
+
+async function collectTsxFiles(dir: string): Promise<string[]> {
+	const out: string[] = [];
+	async function walk(abs: string) {
+		for (const ent of await fs.readdir(abs, { withFileTypes: true })) {
+			const next = path.join(abs, ent.name);
+			if (ent.isDirectory()) {
+				await walk(next);
+				continue;
+			}
+			if (ent.name.toLowerCase().endsWith(".tsx")) out.push(next);
+		}
+	}
+	await walk(dir);
+	return out;
+}
+
+function tsxIconName(file: string) {
+	return path
+		.basename(file, ".tsx")
+		.replace(/Icon$/i, "")
+		.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+		.replace(/[_\s]+/g, "-")
+		.toLowerCase();
+}
+
+async function importTsxIconPack(opts: {
+	label: string;
+	repo: string;
+	branch: string;
+	sparse: string[];
+	srcRel: string;
+	setId: string;
+}) {
+	console.log(`→ ${opts.label}`);
+	const root = await sparseClone(opts.repo, opts.branch, opts.sparse);
+	const dest = path.join(ICONS_ROOT, opts.setId);
+	await fs.rm(dest, { recursive: true, force: true });
+	const used = new Set<string>();
+	let count = 0;
+	let skipped = 0;
+	for (const file of await collectTsxFiles(path.join(root, opts.srcRel))) {
+		const raw = await fs.readFile(file, "utf8");
+		const svg = tsxToSvg(raw);
+		if (!svg) {
+			skipped++;
+			continue;
+		}
+		await writeSvg(dest, tsxIconName(file), svg, used);
+		count++;
+	}
+	console.log(
+		`  ${count.toLocaleString()} icons` +
+			(skipped ? ` (${skipped} skipped)` : ""),
+	);
+}
+
+async function importBatch2Tsx() {
+	await importTsxIconPack({
+		label: "Doodle Icons",
+		repo: "agilek/react-doodle-icons",
+		branch: "main",
+		sparse: ["src/icons"],
+		srcRel: "src/icons",
+		setId: "doodle-icons",
+	});
+	await importTsxIconPack({
+		label: "Eyecons",
+		repo: "rubychilds/eyecons",
+		branch: "main",
+		sparse: ["src/icons"],
+		srcRel: "src/icons",
+		setId: "eyecons",
+	});
+	await importTsxIconPack({
+		label: "Next Icons",
+		repo: "Next-Icons/next-icons",
+		branch: "main",
+		sparse: ["src/icons"],
+		srcRel: "src/icons",
+		setId: "next-icons",
+	});
+}
+
 async function main() {
 	await fs.mkdir(TMP, { recursive: true });
 	if (process.argv.includes("--related")) {
@@ -488,6 +1051,16 @@ async function main() {
 		await importEvil();
 		await importHomelab();
 		await importMuffinPayment();
+		console.log("Done.");
+		return;
+	}
+	if (process.argv.includes("--batch2-tsx")) {
+		await importBatch2Tsx();
+		console.log("Done.");
+		return;
+	}
+	if (process.argv.includes("--batch2")) {
+		await importBatch2();
 		console.log("Done.");
 		return;
 	}

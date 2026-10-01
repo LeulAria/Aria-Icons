@@ -5,6 +5,8 @@
  * Keep in sync with Iconify collection tags when fetching new sets.
  */
 export const ANIMATED_SET_IDS = new Set([
+	"climacons",
+	"discord-badges",
 	"line-md",
 	"svg-spinners",
 	"meteocons",
