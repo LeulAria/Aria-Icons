@@ -2,8 +2,9 @@
  * Vercel / CI prebuild: fetch theSVG + all Iconify sets, rebuild icons-meta.json,
  * then prune heavy Iconify set bodies so serverless bundles stay small.
  *
- * Runtime Iconify SVGs come from the Iconify API; theSVG + vendored JSON stay
- * on disk. Locally (non-VERCEL) this just regenerates the catalog from whatever
+ * Runtime Iconify SVGs come from the Iconify API. On Vercel, vendored packs and
+ * theSVG are gzipped before file tracing so functions stay under 250 MB.
+ * Locally (non-VERCEL) this just regenerates the catalog from whatever
  * is already present.
  *
  *   bun run prebuild
@@ -11,7 +12,11 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { promisify } from "node:util";
+import { gzip } from "node:zlib";
 import { fileURLToPath } from "node:url";
+
+const gzipAsync = promisify(gzip);
 
 function run(command: string, args: string[]) {
 	return new Promise<void>((resolve, reject) => {
@@ -110,6 +115,48 @@ export async function prepareProductionIcons() {
 	}
 
 	console.log("✅ Icon catalog ready for build");
+}
+
+/**
+ * Vercel functions are capped at 250 MB uncompressed. Vendored packs are
+ * hundreds of MB of JSON; gzip them (and drop the raw files) before file
+ * tracing so only routes that read SVGs carry the smaller `.json.gz` bodies.
+ * Local dev keeps plain JSON. Safe to run twice.
+ */
+export async function compressIconPacksForDeploy() {
+	const targets: string[] = [];
+	const vendored = path.join(process.cwd(), "icons", "vendored");
+	try {
+		const entries = await fs.readdir(vendored);
+		for (const file of entries) {
+			if (file.endsWith(".json")) targets.push(path.join(vendored, file));
+		}
+	} catch {
+		/* no vendored dir */
+	}
+	const thesvg = path.join(process.cwd(), "icons", "thesvg.json");
+	try {
+		await fs.access(thesvg);
+		targets.push(thesvg);
+	} catch {
+		/* already gzipped or absent */
+	}
+
+	let before = 0;
+	let after = 0;
+	for (const filePath of targets) {
+		const raw = await fs.readFile(filePath);
+		const compressed = await gzipAsync(raw, { level: 9 });
+		await fs.writeFile(`${filePath}.gz`, compressed);
+		await fs.unlink(filePath);
+		before += raw.length;
+		after += compressed.length;
+	}
+	if (targets.length > 0) {
+		console.log(
+			`→ Gzipped ${targets.length} icon packs for deploy (${(before / 1e6).toFixed(1)} MB → ${(after / 1e6).toFixed(1)} MB)`,
+		);
+	}
 }
 
 const invokedDirectly = process.argv[1]

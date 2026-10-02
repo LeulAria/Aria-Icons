@@ -1,1 +1,7 @@
 apps/web/icons/vendored/msemoji.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/faenza-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/oranchelo-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/suru-plus-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/bioicons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/os-catalina-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/mint-x-icons.json filter=lfs diff=lfs merge=lfs -text

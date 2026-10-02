@@ -1314,6 +1314,958 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
+	{
+		id: "fxos-icons",
+		label: "Firefox OS Icons",
+		homepage: "https://github.com/fxos-components/fxos-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "geomicons",
+		label: "Geomicons Open",
+		homepage: "https://github.com/jxnblk/geomicons-open",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "govicons",
+		label: "GovIcons",
+		homepage: "https://github.com/540co/govicons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "metro-ui-icons",
+		label: "Metro UI Icons",
+		homepage: "https://github.com/olton/metroui",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "themeisle-icons",
+		label: "ThemeIsle Icons",
+		homepage: "https://github.com/Codeinwp/themeisle-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "olicons",
+		label: "Olicons",
+		homepage: "https://github.com/owlling/olicons",
+		styles: [
+			{ id: "fill", label: "Fill", group: "solid", roots: ["fill"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "sharp-fill", label: "Sharp Fill", group: "solid", roots: ["sharp-fill"] },
+			{ id: "sharp-outline", label: "Sharp Outline", group: "line", roots: ["sharp-outline"] },
+		],
+	},
+	{
+		id: "weather-underground-icons",
+		label: "Weather Underground Icons",
+		homepage: "https://github.com/manifestinteractive/weather-underground-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "solid", label: "Fill", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "sjjb-map-icons",
+		label: "SJJB Map Icons",
+		homepage: "https://github.com/jalbertbowden/ssjb-map-icons",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "la-capitaine-icons",
+		label: "La Capitaine Icon Theme",
+		homepage: "https://github.com/keeferrourke/la-capitaine-icon-theme",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "tango-icons",
+		label: "Tango Icon Theme",
+		homepage: "https://github.com/stephenc/tango-icon-theme",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "zocial",
+		label: "Zocial",
+		homepage: "https://github.com/smcllns/css-social-buttons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "kamon",
+		label: "Kamon",
+		homepage: "https://github.com/nota/kamon",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "file-icon-vectors",
+		label: "File Icon Vectors",
+		homepage: "https://github.com/dmhendricks/file-icon-vectors",
+		styles: [
+			{ id: "classic", label: "Classic", group: "solid", roots: ["classic"] },
+			{ id: "high-contrast", label: "High Contrast", group: "solid", roots: ["high-contrast"] },
+			{ id: "square-o", label: "Square O", group: "solid", roots: ["square-o"] },
+			{ id: "vivid", label: "Vivid", group: "solid", roots: ["vivid"] },
+		],
+	},
+	{
+		id: "nataicons",
+		label: "Nataicons",
+		homepage: "https://github.com/afnizarnur/nataicons",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "icon-brew",
+		label: "Icon Brew",
+		homepage: "https://github.com/elrumo/icon-brew",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "dripicons",
+		label: "Dripicons",
+		homepage: "https://github.com/amitjakhu/dripicons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "badgen-icons",
+		label: "Badgen Icons",
+		homepage: "https://github.com/badgen/badgen-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "elementor-icons",
+		label: "Elementor Icons",
+		homepage: "https://github.com/elementor/elementor-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "icofont",
+		label: "IcoFont",
+		homepage: "https://github.com/LuanHimmlisch/icofont",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "jtb-icons",
+		label: "JTB Icons",
+		homepage: "https://github.com/marmooo/jtb-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "instructure-icons",
+		label: "Instructure UI Icons",
+		homepage: "https://github.com/instructure/instructure-ui",
+		styles: [
+			{ id: "custom", label: "Custom", group: "line", roots: ["custom"] },
+			{ id: "line", label: "Line", group: "line", roots: ["line"] },
+			{ id: "solid", label: "Fill", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "vitamix",
+		label: "Vitamix (Decathlon)",
+		homepage: "https://github.com/Decathlon/vitamin-web",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "orchid-icons",
+		label: "Orchid Icons",
+		homepage: "https://github.com/orchidsoftware/icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "sanity-icons",
+		label: "Sanity Icons",
+		homepage: "https://github.com/sanity-io/icons",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "toe-icons",
+		label: "Toe Icons",
+		homepage: "https://github.com/javisperez/toe-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "zero-icons",
+		label: "Zero Icons",
+		homepage: "https://github.com/leungwensen/svg-icon",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "vectorlogozone",
+		label: "VectorLogoZone",
+		homepage: "https://github.com/vectorlogozone/vectorlogozone",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "bank-logos",
+		label: "Bank Logos",
+		homepage: "https://github.com/icongo/bank-logos",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "powerbi-icons",
+		label: "Power BI Icons",
+		homepage: "https://github.com/microsoft/PowerBI-Icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "pe-7-stroke",
+		label: "Pe-icon-7-stroke",
+		homepage: "https://github.com/olimsaidov/pixeden-stroke-7-icon",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "small-n-flat",
+		label: "Small-n-flat",
+		homepage: "https://github.com/paomedia/small-n-flat",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "issuer-icons",
+		label: "Raivo Issuer Icons",
+		homepage: "https://github.com/raivo-otp/issuer-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "microns",
+		label: "Microns",
+		homepage: "https://github.com/stephenhutchings/microns",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "svg-loaders",
+		label: "SVG Loaders",
+		homepage: "https://github.com/SamHerbert/SVG-Loaders",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "azure-icon-collection",
+		label: "Azure Icon Collection",
+		homepage: "https://github.com/benc-uk/icon-collection",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "inkscape-open-symbols",
+		label: "Inkscape Open Symbols",
+		homepage: "https://github.com/PanderMusubi/inkscape-open-symbols",
+		styles: [
+			{ id: "circuitikz", label: "Circuitikz", group: "solid", roots: ["circuitikz"] },
+			{ id: "genericons", label: "Genericons", group: "solid", roots: ["genericons"] },
+			{ id: "gnome", label: "Gnome", group: "solid", roots: ["gnome"] },
+			{ id: "nautic", label: "Nautic", group: "line", roots: ["nautic"] },
+			{ id: "nautic-outline", label: "Nautic Outline", group: "solid", roots: ["nautic-outline"] },
+			{ id: "stateface", label: "Stateface", group: "solid", roots: ["stateface"] },
+			{ id: "suru", label: "Suru", group: "solid", roots: ["suru"] },
+			{ id: "taiga", label: "Taiga", group: "solid", roots: ["taiga"] },
+		],
+	},
+	{
+		id: "breeze-icons",
+		label: "KDE Breeze Icons",
+		homepage: "https://github.com/KDE/breeze-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "yaru-icons",
+		label: "Ubuntu Yaru",
+		homepage: "https://github.com/ubuntu/yaru",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "adwaita-icons",
+		label: "GNOME Adwaita",
+		homepage: "https://github.com/GNOME/adwaita-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "elementary-icons",
+		label: "Elementary OS Icons",
+		homepage: "https://github.com/elementary/icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "tela-icons",
+		label: "Tela Icon Theme",
+		homepage: "https://github.com/vinceliuice/Tela-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "whitesur-icons",
+		label: "WhiteSur Icon Theme",
+		homepage: "https://github.com/vinceliuice/WhiteSur-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "fluent-icon-theme",
+		label: "Fluent Icon Theme",
+		homepage: "https://github.com/vinceliuice/Fluent-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "qogir-icons",
+		label: "Qogir Icon Theme",
+		homepage: "https://github.com/vinceliuice/Qogir-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "vimix-icons",
+		label: "Vimix Icon Theme",
+		homepage: "https://github.com/vinceliuice/vimix-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "kora-icons",
+		label: "Kora Icon Theme",
+		homepage: "https://github.com/bikass/kora",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "numix-circle",
+		label: "Numix Circle",
+		homepage: "https://github.com/numixproject/numix-icon-theme-circle",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "flat-remix-icons",
+		label: "Flat Remix Icons",
+		homepage: "https://github.com/daniruiz/flat-remix",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "we10x-icons",
+		label: "We10X Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/We10X-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mcmojave-icons",
+		label: "McMojave Circle",
+		homepage: "https://github.com/vinceliuice/McMojave-circle",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "deepin-icons",
+		label: "Deepin Icon Theme",
+		homepage: "https://github.com/linuxdeepin/deepin-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "candy-icons",
+		label: "Candy Icons",
+		homepage: "https://github.com/EliverLara/candy-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "suru-plus-icons",
+		label: "Suru Plus",
+		homepage: "https://github.com/Gusbemacbe/suru-plus",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "paper-icons",
+		label: "Paper Icon Theme",
+		homepage: "https://github.com/snwh/paper-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "moka-icons",
+		label: "Moka Icon Theme",
+		homepage: "https://github.com/moka-project/moka-icon-theme",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "faenza-icons",
+		label: "Faenza Icon Theme",
+		homepage: "https://github.com/shlinux/faenza-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "solana-token-icons",
+		label: "Solana Token List",
+		homepage: "https://github.com/solana-labs/token-list",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "cosmos-chain-icons",
+		label: "Cosmos Chain Registry",
+		homepage: "https://github.com/cosmos/chain-registry",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "bioicons",
+		label: "Bioicons",
+		homepage: "https://github.com/duerrsimon/bioicons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "cncf-artwork",
+		label: "CNCF Artwork",
+		homepage: "https://github.com/cncf/artwork",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "webawesome-icons",
+		label: "Web Awesome Icons",
+		homepage: "https://github.com/shoelace-style/webawesome",
+		styles: [
+			{ id: "jelly", label: "Jelly", group: "solid", roots: ["jelly"] },
+			{ id: "solid", label: "Fill", group: "solid", roots: ["solid"] },
+			{ id: "utility", label: "Utility", group: "solid", roots: ["utility"] },
+		],
+	},
+	{
+		id: "bigheads",
+		label: "Big Heads",
+		homepage: "https://github.com/RobertBroersma/bigheads",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "multiavatar",
+		label: "Multiavatar",
+		homepage: "https://github.com/multiavatar/Multiavatar",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "avataaars",
+		label: "Avataaars",
+		homepage: "https://github.com/fangpenlin/avataaars",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "arc-icons",
+		label: "Arc Icon Theme",
+		homepage: "https://github.com/Horst3180/arc-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "colloid-icons",
+		label: "Colloid Icon Theme",
+		homepage: "https://github.com/vinceliuice/Colloid-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "emerald-icons",
+		label: "Emerald Icon Theme",
+		homepage: "https://github.com/vinceliuice/emerald-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mactahoe-icons",
+		label: "MacTahoe Icon Theme",
+		homepage: "https://github.com/vinceliuice/MacTahoe-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "tela-circle-icons",
+		label: "Tela Circle",
+		homepage: "https://github.com/vinceliuice/Tela-circle-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "bigsur-icons",
+		label: "BigSur Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/BigSur-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "bigsur-elegant-icons",
+		label: "BigSur Elegant",
+		homepage: "https://github.com/yeyushengfan258/BigSur-Elegant-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "bubble-icons",
+		label: "Bubble Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Bubble-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "fantasy-icons",
+		label: "Fantasy Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Fantasy-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "glory-icons",
+		label: "Glory Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Glory-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "inverse-icons",
+		label: "Inverse Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Inverse-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "lyra-icons",
+		label: "Lyra Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Lyra-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mcmuse-icons",
+		label: "McMuse Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/McMuse-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "miya-icons",
+		label: "Miya Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Miya-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "reversal-icons",
+		label: "Reversal Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Reversal-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "win10sur-icons",
+		label: "Win10Sur Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Win10Sur-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "win11-icons",
+		label: "Win11 Icon Theme",
+		homepage: "https://github.com/yeyushengfan258/Win11-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "zafiro-icons",
+		label: "Zafiro Icons",
+		homepage: "https://github.com/zayronxio/Zafiro-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "os-catalina-icons",
+		label: "OS Catalina Icons",
+		homepage: "https://github.com/zayronxio/Os-Catalina-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "uos-icons",
+		label: "UOS Icons",
+		homepage: "https://github.com/zayronxio/Uos-fulldistro-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "oranchelo-icons",
+		label: "Oranchelo Icon Theme",
+		homepage: "https://github.com/zayronxio/oranchelo-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "color-flow-icons",
+		label: "Color Flow Icons",
+		homepage: "https://github.com/zayronxio/Color.Flow.Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "ketsa-icons",
+		label: "Ketsa Icon Theme",
+		homepage: "https://github.com/zayronxio/ketsa-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "komps-icons",
+		label: "Komps Icon Theme",
+		homepage: "https://github.com/zayronxio/komps-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "elementary-kde-icons",
+		label: "Elementary KDE Icons",
+		homepage: "https://github.com/zayronxio/Elementary-KDE-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mint-l-icons",
+		label: "Mint L Icons",
+		homepage: "https://github.com/linuxmint/mint-l-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mint-x-icons",
+		label: "Mint X Icons",
+		homepage: "https://github.com/linuxmint/mint-x-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mint-y-icons",
+		label: "Mint Y Icons",
+		homepage: "https://github.com/linuxmint/mint-y-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "numix-icons",
+		label: "Numix",
+		homepage: "https://github.com/numixproject/numix-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "numix-square",
+		label: "Numix Square",
+		homepage: "https://github.com/numixproject/numix-icon-theme-square",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "papirus-icon-theme",
+		label: "Papirus Icon Theme",
+		homepage: "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "oxygen-icons",
+		label: "Oxygen Icons",
+		homepage: "https://github.com/KDE/oxygen-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "mate-icons",
+		label: "MATE Icon Theme",
+		homepage: "https://github.com/mate-desktop/mate-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "flatery-icons",
+		label: "Flatery",
+		homepage: "https://github.com/cbrnix/Flatery",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "newaita-icons",
+		label: "Newaita",
+		homepage: "https://github.com/cbrnix/Newaita",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "newaita-reborn",
+		label: "Newaita Reborn",
+		homepage: "https://github.com/cbrnix/Newaita-reborn",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-chameleon",
+		label: "Breeze Chameleon",
+		homepage: "https://github.com/L4ki/Breeze-Chameleon-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-noir",
+		label: "Breeze Noir",
+		homepage: "https://github.com/L4ki/Breeze-Noir-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "spectrum-color-icons",
+		label: "Spectrum Color Icons",
+		homepage: "https://github.com/L4ki/Spectrum-Color-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-opensuse",
+		label: "Breeze openSUSE",
+		homepage: "https://github.com/L4ki/Breeze-openSUSE-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-blur",
+		label: "Breeze Blur",
+		homepage: "https://github.com/L4ki/Breeze-Blur-Glassy-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-blue",
+		label: "Breeze Blue",
+		homepage: "https://github.com/L4ki/Breeze-Blue-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-splendent",
+		label: "Breeze Splendent",
+		homepage: "https://github.com/L4ki/Breeze-Splendent-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-shamrock",
+		label: "Breeze Shamrock",
+		homepage: "https://github.com/L4ki/Breeze-Shamrock-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "breeze-phoenix",
+		label: "Breeze Phoenix",
+		homepage: "https://github.com/L4ki/Breeze-Phoenix-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
 	// P0_FAMILIES_END
 ];
 

@@ -6,18 +6,45 @@ const nextConfig: NextConfig = {
 	typedRoutes: true,
 	reactCompiler: true,
 	transpilePackages: ["shiki", "morphicons"],
-	// Keep serverless traces small: vendored packs + theSVG + Iconify manifests.
-	// Full Iconify set bodies are pruned on Vercel; icons load via Iconify API.
+	// Serverless functions are capped at 250 MB uncompressed. `/*` matches every
+	// route (picomatch `contains`), so SVG bodies must NOT be on that glob —
+	// that was packing ~485 MB into `/.well-known/mcp.json`. Vendored packs are
+	// gzipped on Vercel before tracing; only routes that read SVGs include them.
 	outputFileTracingIncludes: {
 		"/api/**": [
 			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
+			"./icons/thesvg.json.gz",
 			"./icons/iconify/*.json",
+			"./public/icons-meta.json",
+			"./public/icons-meta-index.json",
 		],
 		"/*": [
+			"./icons/thesvg.json",
+			"./icons/thesvg.json.gz",
+			"./icons/iconify/collections.json",
+			"./icons/iconify/prefixes.json",
+			"./public/icons-meta.json",
+			"./public/icons-meta-index.json",
+		],
+	},
+	outputFileTracingExcludes: {
+		"/.well-known/**": [
+			"./icons/**/*",
+			"./public/icons-meta.json",
+			"./public/icons-meta-index.json",
+			"./public/icons-meta/**/*",
+		],
+		"/changelog": ["./icons/**/*", "./public/icons-meta.json", "./public/icons-meta-index.json"],
+		"/contribute": ["./icons/**/*", "./public/icons-meta.json", "./public/icons-meta-index.json"],
+		"/ai": ["./icons/**/*"],
+		"/api/ai": ["./icons/**/*"],
+		"/api/github-stars": ["./icons/**/*"],
+		"/api/rpc/**": ["./icons/**/*"],
+		"/api/browse": [
 			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
-			"./icons/iconify/*.json",
+			"./icons/thesvg.json.gz",
 		],
 	},
 	async headers() {
@@ -61,11 +88,14 @@ const nextConfig: NextConfig = {
 export default async function config(): Promise<NextConfig> {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 	const manifest = path.join(process.cwd(), "icons", "iconify", "collections.json");
-	if (onVercel && !fs.existsSync(manifest)) {
-		const { prepareProductionIcons } = await import(
+	if (onVercel) {
+		const { prepareProductionIcons, compressIconPacksForDeploy } = await import(
 			"./scripts/prepare-production-icons"
 		);
-		await prepareProductionIcons();
+		if (!fs.existsSync(manifest)) {
+			await prepareProductionIcons();
+		}
+		await compressIconPacksForDeploy();
 	}
 	return nextConfig;
 }

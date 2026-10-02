@@ -32,7 +32,37 @@ type Pack = {
 	setId: string;
 	/** Already vendored — do not import again. */
 	duplicateOf?: string;
+	/** Only these repo paths hold the icons (drops old versions, raster sizes, font copies). */
+	include?: RegExp;
+	/** Name and style from the repo path when the folders don't say; null drops the file. */
+	classify?: (rel: string) => { name: string; style: string } | null;
+	/**
+	 * Collapse size and color-theme copies that share a filename.
+	 * Symbolic icons stay separate from the color version.
+	 */
+	dedupe?: boolean;
+	/** TSX/JSX fragments (no loose SVG). Each file becomes one icon. */
+	componentInclude?: RegExp;
+	fragmentViewBox?: string;
 };
+
+const OLICONS_STYLES: Record<string, string> = { o: "outline", f: "fill", so: "sharp-outline", sf: "sharp-fill" };
+
+/** FreeDesktop themes: one color icon and, when present, its symbolic twin. */
+function desktopIcon(rel: string): { name: string; style: string } | null {
+	const base = path.basename(rel).replace(/\.svg$/i, "");
+	if (!base || base.startsWith(".")) return null;
+	const symbolic = /\/symbolic\//i.test(rel) || /-symbolic$/i.test(base);
+	return { name: base.replace(/-symbolic$/i, ""), style: symbolic ? "symbolic" : "color" };
+}
+
+/** Desktop themes: every SVG except cursors, previews, and docs. Dedupe collapses sizes. */
+const THEME_SVG =
+	/^(?!.*(?:\/cursors?(?:\/|$)|\/previews?(?:\/|$)|\/templates?(?:\/|$)|\/debian\/|\/docs?(?:\/|$)|\/screenshots?(?:\/|$))).+\.svg$/i;
+
+function themePack(label: string, repo: string, setId: string): Pack {
+	return { label, repo, setId, include: THEME_SVG, dedupe: true, classify: desktopIcon };
+}
 
 type StyleOut = {
 	id: string;
@@ -195,6 +225,245 @@ const PACKS: Pack[] = [
 	{ label: "Slate Free SVG Icons", repo: "evanwork34/slate-free-svg-icons", setId: "slate-icons" },
 	{ label: "HA Akentner Icons", repo: "akentner/hass-akentner-icons", setId: "ha-akentner-icons" },
 	{ label: "Orangeclock Icons", repo: "easyuxd/orangeclock-icons", setId: "orangeclock-icons" },
+	{ label: "Circum Icons", repo: "Klarr-Agency/Circum-Icons", setId: "circum", duplicateOf: "circum" },
+	{ label: "CoreUI Icons", repo: "coreui/coreui-icons", setId: "coreui-icons", duplicateOf: "cil" },
+	{ label: "Fontisto", repo: "kenangundogan/fontisto", setId: "fontisto", duplicateOf: "fontisto" },
+	{ label: "Foundation Icons", repo: "zurb/foundation-icon-fonts", setId: "foundation", duplicateOf: "foundation" },
+	{ label: "Humbleicons", repo: "zraly/humbleicons", setId: "humbleicons", duplicateOf: "humbleicons" },
+	{ label: "Elusive Icons", repo: "reduxframework/elusive-iconfont", setId: "elusive-icons", duplicateOf: "el" },
+	{ label: "Cuida Icons", repo: "Sysvale/cuida-icons", setId: "cuida", duplicateOf: "cuida" },
+	{ label: "Font-GIS", repo: "viglino/font-gis", setId: "font-gis", duplicateOf: "gis" },
+	{ label: "Gilbarbara SVG Logos", repo: "gilbarbara/logos", setId: "gilbarbara-logos", duplicateOf: "logos" },
+	{ label: "PlantUML SVG Logos", repo: "dev-details/plantuml-svg-logos", setId: "plantuml-svg-logos", duplicateOf: "logos" },
+	{ label: "Firefox OS Icons", repo: "fxos-components/fxos-icons", setId: "fxos-icons" },
+	{ label: "Geomicons Open", repo: "jxnblk/geomicons-open", setId: "geomicons" },
+	{ label: "GovIcons", repo: "540co/govicons", setId: "govicons" },
+	{ label: "Metro UI Icons", repo: "olton/metroui", setId: "metro-ui-icons" },
+	{ label: "ThemeIsle Icons", repo: "Codeinwp/themeisle-icons", setId: "themeisle-icons" },
+	{
+		label: "Olicons",
+		repo: "owlling/olicons",
+		setId: "olicons",
+		include: /^svg\/olicons_v2\.0\.1\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^ol-(.+)-(o|f|so|sf)\.svg$/.exec(path.basename(rel));
+			return m ? { name: m[1]!, style: OLICONS_STYLES[m[2]!]! } : null;
+		},
+	},
+	{
+		label: "Weather Underground Icons",
+		repo: "manifestinteractive/weather-underground-icons",
+		setId: "weather-underground-icons",
+		include: /^dist\/icons\/(black|solid-black)\/svg\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^dist\/icons\/(black|solid-black)\/svg\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1] === "black" ? "color" : "solid" } : null;
+		},
+	},
+	{ label: "SJJB Map Icons", repo: "jalbertbowden/ssjb-map-icons", setId: "sjjb-map-icons" },
+	{ label: "La Capitaine Icon Theme", repo: "keeferrourke/la-capitaine-icon-theme", setId: "la-capitaine-icons" },
+	{ label: "Tango Icon Theme", repo: "stephenc/tango-icon-theme", setId: "tango-icons", include: /^scalable\/.+\.svg$/ },
+	{ label: "Zocial", repo: "smcllns/css-social-buttons", setId: "zocial", include: /^src\/[^/]+\.svg$/ },
+	{ label: "Kamon", repo: "nota/kamon", setId: "kamon" },
+	{ label: "Geomicons Open", repo: "jxnblk/geomicons-open", setId: "geomicons-open", duplicateOf: "geomicons" },
+	{ label: "Open Iconic", repo: "iconic/open-iconic", setId: "oi", duplicateOf: "oi" },
+	{ label: "Micon", repo: "xtoolkit/Micon", setId: "micon", duplicateOf: "fluent-mdl2" },
+	{
+		label: "File Icon Vectors",
+		repo: "dmhendricks/file-icon-vectors",
+		setId: "file-icon-vectors",
+		include: /^dist\/icons\/(classic|vivid|square-o|high-contrast)\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^dist\/icons\/([^/]+)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1]! } : null;
+		},
+	},
+	{ label: "Nataicons", repo: "afnizarnur/nataicons", setId: "nataicons", include: /^icons\/24x24\/[^/]+\.svg$/ },
+	{ label: "Icon Brew", repo: "elrumo/icon-brew", setId: "icon-brew", include: /^app\/assets\/icons\/24px\/[^/]+\.svg$/ },
+	{ label: "Dripicons", repo: "amitjakhu/dripicons", setId: "dripicons", include: /^SVG\/[^/]+\.svg$/ },
+	{ label: "Badgen Icons", repo: "badgen/badgen-icons", setId: "badgen-icons", include: /^icons\/[^/]+\.svg$/ },
+	{ label: "Elementor Icons", repo: "elementor/elementor-icons", setId: "elementor-icons" },
+	{ label: "IcoFont", repo: "LuanHimmlisch/icofont", setId: "icofont" },
+	{ label: "JTB Icons", repo: "marmooo/jtb-icons", setId: "jtb-icons" },
+	{
+		label: "Instructure UI Icons",
+		repo: "instructure/instructure-ui",
+		setId: "instructure-icons",
+		include: /^packages\/ui-icons\/svg\/(Line|Solid|Custom)\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^packages\/ui-icons\/svg\/(Line|Solid|Custom)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1] === "Line" ? "line" : m[1] === "Solid" ? "solid" : "custom" } : null;
+		},
+	},
+	{
+		label: "Vitamix (Decathlon)",
+		repo: "Decathlon/vitamin-web",
+		setId: "vitamix",
+		include: /^packages\/sources\/icons\/src\/generated\/vitamix\/svg\/[^/]+\.svg$/,
+	},
+	{ label: "Orchid Icons", repo: "orchidsoftware/icons", setId: "orchid-icons", include: /^svg\/[^/]+\.svg$/ },
+	{ label: "Sanity Icons", repo: "sanity-io/icons", setId: "sanity-icons", include: /^packages\/icons\/export\/[^/]+\.svg$/ },
+	{ label: "Toe Icons", repo: "javisperez/toe-icons", setId: "toe-icons", include: /^packages\/icons\/assets\/icons\/[^/]+\.svg$/ },
+	{ label: "Zero Icons", repo: "leungwensen/svg-icon", setId: "zero-icons", include: /^dist\/trimmed-svg\/zero\/[^/]+\.svg$/ },
+	{
+		label: "VectorLogoZone",
+		repo: "vectorlogozone/vectorlogozone",
+		setId: "vectorlogozone",
+		include: /^src\/content\/logos\/[^/]+\/[^/]+-icon\.svg$/,
+		classify: (rel) => {
+			const m = /^src\/content\/logos\/([^/]+)\/[^/]+-icon\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: "color" } : null;
+		},
+	},
+	{ label: "Bank Logos", repo: "icongo/bank-logos", setId: "bank-logos", include: /^logos\/.+\.svg$/ },
+	{ label: "Power BI Icons", repo: "microsoft/PowerBI-Icons", setId: "powerbi-icons", include: /^SVG\/[^/]+\.svg$/ },
+	{
+		label: "Pe-icon-7-stroke",
+		repo: "olimsaidov/pixeden-stroke-7-icon",
+		setId: "pe-7-stroke",
+		include: /^pe-icon-7-stroke\/svg\/[^/]+\.svg$/,
+	},
+	{ label: "Small-n-flat", repo: "paomedia/small-n-flat", setId: "small-n-flat", include: /^svg\/[^/]+\.svg$/ },
+	{
+		label: "Raivo Issuer Icons",
+		repo: "raivo-otp/issuer-icons",
+		setId: "issuer-icons",
+		include: /^vectors\/[^/]+\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^vectors\/[^/]+\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: "color" } : null;
+		},
+	},
+	{ label: "Microns", repo: "stephenhutchings/microns", setId: "microns", include: /^svg\/[^/]+\.svg$/ },
+	{ label: "SVG Loaders", repo: "SamHerbert/SVG-Loaders", setId: "svg-loaders", include: /^svg-loaders\/[^/]+\.svg$/ },
+	{
+		label: "Azure Icon Collection",
+		repo: "benc-uk/icon-collection",
+		setId: "azure-icon-collection",
+		include: /^(azure-icons|azure-cds|other)\/.+\.svg$/,
+	},
+	{
+		label: "Inkscape Open Symbols",
+		repo: "PanderMusubi/inkscape-open-symbols",
+		setId: "inkscape-open-symbols",
+		// Sheets that copy Bootstrap, Font Awesome, Material, Octicons, and the
+		// other families already in the catalog are left out.
+		include:
+			/^(CircuiTikZ|genericons|gnome|nautic-alphabets|stateFace|suru-icons|taiga)\/.+\.svg$/,
+		classify: (rel) => {
+			const top = rel.split("/")[0] ?? "";
+			if (top === "nautic-alphabets") {
+				return { name: "icon", style: rel.includes("outline") ? "nautic-outline" : "nautic" };
+			}
+			const style =
+				top === "CircuiTikZ" ? "circuitikz" : top === "stateFace" ? "stateface" : top === "suru-icons" ? "suru" : top.toLowerCase();
+			return { name: "icon", style };
+		},
+	},
+	{ label: "KDE Breeze Icons", repo: "KDE/breeze-icons", setId: "breeze-icons", include: /^icons\/(?!.*\/cursors\/).+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Ubuntu Yaru", repo: "ubuntu/yaru", setId: "yaru-icons", include: /^icons\/(?!.*\/cursors\/).+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "GNOME Adwaita", repo: "GNOME/adwaita-icon-theme", setId: "adwaita-icons", include: /^(Adwaita|src)\/(?!.*\/cursors\/).+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Elementary OS Icons", repo: "elementary/icons", setId: "elementary-icons", include: /^(actions|apps|categories|devices|emblems|emotes|mimes|places|status)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Tela Icon Theme", repo: "vinceliuice/Tela-icon-theme", setId: "tela-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "WhiteSur Icon Theme", repo: "vinceliuice/WhiteSur-icon-theme", setId: "whitesur-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Fluent Icon Theme", repo: "vinceliuice/Fluent-icon-theme", setId: "fluent-icon-theme", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Qogir Icon Theme", repo: "vinceliuice/Qogir-icon-theme", setId: "qogir-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Vimix Icon Theme", repo: "vinceliuice/vimix-icon-theme", setId: "vimix-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Kora Icon Theme", repo: "bikass/kora", setId: "kora-icons", include: /^kora(-pgrey)?\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Numix Circle", repo: "numixproject/numix-icon-theme-circle", setId: "numix-circle", include: /^Numix-Circle(-Light)?\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Flat Remix Icons", repo: "daniruiz/flat-remix", setId: "flat-remix-icons", include: /^Flat-Remix-[^/]+\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "We10X Icon Theme", repo: "yeyushengfan258/We10X-icon-theme", setId: "we10x-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "McMojave Circle", repo: "vinceliuice/McMojave-circle", setId: "mcmojave-icons", include: /^(src|links)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Deepin Icon Theme", repo: "linuxdeepin/deepin-icon-theme", setId: "deepin-icons", include: /^(bloom|bloom-dark|bloom-classic|bloom-classic-dark|bloom-fantacy|vintage|Sea)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Candy Icons", repo: "EliverLara/candy-icons", setId: "candy-icons", include: /^(apps|devices|mimetypes|places|preferences|status)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Suru Plus", repo: "Gusbemacbe/suru-plus", setId: "suru-plus-icons", include: /^(Suru\+\+|eSuru\+\+|Suru\+\+-Light)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Paper Icon Theme", repo: "snwh/paper-icon-theme", setId: "paper-icons", include: /^(Paper|src)\/(?!.*\/cursors\/).+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Arc Icon Theme", repo: "Horst3180/arc-icon-theme", setId: "arc-icons", include: /^src\/(?!.*\/cursors\/).+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Moka Icon Theme", repo: "moka-project/moka-icon-theme", setId: "moka-icons", include: /^(src|Moka)\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Faenza Icon Theme", repo: "shlinux/faenza-icon-theme", setId: "faenza-icons", include: /^Faenza\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "Solana Token List", repo: "solana-labs/token-list", setId: "solana-token-icons", include: /^assets\/.+\.svg$/ },
+	{ label: "Cosmos Chain Registry", repo: "cosmos/chain-registry", setId: "cosmos-chain-icons", include: /^(?:_non-cosmos\/)?[^_/][^/]*\/.+\.svg$/ },
+	{ label: "Bioicons", repo: "duerrsimon/bioicons", setId: "bioicons", include: /^static\/icons\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	{ label: "CNCF Artwork", repo: "cncf/artwork", setId: "cncf-artwork", include: /^(projects|other)\/.+\.svg$/ },
+	{
+		label: "Web Awesome Icons",
+		repo: "shoelace-style/webawesome",
+		setId: "webawesome-icons",
+		include: /^packages\/webawesome\/docs\/assets\/icons\/(chunk|jelly|utility)\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /icons\/(chunk|jelly|utility)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1] === "chunk" ? "solid" : m[1]! } : null;
+		},
+	},
+	{ label: "Big Heads", repo: "RobertBroersma/bigheads", setId: "bigheads", include: /^site\/raw\/SVG\/(?!Artboard).+\.svg$/i },
+	{ label: "Multiavatar", repo: "multiavatar/Multiavatar", setId: "multiavatar", include: /^svg\/\d+\.svg$/ },
+	{
+		label: "Avataaars",
+		repo: "fangpenlin/avataaars",
+		setId: "avataaars",
+		componentInclude: /^src\/avatar\/(?!index\.tsx$).+\.tsx$/,
+		fragmentViewBox: "0 0 264 280",
+	},
+	themePack("Colloid Icon Theme", "vinceliuice/Colloid-icon-theme", "colloid-icons"),
+	themePack("Emerald Icon Theme", "vinceliuice/emerald-icon-theme", "emerald-icons"),
+	themePack("MacTahoe Icon Theme", "vinceliuice/MacTahoe-icon-theme", "mactahoe-icons"),
+	themePack("Tela Circle", "vinceliuice/Tela-circle-icon-theme", "tela-circle-icons"),
+	themePack("BigSur Icon Theme", "yeyushengfan258/BigSur-icon-theme", "bigsur-icons"),
+	themePack("BigSur Elegant", "yeyushengfan258/BigSur-Elegant-icon-theme", "bigsur-elegant-icons"),
+	themePack("Bubble Icon Theme", "yeyushengfan258/Bubble-icon-theme", "bubble-icons"),
+	themePack("Citrus Icon Theme", "yeyushengfan258/Citrus-icon-theme", "citrus-icons"),
+	themePack("Fantasy Icon Theme", "yeyushengfan258/Fantasy-icon-theme", "fantasy-icons"),
+	themePack("Glory Icon Theme", "yeyushengfan258/Glory-icon-theme", "glory-icons"),
+	themePack("Honor Icon Theme", "yeyushengfan258/Honor-icon-theme-", "honor-icons"),
+	themePack("Inverse Icon Theme", "yeyushengfan258/Inverse-icon-theme", "inverse-icons"),
+	themePack("Lyra Icon Theme", "yeyushengfan258/Lyra-icon-theme", "lyra-icons"),
+	themePack("McMuse Icon Theme", "yeyushengfan258/McMuse-icon-theme", "mcmuse-icons"),
+	themePack("Miya Icon Theme", "yeyushengfan258/Miya-icon-theme", "miya-icons"),
+	themePack("Pole Icon Theme", "yeyushengfan258/Pole-icon-theme", "pole-icons"),
+	themePack("Reversal Icon Theme", "yeyushengfan258/Reversal-icon-theme", "reversal-icons"),
+	themePack("Win10Sur Icon Theme", "yeyushengfan258/Win10Sur-icon-theme", "win10sur-icons"),
+	themePack("Win11 Icon Theme", "yeyushengfan258/Win11-icon-theme", "win11-icons"),
+	themePack("Zafiro Icons", "zayronxio/Zafiro-icons", "zafiro-icons"),
+	themePack("OS Catalina Icons", "zayronxio/Os-Catalina-icons", "os-catalina-icons"),
+	themePack("UOS Icons", "zayronxio/Uos-fulldistro-icons", "uos-icons"),
+	themePack("Oranchelo Icon Theme", "zayronxio/oranchelo-icon-theme", "oranchelo-icons"),
+	themePack("Color Flow Icons", "zayronxio/Color.Flow.Icons", "color-flow-icons"),
+	themePack("Ketsa Icon Theme", "zayronxio/ketsa-icon-theme", "ketsa-icons"),
+	themePack("Komps Icon Theme", "zayronxio/komps-icon-theme", "komps-icons"),
+	themePack("Elementary KDE Icons", "zayronxio/Elementary-KDE-Icons", "elementary-kde-icons"),
+	themePack("Mint L Icons", "linuxmint/mint-l-icons", "mint-l-icons"),
+	themePack("Mint X Icons", "linuxmint/mint-x-icons", "mint-x-icons"),
+	themePack("Mint Y Icons", "linuxmint/mint-y-icons", "mint-y-icons"),
+	themePack("Numix", "numixproject/numix-icon-theme", "numix-icons"),
+	themePack("Numix Square", "numixproject/numix-icon-theme-square", "numix-square"),
+	themePack("Papirus Icon Theme", "PapirusDevelopmentTeam/papirus-icon-theme", "papirus-icon-theme"),
+	themePack("Oxygen Icons", "KDE/oxygen-icons", "oxygen-icons"),
+	themePack("MATE Icon Theme", "mate-desktop/mate-icon-theme", "mate-icons"),
+	themePack("Flatery", "cbrnix/Flatery", "flatery-icons"),
+	themePack("Newaita", "cbrnix/Newaita", "newaita-icons"),
+	themePack("Newaita Reborn", "cbrnix/Newaita-reborn", "newaita-reborn"),
+	themePack("Breeze Chameleon", "L4ki/Breeze-Chameleon-Icons", "breeze-chameleon"),
+	themePack("Breeze Noir", "L4ki/Breeze-Noir-Icons", "breeze-noir"),
+	themePack("Spectrum Color Icons", "L4ki/Spectrum-Color-Icons", "spectrum-color-icons"),
+	themePack("Breeze openSUSE", "L4ki/Breeze-openSUSE-Icons", "breeze-opensuse"),
+	themePack("Breeze Blur", "L4ki/Breeze-Blur-Glassy-Icons", "breeze-blur"),
+	themePack("Breeze Blue", "L4ki/Breeze-Blue-Icons", "breeze-blue"),
+	themePack("Breeze Splendent", "L4ki/Breeze-Splendent-Icons", "breeze-splendent"),
+	themePack("Breeze Shamrock", "L4ki/Breeze-Shamrock-Icons", "breeze-shamrock"),
+	themePack("Breeze Phoenix", "L4ki/Breeze-Phoenix-Icons", "breeze-phoenix"),
+	themePack("Deepin Icons 2022", "zayronxio/Deepin-icons-2022", "deepin-2022-icons"),
+	themePack("Deepin Plus Icons", "zayronxio/deepin-plus-all-icon-theme", "deepin-plus-icons"),
+	themePack("Mignon Icon Theme", "igorfmoraes/Mignon-icon-theme", "mignon-icons"),
+	themePack("Breeze KDE Story", "L4ki/Breeze-KDE-Story-Icons", "breeze-kde-story"),
+	themePack("Breeze Honey", "L4ki/Breeze-Honey-Icons", "breeze-honey"),
+	themePack("Breeze Inspiration", "L4ki/Breeze-Inspiration-Icons", "breeze-inspiration"),
+	themePack("Breeze Red Black", "L4ki/Breeze-Red-Black-Icons", "breeze-red-black"),
+	themePack("Breeze Orange", "L4ki/Breeze-Orange-Icons", "breeze-orange"),
+	themePack("Breeze Colorful", "L4ki/Breeze-Chameleon-Colorful-Icons", "breeze-colorful"),
+	themePack("Breeze Amethyst", "L4ki/Breeze-Chameleon-Amethyst-Icons", "breeze-amethyst"),
+	themePack("Breeze Amore", "L4ki/Breeze-Amore-Icons", "breeze-amore"),
+	themePack("Breeze Magenta", "L4ki/Breeze-Magenta-Icons", "breeze-magenta"),
+	themePack("Breeze Cadet Blue", "L4ki/Breeze-Cadet-Blue-Icons", "breeze-cadet"),
 ];
 
 const NOISE =
@@ -209,12 +478,14 @@ const GENERIC_FILE = /^(logo|icon|image|glyph|symbol|vector|artwork|default)$/i;
 
 const LINE_STYLES = new Set([
 	"outline",
+	"sharp-outline",
 	"outlined",
 	"line",
 	"stroke",
 	"stroked",
 	"thin",
 	"linear",
+	"symbolic",
 ]);
 const SOLID_STYLES = new Set([
 	"fill",
@@ -304,7 +575,7 @@ function spawnInput(cmd: string, args: string[], input: string, cwd: string, tim
 
 async function writeSvg(dir: string, name: string, svg: string, used: Set<string>) {
 	if (!svg.includes("<svg") || svg.length > 2_000_000) return false;
-	if (/[{}$]/.test(svg)) return false;
+	if (/[{}$]/.test(svg.replace(/<style\b[\s\S]*?<\/style>/gi, ""))) return false;
 	if (!/<(path|polygon|circle|rect|ellipse|polyline|line|use|image|text|g|animate)\b/i.test(svg)) {
 		return false;
 	}
@@ -478,18 +749,85 @@ function basenameCollides(rels: string[]) {
 	return new Set(bases).size < bases.length * 0.9;
 }
 
+function dedupeIconPaths(paths: string[], symlinks?: Set<string>) {
+	const groups = new Map<string, string[]>();
+	for (const p of paths) {
+		if (!p.toLowerCase().endsWith(".svg")) continue;
+		const base = path.basename(p).toLowerCase();
+		const symbolic = /\/symbolic\//i.test(p) || /-symbolic\.svg$/i.test(p);
+		const generic = /^(logo|icon|image|token|asset|symbol)(-\d+)?\.svg$/.test(base);
+		const key = generic
+			? `${symbolic ? "s" : "c"}:${path.dirname(p).toLowerCase()}/${base}`
+			: `${symbolic ? "s" : "c"}:${base}`;
+		const list = groups.get(key) ?? [];
+		list.push(p);
+		groups.set(key, list);
+	}
+	const rank = (p: string) => {
+		let score = 100;
+		if (/\/scalable\//i.test(p)) score = 0;
+		else if (/\/(22|22x22)(\/|$)/i.test(p)) score = 20;
+		else if (/\/(24|24x24)(\/|$)/i.test(p)) score = 30;
+		else if (/\/(32|32x32)(\/|$)/i.test(p)) score = 40;
+		else if (/\/(48|48x48)(\/|$)/i.test(p)) score = 50;
+		else if (/\/(16|16x16)(\/|$)/i.test(p)) score = 60;
+		else if (/\/(64|96|128|256|512)(x\d+)?\//i.test(p)) score = 80;
+		if (symlinks?.has(p)) score += 40;
+		if (/(^|\/)src\//.test(p)) score -= 1;
+		if (/(^|\/)links\//.test(p)) score += 3;
+		if (/kora-pgrey\//.test(p) || /\/vintage\//.test(p) || /Suru\+\+-Light\//.test(p)) score += 2;
+		if (/eSuru\+\+\//.test(p) || /\/(bloom-dark|bloom-classic|bloom-classic-dark|bloom-fantacy|Sea)\//.test(p)) {
+			score += 1;
+		}
+		return score + p.length / 100000;
+	};
+	const out: string[] = [];
+	for (const list of groups.values()) {
+		list.sort((a, b) => rank(a) - rank(b));
+		out.push(list[0]!);
+	}
+	return out;
+}
+
+function fragmentToSvg(raw: string, viewBox: string) {
+	const match = raw.match(/<g\b[\s\S]*<\/g>/i);
+	if (!match) return null;
+	const body = cleanSvgMarkup(match[0]);
+	if (!/<(?:path|circle|rect|ellipse|polygon|polyline|line)\b/i.test(body)) return null;
+	if (/[{}$]/.test(body)) return null;
+	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" fill="currentColor">${body}</svg>`;
+}
+
 async function listTree(dir: string) {
 	const { stdout } = await run("git", ["ls-tree", "-r", "-z", "HEAD"], dir, 180_000);
 	const out: string[] = [];
+	const symlinks = new Set<string>();
 	for (const rec of stdout.split("\0")) {
 		if (!rec) continue;
 		const tab = rec.indexOf("\t");
 		if (tab === -1) continue;
 		const meta = rec.slice(0, tab);
 		if (meta.startsWith("160000") || meta.includes("commit")) continue;
-		out.push(rec.slice(tab + 1));
+		const rel = rec.slice(tab + 1);
+		out.push(rel);
+		if (meta.startsWith("120000")) symlinks.add(rel);
 	}
-	return out;
+	return { paths: out, symlinks };
+}
+
+async function expandSymlinkTargets(dest: string, rels: string[]) {
+	const extra: string[] = [];
+	for (const rel of rels) {
+		try {
+			const target = await fs.readlink(path.join(dest, rel));
+			const resolved = path.normalize(path.join(path.dirname(rel), target));
+			if (resolved.startsWith("..") || path.isAbsolute(resolved)) continue;
+			extra.push(resolved);
+		} catch {
+			/* regular file */
+		}
+	}
+	return extra;
 }
 
 async function checkout(dir: string, rels: string[]) {
@@ -830,14 +1168,56 @@ async function materialize(setId: string, items: NamedSvg[]) {
 async function importPack(pack: Pack): Promise<ReportEntry> {
 	const dest = path.join(TMP, pack.setId);
 	await cloneRepo(pack.repo, dest);
-	const tree = await listTree(dest);
-	const { allSvg, chosen } = selectSvgPaths(tree);
+	const listed = await listTree(dest);
+	const tree = listed.paths;
+	const selected = selectSvgPaths(tree);
+	const allSvg = selected.allSvg;
+	const include = pack.include;
+	let chosen = include ? tree.filter((p) => include.test(p)) : selected.chosen;
+	if (pack.dedupe) chosen = dedupeIconPaths(chosen, listed.symlinks);
 	let items: NamedSvg[] = [];
 	let note: string | undefined;
 
 	if (chosen.length >= 1) {
 		await checkout(dest, chosen);
-		items = await importLoose(dest, chosen, readNamedFile);
+		if (pack.dedupe) {
+			const extras = await expandSymlinkTargets(dest, chosen);
+			if (extras.length) await checkout(dest, [...chosen, ...extras]);
+		}
+		const classify = pack.classify;
+		const reader = classify
+			? async (abs: string, rel: string, prefix: boolean) => {
+					const target = classify(rel);
+					if (!target) return [];
+					const read = await readNamedFile(abs, rel, prefix);
+					return read.map((item) => ({
+						...item,
+						style: target.style || item.style,
+						...(read.length === 1 ? { name: target.name } : {}),
+					}));
+				}
+			: readNamedFile;
+		items = await importLoose(dest, chosen, reader);
+	}
+
+	if (pack.componentInclude) {
+		const components = tree.filter((p) => pack.componentInclude!.test(p));
+		if (components.length) {
+			await checkout(dest, components);
+			const viewBox = pack.fragmentViewBox ?? "0 0 24 24";
+			const named: NamedSvg[] = [];
+			for (const rel of components) {
+				const raw = await fs.readFile(path.join(dest, rel), "utf8").catch(() => "");
+				const svg = fragmentToSvg(raw, viewBox);
+				if (!svg) continue;
+				const parts = rel.split("/");
+				const file = parts.pop()!.replace(/\.(tsx|jsx)$/i, "");
+				if (/^(index|colors)$/i.test(file)) continue;
+				const parents = parts.filter((p) => !/^(src|avatar)$/i.test(p));
+				named.push({ name: [...parents, file].join("-"), svg, style: "pieces" });
+			}
+			if (named.length > items.length) items = named;
+		}
 	}
 
 	if (items.length < 3) {
@@ -1007,6 +1387,36 @@ ${styles}
 }
 
 async function register(report: Record<string, ReportEntry>) {
+	// `--only` must not rewrite families already registered in the file.
+	if (process.argv.includes("--only")) {
+		let src = await fs.readFile(ICON_SETS_FILE, "utf8");
+		const end = src.indexOf("\t// P0_FAMILIES_END");
+		if (end === -1) throw new Error("icon-sets.ts: P0_FAMILIES_END not found");
+		const fresh = PACKS.map((p) => report[p.setId]).filter(
+			(e): e is ReportEntry =>
+				!!e &&
+				e.status === "ok" &&
+				(e.styles?.length ?? 0) > 0 &&
+				!src.includes(`id: "${e.setId}"`),
+		);
+		if (fresh.length) {
+			src = `${src.slice(0, end)}${fresh.map(renderSet).join("\n")}\n${src.slice(end)}`;
+			await fs.writeFile(ICON_SETS_FILE, src, "utf8");
+		}
+		const animatedIds = fresh.filter((e) => e.animated).map((e) => e.setId);
+		if (animatedIds.length) {
+			let anim = await fs.readFile(ANIMATED_FILE, "utf8");
+			for (const id of animatedIds) {
+				if (anim.includes(`"${id}"`)) continue;
+				anim = anim.replace(
+					/export const ANIMATED_SET_IDS = new Set\(\[/,
+					`export const ANIMATED_SET_IDS = new Set([\n\t"${id}",`,
+				);
+			}
+			await fs.writeFile(ANIMATED_FILE, anim, "utf8");
+		}
+		return;
+	}
 	const ok = PACKS.map((p) => report[p.setId]).filter(
 		(e): e is ReportEntry => !!e && e.status === "ok" && (e.styles?.length ?? 0) > 0,
 	);

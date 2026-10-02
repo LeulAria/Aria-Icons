@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { gunzipSync } from "node:zlib";
 
 /**
  * Compact on-disk format for vendored filesystem icon sets.
@@ -69,16 +70,34 @@ export function packedTheSvgPath() {
 	return path.join(process.cwd(), "icons", "thesvg.json");
 }
 
+/** Plain JSON locally; `.json.gz` on Vercel after the deploy compress step. */
+async function readPackedText(filePath: string): Promise<string | null> {
+	try {
+		return await fs.readFile(filePath, "utf8");
+	} catch (error) {
+		const code = (error as NodeJS.ErrnoException).code;
+		if (code !== "ENOENT") return null;
+	}
+	try {
+		const gz = await fs.readFile(`${filePath}.gz`);
+		return gunzipSync(gz).toString("utf8");
+	} catch {
+		return null;
+	}
+}
+
 export async function loadPackedSet(setId: string): Promise<PackedSetFile | null> {
 	if (!/^[a-z0-9-]+$/.test(setId)) return null;
 	const cache = getCache();
 	if (cache.sets.has(setId)) return cache.sets.get(setId) ?? null;
 	let set: PackedSetFile | null = null;
-	try {
-		const raw = await fs.readFile(packedSetPath(setId), "utf8");
-		set = JSON.parse(raw) as PackedSetFile;
-	} catch {
-		set = null;
+	const raw = await readPackedText(packedSetPath(setId));
+	if (raw) {
+		try {
+			set = JSON.parse(raw) as PackedSetFile;
+		} catch {
+			set = null;
+		}
 	}
 	cache.sets.set(setId, set);
 	return set;
@@ -87,10 +106,12 @@ export async function loadPackedSet(setId: string): Promise<PackedSetFile | null
 export async function listPackedSetIds(): Promise<string[]> {
 	try {
 		const entries = await fs.readdir(vendoredDir());
-		return entries
-			.filter((f) => f.endsWith(".json"))
-			.map((f) => f.slice(0, -5))
-			.sort();
+		const ids = new Set<string>();
+		for (const file of entries) {
+			if (file.endsWith(".json.gz")) ids.add(file.slice(0, -".json.gz".length));
+			else if (file.endsWith(".json")) ids.add(file.slice(0, -".json".length));
+		}
+		return Array.from(ids).sort();
 	} catch {
 		return [];
 	}
@@ -99,8 +120,12 @@ export async function listPackedSetIds(): Promise<string[]> {
 export async function loadPackedTheSvg(): Promise<TheSvgPackedRegistry | null> {
 	const cache = getCache();
 	if (cache.thesvg !== undefined) return cache.thesvg;
+	const raw = await readPackedText(packedTheSvgPath());
+	if (!raw) {
+		cache.thesvg = null;
+		return null;
+	}
 	try {
-		const raw = await fs.readFile(packedTheSvgPath(), "utf8");
 		cache.thesvg = JSON.parse(raw) as TheSvgPackedRegistry;
 	} catch {
 		cache.thesvg = null;
