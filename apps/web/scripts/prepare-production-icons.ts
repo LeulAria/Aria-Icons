@@ -18,12 +18,12 @@ import { fileURLToPath } from "node:url";
 
 const gzipAsync = promisify(gzip);
 
-function run(command: string, args: string[]) {
+function run(command: string, args: string[], env: NodeJS.ProcessEnv = {}) {
 	return new Promise<void>((resolve, reject) => {
 		const child = spawn(command, args, {
 			stdio: "inherit",
 			cwd: process.cwd(),
-			env: process.env,
+			env: { ...process.env, ...env },
 			shell: process.platform === "win32",
 		});
 		child.on("error", reject);
@@ -35,10 +35,18 @@ function run(command: string, args: string[]) {
 }
 
 /** Run a repo script with the local tsx binary (Vercel calls `next build`, not `bun`). */
-function runScript(script: string, args: string[] = []) {
+function runScript(
+	script: string,
+	args: string[] = [],
+	env: NodeJS.ProcessEnv = {},
+) {
 	const tsxCli = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
-	return run(process.execPath, [tsxCli, script, ...args]);
+	return run(process.execPath, [tsxCli, script, ...args], env);
 }
+
+// The full catalog no longer fits in Node's default heap; Vercel build machines have 8 GB.
+// tsx re-spawns node, so the limit has to go through NODE_OPTIONS rather than argv.
+const CATALOG_HEAP_MB = process.env.ICONS_META_HEAP_MB ?? "6144";
 
 async function writePrefixesManifest() {
 	const dir = path.join(process.cwd(), "icons", "iconify");
@@ -108,7 +116,14 @@ export async function prepareProductionIcons() {
 		}
 	}
 
-	await runScript("scripts/generate-icons-meta.ts");
+	await runScript("scripts/generate-icons-meta.ts", [], {
+		NODE_OPTIONS: [
+			process.env.NODE_OPTIONS,
+			`--max-old-space-size=${CATALOG_HEAP_MB}`,
+		]
+			.filter(Boolean)
+			.join(" "),
+	});
 
 	if (onVercel) {
 		await pruneIconifyBodies();

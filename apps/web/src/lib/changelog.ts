@@ -11,11 +11,11 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
 	{
 		date: "2026-10-02",
-		version: "706k",
+		version: "943k",
 		title: "47 more icon families",
 		tag: "Icons",
 		summary:
-			"Vendored 47 more open icon families, including Bubbles, Heroicons v1, Papirus, Zafiro, Mint, and a wave of Breeze and macOS-style desktop themes.",
+			"Vendored 47 more open icon families, including Bubbles, Heroicons v1, Papirus, Zafiro, Mint, and a wave of Breeze and macOS-style desktop themes. The browse catalog now lists 943,000 icons across 494 sets, and production builds give the catalog generator enough memory to index all of them.",
 		added: [
 			"Added BigSur Elegant in Color and Symbolic (3,142 icons).",
 			"Added BigSur Icon Theme in Color and Symbolic (6,179 icons).",
