@@ -13,10 +13,10 @@ const nextConfig: NextConfig = {
 	// Serverless functions are capped at 250 MB uncompressed. `/*` matches every
 	// route (picomatch `contains`), so SVG bodies must NOT be on that glob —
 	// that was packing ~485 MB into `/.well-known/mcp.json`. Vendored packs are
-	// gzipped on Vercel before tracing; only routes that read SVGs include them.
+	// too big for any function (~450 MB gzipped), so on Vercel they're moved to
+	// `public/icon-packs/` before tracing and fetched from the CDN at runtime.
 	outputFileTracingIncludes: {
 		"/api/**": [
-			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
 			"./icons/thesvg.json.gz",
 			"./icons/iconify/*.json",
@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
 		],
 	},
 	outputFileTracingExcludes: {
+		"/*": ["./icons/vendored/**/*", "./public/icon-packs/**/*"],
 		"/.well-known/**": [
 			"./icons/**/*",
 			"./public/icons-meta.json",
