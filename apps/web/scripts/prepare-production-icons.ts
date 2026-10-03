@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 
 const gzipAsync = promisify(gzip);
 
-function run(command: string, args: string[], env: NodeJS.ProcessEnv = {}) {
+function run(command: string, args: string[], env: Partial<NodeJS.ProcessEnv> = {}) {
 	return new Promise<void>((resolve, reject) => {
 		const child = spawn(command, args, {
 			stdio: "inherit",
@@ -38,7 +38,7 @@ function run(command: string, args: string[], env: NodeJS.ProcessEnv = {}) {
 function runScript(
 	script: string,
 	args: string[] = [],
-	env: NodeJS.ProcessEnv = {},
+	env: Partial<NodeJS.ProcessEnv> = {},
 ) {
 	const tsxCli = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
 	return run(process.execPath, [tsxCli, script, ...args], env);
