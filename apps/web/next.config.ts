@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 import fs from "node:fs";
 import path from "node:path";
+import {
+	compressIconPacksForDeploy,
+	prepareProductionIcons,
+} from "./scripts/prepare-production-icons";
 
 const nextConfig: NextConfig = {
 	typedRoutes: true,
@@ -84,14 +88,15 @@ const nextConfig: NextConfig = {
  * Vercel invokes `next build` directly, which skips the package `prebuild`
  * script. Iconify manifests are gitignored, so create them before file tracing
  * lstats `icons/iconify/collections.json`.
+ *
+ * The script is imported statically: Next only registers its `.ts` require hook
+ * while this file loads, so a lazy `import()` inside this function can't
+ * resolve `./scripts/*.ts` and fails with MODULE_NOT_FOUND on Vercel.
  */
 export default async function config(): Promise<NextConfig> {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 	const manifest = path.join(process.cwd(), "icons", "iconify", "collections.json");
 	if (onVercel) {
-		const { prepareProductionIcons, compressIconPacksForDeploy } = await import(
-			"./scripts/prepare-production-icons"
-		);
 		if (!fs.existsSync(manifest)) {
 			await prepareProductionIcons();
 		}
