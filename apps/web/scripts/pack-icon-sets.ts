@@ -24,6 +24,12 @@ import {
 } from "../src/lib/icon-packed";
 import { ICON_SETS } from "../src/lib/icon-sets";
 import { THESVG_SET_ID } from "../src/lib/thesvg";
+import {
+	buildPackHashIndex,
+	dropForeignDuplicates,
+	initRenderer,
+	refineIcons,
+} from "./lib/icon-quality";
 
 function shouldDelete() {
 	return process.argv.includes("--delete");
@@ -86,9 +92,13 @@ async function readLucideTags(
 	}
 }
 
-async function packVendoredSet(setId: string): Promise<{
+async function packVendoredSet(
+	setId: string,
+	foreign: Map<string, string>,
+): Promise<{
 	count: number;
 	bytes: number;
+	foreignDuplicates: number;
 }> {
 	const set = ICON_SETS.find((s) => s.id === setId);
 	if (!set) throw new Error(`Unknown set ${setId}`);
@@ -113,12 +123,20 @@ async function packVendoredSet(setId: string): Promise<{
 		}
 	}
 
-	const packed: PackedSetFile = { v: 1, prefix: setId, icons };
+	// Repair markup, classify paint, and drop broken or duplicate icons —
+	// including copies of icons another family already ships.
+	const refined = refineIcons(icons);
+	const unique = dropForeignDuplicates(setId, refined.icons, foreign);
+	const packed: PackedSetFile = { v: 1, prefix: setId, icons: unique.icons };
 	const outPath = packedSetPath(setId);
 	await fs.mkdir(path.dirname(outPath), { recursive: true });
 	const json = JSON.stringify(packed);
 	await fs.writeFile(outPath, json, "utf8");
-	return { count: Object.keys(icons).length, bytes: Buffer.byteLength(json) };
+	return {
+		count: Object.keys(unique.icons).length,
+		bytes: Buffer.byteLength(json),
+		foreignDuplicates: unique.dropped,
+	};
 }
 
 async function packTheSvg(): Promise<{ count: number; bytes: number } | null> {
@@ -198,6 +216,7 @@ function clearIconFsIndexCache() {
 async function main() {
 	const del = shouldDelete();
 	const only = onlyFilter();
+	await initRenderer();
 	clearPackedIconCache();
 	clearIconFsIndexCache();
 
@@ -206,6 +225,18 @@ async function main() {
 
 	if (only !== "thesvg") {
 	console.log(`→ Packing vendored icon sets${del ? " (will delete sources)" : ""}…`);
+	const loose = new Set<string>();
+	for (const set of ICON_SETS) {
+		try {
+			await fs.access(path.join(process.cwd(), "icons", set.id));
+			loose.add(set.id);
+		} catch {
+			/* packed only */
+		}
+	}
+	const foreign = loose.size
+		? await buildPackHashIndex(path.join(process.cwd(), "icons", "vendored"), loose)
+		: new Map<string, string>();
 
 	for (const set of ICON_SETS) {
 		const setDir = path.join(process.cwd(), "icons", set.id);
@@ -223,6 +254,17 @@ async function main() {
 			}
 		}
 
+		// An interrupted --delete can leave an empty folder; never let it replace a pack.
+		const looseSvgs = await fs
+			.readdir(setDir, { recursive: true })
+			.then((entries) => entries.some((entry) => String(entry).toLowerCase().endsWith(".svg")))
+			.catch(() => false);
+		if (!looseSvgs) {
+			console.log(`   ${set.id}: no loose SVGs — keeping the existing pack`);
+			await rmDirIfExists(setDir);
+			continue;
+		}
+
 		// Prefer rebuilding from loose SVGs: drop any existing pack + caches.
 		try {
 			await fs.unlink(packedSetPath(set.id));
@@ -232,11 +274,11 @@ async function main() {
 		clearPackedIconCache();
 		clearIconFsIndexCache();
 
-		const { count, bytes } = await packVendoredSet(set.id);
+		const { count, bytes, foreignDuplicates } = await packVendoredSet(set.id, foreign);
 		totalIcons += count;
 		totalBytes += bytes;
 		console.log(
-			`   ${set.id}: ${count.toLocaleString()} icons → ${(bytes / 1024 / 1024).toFixed(2)} MB`,
+			`   ${set.id}: ${count.toLocaleString()} icons → ${(bytes / 1024 / 1024).toFixed(2)} MB${foreignDuplicates ? ` (${foreignDuplicates.toLocaleString()} copies of other families dropped)` : ""}`,
 		);
 
 		if (del) {

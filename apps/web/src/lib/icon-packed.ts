@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { gunzipSync } from "node:zlib";
+import type { SvgPaint } from "./svg-paint";
 
 /**
  * Compact on-disk format for vendored filesystem icon sets.
@@ -15,6 +16,8 @@ export type PackedIcon = {
 	styleId: string;
 	/** Lucide-style tags/categories/aliases when available. */
 	tags?: string[];
+	/** Pack-time paint class; absent means a single-color ("mono") icon. */
+	paint?: Exclude<SvgPaint, "mono">;
 };
 
 export type PackedSetFile = {

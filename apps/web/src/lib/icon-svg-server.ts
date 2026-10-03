@@ -1,8 +1,14 @@
-import { readSvg } from "@/lib/icon-fs";
+import { readSvgEntry } from "@/lib/icon-fs";
 import { getIconSet } from "@/lib/icon-sets";
 import { getIconSourceKind } from "@/lib/icon-sources";
 import { applyLineStrokeWidth, shouldApplyStroke } from "@/lib/icon-stroke";
-import { prefetchIconifyIcons, renderIconifyIcon } from "@/lib/iconify";
+import {
+	isLogoOrColoredSet,
+	loadIconifyCollections,
+	prefetchIconifyIcons,
+	renderIconifyIcon,
+} from "@/lib/iconify";
+import { classifyPaintMarkup, paintSvg, setSvgSize } from "@/lib/svg-paint";
 
 export type IconSvgRequest = {
 	setId: string;
@@ -14,84 +20,35 @@ export type IconSvgRequest = {
 	group?: string | null;
 };
 
-function applySize(svg: string, size: string) {
-	return svg.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
-		let next = attrs;
-		if (!/\bviewBox\s*=/i.test(next)) {
-			const width = next.match(/\bwidth="([0-9.]+)(?:px)?"/i)?.[1];
-			const height = next.match(/\bheight="([0-9.]+)(?:px)?"/i)?.[1];
-			if (width && height) next += ` viewBox="0 0 ${width} ${height}"`;
-		}
-		if (/\bwidth=/.test(next)) next = next.replace(/\bwidth="[^"]*"/, `width="${size}"`);
-		else next = ` width="${size}"` + next;
-
-		if (/\bheight=/.test(next)) next = next.replace(/\bheight="[^"]*"/, `height="${size}"`);
-		else next = ` height="${size}"` + next;
-
-		return `<svg${next}>`;
-	});
-}
-
 /** Sets whose SVGs omit stroke/fill and are drawn as strokes (inherit from root). */
 const STROKE_DEFAULT_SET_IDS = new Set(["ikonate"]);
 
-/** Rewrite fill/stroke colors inside a CSS `style="..."` value (skip `none`). */
-function tintCssStyleValue(style: string, color: string) {
-	return style
-		.replace(
-			/(^|;)\s*fill\s*:\s*(?!none\b)[^;]*/gi,
-			(_m, lead: string) => `${lead}fill:${color}`,
-		)
-		.replace(
-			/(^|;)\s*stroke\s*:\s*(?!none\b)[^;]*/gi,
-			(_m, lead: string) => `${lead}stroke:${color}`,
-		)
-		.replace(
-			/(^|;)\s*color\s*:\s*(?!none\b)[^;]*/gi,
-			(_m, lead: string) => `${lead}color:${color}`,
-		);
+/**
+ * Color sets drawn with near-black outline ink around colored fills. On the
+ * dark UI the ink turns to the requested light color so outlines stay visible.
+ */
+const INK_SWAP_SET_IDS = new Set([
+	"streamline-freehand-color",
+	"streamline-color",
+	"streamline-flex-color",
+	"streamline-plump-color",
+	"streamline-sharp-color",
+	"streamline-ultimate-color",
+	"streamline-cyber-color",
+	"streamline-stickies-color",
+]);
+
+function strokeDefaults(svg: string) {
+	return svg.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
+		const patched = attrs
+			.replace(/(^|\s)(fill|stroke|stroke-width|stroke-linecap|stroke-linejoin)="[^"]*"/gi, "")
+			.trimEnd();
+		return `<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"${patched}>`;
+	});
 }
 
-/**
- * Tint filesystem SVGs for the dark UI. Many packs ship bare paths that default
- * to black fill; Ionicons often paint via style="stroke:#000"; Ikonate omits
- * presentation attrs entirely. Stroke width is applied separately.
- */
-function tintFilesystemSvg(svg: string, color: string, setId: string) {
-	let next = svg
-		.replaceAll("currentColor", color)
-		.replaceAll("currentcolor", color)
-		.replace(/\bstyle=(["'])([\s\S]*?)\1/gi, (_m, quote: string, body: string) => {
-			return `style=${quote}${tintCssStyleValue(body, color)}${quote}`;
-		})
-		.replace(/\bstroke="(?!none)[^"]*"/gi, `stroke="${color}"`)
-		.replace(/\bfill="(?!none)[^"]*"/gi, `fill="${color}"`);
-
-	const hasStrokeAttr = /\bstroke=/i.test(next);
-	const hasFillAttr = /\bfill=/i.test(next);
-	const hasStylePaint = /style=(["'])[^"']*(?:stroke|fill)\s*:/i.test(next);
-
-	if (STROKE_DEFAULT_SET_IDS.has(setId)) {
-		next = next.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
-			const patched = attrs
-				.replace(/\bfill="[^"]*"/gi, "")
-				.replace(/\bstroke="[^"]*"/gi, "")
-				.replace(/\bstroke-width="[^"]*"/gi, "")
-				.replace(/\bstroke-linecap="[^"]*"/gi, "")
-				.replace(/\bstroke-linejoin="[^"]*"/gi, "");
-			return `<svg fill="none" stroke="${color}" stroke-linecap="round" stroke-linejoin="round"${patched}>`;
-		});
-	} else if (!hasStrokeAttr && !hasFillAttr && !hasStylePaint) {
-		next = next.replace(/<svg\b([^>]*?)>/i, (_m, attrs: string) => {
-			return `<svg fill="${color}"${attrs}>`;
-		});
-	} else if (!hasFillAttr && !hasStylePaint) {
-		next = next.replace(/<svg\b([^>]*?)>/i, (m, attrs: string) =>
-			/\bfill=/.test(attrs) ? m : `<svg fill="${color}"${attrs}>`,
-		);
-	}
-
-	return next;
+async function isIconifyColorSet(prefix: string) {
+	return isLogoOrColoredSet(prefix, await loadIconifyCollections());
 }
 
 function finishSvg(
@@ -116,11 +73,18 @@ export async function renderRequestedIconSvg(
 	if (!kind) return null;
 
 	if (kind === "iconify") {
-		const svg = await renderIconifyIcon(req.setId, req.filePath, {
+		// Color sets keep their own palette; only mono icons inside them get tinted.
+		const colored = await isIconifyColorSet(req.setId);
+		let svg = await renderIconifyIcon(req.setId, req.filePath, {
 			...(req.size ? { size: req.size } : {}),
-			color,
+			...(colored ? {} : { color }),
 		});
 		if (!svg) return null;
+		if (colored) {
+			svg = paintSvg(svg, classifyPaintMarkup(svg), color, {
+				inkSwap: INK_SWAP_SET_IDS.has(req.setId),
+			});
+		}
 		return finishSvg(svg, strokeOpts);
 	}
 
@@ -131,19 +95,12 @@ export async function renderRequestedIconSvg(
 	}
 
 	try {
-		let svg = await readSvg(req.setId, req.filePath);
-		if (req.size) svg = applySize(svg, req.size);
-
-		if (kind === "fs") {
-			svg = tintFilesystemSvg(svg, color, req.setId);
-		} else if (kind === "thesvg" && req.styleId === "mono") {
-			svg = svg.replaceAll("currentColor", color);
-			svg = svg.replace(/\bfill="(?!none)[^"]*"/gi, `fill="${color}"`);
-			svg = svg.replace(/<svg\b([^>]*?)>/i, (m, attrs: string) =>
-				/\bfill=/.test(attrs) ? m : `<svg fill="${color}"${attrs}>`,
-			);
-		}
-
+		const entry = await readSvgEntry(req.setId, req.filePath);
+		let svg = entry.svg;
+		if (req.size) svg = setSvgSize(svg, req.size);
+		if (STROKE_DEFAULT_SET_IDS.has(req.setId)) svg = strokeDefaults(svg);
+		const paint = kind === "thesvg" && req.styleId === "mono" ? "mono" : entry.paint;
+		svg = paintSvg(svg, paint, color);
 		return finishSvg(svg, strokeOpts);
 	} catch {
 		return null;

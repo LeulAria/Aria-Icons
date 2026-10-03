@@ -64,6 +64,29 @@ function themePack(label: string, repo: string, setId: string): Pack {
 	return { label, repo, setId, include: THEME_SVG, dedupe: true, classify: desktopIcon };
 }
 
+/**
+ * LibreOffice icon themes draw most commands at 16px (`sc_`), 24px (`lc_`)
+ * and 32px (`cmd/32/`); each size is its own drawing, so sizes become styles.
+ */
+function libreOfficeTheme(label: string, theme: string, setId: string): Pack {
+	const root = `icon-themes/${theme}_svg/`;
+	return {
+		label,
+		repo: "LibreOffice/core",
+		setId,
+		include: new RegExp(`^${root.replace(/\//g, "\\/")}.+\\.svg$`),
+		classify: (rel) => {
+			const file = path.basename(rel, ".svg");
+			const local = rel.slice(root.length);
+			if (/(^|\/)cmd\/32\//.test(local)) return { name: file, style: "32" };
+			if (/^lc_/.test(file)) return { name: file.slice(3), style: "24" };
+			if (/^sc_/.test(file)) return { name: file.slice(3), style: "16" };
+			const parent = path.dirname(local).split("/").filter((p) => !/^(res|cmd|icons?)$/.test(p)).pop();
+			return { name: parent ? `${parent}-${file}` : file, style: "misc" };
+		},
+	};
+}
+
 type StyleOut = {
 	id: string;
 	label: string;
@@ -107,7 +130,6 @@ const PACKS: Pack[] = [
 	{ label: "Papirus Icons", repo: "PapirusDevelopmentTeam/papirus_icons", setId: "papirus-icons" },
 	{ label: "ProXIcons", repo: "ProgrammerKR/ProXIcons", setId: "proxicons", duplicateOf: "proxicons" },
 	{ label: "Semantic UI Icons", repo: "Semantic-Org/Semantic-UI", setId: "semantic-ui-icons" },
-	{ label: "3dicons", repo: "realvjy/3dicons", setId: "3dicons" },
 	{ label: "KDesign Icons", repo: "kingdee/kdesign-icons", setId: "kdesign-icons" },
 	{ label: "AirQo Icons", repo: "airqo-platform/airqo-api", setId: "airqo-icons" },
 	{ label: "Iconoteka", repo: "iconoteka/iconoteka", setId: "iconoteka" },
@@ -183,7 +205,6 @@ const PACKS: Pack[] = [
 	{ label: "Ontario Design System Icons", repo: "ongov/Ontario-Design-System", setId: "ontario-icons" },
 	{ label: "Vigil Icons", repo: "vigilantkeno/vigil-icons", setId: "vigil-icons" },
 	{ label: "Helldivers 2 Stratagems", repo: "nvigneux/helldivers-2-stratagems-icons-svg", setId: "helldivers-icons" },
-	{ label: "Discord Badge Vault", repo: "dakshitgamerz-lgtm/discord-badge-vault", setId: "discord-badges" },
 	{ label: "WoW Icon Packs", repo: "kodewdle/iconpacks", setId: "wow-icon-packs" },
 	{ label: "Windows XP Icon Pack", repo: "marchmountain/-windows-xp-high-resolution-icon-pack", setId: "windows-xp-icons" },
 	{ label: "VS Code Iconset", repo: "be5invis/vscode-iconset", setId: "vscode-iconset" },
@@ -204,10 +225,8 @@ const PACKS: Pack[] = [
 	{ label: "Likeastore Icons", repo: "likeastore/likeastore-icons-pack", setId: "likeastore-icons" },
 	{ label: "Microsoft 365 Icons", repo: "xb2016/microsoft-365-icons-pack", setId: "microsoft-365-icons" },
 	{ label: "Bili Icon Pack", repo: "dashuchufang/bili_icon_pack", setId: "bili-icons" },
-	{ label: "Quill Icons", repo: "deriv-com/quill-icons-park", setId: "quill-icons" },
 	{ label: "Hyperliquid Coin SVGs", repo: "zengdard/hyperliquid-coin-svgs", setId: "hyperliquid-icons" },
 	{ label: "HH Iconpack", repo: "hunterhoch/hh_iconpack", setId: "hh-icons" },
-	{ label: "MorphNext", repo: "kicknext/morphnext", setId: "morphnext" },
 	{ label: "Android Action Bar Icons", repo: "turbo87/android-action-bar-icon-pack-font", setId: "android-action-bar-icons" },
 	{ label: "Scratch Icon Pack", repo: "iamareebjamal/scratch_icon_pack_source", setId: "scratch-icons" },
 	{ label: "Counter-Strike Icons", repo: "juknum/counter-strike-icons", setId: "counter-strike-icons" },
@@ -223,7 +242,6 @@ const PACKS: Pack[] = [
 	{ label: "NSW Design System Icons", repo: "digitalnsw/nsw-design-system", setId: "nsw-icons" },
 	{ label: "taurbalaur SVG Icons", repo: "taurbalaur/svg-icons", setId: "taurbalaur-icons" },
 	{ label: "Slate Free SVG Icons", repo: "evanwork34/slate-free-svg-icons", setId: "slate-icons" },
-	{ label: "HA Akentner Icons", repo: "akentner/hass-akentner-icons", setId: "ha-akentner-icons" },
 	{ label: "Orangeclock Icons", repo: "easyuxd/orangeclock-icons", setId: "orangeclock-icons" },
 	{ label: "Circum Icons", repo: "Klarr-Agency/Circum-Icons", setId: "circum", duplicateOf: "circum" },
 	{ label: "CoreUI Icons", repo: "coreui/coreui-icons", setId: "coreui-icons", duplicateOf: "cil" },
@@ -395,14 +413,272 @@ const PACKS: Pack[] = [
 			return m ? { name: m[2]!, style: m[1] === "chunk" ? "solid" : m[1]! } : null;
 		},
 	},
-	{ label: "Big Heads", repo: "RobertBroersma/bigheads", setId: "bigheads", include: /^site\/raw\/SVG\/(?!Artboard).+\.svg$/i },
-	{ label: "Multiavatar", repo: "multiavatar/Multiavatar", setId: "multiavatar", include: /^svg\/\d+\.svg$/ },
+	{ label: "Josemi Icons", repo: "jmjuanes/icons", setId: "josemi-icons", include: /^icons\/[^ /]+\.svg$/ },
 	{
-		label: "Avataaars",
-		repo: "fangpenlin/avataaars",
-		setId: "avataaars",
-		componentInclude: /^src\/avatar\/(?!index\.tsx$).+\.tsx$/,
-		fragmentViewBox: "0 0 264 280",
+		label: "Serendie Symbols",
+		repo: "serendie/serendie-symbols",
+		setId: "serendie-symbols",
+		include: /^assets\/(filled|outlined)\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^assets\/(filled|outlined)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1]! } : null;
+		},
+	},
+	{
+		label: "Icomo",
+		repo: "zainadeel/icomo",
+		setId: "icomo",
+		include: /^src\/(icons|map)\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^src\/(icons|map)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1] === "map" ? "map" : "solid" } : null;
+		},
+	},
+	{ label: "City Icons", repo: "anto1/city-icons", setId: "city-icons", include: /^public\/icons\/[^/]+\.svg$/ },
+	{
+		label: "PUXL Icons",
+		repo: "bolonio/react-puxl-icons",
+		setId: "puxl-icons",
+		include: /^resources\/icons\/icon_[^/]+\.svg$/,
+		classify: (rel) => ({ name: path.basename(rel, ".svg").replace(/^icon_/, ""), style: "solid" }),
+	},
+	{
+		label: "Databricks Architecture Icons",
+		repo: "oieduardorabelo/databricks-architecture-icons",
+		setId: "databricks-icons",
+		include: /^icons\/svg(-mono|-outline|-tile)?\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^icons\/svg(?:-(mono|outline|tile))?\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1] ?? "color" } : null;
+		},
+	},
+	{ label: "Charmed Icons", repo: "littensy/charmed-icons", setId: "charmed-icons", include: /^icons\/[^/]+\.svg$/ },
+	{ label: "Open Crop Icons", repo: "openfarmcc/open-crop-icons", setId: "open-crop-icons", include: /^icons\/([^/]+)\/\1\.svg$/ },
+	{
+		label: "Soaring Symbols",
+		repo: "soaring-symbols/soaring-symbols",
+		setId: "soaring-symbols",
+		include: /^assets\/[^/]+\/(icon|icon-mono|logo|logo-mono|tail)\.svg$/,
+		classify: (rel) => {
+			const m = /^assets\/([^/]+)\/([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: m[2]! } : null;
+		},
+	},
+	{
+		label: "Frog Emojis",
+		repo: "Riesi/frog_emojis",
+		setId: "frog-emojis",
+		include: /^svg\/(other\/)?[^/]+\.svg$/,
+		classify: (rel) => ({ name: path.basename(rel, ".svg").replace(/^U[0-9a-f]+-/i, ""), style: "color" }),
+	},
+	{
+		label: "Moda Operandi Icons",
+		repo: "ModaOperandi/icons",
+		setId: "moda-icons",
+		include: /^src\/svg\/(?!Logo)[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^src\/svg\/(.+?)_(\d+)\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: m[2]! } : { name: path.basename(rel, ".svg"), style: "24" };
+		},
+	},
+	{ label: "Scholar Icons", repo: "louisfacun/scholar-icons", setId: "scholar-icons", include: /^svgs\/[^/]+\.svg$/ },
+	{
+		label: "Sparkle Icons",
+		repo: "slaylines/sparkle-icons",
+		setId: "sparkle-icons",
+		include: /^public\/icons\/[^/]+\.svg$/,
+		classify: (rel) => {
+			const m = /^public\/icons\/(.+)-(black|colored|light)\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: m[2]! } : null;
+		},
+	},
+	{
+		label: "Analog Gothic",
+		repo: "hastefuI/analog-gothic",
+		setId: "analog-gothic",
+		include: /^icons\/ag-[^/]+\.svg$/,
+		classify: (rel) => ({ name: path.basename(rel, ".svg").replace(/^ag-/, ""), style: "solid" }),
+	},
+	{ label: "Dev Hearts", repo: "lukeocodes/dev-hearts", setId: "dev-hearts", include: /^src\/(?!germany_heart)[^/]+\.svg$/ },
+	{
+		label: "Chess Art",
+		repo: "maurimo/chess-art",
+		setId: "chess-art",
+		include: /^(celtic|fantasy|spatial)\/[bknpqr]\.svg$/,
+		classify: (rel) => {
+			const pieces: Record<string, string> = { k: "king", q: "queen", r: "rook", b: "bishop", n: "knight", p: "pawn" };
+			const m = /^([a-z]+)\/([bknpqr])\.svg$/.exec(rel);
+			return m ? { name: `${m[1]}-${pieces[m[2]!]}`, style: "solid" } : null;
+		},
+	},
+	{ label: "Thermal Comfort Icons", repo: "rautesamtr/thermal_comfort_icons", setId: "thermal-comfort-icons", include: /^svg\/[^/]+\.svg$/ },
+	{
+		label: "Orange Accessibility Icons",
+		repo: "Orange-OpenSource/Accessibility-icons",
+		setId: "orange-accessibility-icons",
+		include: /^Usage mode_[^/]+\.svg$/,
+		classify: (rel) => ({ name: path.basename(rel, ".svg").replace(/^Usage mode_/, ""), style: "solid" }),
+	},
+	{
+		label: "IntelliJ Platform Icons",
+		repo: "JetBrains/intellij-community",
+		setId: "intellij-icons",
+		// Light-theme 1x files only: `_dark` and `@2x` are theme/density copies.
+		include: /^(?!.*(?:testData|\/tests?\/))(?!.*(?:_dark|@2x)\.svg$).+\.svg$/,
+		classify: (rel) => {
+			const name = kebab(path.basename(rel, ".svg"));
+			if (!name) return null;
+			const area = rel.split("/").slice(0, 2).join("-").replace(/^platform-icons$/, "");
+			return {
+				name: area && !/^platform-/.test(area) ? `${kebab(rel.split("/")[1] ?? "")}-${name}` : name,
+				style: /\/expui\//.test(rel) ? "new-ui" : "classic",
+			};
+		},
+	},
+	// Second wave: themes, office suites, design systems, and symbol sets verified for licence and overlap.
+	themePack("Gruvbox Plus Icons", "SylEleuth/gruvbox-plus-icon-pack", "gruvbox-plus-icons"),
+	themePack("Hatter Icons", "Mibea/Hatter", "hatter-icons"),
+	themePack("Adwaita++ Icons", "Bonandry/adwaita-plus", "adwaita-plus-icons"),
+	themePack("Nordzy Icons", "MolassesLover/Nordzy-icon", "nordzy-icons"),
+	themePack("Yaru++ Icons", "Bonandry/yaru-plus", "yaru-plus-icons"),
+	themePack("Suru++ Ubuntu", "Bonandry/suru-plus-ubuntu", "suru-plus-ubuntu-icons"),
+	themePack("Obsidian Icons", "madmaxms/iconpack-obsidian", "obsidian-icons"),
+	themePack("Lila HD Icons", "ilnanny75/Lila-HD-Icon-Theme-Official", "lila-hd-icons"),
+	themePack("Neo Candy Icons", "erikdubois/neo-candy-icons", "neo-candy-icons"),
+	themePack("Halo Icons", "erikdubois/halo-icons", "halo-icons"),
+	themePack("Masalla Icons", "masalla-art/masalla-icon-theme", "masalla-icons"),
+	themePack("Evolvere Icons", "franksouza183/Evolvere-Icons", "evolvere-icons"),
+	themePack("Pixie Icons", "maxtron95/pixie-icon-theme", "pixie-icons"),
+	themePack("Yosa Max Icons", "freywazza/Yosa-Max-Git", "yosa-max-icons"),
+	themePack("Mkos Big Sur Icons", "zayronxio/Mkos-Big-Sur", "mkos-big-sur-icons"),
+	themePack("MoreWaita Icons", "somepaulo/MoreWaita", "morewaita-icons"),
+	themePack("elementary Xfce Icons", "shimmerproject/elementary-xfce", "elementary-xfce-icons"),
+	themePack("Shadow Icons", "rudrab/Shadow", "shadow-icons"),
+	themePack("Zorin Icons", "ZorinOS/zorin-icon-themes", "zorin-icons"),
+	themePack("Clarity Icon Theme", "jcubic/Clarity", "clarity-icon-theme"),
+	themePack("Pop Icons", "pop-os/icon-theme", "pop-icons"),
+	themePack("Faba Icons", "snwh/faba-icon-theme", "faba-icons"),
+	themePack("FlatWoken Icons", "alecive/FlatWoken", "flatwoken-icons"),
+	themePack("COSMIC Icons", "pop-os/cosmic-icons", "cosmic-icons"),
+	themePack("Tau Hydrogen Icons", "tau-OS/tau-hydrogen", "tau-hydrogen-icons"),
+	themePack("Plane Icons", "wfpaisa/plane-icon-theme", "plane-icons"),
+	themePack("Luv Icons", "Nitrux/luv-icon-theme", "luv-icons"),
+	themePack("Sevi Icons", "TaylanTatli/Sevi", "sevi-icons"),
+	themePack("Chicago95 Icons", "grassmunk/Chicago95", "chicago95-icons"),
+	themePack("Vertex Icons", "horst3180/vertex-icons", "vertex-icons"),
+	themePack("Mato Icons", "flipflop97/Mato", "mato-icons"),
+	themePack("Pocillo Icons", "UbuntuBudgie/pocillo", "pocillo-icons"),
+	themePack("elementaryPlus Icons", "Manuel-Kehl/elementaryPlus", "elementary-plus-icons"),
+	themePack("Boston Icons", "thecheis/Boston-Icons", "boston-icons"),
+	themePack("Argon Icons", "stuarthayhurst/argon-icon-theme", "argon-icons"),
+	themePack("Pixora Icons", "tsora1603/pixora-icons", "pixora-icons"),
+	themePack("Suru Icons", "snwh/suru-icon-theme", "suru-icons"),
+	{ label: "LibreOffice Yaru", repo: "ubuntu/libreoffice-style-yaru-fullcolor", setId: "libreoffice-yaru-icons", include: /^src\/.+\.svg$/, dedupe: true, classify: desktopIcon },
+	libreOfficeTheme("LibreOffice Colibre", "colibre", "libreoffice-colibre"),
+	libreOfficeTheme("LibreOffice Karasa Jaga", "karasa_jaga", "libreoffice-karasa-jaga"),
+	libreOfficeTheme("LibreOffice Sukapura", "sukapura", "libreoffice-sukapura"),
+	libreOfficeTheme("LibreOffice Elementary", "elementary", "libreoffice-elementary"),
+	libreOfficeTheme("LibreOffice Sifr", "sifr", "libreoffice-sifr"),
+	libreOfficeTheme("LibreOffice Breeze", "breeze", "libreoffice-breeze"),
+	{
+		label: "Atom Material Icons",
+		repo: "AtomMaterialUI/a-file-icon-idea",
+		setId: "atom-material-icons",
+		include: /^common\/src\/main\/resources\/(icons|glyphs|outline|files|actions|settings)\/.+\.svg$/,
+	},
+	{
+		label: "Momentum Icons",
+		repo: "momentum-design/momentum-design",
+		setId: "momentum-icons",
+		include: /^packages\/assets\/icons\/src\/(core|colored)\/[^/]+\.svg$/,
+	},
+	{ label: "FreeCAD Icons", repo: "FreeCAD/FreeCAD", setId: "freecad-icons", include: /^src\/(Gui\/Icons|Mod\/.+\/[Ii]cons)\/.+\.svg$/ },
+	{
+		label: "IBM Carbon Pictograms",
+		repo: "carbon-design-system/carbon",
+		setId: "carbon-pictograms",
+		include: /^packages\/pictograms\/src\/svg\/.+\.svg$/,
+	},
+	{ label: "SAP Icons", repo: "SAP/theming-base-content", setId: "sap-icons", include: /^content\/Base\/icons\/baseTheme\/img\/[^/]+\.svg$/ },
+	{
+		label: "SAP Horizon Icons",
+		repo: "SAP/theming-base-content",
+		setId: "sap-horizon-icons",
+		include: /^content\/Base\/icons\/sap_horizon\/img\/[^/]+\.svg$/,
+	},
+	{ label: "QGIS Icons", repo: "qgis/QGIS", setId: "qgis-icons", include: /^images\/(themes\/default|svg)\/.+\.svg$/ },
+	{ label: "Red Hat Icons", repo: "RedHat-UX/red-hat-icons", setId: "red-hat-icons", include: /^src\/(ui|standard|social|microns)\/.+\.svg$/ },
+	{
+		label: "Godot Editor Icons",
+		repo: "godotengine/godot",
+		setId: "godot-icons",
+		include: /^(editor\/icons|scene\/theme\/icons|modules\/[^/]+\/icons)\/[^/]+\.svg$/,
+	},
+	{
+		label: "Krita Icons",
+		repo: "KDE/krita",
+		setId: "krita-icons",
+		include: /^krita\/pics\/(?!.*(-dark|_dark|Breeze-dark)\/)(?!branding\/).+\.svg$/,
+	},
+	{
+		label: "KiCad Icons",
+		repo: "KiCad/kicad-source-mirror",
+		setId: "kicad-icons",
+		include: /^resources\/bitmaps_png\/sources\/(light\/)?(?!dark\/)[^/]+(\/[^/]+)?\.svg$/,
+	},
+	{
+		label: "Spectrum 2 Icons",
+		repo: "adobe/react-spectrum",
+		setId: "spectrum2-icons",
+		include: /^packages\/@react-spectrum\/s2\/(s2wf-icons|ui-icons)\/[^/]+\.svg$/,
+	},
+	{ label: "Aksel Icons", repo: "navikt/aksel", setId: "aksel-icons", include: /^@navikt\/aksel-icons\/icons\/[^/]+\.svg$/ },
+	{ label: "Gestalt Icons", repo: "pinterest/gestalt", setId: "gestalt-icons", include: /^packages\/gestalt\/src\/icons\/(compact\/)?[^/]+\.svg$/ },
+	{ label: "Auro Icons", repo: "AlaskaAirlines/Icons", setId: "auro-icons", include: /^src\/icons\/.+\.svg$/ },
+	{ label: "Mulberry Symbols", repo: "mulberrysymbols/mulberry-symbols", setId: "mulberry-symbols", include: /^EN\/.+\.svg$/ },
+	{ label: "OpenMoji Black", repo: "hfg-gmuend/openmoji", setId: "openmoji-black", include: /^black\/svg\/[^/]+\.svg$/ },
+	{
+		label: "Mapillary Traffic Signs",
+		repo: "mapillary/mapillary_sprite_source",
+		setId: "mapillary-signs",
+		include: /^package_(signs|objects)\/.+\.svg$/,
+	},
+	{
+		label: "OSM Carto Symbols",
+		repo: "openstreetmap-carto/openstreetmap-carto",
+		setId: "osm-carto-symbols",
+		include: /^symbols\/(?!shields\/).+\.svg$/,
+	},
+	{
+		label: "NPS Map Symbols",
+		repo: "nationalparkservice/symbol-library",
+		setId: "nps-symbols",
+		include: /^src\/standalone\/[^/]+-black-(14|22|30)\.svg$/,
+		classify: (rel) => {
+			const m = /\/([^/]+)-black-(14|22|30)\.svg$/.exec(rel);
+			return m ? { name: m[1]!, style: m[2]! } : null;
+		},
+	},
+	{ label: "Symbols (VS Code)", repo: "miguelsolorio/vscode-symbols", setId: "vscode-symbols", include: /^src\/icons\/.+\.svg$/ },
+	{ label: "Bearded Icons", repo: "BeardedBear/bearded-icons", setId: "bearded-icons", include: /^src\/shared\/.+\.svg$/ },
+	{ label: "Great Icons", repo: "EmmanuelBeziat/vscode-great-icons", setId: "great-icons", include: /^icons\/[^/]+\.svg$/ },
+	{
+		label: "Material Product Icons",
+		repo: "PKief/vscode-material-product-icons",
+		setId: "material-product-icons",
+		include: /^icons\/[^/]+\.svg$/,
+		// Files are named by their font codepoint: uEA01-explore.svg.
+		classify: (rel) => ({ name: path.basename(rel, ".svg").replace(/^u[0-9a-f]{4,5}-/i, ""), style: "solid" }),
+	},
+	{
+		label: "Simple Icons (VS Code)",
+		repo: "LaurentTreguier/vscode-simple-icons",
+		setId: "vscode-simple-icons",
+		include: /^source\/(minimalistic-icons|simple-icons)\/.+\.svg$/,
+		classify: (rel) => {
+			const m = /^source\/(minimalistic|simple)-icons\/(?:.+\/)?([^/]+)\.svg$/.exec(rel);
+			return m ? { name: m[2]!, style: m[1]! } : null;
+		},
 	},
 	themePack("Colloid Icon Theme", "vinceliuice/Colloid-icon-theme", "colloid-icons"),
 	themePack("Emerald Icon Theme", "vinceliuice/emerald-icon-theme", "emerald-icons"),

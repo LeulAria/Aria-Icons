@@ -149,18 +149,21 @@ function addIcon(
 }
 
 async function collectFsSets(b: Builder) {
+	const { clearPackedIconCache, loadPackedSet } = await import("../src/lib/icon-packed");
 	for (const iconSet of ICON_SETS) {
 		const setId = iconSet.id;
 		const nameSet = new Set<string>();
 		b.counts[setId] = {};
+		// Packs carry tags (Lucide metadata, names of collapsed duplicate icons).
+		const packed = await loadPackedSet(setId);
 
 		for (const style of iconSet.styles) {
 			const group: 0 | 1 = style.group === "solid" ? 1 : 0;
 			try {
 				const index = await buildIconIndex(setId, style.id);
 				for (const icon of index.icons) {
-					let tags: string[] | undefined;
-					if (setId === "lucide-icons") {
+					let tags: string[] | undefined = packed?.icons[icon.filePath]?.tags;
+					if (!tags?.length && setId === "lucide-icons") {
 						const setRootAbs = path.join(process.cwd(), "icons", setId);
 						tags = (await readLucideTags(setRootAbs, icon.filePath)) ?? undefined;
 					}
@@ -181,6 +184,13 @@ async function collectFsSets(b: Builder) {
 		}
 
 		b.iconsNames[setId] = Array.from(nameSet).sort();
+		// Hold one pack at a time: all vendored packs together no longer fit in memory.
+		clearPackedIconCache();
+		const indexCache = (globalThis as { __ariaIconIndexCache?: Map<string, unknown> })
+			.__ariaIconIndexCache;
+		for (const key of indexCache?.keys() ?? []) {
+			if (key.startsWith(`${setId}::`)) indexCache?.delete(key);
+		}
 	}
 }
 

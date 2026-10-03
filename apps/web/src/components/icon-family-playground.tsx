@@ -31,6 +31,19 @@ const LINE_ICON_COUNT = 4;
 const GRID_ICON_COUNT = 8;
 const STRIP_GAP_PX = 12;
 const STRIP_BUFFER = 5;
+/** Name endings that still count as "the same icon" when matching a concept. */
+const STYLE_SUFFIXES = [
+	"",
+	"-outline",
+	"-line",
+	"-regular",
+	"-fill",
+	"-solid",
+	"-bold",
+	"-linear",
+	"-light",
+	"-thin",
+];
 
 const CONCEPTS = [
 	{ id: "home", label: "Home", aliases: ["home", "house"] },
@@ -69,7 +82,8 @@ const STARTER_IDS = [
 
 type FamilyCard = {
 	set: IconSetConfig;
-	icons: Array<{ concept: (typeof CONCEPTS)[number]; icon: CatalogIcon }>;
+	/** `concept` is null for random picks that fill slots the family can't match. */
+	icons: Array<{ concept: (typeof CONCEPTS)[number] | null; icon: CatalogIcon }>;
 };
 
 function isTypingTarget(target: EventTarget | null) {
@@ -192,48 +206,15 @@ function findConceptIcon(
 			const icon = expandCatalogIcon(index);
 			if (!icon || icon.setId !== setId) continue;
 			const name = icon.name.toLowerCase();
-			const exact = aliases.some(
-				(item) =>
-					name === item ||
-					name === `${item}-outline` ||
-					name === `${item}-line`,
+			const exact = aliases.some((item) =>
+				STYLE_SUFFIXES.some((suffix) => name === `${item}${suffix}`),
 			);
-			const word =
-				name === alias ||
-				name.startsWith(`${alias}-`) ||
-				name.startsWith(`${alias}_`);
-			if (!exact && !word) continue;
+			if (!exact) continue;
 			if (!isNonLineVariant(icon)) return icon;
 			fallback ??= icon;
 		}
 	}
 	return fallback;
-}
-
-function fallbackIcons(
-	setId: string,
-	needed: number,
-	used: Set<string>,
-): CatalogIcon[] {
-	if (needed <= 0) return [];
-	const line: CatalogIcon[] = [];
-	const rest: CatalogIcon[] = [];
-	const indices = searchCatalogIndices("", {
-		collection: setId,
-		styleGroup: "both",
-		selectedStyleId: "both",
-	});
-	for (const index of indices) {
-		const icon = expandCatalogIcon(index);
-		if (!icon || icon.setId !== setId) continue;
-		if (used.has(icon.filePath)) continue;
-		if (isNonLineVariant(icon)) rest.push(icon);
-		else line.push(icon);
-		if (line.length + rest.length >= needed) break;
-	}
-	const out = [...line, ...rest].slice(0, needed);
-	for (const icon of out) used.add(icon.filePath);
-	return out;
 }
 
 async function resolveFamily(
@@ -250,23 +231,40 @@ async function resolveFamily(
 		used.add(icon.filePath);
 		matched.push({ concept, icon });
 	}
-	const extras = fallbackIcons(set.id, iconCount, used);
-	for (const concept of concepts) {
-		if (matched.length >= iconCount) break;
-		if (matched.some((item) => item.concept.id === concept.id)) continue;
-		const icon = extras.shift();
-		if (!icon) break;
-		matched.push({ concept, icon });
-	}
-	while (matched.length < iconCount && extras.length > 0) {
-		const icon = extras.shift();
-		if (!icon) break;
-		const concept = concepts[matched.length] ?? concepts[0];
-		if (!concept) break;
-		matched.push({ concept, icon });
+	if (matched.length < iconCount) {
+		matched.push(...randomFamilyIcons(set.id, iconCount - matched.length, used, matched));
 	}
 	if (matched.length === 0) return null;
 	return { set, icons: matched.slice(0, iconCount) };
+}
+
+/**
+ * Fill slots a family can't match with random icons from the same family,
+ * preferring the style most of its matched icons use so the card stays uniform.
+ */
+function randomFamilyIcons(
+	setId: string,
+	count: number,
+	used: Set<string>,
+	matched: FamilyCard["icons"],
+): FamilyCard["icons"] {
+	const pool = searchCatalogIndices("", {
+		collection: setId,
+		styleGroup: "both",
+		selectedStyleId: "both",
+	})
+		.map((index) => expandCatalogIcon(index))
+		.filter((icon): icon is CatalogIcon => icon != null && !used.has(icon.filePath));
+	const styleVotes = new Map<string, number>();
+	for (const { icon } of matched) {
+		styleVotes.set(icon.styleId, (styleVotes.get(icon.styleId) ?? 0) + 1);
+	}
+	const style = [...styleVotes].sort((a, b) => b[1] - a[1])[0]?.[0];
+	const sameStyle = style ? pool.filter((icon) => icon.styleId === style) : [];
+	const source = sameStyle.length >= count ? sameStyle : pool;
+	return shuffle(source)
+		.slice(0, count)
+		.map((icon) => ({ concept: null, icon }));
 }
 
 function PlaygroundGlyph({
@@ -424,7 +422,7 @@ function FamilyGridItem({
 				<div className="grid grid-cols-4 gap-3 px-4 py-5">
 					{card.icons.map((item) => (
 						<PlaygroundGlyph
-							key={`${item.concept.id}-${item.icon.filePath}`}
+							key={`${item.concept?.id ?? "pick"}-${item.icon.filePath}`}
 							icon={item.icon}
 							color={iconColor}
 							size={22}
@@ -443,24 +441,7 @@ function FamilyGridItem({
 		);
 	}
 
-	if (card === null) {
-		return (
-			<div
-				ref={ref}
-				className="flex min-h-[148px] flex-col overflow-hidden rounded-xl border border-foreground/[0.08]"
-			>
-				<div className="grid flex-1 grid-cols-4 gap-3 px-4 py-5" />
-				<div className="border-t border-foreground/[0.08] bg-background/40 px-4 py-3 backdrop-blur-md">
-					<div className="truncate text-[15px] font-semibold tracking-tight text-foreground/35">
-						{set.label}
-					</div>
-					<div className="mt-0.5 truncate text-[11px] text-foreground/25">
-						{set.id}
-					</div>
-				</div>
-			</div>
-		);
-	}
+	if (card === null) return null;
 
 	if (!inView && !eager) {
 		return (
@@ -1094,7 +1075,7 @@ export function IconFamilyPlayground({
 								<div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-12">
 									{card.icons.slice(0, GRID_ICON_COUNT).map((item) => (
 										<PlaygroundGlyph
-											key={`${item.concept.id}-${item.icon.filePath}`}
+											key={`${item.concept?.id ?? "pick"}-${item.icon.filePath}`}
 											icon={item.icon}
 											color={iconColor}
 											size={36}

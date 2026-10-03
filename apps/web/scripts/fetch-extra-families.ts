@@ -897,14 +897,6 @@ async function importBatch2() {
 		"packages/paste-icons/svg",
 		"paste-icons",
 	);
-	await importFlat(
-		"Uber Base Web Icons",
-		"uber/baseweb",
-		"main",
-		["src/icon/svg"],
-		"src/icon/svg",
-		"baseweb-icons",
-	);
 	await importKoobiq();
 	await importVkIcons();
 	await importPaymentFont();

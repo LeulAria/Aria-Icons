@@ -533,12 +533,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		styles: [{ id: "line", label: "Icons", group: "line", roots: ["./"] }],
 	},
 	{
-		id: "baseweb-icons",
-		label: "Uber Base Web Icons",
-		homepage: "https://github.com/uber/baseweb",
-		styles: [{ id: "line", label: "Icons", group: "line", roots: ["./"] }],
-	},
-	{
 		id: "koobiq-icons",
 		label: "Koobiq Icons",
 		homepage: "https://github.com/koobiq/icons",
@@ -712,14 +706,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		id: "semantic-ui-icons",
 		label: "Semantic UI Icons",
 		homepage: "https://github.com/Semantic-Org/Semantic-UI",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "3dicons",
-		label: "3dicons",
-		homepage: "https://github.com/realvjy/3dicons",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
@@ -1099,14 +1085,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "discord-badges",
-		label: "Discord Badge Vault",
-		homepage: "https://github.com/dakshitgamerz-lgtm/discord-badge-vault",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
 		id: "vscode-iconset",
 		label: "VS Code Iconset",
 		homepage: "https://github.com/be5invis/vscode-iconset",
@@ -1179,33 +1157,9 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "bili-icons",
-		label: "Bili Icon Pack",
-		homepage: "https://github.com/dashuchufang/bili_icon_pack",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "quill-icons",
-		label: "Quill Icons",
-		homepage: "https://github.com/deriv-com/quill-icons-park",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
 		id: "hyperliquid-icons",
 		label: "Hyperliquid Coin SVGs",
 		homepage: "https://github.com/zengdard/hyperliquid-coin-svgs",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "morphnext",
-		label: "MorphNext",
-		homepage: "https://github.com/kicknext/morphnext",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
@@ -1296,14 +1250,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		homepage: "https://github.com/evanwork34/slate-free-svg-icons",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "ha-akentner-icons",
-		label: "HA Akentner Icons",
-		homepage: "https://github.com/akentner/hass-akentner-icons",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -1613,7 +1559,6 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "gnome", label: "Gnome", group: "solid", roots: ["gnome"] },
 			{ id: "nautic", label: "Nautic", group: "line", roots: ["nautic"] },
 			{ id: "nautic-outline", label: "Nautic Outline", group: "solid", roots: ["nautic-outline"] },
-			{ id: "stateface", label: "Stateface", group: "solid", roots: ["stateface"] },
 			{ id: "suru", label: "Suru", group: "solid", roots: ["suru"] },
 			{ id: "taiga", label: "Taiga", group: "solid", roots: ["taiga"] },
 		],
@@ -1836,30 +1781,6 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "jelly", label: "Jelly", group: "solid", roots: ["jelly"] },
 			{ id: "solid", label: "Fill", group: "solid", roots: ["solid"] },
 			{ id: "utility", label: "Utility", group: "solid", roots: ["utility"] },
-		],
-	},
-	{
-		id: "bigheads",
-		label: "Big Heads",
-		homepage: "https://github.com/RobertBroersma/bigheads",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "multiavatar",
-		label: "Multiavatar",
-		homepage: "https://github.com/multiavatar/Multiavatar",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "avataaars",
-		label: "Avataaars",
-		homepage: "https://github.com/fangpenlin/avataaars",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -2266,7 +2187,634 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
 		],
 	},
+	{
+		id: "josemi-icons",
+		label: "Josemi Icons",
+		homepage: "https://github.com/jmjuanes/icons",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "serendie-symbols",
+		label: "Serendie Symbols",
+		homepage: "https://github.com/serendie/serendie-symbols",
+		styles: [
+			{ id: "filled", label: "Filled", group: "solid", roots: ["filled"] },
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+		],
+	},
+	{
+		id: "icomo",
+		label: "Icomo",
+		homepage: "https://github.com/zainadeel/icomo",
+		styles: [
+			{ id: "map", label: "Map", group: "solid", roots: ["map"] },
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "city-icons",
+		label: "City Icons",
+		homepage: "https://github.com/anto1/city-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "puxl-icons",
+		label: "PUXL Icons",
+		homepage: "https://github.com/bolonio/react-puxl-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "databricks-icons",
+		label: "Databricks Architecture Icons",
+		homepage: "https://github.com/oieduardorabelo/databricks-architecture-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "mono", label: "Mono", group: "solid", roots: ["mono"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "tile", label: "Tile", group: "solid", roots: ["tile"] },
+		],
+	},
+	{
+		id: "charmed-icons",
+		label: "Charmed Icons",
+		homepage: "https://github.com/littensy/charmed-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "open-crop-icons",
+		label: "Open Crop Icons",
+		homepage: "https://github.com/openfarmcc/open-crop-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "soaring-symbols",
+		label: "Soaring Symbols",
+		homepage: "https://github.com/soaring-symbols/soaring-symbols",
+		styles: [
+			{ id: "icon", label: "Icon", group: "solid", roots: ["icon"] },
+			{ id: "icon-mono", label: "Icon Mono", group: "solid", roots: ["icon-mono"] },
+			{ id: "logo", label: "Logo", group: "solid", roots: ["logo"] },
+			{ id: "logo-mono", label: "Logo Mono", group: "solid", roots: ["logo-mono"] },
+			{ id: "tail", label: "Tail", group: "solid", roots: ["tail"] },
+		],
+	},
+	{
+		id: "frog-emojis",
+		label: "Frog Emojis",
+		homepage: "https://github.com/Riesi/frog_emojis",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "moda-icons",
+		label: "Moda Operandi Icons",
+		homepage: "https://github.com/ModaOperandi/icons",
+		styles: [
+			{ id: "12", label: "12", group: "solid", roots: ["12"] },
+			{ id: "14", label: "14", group: "solid", roots: ["14"] },
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "20", label: "20", group: "solid", roots: ["20"] },
+			{ id: "24", label: "24", group: "solid", roots: ["24"] },
+			{ id: "32", label: "32", group: "solid", roots: ["32"] },
+			{ id: "36", label: "36", group: "solid", roots: ["36"] },
+			{ id: "40", label: "40", group: "solid", roots: ["40"] },
+			{ id: "44", label: "44", group: "solid", roots: ["44"] },
+			{ id: "48", label: "48", group: "solid", roots: ["48"] },
+			{ id: "60", label: "60", group: "solid", roots: ["60"] },
+			{ id: "72", label: "72", group: "solid", roots: ["72"] },
+		],
+	},
+	{
+		id: "scholar-icons",
+		label: "Scholar Icons",
+		homepage: "https://github.com/louisfacun/scholar-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "sparkle-icons",
+		label: "Sparkle Icons",
+		homepage: "https://github.com/slaylines/sparkle-icons",
+		styles: [
+			{ id: "black", label: "Black", group: "solid", roots: ["black"] },
+			{ id: "colored", label: "Colored", group: "solid", roots: ["colored"] },
+			{ id: "light", label: "Light", group: "solid", roots: ["light"] },
+		],
+	},
+	{
+		id: "analog-gothic",
+		label: "Analog Gothic",
+		homepage: "https://github.com/hastefuI/analog-gothic",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "dev-hearts",
+		label: "Dev Hearts",
+		homepage: "https://github.com/lukeocodes/dev-hearts",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "chess-art",
+		label: "Chess Art",
+		homepage: "https://github.com/maurimo/chess-art",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "thermal-comfort-icons",
+		label: "Thermal Comfort Icons",
+		homepage: "https://github.com/rautesamtr/thermal_comfort_icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "orange-accessibility-icons",
+		label: "Orange Accessibility Icons",
+		homepage: "https://github.com/Orange-OpenSource/Accessibility-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "intellij-icons",
+		label: "IntelliJ Platform Icons",
+		homepage: "https://github.com/JetBrains/intellij-community",
+		styles: [
+			{ id: "classic", label: "Classic", group: "solid", roots: ["classic"] },
+			{ id: "new-ui", label: "New Ui", group: "solid", roots: ["new-ui"] },
+		],
+	},
+	{
+		id: "gruvbox-plus-icons",
+		label: "Gruvbox Plus Icons",
+		homepage: "https://github.com/SylEleuth/gruvbox-plus-icon-pack",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "hatter-icons",
+		label: "Hatter Icons",
+		homepage: "https://github.com/Mibea/Hatter",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "adwaita-plus-icons",
+		label: "Adwaita++ Icons",
+		homepage: "https://github.com/Bonandry/adwaita-plus",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "nordzy-icons",
+		label: "Nordzy Icons",
+		homepage: "https://github.com/MolassesLover/Nordzy-icon",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "yaru-plus-icons",
+		label: "Yaru++ Icons",
+		homepage: "https://github.com/Bonandry/yaru-plus",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "suru-plus-ubuntu-icons",
+		label: "Suru++ Ubuntu",
+		homepage: "https://github.com/Bonandry/suru-plus-ubuntu",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "obsidian-icons",
+		label: "Obsidian Icons",
+		homepage: "https://github.com/madmaxms/iconpack-obsidian",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "lila-hd-icons",
+		label: "Lila HD Icons",
+		homepage: "https://github.com/ilnanny75/Lila-HD-Icon-Theme-Official",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "neo-candy-icons",
+		label: "Neo Candy Icons",
+		homepage: "https://github.com/erikdubois/neo-candy-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "halo-icons",
+		label: "Halo Icons",
+		homepage: "https://github.com/erikdubois/halo-icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "masalla-icons",
+		label: "Masalla Icons",
+		homepage: "https://github.com/masalla-art/masalla-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "evolvere-icons",
+		label: "Evolvere Icons",
+		homepage: "https://github.com/franksouza183/Evolvere-Icons",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "libreoffice-colibre",
+		label: "LibreOffice Colibre",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "24", label: "24", group: "solid", roots: ["24"] },
+			{ id: "32", label: "32", group: "solid", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "solid", roots: ["misc"] },
+		],
+	},
+	{
+		id: "libreoffice-karasa-jaga",
+		label: "LibreOffice Karasa Jaga",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "line", roots: ["16"] },
+			{ id: "24", label: "24", group: "line", roots: ["24"] },
+			{ id: "32", label: "32", group: "line", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "solid", roots: ["misc"] },
+		],
+	},
+	{
+		id: "libreoffice-sukapura",
+		label: "LibreOffice Sukapura",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "24", label: "24", group: "solid", roots: ["24"] },
+			{ id: "32", label: "32", group: "solid", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "solid", roots: ["misc"] },
+		],
+	},
+	{
+		id: "libreoffice-elementary",
+		label: "LibreOffice Elementary",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "line", roots: ["16"] },
+			{ id: "24", label: "24", group: "line", roots: ["24"] },
+			{ id: "32", label: "32", group: "line", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "line", roots: ["misc"] },
+		],
+	},
+	{
+		id: "libreoffice-sifr",
+		label: "LibreOffice Sifr",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "24", label: "24", group: "solid", roots: ["24"] },
+			{ id: "32", label: "32", group: "solid", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "solid", roots: ["misc"] },
+		],
+	},
+	{
+		id: "libreoffice-breeze",
+		label: "LibreOffice Breeze",
+		homepage: "https://github.com/LibreOffice/core",
+		styles: [
+			{ id: "16", label: "16", group: "solid", roots: ["16"] },
+			{ id: "24", label: "24", group: "solid", roots: ["24"] },
+			{ id: "32", label: "32", group: "solid", roots: ["32"] },
+			{ id: "misc", label: "Misc", group: "solid", roots: ["misc"] },
+		],
+	},
+	{
+		id: "suru-icons",
+		label: "Suru Icons",
+		homepage: "https://github.com/snwh/suru-icon-theme",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
+	{
+		id: "libreoffice-yaru-icons",
+		label: "LibreOffice Yaru",
+		homepage: "https://github.com/ubuntu/libreoffice-style-yaru-fullcolor",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "atom-material-icons",
+		label: "Atom Material Icons",
+		homepage: "https://github.com/AtomMaterialUI/a-file-icon-idea",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "carbon-pictograms",
+		label: "IBM Carbon Pictograms",
+		homepage: "https://github.com/carbon-design-system/carbon",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "sap-icons",
+		label: "SAP Icons",
+		homepage: "https://github.com/SAP/theming-base-content",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "sap-horizon-icons",
+		label: "SAP Horizon Icons",
+		homepage: "https://github.com/SAP/theming-base-content",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "red-hat-icons",
+		label: "Red Hat Icons",
+		homepage: "https://github.com/RedHat-UX/red-hat-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "aksel-icons",
+		label: "Aksel Icons",
+		homepage: "https://github.com/navikt/aksel",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "gestalt-icons",
+		label: "Gestalt Icons",
+		homepage: "https://github.com/pinterest/gestalt",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "auro-icons",
+		label: "Auro Icons",
+		homepage: "https://github.com/AlaskaAirlines/Icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "mulberry-symbols",
+		label: "Mulberry Symbols",
+		homepage: "https://github.com/mulberrysymbols/mulberry-symbols",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "openmoji-black",
+		label: "OpenMoji Black",
+		homepage: "https://github.com/hfg-gmuend/openmoji",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "qgis-icons",
+		label: "QGIS Icons",
+		homepage: "https://github.com/qgis/QGIS",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "godot-icons",
+		label: "Godot Editor Icons",
+		homepage: "https://github.com/godotengine/godot",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "spectrum2-icons",
+		label: "Spectrum 2 Icons",
+		homepage: "https://github.com/adobe/react-spectrum",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "mapillary-signs",
+		label: "Mapillary Traffic Signs",
+		homepage: "https://github.com/mapillary/mapillary_sprite_source",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "osm-carto-symbols",
+		label: "OSM Carto Symbols",
+		homepage: "https://github.com/openstreetmap-carto/openstreetmap-carto",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "nps-symbols",
+		label: "NPS Map Symbols",
+		homepage: "https://github.com/nationalparkservice/symbol-library",
+		styles: [
+			{ id: "14", label: "14", group: "solid", roots: ["14"] },
+			{ id: "22", label: "22", group: "solid", roots: ["22"] },
+			{ id: "30", label: "30", group: "solid", roots: ["30"] },
+		],
+	},
+	{
+		id: "krita-icons",
+		label: "Krita Icons",
+		homepage: "https://github.com/KDE/krita",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "kicad-icons",
+		label: "KiCad Icons",
+		homepage: "https://github.com/KiCad/kicad-source-mirror",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "freecad-icons",
+		label: "FreeCAD Icons",
+		homepage: "https://github.com/FreeCAD/FreeCAD",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "vscode-symbols",
+		label: "Symbols (VS Code)",
+		homepage: "https://github.com/miguelsolorio/vscode-symbols",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "bearded-icons",
+		label: "Bearded Icons",
+		homepage: "https://github.com/BeardedBear/bearded-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "great-icons",
+		label: "Great Icons",
+		homepage: "https://github.com/EmmanuelBeziat/vscode-great-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "material-product-icons",
+		label: "Material Product Icons",
+		homepage: "https://github.com/PKief/vscode-material-product-icons",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "vscode-simple-icons",
+		label: "Simple Icons (VS Code)",
+		homepage: "https://github.com/LaurentTreguier/vscode-simple-icons",
+		styles: [
+			{ id: "minimalistic", label: "Minimalistic", group: "line", roots: ["minimalistic"] },
+			{ id: "simple", label: "Simple", group: "solid", roots: ["simple"] },
+		],
+	},
 	// P0_FAMILIES_END
+	// Material Symbols weights Iconify doesn't carry (it has 200 and 400): bun run fetch:material-symbols
+	{
+		id: "material-symbols-100",
+		label: "Material Symbols Thin 100",
+		homepage: "https://fonts.google.com/icons",
+		styles: [
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+			{ id: "outlined-filled", label: "Outlined Filled", group: "solid", roots: ["outlined-filled"] },
+			{ id: "rounded", label: "Rounded", group: "line", roots: ["rounded"] },
+			{ id: "rounded-filled", label: "Rounded Filled", group: "solid", roots: ["rounded-filled"] },
+			{ id: "sharp", label: "Sharp", group: "line", roots: ["sharp"] },
+			{ id: "sharp-filled", label: "Sharp Filled", group: "solid", roots: ["sharp-filled"] },
+		],
+	},
+	{
+		id: "material-symbols-300",
+		label: "Material Symbols Light 300",
+		homepage: "https://fonts.google.com/icons",
+		styles: [
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+			{ id: "outlined-filled", label: "Outlined Filled", group: "solid", roots: ["outlined-filled"] },
+			{ id: "rounded", label: "Rounded", group: "line", roots: ["rounded"] },
+			{ id: "rounded-filled", label: "Rounded Filled", group: "solid", roots: ["rounded-filled"] },
+			{ id: "sharp", label: "Sharp", group: "line", roots: ["sharp"] },
+			{ id: "sharp-filled", label: "Sharp Filled", group: "solid", roots: ["sharp-filled"] },
+		],
+	},
+	{
+		id: "material-symbols-500",
+		label: "Material Symbols Medium 500",
+		homepage: "https://fonts.google.com/icons",
+		styles: [
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+			{ id: "outlined-filled", label: "Outlined Filled", group: "solid", roots: ["outlined-filled"] },
+			{ id: "rounded", label: "Rounded", group: "line", roots: ["rounded"] },
+			{ id: "rounded-filled", label: "Rounded Filled", group: "solid", roots: ["rounded-filled"] },
+			{ id: "sharp", label: "Sharp", group: "line", roots: ["sharp"] },
+			{ id: "sharp-filled", label: "Sharp Filled", group: "solid", roots: ["sharp-filled"] },
+		],
+	},
+	{
+		id: "material-symbols-600",
+		label: "Material Symbols SemiBold 600",
+		homepage: "https://fonts.google.com/icons",
+		styles: [
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+			{ id: "outlined-filled", label: "Outlined Filled", group: "solid", roots: ["outlined-filled"] },
+			{ id: "rounded", label: "Rounded", group: "line", roots: ["rounded"] },
+			{ id: "rounded-filled", label: "Rounded Filled", group: "solid", roots: ["rounded-filled"] },
+			{ id: "sharp", label: "Sharp", group: "line", roots: ["sharp"] },
+			{ id: "sharp-filled", label: "Sharp Filled", group: "solid", roots: ["sharp-filled"] },
+		],
+	},
+	{
+		id: "material-symbols-700",
+		label: "Material Symbols Bold 700",
+		homepage: "https://fonts.google.com/icons",
+		styles: [
+			{ id: "outlined", label: "Outlined", group: "line", roots: ["outlined"] },
+			{ id: "outlined-filled", label: "Outlined Filled", group: "solid", roots: ["outlined-filled"] },
+			{ id: "rounded", label: "Rounded", group: "line", roots: ["rounded"] },
+			{ id: "rounded-filled", label: "Rounded Filled", group: "solid", roots: ["rounded-filled"] },
+			{ id: "sharp", label: "Sharp", group: "line", roots: ["sharp"] },
+			{ id: "sharp-filled", label: "Sharp Filled", group: "solid", roots: ["sharp-filled"] },
+		],
+	},
 ];
 
 export function getIconSet(setId: string) {

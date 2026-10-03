@@ -1,7 +1,8 @@
-import { buildIconIndex, readSvg } from "@/lib/icon-fs";
+import { buildIconIndex, readSvgEntry } from "@/lib/icon-fs";
 import { getIconSet } from "@/lib/icon-sets";
 import { getIconSourceKind } from "@/lib/icon-sources";
 import { renderIconifyIcon } from "@/lib/iconify";
+import { classifyPaintMarkup, type SvgPaint } from "@/lib/svg-paint";
 import { dedupedVariants, getTheSvgEntry } from "@/lib/thesvg";
 
 export type ResolvedIconSvg = {
@@ -9,6 +10,7 @@ export type ResolvedIconSvg = {
 	name: string;
 	styleId: string;
 	svg: string;
+	paint: SvgPaint;
 };
 
 /**
@@ -27,7 +29,7 @@ export async function resolveIconSvgByName(
 	if (kind === "iconify") {
 		const svg = await renderIconifyIcon(setId, name);
 		if (!svg) return null;
-		return { setId, name, styleId: "line", svg };
+		return { setId, name, styleId: "line", svg, paint: classifyPaintMarkup(svg) };
 	}
 
 	if (kind === "thesvg") {
@@ -40,8 +42,8 @@ export async function resolveIconSvgByName(
 				? variants.find((v) => v.styleId === options.variant)
 				: null) ?? variants[0];
 		try {
-			const svg = await readSvg(setId, chosen.filePath);
-			return { setId, name, styleId: chosen.styleId, svg };
+			const { svg, paint } = await readSvgEntry(setId, chosen.filePath);
+			return { setId, name, styleId: chosen.styleId, svg, paint };
 		} catch {
 			return null;
 		}
@@ -57,8 +59,8 @@ export async function resolveIconSvgByName(
 				(i) => i.name.toLowerCase() === name.toLowerCase(),
 			);
 			if (icon) {
-				const svg = await readSvg(setId, icon.filePath);
-				return { setId, name: icon.name, styleId: style.id, svg };
+				const { svg, paint } = await readSvgEntry(setId, icon.filePath);
+				return { setId, name: icon.name, styleId: style.id, svg, paint };
 			}
 		} catch {
 			continue;
