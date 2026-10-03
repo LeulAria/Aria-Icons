@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { loadPackedSet } from "./icon-packed";
 import { ICON_SETS, type IconSetId, type IconStyleGroup, type IconStyleId } from "./icon-sets";
+import { classifyPaintMarkup, type SvgPaint } from "./svg-paint";
 
 export type IconListItem = {
 	setId: IconSetId;
@@ -310,21 +311,29 @@ export async function listAllIconsMulti(params: {
 }
 
 export async function readSvg(setId: IconSetId, filePath: string) {
+	return (await readSvgEntry(setId, filePath)).svg;
+}
+
+/** SVG body plus its pack-time paint class (markup guess for loose files). */
+export async function readSvgEntry(
+	setId: IconSetId,
+	filePath: string,
+): Promise<{ svg: string; paint: SvgPaint }> {
 	const packed = await loadPackedSet(setId);
-	if (packed?.icons[filePath]?.svg) {
-		return packed.icons[filePath].svg;
-	}
+	const entry = packed?.icons[filePath];
+	if (entry?.svg) return { svg: entry.svg, paint: entry.paint ?? "mono" };
 
 	// theSVG packed bodies (when setId is thesvg).
 	if (setId === "thesvg") {
 		const { loadPackedTheSvg } = await import("./icon-packed");
 		const thesvg = await loadPackedTheSvg();
 		const svg = thesvg?.svgs[filePath];
-		if (svg) return svg;
+		if (svg) return { svg, paint: classifyPaintMarkup(svg) };
 	}
 
 	const setRootAbs = path.join(iconsRootDir(), setId);
 	const abs = path.join(setRootAbs, filePath);
 	ensureUnder(setRootAbs, abs);
-	return await fs.readFile(abs, "utf8");
+	const svg = await fs.readFile(abs, "utf8");
+	return { svg, paint: classifyPaintMarkup(svg) };
 }

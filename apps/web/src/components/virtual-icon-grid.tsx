@@ -3,8 +3,9 @@
 import * as React from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Copy, Download, Heart, SlidersHorizontal } from "lucide-react";
+import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
-import { buildIconSvgUrl } from "@/lib/icon-export";
+import { buildIconSvgUrl, themeIconColor } from "@/lib/icon-export";
 import {
 	FIRST_VIEWPORT_ICON_COUNT,
 	loadQueuedIconSrc,
@@ -89,6 +90,7 @@ const IconGridCell = React.memo(function IconGridCell({
 	morphMode,
 	morphIndex,
 	iconSize,
+	iconColor,
 	onFavorite,
 	onCopy,
 	onDownload,
@@ -102,6 +104,8 @@ const IconGridCell = React.memo(function IconGridCell({
 	morphMode?: boolean;
 	morphIndex?: number;
 	iconSize: number;
+	/** Theme ink: the server recolors single-color icons and keeps color art as drawn. */
+	iconColor: string;
 	onFavorite: (icon: WorkspaceIcon) => void;
 	onCopy: (icon: WorkspaceIcon) => void;
 	onDownload: (icon: WorkspaceIcon) => void;
@@ -110,7 +114,7 @@ const IconGridCell = React.memo(function IconGridCell({
 	const url = buildIconSvgUrl(icon, {
 		size: iconSize,
 		stroke: 1,
-		color: "#ffffff",
+		color: iconColor,
 	});
 	const cellRef = React.useRef<HTMLDivElement | null>(null);
 	const scrollRoot = React.useContext(ScrollRootContext);
@@ -203,7 +207,7 @@ const IconGridCell = React.memo(function IconGridCell({
 						onLoad={() => setReady(true)}
 						onError={() => setReady(true)}
 						className={cn(
-							"col-start-1 row-start-1 theme-invert transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
+							"col-start-1 row-start-1 transition-transform duration-150 ease-out will-change-transform group-hover:scale-110",
 							!ready && "invisible",
 							active && "scale-110",
 						)}
@@ -413,13 +417,15 @@ export const VirtualIconGrid = React.forwardRef<
 		ensureRange?.(rangeStart, rangeEnd);
 	}, [ensureRange, rangeStart, rangeEnd]);
 
+	const { resolvedTheme } = useTheme();
+	const iconColor = themeIconColor(resolvedTheme);
 	const gridCustomize = React.useMemo(
 		() => ({
 			size: GRID_ICON_SIZE[density],
 			stroke: 1,
-			color: "#ffffff",
+			color: iconColor,
 		}),
-		[density],
+		[density, iconColor],
 	);
 
 	// Start the first-icon preload + first-viewport batch during render so
@@ -499,6 +505,7 @@ export const VirtualIconGrid = React.forwardRef<
 										morphMode={morphMode}
 										morphIndex={morphIndex > 0 ? morphIndex : undefined}
 										iconSize={GRID_ICON_SIZE[density]}
+										iconColor={iconColor}
 										onFavorite={onFavorite}
 										onCopy={onCopy}
 										onDownload={onDownload}

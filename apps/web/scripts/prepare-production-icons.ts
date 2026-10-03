@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 
 const gzipAsync = promisify(gzip);
 
-function run(command: string, args: string[], env: NodeJS.ProcessEnv = {}) {
+function run(command: string, args: string[], env: Partial<NodeJS.ProcessEnv> = {}) {
 	return new Promise<void>((resolve, reject) => {
 		const child = spawn(command, args, {
 			stdio: "inherit",
@@ -38,7 +38,7 @@ function run(command: string, args: string[], env: NodeJS.ProcessEnv = {}) {
 function runScript(
 	script: string,
 	args: string[] = [],
-	env: NodeJS.ProcessEnv = {},
+	env: Partial<NodeJS.ProcessEnv> = {},
 ) {
 	const tsxCli = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
 	return run(process.execPath, [tsxCli, script, ...args], env);
@@ -133,18 +133,25 @@ export async function prepareProductionIcons() {
 }
 
 /**
- * Vercel functions are capped at 250 MB uncompressed. Vendored packs are
- * hundreds of MB of JSON; gzip them (and drop the raw files) before file
- * tracing so only routes that read SVGs carry the smaller `.json.gz` bodies.
- * Local dev keeps plain JSON. Safe to run twice.
+ * Vercel functions are capped at 250 MB uncompressed, and the vendored packs
+ * are gigabytes of JSON (~450 MB even gzipped), so they can't ride along in any
+ * function. Gzip them into `public/icon-packs/` and drop the raw files before
+ * file tracing; deployed routes fetch the one pack they need from the CDN (see
+ * `src/lib/icon-packed.ts`). theSVG is small, so it stays in the bundle as
+ * `icons/thesvg.json.gz`. Local dev keeps plain JSON. Safe to run twice.
  */
 export async function compressIconPacksForDeploy() {
-	const targets: string[] = [];
+	const targets: Array<{ from: string; to: string }> = [];
 	const vendored = path.join(process.cwd(), "icons", "vendored");
+	const staticPacks = path.join(process.cwd(), "public", "icon-packs");
 	try {
 		const entries = await fs.readdir(vendored);
 		for (const file of entries) {
-			if (file.endsWith(".json")) targets.push(path.join(vendored, file));
+			if (!file.endsWith(".json") && !file.endsWith(".json.gz")) continue;
+			targets.push({
+				from: path.join(vendored, file),
+				to: path.join(staticPacks, file.endsWith(".gz") ? file : `${file}.gz`),
+			});
 		}
 	} catch {
 		/* no vendored dir */
@@ -152,24 +159,25 @@ export async function compressIconPacksForDeploy() {
 	const thesvg = path.join(process.cwd(), "icons", "thesvg.json");
 	try {
 		await fs.access(thesvg);
-		targets.push(thesvg);
+		targets.push({ from: thesvg, to: `${thesvg}.gz` });
 	} catch {
 		/* already gzipped or absent */
 	}
+	if (targets.length > 0) await fs.mkdir(staticPacks, { recursive: true });
 
 	let before = 0;
 	let after = 0;
-	for (const filePath of targets) {
-		const raw = await fs.readFile(filePath);
-		const compressed = await gzipAsync(raw, { level: 9 });
-		await fs.writeFile(`${filePath}.gz`, compressed);
-		await fs.unlink(filePath);
+	for (const { from, to } of targets) {
+		const raw = await fs.readFile(from);
+		const compressed = from.endsWith(".gz") ? raw : await gzipAsync(raw, { level: 9 });
+		await fs.writeFile(to, compressed);
+		await fs.unlink(from);
 		before += raw.length;
 		after += compressed.length;
 	}
 	if (targets.length > 0) {
 		console.log(
-			`→ Gzipped ${targets.length} icon packs for deploy (${(before / 1e6).toFixed(1)} MB → ${(after / 1e6).toFixed(1)} MB)`,
+			`→ Gzipped ${targets.length} icon packs for deploy (${(before / 1e6).toFixed(1)} MB → ${(after / 1e6).toFixed(1)} MB); vendored packs moved to public/icon-packs/`,
 		);
 	}
 }

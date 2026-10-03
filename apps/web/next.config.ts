@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 import fs from "node:fs";
 import path from "node:path";
+import {
+	compressIconPacksForDeploy,
+	prepareProductionIcons,
+} from "./scripts/prepare-production-icons";
 
 const nextConfig: NextConfig = {
 	typedRoutes: true,
@@ -9,10 +13,10 @@ const nextConfig: NextConfig = {
 	// Serverless functions are capped at 250 MB uncompressed. `/*` matches every
 	// route (picomatch `contains`), so SVG bodies must NOT be on that glob —
 	// that was packing ~485 MB into `/.well-known/mcp.json`. Vendored packs are
-	// gzipped on Vercel before tracing; only routes that read SVGs include them.
+	// too big for any function (~450 MB gzipped), so on Vercel they're moved to
+	// `public/icon-packs/` before tracing and fetched from the CDN at runtime.
 	outputFileTracingIncludes: {
 		"/api/**": [
-			"./icons/vendored/**/*",
 			"./icons/thesvg.json",
 			"./icons/thesvg.json.gz",
 			"./icons/iconify/*.json",
@@ -29,6 +33,7 @@ const nextConfig: NextConfig = {
 		],
 	},
 	outputFileTracingExcludes: {
+		"/*": ["./icons/vendored/**/*", "./public/icon-packs/**/*"],
 		"/.well-known/**": [
 			"./icons/**/*",
 			"./public/icons-meta.json",
@@ -84,14 +89,15 @@ const nextConfig: NextConfig = {
  * Vercel invokes `next build` directly, which skips the package `prebuild`
  * script. Iconify manifests are gitignored, so create them before file tracing
  * lstats `icons/iconify/collections.json`.
+ *
+ * The script is imported statically: Next only registers its `.ts` require hook
+ * while this file loads, so a lazy `import()` inside this function can't
+ * resolve `./scripts/*.ts` and fails with MODULE_NOT_FOUND on Vercel.
  */
 export default async function config(): Promise<NextConfig> {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 	const manifest = path.join(process.cwd(), "icons", "iconify", "collections.json");
 	if (onVercel) {
-		const { prepareProductionIcons, compressIconPacksForDeploy } = await import(
-			"./scripts/prepare-production-icons"
-		);
 		if (!fs.existsSync(manifest)) {
 			await prepareProductionIcons();
 		}

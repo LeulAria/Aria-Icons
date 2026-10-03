@@ -176,6 +176,7 @@ async function resolveNamedIcon(
 	const svg = applySvgCustomize(resolved.svg, {
 		color: options?.color,
 		size: options?.size,
+		paint: resolved.paint,
 	});
 
 	return {

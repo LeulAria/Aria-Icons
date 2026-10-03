@@ -12,7 +12,10 @@
     "fetch:iconify": "tsx scripts/fetch-iconify.ts",
     "fetch:extra": "tsx scripts/fetch-extra-families.ts",
     "fetch:p0": "tsx scripts/fetch-p0-families.ts",
+    "fetch:material-symbols": "tsx scripts/fetch-material-symbols.ts",
     "pack:icons": "tsx scripts/pack-icon-sets.ts",
+    "repair:icons": "tsx scripts/repair-icon-packs.ts",
+    "prune:icons": "tsx scripts/prune-icon-sets.ts",
     "prepare:icons": "tsx scripts/prepare-production-icons.ts",
     "prebuild": "tsx scripts/prepare-production-icons.ts"
   },
@@ -57,6 +60,8 @@
     "typescript": "^5",
     "@tanstack/react-query-devtools": "^5.91.1",
     "@aria-icons/config": "workspace:*",
+    "@resvg/resvg-wasm": "^2.6.2",
+    "saxes": "^6.0.0",
     "tsx": "^4.19.2"
   }
 }
