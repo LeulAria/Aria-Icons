@@ -12,6 +12,8 @@
 [![Not Human Search](https://img.shields.io/badge/Listed%20on-Not%20Human%20Search-111111)](https://nothumansearch.ai/site/icons.leularia.com)
 [![Listed on Influzer](https://img.shields.io/badge/Listed%20on-Influzer-E91E63)](https://influzer.ai/mcp/aria-icons)
 
+GitHub topics: [mcp](https://github.com/topics/mcp) · [icons](https://github.com/topics/icons) · [svg](https://github.com/topics/svg) · [cli](https://github.com/topics/cli) · [typescript](https://github.com/topics/typescript) · [icon-pack](https://github.com/topics/icon-pack) · [open-source](https://github.com/topics/open-source) · [design-tools](https://github.com/topics/design-tools) · [lucide](https://github.com/topics/lucide) · [feather](https://github.com/topics/feather) · [heroicons](https://github.com/topics/heroicons) · [tabler](https://github.com/topics/tabler)
+
 # Aria Icons
 
 **1,000,000 SVG icons - searchable, customizable, and a package manager for your icon codebase.**

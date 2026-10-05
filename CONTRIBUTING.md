@@ -112,3 +112,21 @@ If you find a potential security issue, report it privately as described in [SEC
 ## Licensing
 
 This project is licensed under the [MIT License](LICENSE). By contributing, you agree that your contribution is licensed under the same terms. Icon submissions must also include the license of the artwork itself.
+
+## Repository topics (maintainers)
+
+GitHub repository topics improve Explore / topic-page discoverability. They require admin access on `LeulAria/Aria-Icons` (the Cloud Agent GitHub App cannot set them). From an account with admin rights:
+
+```bash
+gh api --method PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/LeulAria/Aria-Icons/topics \
+  --input - <<'EOF'
+{"names":["mcp","icons","svg","cli","typescript","icon-pack","open-source","design-tools","lucide","feather","heroicons","tabler"]}
+EOF
+
+gh api repos/LeulAria/Aria-Icons --jq '{description, homepage, topics}'
+```
+
+Keep the description as `MCP server for 1M+ SVG icons` and the homepage as `https://icons.leularia.com`.
