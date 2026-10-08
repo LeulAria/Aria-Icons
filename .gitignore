@@ -50,8 +50,12 @@ tmp
 temp
 promo/
 
-# Fetched icon sources (rebuilt via apps/web scripts — see README)
-apps/web/icons/iconify/
+# Fetched icon sources (rebuilt via apps/web scripts — see README).
+# Keep Iconify index manifests in git so Next file tracing can lstat them
+# before `prepare-production-icons` fetches the heavy per-set JSON on Vercel.
+apps/web/icons/iconify/*
+!apps/web/icons/iconify/collections.json
+!apps/web/icons/iconify/prefixes.json
 apps/web/icons/thesvg/
 apps/web/icons/thesvg.json
 # Generated catalogs (rebuilt by `bun run generate-icons`)

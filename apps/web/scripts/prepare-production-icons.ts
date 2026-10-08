@@ -50,8 +50,14 @@ const CATALOG_HEAP_MB = process.env.ICONS_META_HEAP_MB ?? "6144";
 
 async function writePrefixesManifest() {
 	const dir = path.join(process.cwd(), "icons", "iconify");
-	const entries = await fs.readdir(dir);
-	const prefixes = entries
+	await fs.mkdir(dir, { recursive: true });
+	let entries: string[] = [];
+	try {
+		entries = await fs.readdir(dir);
+	} catch {
+		entries = [];
+	}
+	let prefixes = entries
 		.filter(
 			(f) =>
 				f.endsWith(".json") &&
@@ -60,6 +66,18 @@ async function writePrefixesManifest() {
 		)
 		.map((f) => f.slice(0, -5))
 		.sort();
+	// When only the committed index manifests exist (pre-fetch), derive
+	// prefixes from collections.json so the tracing include path is valid.
+	if (prefixes.length === 0) {
+		try {
+			const collections = JSON.parse(
+				await fs.readFile(path.join(dir, "collections.json"), "utf8"),
+			) as Record<string, unknown>;
+			prefixes = Object.keys(collections).sort();
+		} catch {
+			prefixes = [];
+		}
+	}
 	await fs.writeFile(
 		path.join(dir, "prefixes.json"),
 		JSON.stringify(prefixes),
@@ -73,6 +91,7 @@ async function writePrefixesManifest() {
 
 async function pruneIconifyBodies() {
 	const dir = path.join(process.cwd(), "icons", "iconify");
+	await fs.mkdir(dir, { recursive: true });
 	const keep = new Set(["collections.json", "prefixes.json"]);
 	const entries = await fs.readdir(dir);
 	let removed = 0;
@@ -91,14 +110,33 @@ function iconifyManifestPath() {
 	return path.join(process.cwd(), "icons", "iconify", "collections.json");
 }
 
+async function iconifySetsPresent(): Promise<boolean> {
+	const dir = path.join(process.cwd(), "icons", "iconify");
+	try {
+		const entries = await fs.readdir(dir);
+		return entries.some(
+			(f) =>
+				f.endsWith(".json") &&
+				f !== "collections.json" &&
+				f !== "prefixes.json",
+		);
+	} catch {
+		return false;
+	}
+}
+
 export async function prepareProductionIcons() {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 
 	if (onVercel) {
-		try {
-			await fs.access(iconifyManifestPath());
-			console.log("→ Iconify manifest already present — skip fetch");
-		} catch {
+		await fs.mkdir(path.join(process.cwd(), "icons", "iconify"), {
+			recursive: true,
+		});
+		const hasSets = await iconifySetsPresent();
+		if (hasSets) {
+			console.log("→ Iconify set JSON already present — skip fetch");
+			await writePrefixesManifest();
+		} else {
 			console.log("→ Production icon prepare: fetching theSVG + Iconify…");
 			await runScript("scripts/fetch-thesvg.ts");
 			await runScript("scripts/fetch-iconify.ts", ["--all"]);

@@ -6,6 +6,25 @@ import {
 	prepareProductionIcons,
 } from "./scripts/prepare-production-icons";
 
+/**
+ * Next file-tracing lstats every `outputFileTracingIncludes` path while the
+ * config module loads — before the async default export can fetch Iconify.
+ * Ensure the gitignored iconify dir + index manifests exist synchronously.
+ */
+function ensureIconifyTracingStubs() {
+	const dir = path.join(process.cwd(), "icons", "iconify");
+	fs.mkdirSync(dir, { recursive: true });
+	const collections = path.join(dir, "collections.json");
+	const prefixes = path.join(dir, "prefixes.json");
+	if (!fs.existsSync(collections)) {
+		fs.writeFileSync(collections, "{}", "utf8");
+	}
+	if (!fs.existsSync(prefixes)) {
+		fs.writeFileSync(prefixes, "[]", "utf8");
+	}
+}
+ensureIconifyTracingStubs();
+
 const nextConfig: NextConfig = {
 	typedRoutes: true,
 	reactCompiler: true,
@@ -95,12 +114,10 @@ const nextConfig: NextConfig = {
  * resolve `./scripts/*.ts` and fails with MODULE_NOT_FOUND on Vercel.
  */
 export default async function config(): Promise<NextConfig> {
+	ensureIconifyTracingStubs();
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
-	const manifest = path.join(process.cwd(), "icons", "iconify", "collections.json");
 	if (onVercel) {
-		if (!fs.existsSync(manifest)) {
-			await prepareProductionIcons();
-		}
+		await prepareProductionIcons();
 		await compressIconPacksForDeploy();
 	}
 	return nextConfig;
