@@ -1,0 +1,13 @@
+cathode-phosphor/24x24/legacy/distribute-remove-overlaps.svg
+cathode-phosphor/scalable/actions/document-open-symbolic.svg
+cathode-phosphor/scalable/actions/edit-copy-symbolic.svg
+cathode-phosphor/scalable/actions/edit-paste-symbolic.svg
+cathode-phosphor/scalable/actions/ephy-library-symbolic.svg
+cathode-phosphor/scalable/actions/share-symbolic.svg
+cathode-phosphor/scalable/devices/input-pointing-stick-symbolic.svg
+cathode-phosphor/scalable/status/airplane-mode-disabled-symbolic.svg
+cathode-phosphor/scalable/status/bluetooth-acquiring-symbolic.svg
+cathode-phosphor/scalable/status/dialog-password-symbolic.svg
+cathode-phosphor/scalable/status/my-caffeine-off-symbolic.svg
+cathode-phosphor/scalable/status/my-caffeine-on-symbolic.svg
+cathode-phosphor/scalable/status/process-working-symbolic.svg

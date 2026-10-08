@@ -1,0 +1,122 @@
+AIGA_symbol_signs/03 currencyexchange inv.svg
+AIGA_symbol_signs/10a stairs inv.svg
+AIGA_symbol_signs/20 airtransportation inv.svg
+AIGA_symbol_signs/AIGA Currency Exchange - Euro.svg
+AIGA_symbol_signs/Aiga BarberShop-BeautySalon.svg
+AIGA_symbol_signs/Aiga BarberShop.svg
+AIGA_symbol_signs/Aiga BeautySalon.svg
+AIGA_symbol_signs/Aiga Exit - Green.svg
+AIGA_symbol_signs/Aiga NoDogs - Red.svg
+AIGA_symbol_signs/Aiga NoParking - Red.svg
+AIGA_symbol_signs/Aiga arrivingflights inv.svg
+AIGA_symbol_signs/Aiga arrivingflights.svg
+AIGA_symbol_signs/Aiga baggage check in.svg
+AIGA_symbol_signs/Aiga baggagelockers.svg
+AIGA_symbol_signs/Aiga bar (reduced).svg
+AIGA_symbol_signs/Aiga bar inv.svg
+AIGA_symbol_signs/Aiga bus inv.svg
+AIGA_symbol_signs/Aiga bus on green circle.svg
+AIGA_symbol_signs/Aiga bus trans.svg
+AIGA_symbol_signs/Aiga bus.svg
+AIGA_symbol_signs/Aiga carrental inv.svg
+AIGA_symbol_signs/Aiga carrental.svg
+AIGA_symbol_signs/Aiga cashier.svg
+AIGA_symbol_signs/Aiga coatcheck.svg
+AIGA_symbol_signs/Aiga currencyexchange.svg
+AIGA_symbol_signs/Aiga customs inv.svg
+AIGA_symbol_signs/Aiga customs.svg
+AIGA_symbol_signs/Aiga departingflights inv.svg
+AIGA_symbol_signs/Aiga departingflights.svg
+AIGA_symbol_signs/Aiga downarrow inv.svg
+AIGA_symbol_signs/Aiga drinkingfountain inv.svg
+AIGA_symbol_signs/Aiga elevator inv.svg
+AIGA_symbol_signs/Aiga elevator.svg
+AIGA_symbol_signs/Aiga escalator covered.svg
+AIGA_symbol_signs/Aiga escalator down inv mirror.svg
+AIGA_symbol_signs/Aiga escalator down inv.svg
+AIGA_symbol_signs/Aiga escalator down mirror.svg
+AIGA_symbol_signs/Aiga escalator down.svg
+AIGA_symbol_signs/Aiga escalator inv mirror.svg
+AIGA_symbol_signs/Aiga escalator mirror.svg
+AIGA_symbol_signs/Aiga escalator up inv.svg
+AIGA_symbol_signs/Aiga escalator up mirror.svg
+AIGA_symbol_signs/Aiga escalator up.svg
+AIGA_symbol_signs/Aiga escalator.svg
+AIGA_symbol_signs/Aiga exit inv.svg
+AIGA_symbol_signs/Aiga fire extinguisher inv.svg
+AIGA_symbol_signs/Aiga firstaid inv.svg
+AIGA_symbol_signs/Aiga forwardandleftarrow inv.svg
+AIGA_symbol_signs/Aiga forwardandleftarrow.svg
+AIGA_symbol_signs/Aiga forwardandrightarrow inv.svg
+AIGA_symbol_signs/Aiga forwardandrightarrow.svg
+AIGA_symbol_signs/Aiga groundtransportation.svg
+AIGA_symbol_signs/Aiga heliport inv.svg
+AIGA_symbol_signs/Aiga heliport.svg
+AIGA_symbol_signs/Aiga hotelinformation inv.svg
+AIGA_symbol_signs/Aiga hotelinformation.svg
+AIGA_symbol_signs/Aiga immigration inv.svg
+AIGA_symbol_signs/Aiga immigration.svg
+AIGA_symbol_signs/Aiga information inv.svg
+AIGA_symbol_signs/Aiga leftanddownarrow.svg
+AIGA_symbol_signs/Aiga leftarrow inv.svg
+AIGA_symbol_signs/Aiga leftarrow.svg
+AIGA_symbol_signs/Aiga litterdisposal inv.svg
+AIGA_symbol_signs/Aiga litterdisposal.svg
+AIGA_symbol_signs/Aiga lostandfound inv.svg
+AIGA_symbol_signs/Aiga lostandfound.svg
+AIGA_symbol_signs/Aiga mail inverted nobg.svg
+AIGA_symbol_signs/Aiga mail inverted.svg
+AIGA_symbol_signs/Aiga nodogs inv.svg
+AIGA_symbol_signs/Aiga noentry inv.svg
+AIGA_symbol_signs/Aiga nosmoking.svg
+AIGA_symbol_signs/Aiga nursery inv.svg
+AIGA_symbol_signs/Aiga nursery.svg
+AIGA_symbol_signs/Aiga parking.svg
+AIGA_symbol_signs/Aiga railtransportation 25 white.svg
+AIGA_symbol_signs/Aiga railtransportation inv.svg
+AIGA_symbol_signs/Aiga railtransportation.svg
+AIGA_symbol_signs/Aiga restaurant 2.svg
+AIGA_symbol_signs/Aiga restaurant inv.svg
+AIGA_symbol_signs/Aiga restaurant.svg
+AIGA_symbol_signs/Aiga rightanddownarrow inv.svg
+AIGA_symbol_signs/Aiga rightanddownarrow.svg
+AIGA_symbol_signs/Aiga rightarrow inv.svg
+AIGA_symbol_signs/Aiga rightarrow.svg
+AIGA_symbol_signs/Aiga shops inv.svg
+AIGA_symbol_signs/Aiga shops.svg
+AIGA_symbol_signs/Aiga stairs down inv.svg
+AIGA_symbol_signs/Aiga stairs up inv.svg
+AIGA_symbol_signs/Aiga stairs.svg
+AIGA_symbol_signs/Aiga taxi inv.svg
+AIGA_symbol_signs/Aiga taxi.svg
+AIGA_symbol_signs/Aiga telephone inv.svg
+AIGA_symbol_signs/Aiga telephone.svg
+AIGA_symbol_signs/Aiga ticketpurchase inv.svg
+AIGA_symbol_signs/Aiga ticketpurchase.svg
+AIGA_symbol_signs/Aiga toilets inv.svg
+AIGA_symbol_signs/Aiga toiletsq men inv.svg
+AIGA_symbol_signs/Aiga toiletsq women inv.svg
+AIGA_symbol_signs/Aiga uparrow inv.svg
+AIGA_symbol_signs/Aiga waitingroom.svg
+AIGA_symbol_signs/Aiga watertransportation grey.svg
+AIGA_symbol_signs/Aiga watertransportation inv.svg
+AIGA_symbol_signs/BSicon RENTALCAR.svg
+AIGA_symbol_signs/DB31 SW-Z 011-2023 01A.svg
+AIGA_symbol_signs/Elevator (AIGA based).svg
+AIGA_symbol_signs/Elevator (Madrid Metro).svg
+AIGA_symbol_signs/Family 3.svg
+AIGA_symbol_signs/Formas Naturalistas.svg
+AIGA_symbol_signs/GB 10001.1 (2012) 111.svg
+AIGA_symbol_signs/GB 5845.2-2008 29.svg
+AIGA_symbol_signs/IST-Water transport.svg
+AIGA_symbol_signs/KS 0901-4 Sign No. 218.svg
+AIGA_symbol_signs/MUTCD RS-090.svg
+AIGA_symbol_signs/Ministerio de Educación en Peru, Manual de señalización de seguridad - señal 5.02.svg
+AIGA_symbol_signs/NO road sign 606.svg
+AIGA_symbol_signs/NTP 399.010 2004 Señal 1.01-1.svg
+AIGA_symbol_signs/OSP Fire extinguisher.svg
+AIGA_symbol_signs/PC 47 Aena inverted.svg
+AIGA_symbol_signs/Safety Symbols Art, Fire Safety Type 1 - Fire Extinguisher.svg
+AIGA_symbol_signs/Tabletop wargames miniatures scales.svg
+AIGA_symbol_signs/Toilets unisex.svg
+AIGA_symbol_signs/Tranvia sevilla.svg

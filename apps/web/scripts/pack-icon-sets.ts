@@ -35,11 +35,20 @@ function shouldDelete() {
 	return process.argv.includes("--delete");
 }
 
-function onlyFilter(): "all" | "thesvg" | "vendored" {
+function onlyFilter(): "all" | "thesvg" | "vendored" | { setIds: Set<string> } {
 	const idx = process.argv.indexOf("--only");
 	if (idx === -1) return "all";
 	const value = process.argv[idx + 1];
 	if (value === "thesvg" || value === "vendored") return value;
+	if (value) {
+		const setIds = new Set(
+			value
+				.split(",")
+				.map((s) => s.trim())
+				.filter(Boolean),
+		);
+		if (setIds.size) return { setIds };
+	}
 	return "all";
 }
 
@@ -223,10 +232,12 @@ async function main() {
 	let totalIcons = 0;
 	let totalBytes = 0;
 
+	const onlySetIds = typeof only === "object" ? only.setIds : null;
 	if (only !== "thesvg") {
 	console.log(`→ Packing vendored icon sets${del ? " (will delete sources)" : ""}…`);
 	const loose = new Set<string>();
 	for (const set of ICON_SETS) {
+		if (onlySetIds && !onlySetIds.has(set.id)) continue;
 		try {
 			await fs.access(path.join(process.cwd(), "icons", set.id));
 			loose.add(set.id);
@@ -239,6 +250,7 @@ async function main() {
 		: new Map<string, string>();
 
 	for (const set of ICON_SETS) {
+		if (onlySetIds && !onlySetIds.has(set.id)) continue;
 		const setDir = path.join(process.cwd(), "icons", set.id);
 		try {
 			await fs.access(setDir);
@@ -288,7 +300,7 @@ async function main() {
 	}
 	} // end vendored
 
-	if (only !== "vendored") {
+	if (only !== "vendored" && !onlySetIds) {
 	console.log("→ Packing theSVG…");
 	// Prefer loose registry+SVGs when present.
 	const thesvgDir = path.join(process.cwd(), "icons", THESVG_SET_ID);

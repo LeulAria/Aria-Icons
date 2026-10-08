@@ -1,0 +1,101 @@
+badges/coverage-badge.svg
+badges/tests-badge.svg
+dist/editor/images/add_subpath 2.svg
+dist/editor/images/align 2.svg
+dist/editor/images/align_bottom.svg
+dist/editor/images/align_center 3.svg
+dist/editor/images/align_distrib_horiz 2.svg
+dist/editor/images/align_distrib_verti 2.svg
+dist/editor/images/align_left 3.svg
+dist/editor/images/align_middle.svg
+dist/editor/images/align_right 3.svg
+dist/editor/images/align_top 2.svg
+dist/editor/images/anchor_end 2.svg
+dist/editor/images/anchor_middle 2.svg
+dist/editor/images/anchor_start.svg
+dist/editor/images/angle.svg
+dist/editor/images/blur.svg
+dist/editor/images/c_radius 2.svg
+dist/editor/images/clone.svg
+dist/editor/images/close_path 3.svg
+dist/editor/images/closepath_icons 2.svg
+dist/editor/images/config.svg
+dist/editor/images/conn 2.svg
+dist/editor/images/context_menu 2.svg
+dist/editor/images/delete.svg
+dist/editor/images/docprop 2.svg
+dist/editor/images/docprops 3.svg
+dist/editor/images/editPref 3.svg
+dist/editor/images/edit_foreign.svg
+dist/editor/images/ellipse.svg
+dist/editor/images/export 2.svg
+dist/editor/images/eye 3.svg
+dist/editor/images/eye_dropper 2.svg
+dist/editor/images/fh_ellipse 3.svg
+dist/editor/images/fh_rect 3.svg
+dist/editor/images/fill 2.svg
+dist/editor/images/flip_horizontal 3.svg
+dist/editor/images/flip_vertical 3.svg
+dist/editor/images/globe_link 3.svg
+dist/editor/images/grid 2.svg
+dist/editor/images/group_elements.svg
+dist/editor/images/handle 2.svg
+dist/editor/images/hello_world 2.svg
+dist/editor/images/image 2.svg
+dist/editor/images/imagelib 2.svg
+dist/editor/images/import 3.svg
+dist/editor/images/importImg.svg
+dist/editor/images/leftarrow 2.svg
+dist/editor/images/letter_spacing 2.svg
+dist/editor/images/library 3.svg
+dist/editor/images/linecap_butt.svg
+dist/editor/images/linecap_round 2.svg
+dist/editor/images/linecap_square 2.svg
+dist/editor/images/linejoin_bevel 2.svg
+dist/editor/images/linejoin_miter 3.svg
+dist/editor/images/linejoin_round 3.svg
+dist/editor/images/link_controls 2.svg
+dist/editor/images/logo 2.svg
+dist/editor/images/mkr_markers_dimension 2.svg
+dist/editor/images/mkr_markers_label.svg
+dist/editor/images/netlify-dark 2.svg
+dist/editor/images/new 3.svg
+dist/editor/images/node_clone 2.svg
+dist/editor/images/open 3.svg
+dist/editor/images/panning 2.svg
+dist/editor/images/path 3.svg
+dist/editor/images/pen.svg
+dist/editor/images/pencil 2.svg
+dist/editor/images/redo 2.svg
+dist/editor/images/reorient.svg
+dist/editor/images/rightarrow.svg
+dist/editor/images/rotate.svg
+dist/editor/images/save 2.svg
+dist/editor/images/saveImg 2.svg
+dist/editor/images/select 2.svg
+dist/editor/images/select_node.svg
+dist/editor/images/source 3.svg
+dist/editor/images/star_o 2.svg
+dist/editor/images/svg-edit-home.svg
+dist/editor/images/text 3.svg
+dist/editor/images/text_decoration_linethrough 2.svg
+dist/editor/images/text_decoration_overline 2.svg
+dist/editor/images/text_decoration_underline 2.svg
+dist/editor/images/text_length 2.svg
+dist/editor/images/textmarker_bottom 2.svg
+dist/editor/images/textmarker_top 2.svg
+dist/editor/images/to_path 2.svg
+dist/editor/images/tool_add_subpath 3.svg
+dist/editor/images/tool_foreign 3.svg
+dist/editor/images/tool_node_clone 2.svg
+dist/editor/images/tool_node_delete 2.svg
+dist/editor/images/tool_node_link.svg
+dist/editor/images/tool_openclose_path 2.svg
+dist/editor/images/tool_placemark 2.svg
+dist/editor/images/undo 3.svg
+dist/editor/images/ungroup 2.svg
+dist/editor/images/unlink_use 2.svg
+dist/editor/images/warning 2.svg
+dist/editor/images/wireframe.svg
+dist/editor/images/word_spacing.svg
+dist/editor/images/zoom 3.svg

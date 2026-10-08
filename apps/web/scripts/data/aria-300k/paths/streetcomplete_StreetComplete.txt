@@ -1,0 +1,715 @@
+res/graphics/achievement/achievement_frame.svg
+res/graphics/achievement/bicyclist.svg
+res/graphics/achievement/blind.svg
+res/graphics/achievement/building.svg
+res/graphics/achievement/car.svg
+res/graphics/achievement/citizen.svg
+res/graphics/achievement/first_edit.svg
+res/graphics/achievement/lifesaver.svg
+res/graphics/achievement/outdoors.svg
+res/graphics/achievement/pedestrian.svg
+res/graphics/achievement/postman.svg
+res/graphics/achievement/rare.svg
+res/graphics/achievement/regular.svg
+res/graphics/achievement/shine.svg
+res/graphics/achievement/surveyor.svg
+res/graphics/achievement/tourist.svg
+res/graphics/achievement/veg.svg
+res/graphics/achievement/wheelchair.svg
+res/graphics/app icon/app_notification.svg
+res/graphics/app icon/appicon-dark.svg
+res/graphics/app icon/appicon_fancy.svg
+res/graphics/app icon/appicon_flat.svg
+res/graphics/app icon/launcher_foreground.svg
+res/graphics/ar/camera_measure_24dp.svg
+res/graphics/ar/hand_phone.svg
+res/graphics/ar/start_over.svg
+res/graphics/boat rental/canoe.svg
+res/graphics/boat rental/houseboat.svg
+res/graphics/boat rental/jetski.svg
+res/graphics/boat rental/kayak.svg
+res/graphics/boat rental/motorboat.svg
+res/graphics/boat rental/pedalboat.svg
+res/graphics/boat rental/raft.svg
+res/graphics/boat rental/rowboat.svg
+res/graphics/boat rental/sailboard.svg
+res/graphics/boat rental/sailboat.svg
+res/graphics/boat rental/standup_paddleboard.svg
+res/graphics/boat rental/surfboard.svg
+res/graphics/boat rental/yacht.svg
+res/graphics/bridge structure/arch.svg
+res/graphics/bridge structure/beam.svg
+res/graphics/bridge structure/cable-stayed.svg
+res/graphics/bridge structure/floating.svg
+res/graphics/bridge structure/humpback.svg
+res/graphics/bridge structure/simple-suspension.svg
+res/graphics/bridge structure/suspension.svg
+res/graphics/bridge structure/tied_arch.svg
+res/graphics/bridge structure/truss.svg
+res/graphics/building levels/building_levels_icon.svg
+res/graphics/building levels/building_levels_illustration.svg
+res/graphics/building/abandoned.svg
+res/graphics/building/allotment_house.svg
+res/graphics/building/apartments.svg
+res/graphics/building/barn.svg
+res/graphics/building/boathouse.svg
+res/graphics/building/bridge.svg
+res/graphics/building/bungalow.svg
+res/graphics/building/bunker.svg
+res/graphics/building/car.svg
+res/graphics/building/carport.svg
+res/graphics/building/cathedral.svg
+res/graphics/building/civic.svg
+res/graphics/building/college.svg
+res/graphics/building/conservatory.svg
+res/graphics/building/construction.svg
+res/graphics/building/container.svg
+res/graphics/building/detached.svg
+res/graphics/building/dormitory.svg
+res/graphics/building/farm.svg
+res/graphics/building/farm_house.svg
+res/graphics/building/fire_truck.svg
+res/graphics/building/garage.svg
+res/graphics/building/garages.svg
+res/graphics/building/grandstand.svg
+res/graphics/building/greenhouse.svg
+res/graphics/building/guardhouse.svg
+res/graphics/building/hangar.svg
+res/graphics/building/historic.svg
+res/graphics/building/hospital.svg
+res/graphics/building/hotel.svg
+res/graphics/building/house.svg
+res/graphics/building/houseboat.svg
+res/graphics/building/hut.svg
+res/graphics/building/industrial.svg
+res/graphics/building/kindergarten.svg
+res/graphics/building/kiosk.svg
+res/graphics/building/office.svg
+res/graphics/building/other.svg
+res/graphics/building/pagoda.svg
+res/graphics/building/parking.svg
+res/graphics/building/retail.svg
+res/graphics/building/roof.svg
+res/graphics/building/ruins.svg
+res/graphics/building/school.svg
+res/graphics/building/semi_detached.svg
+res/graphics/building/service.svg
+res/graphics/building/shed.svg
+res/graphics/building/silo.svg
+res/graphics/building/stadium.svg
+res/graphics/building/static_caravan.svg
+res/graphics/building/storage_tank.svg
+res/graphics/building/temple.svg
+res/graphics/building/tent.svg
+res/graphics/building/terrace.svg
+res/graphics/building/terraced_house.svg
+res/graphics/building/toilets.svg
+res/graphics/building/tomb.svg
+res/graphics/building/tower.svg
+res/graphics/building/train_station.svg
+res/graphics/building/transportation.svg
+res/graphics/building/university.svg
+res/graphics/building/warehouse.svg
+res/graphics/calendar/location_pin_red.svg
+res/graphics/calendar/wire_binding.svg
+res/graphics/charging station capacity/electric_car.svg
+res/graphics/charging station socket/chademo.svg
+res/graphics/charging station socket/chaoji.svg
+res/graphics/charging station socket/gb_ac.svg
+res/graphics/charging station socket/gb_dc.svg
+res/graphics/charging station socket/nacs.svg
+res/graphics/charging station socket/type1.svg
+res/graphics/charging station socket/type1_combo.svg
+res/graphics/charging station socket/type2.svg
+res/graphics/charging station socket/type2_cable.svg
+res/graphics/charging station socket/type2_combo.svg
+res/graphics/charging station socket/type3a.svg
+res/graphics/charging station socket/type3c.svg
+res/graphics/charging station vehicles/bicycle.svg
+res/graphics/charging station vehicles/bus.svg
+res/graphics/charging station vehicles/hgv.svg
+res/graphics/charging station vehicles/motorcycle.svg
+res/graphics/compass_needle.svg
+res/graphics/cycleway segregation/allowed.svg
+res/graphics/cycleway segregation/disallowed.svg
+res/graphics/cycleway segregation/exclusive.svg
+res/graphics/cycleway segregation/no.svg
+res/graphics/cycleway segregation/not_segregated.svg
+res/graphics/cycleway segregation/segregated_l.svg
+res/graphics/cycleway segregation/segregated_r.svg
+res/graphics/cycleway segregation/with_sidewalk.svg
+res/graphics/cycleway segregation/with_sidewalk_l.svg
+res/graphics/cycleway/bicycle.svg
+res/graphics/cycleway/bus_lane.svg
+res/graphics/cycleway/bus_lane_l.svg
+res/graphics/cycleway/lane_dashed_both_white.svg
+res/graphics/cycleway/lane_dashed_both_white_l.svg
+res/graphics/cycleway/lane_dashed_white.svg
+res/graphics/cycleway/lane_dashed_white_l.svg
+res/graphics/cycleway/lane_dashed_yellow.svg
+res/graphics/cycleway/lane_dashed_yellow_l.svg
+res/graphics/cycleway/lane_dotted_white.svg
+res/graphics/cycleway/lane_dotted_white_l.svg
+res/graphics/cycleway/lane_white.svg
+res/graphics/cycleway/lane_white_dual.svg
+res/graphics/cycleway/lane_white_dual_l.svg
+res/graphics/cycleway/lane_white_l.svg
+res/graphics/cycleway/lane_yellow_dual.svg
+res/graphics/cycleway/lane_yellow_dual_l.svg
+res/graphics/cycleway/lane_yellow_l.svg
+res/graphics/cycleway/none.svg
+res/graphics/cycleway/none_no_oneway.svg
+res/graphics/cycleway/none_no_oneway_l.svg
+res/graphics/cycleway/pictograms_white.svg
+res/graphics/cycleway/pictograms_white_l.svg
+res/graphics/cycleway/shared_lane_no_pictograms.svg
+res/graphics/cycleway/shared_lane_white_dashed.svg
+res/graphics/cycleway/shared_lane_white_dashed_l.svg
+res/graphics/cycleway/shoulder.svg
+res/graphics/cycleway/sidewalk.svg
+res/graphics/cycleway/sidewalk_explicit.svg
+res/graphics/cycleway/sidewalk_explicit_dual.svg
+res/graphics/cycleway/sidewalk_explicit_l.svg
+res/graphics/cycleway/sign_sidewalk_ok.svg
+res/graphics/cycleway/sign_sidewalk_ok_dual.svg
+res/graphics/cycleway/suggestion_lane_belgium.svg
+res/graphics/cycleway/track.svg
+res/graphics/cycleway/track_dual.svg
+res/graphics/cycleway/track_dual_l.svg
+res/graphics/cycleway/track_l.svg
+res/graphics/domestic socket/cei23_50_s_17.svg
+res/graphics/domestic socket/nema_14_50.svg
+res/graphics/domestic socket/nema_5_20.svg
+res/graphics/domestic socket/sev1011_t13.svg
+res/graphics/domestic socket/sev1011_t15.svg
+res/graphics/domestic socket/sev1011_t23.svg
+res/graphics/domestic socket/sev1011_t25.svg
+res/graphics/domestic socket/typeL.svg
+res/graphics/domestic socket/typea.svg
+res/graphics/domestic socket/typeb.svg
+res/graphics/domestic socket/typec.svg
+res/graphics/domestic socket/typed.svg
+res/graphics/domestic socket/typee.svg
+res/graphics/domestic socket/typef.svg
+res/graphics/domestic socket/typeg.svg
+res/graphics/domestic socket/typeh.svg
+res/graphics/domestic socket/typei.svg
+res/graphics/domestic socket/typek.svg
+res/graphics/domestic socket/typem.svg
+res/graphics/domestic socket/typen.svg
+res/graphics/domestic socket/typeo.svg
+res/graphics/domestic socket/universal_abcdefgio.svg
+res/graphics/domestic socket/universal_abco.svg
+res/graphics/domestic socket/universal_ac.svg
+res/graphics/domestic socket/universal_ci.svg
+res/graphics/domestic socket/universal_dm.svg
+res/graphics/domestic socket/universal_l.svg
+res/graphics/domestic socket/universal_lf.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_de.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_fi.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_gb.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_hu.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_nl.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_pl.svg
+res/graphics/fire hydrant diameter/fire_hydrant_sign_ua.svg
+res/graphics/housenumber/town_silhouette.svg
+res/graphics/italian police type/carabinieri.svg
+res/graphics/italian police type/costiera.svg
+res/graphics/italian police type/finanza.svg
+res/graphics/italian police type/locale.svg
+res/graphics/italian police type/polizia.svg
+res/graphics/lab_flask.svg
+res/graphics/lane narrowing traffic calming/chicane.svg
+res/graphics/lane narrowing traffic calming/choked_island.svg
+res/graphics/lane narrowing traffic calming/choker.svg
+res/graphics/lane narrowing traffic calming/island.svg
+res/graphics/lanes/car1.svg
+res/graphics/lanes/car2.svg
+res/graphics/lanes/car3.svg
+res/graphics/lanes/car4.svg
+res/graphics/lanes/car5.svg
+res/graphics/lanes/lanes_marked.svg
+res/graphics/lanes/lanes_marked_odd.svg
+res/graphics/lanes/lanes_unmarked.svg
+res/graphics/laurel_wreath/laurel_leaf_ending.svg
+res/graphics/laurel_wreath/laurel_leaf_pair.svg
+res/graphics/links/link_neis_one.svg
+res/graphics/links/link_openinframap.svg
+res/graphics/links/link_openorienteeringmap.svg
+res/graphics/links/link_waymarkedtrails.svg
+res/graphics/lit/24_7.svg
+res/graphics/lit/automatic.svg
+res/graphics/lit/no.svg
+res/graphics/lit/unsupported.svg
+res/graphics/lit/yes.svg
+res/graphics/living street/australia.svg
+res/graphics/living street/columbia.svg
+res/graphics/living street/default.svg
+res/graphics/living street/russia.svg
+res/graphics/living street/sadc.svg
+res/graphics/living street/shared.svg
+res/graphics/mail.svg
+res/graphics/map/downloaded_area_hatching.svg
+res/graphics/map/location_dot_small.svg
+res/graphics/map/location_shadow.svg
+res/graphics/map/location_view_direction.svg
+res/graphics/map/map_oneway_arrow.svg
+res/graphics/max height/maxheight_sign.svg
+res/graphics/max height/maxheight_sign_mutcd.svg
+res/graphics/max speed/roadtype_dual_carriageway.svg
+res/graphics/max speed/roadtype_lit.svg
+res/graphics/max speed/roadtype_lit_no.svg
+res/graphics/max speed/roadtype_rural.svg
+res/graphics/max speed/roadtype_urban.svg
+res/graphics/max weight/axleload.svg
+res/graphics/max weight/hgv.svg
+res/graphics/max weight/sign_maxaxleload.svg
+res/graphics/max weight/sign_maxaxleload_mutcd.svg
+res/graphics/max weight/sign_maxbogieweight.svg
+res/graphics/max weight/sign_maxbogieweight_mutcd.svg
+res/graphics/max weight/sign_maxweight.svg
+res/graphics/max weight/sign_maxweight_mutcd.svg
+res/graphics/max weight/sign_maxweightrating_de.svg
+res/graphics/max weight/sign_maxweightrating_gb.svg
+res/graphics/max weight/sign_maxweightrating_hgv.svg
+res/graphics/max weight/sign_maxweightrating_hgv_de.svg
+res/graphics/max weight/sign_maxweightrating_hgv_mutcd.svg
+res/graphics/max weight/sign_maxweightrating_mutcd.svg
+res/graphics/max weight/tandem_axleload.svg
+res/graphics/note/add_photo_24dp.svg
+res/graphics/note/create_note_black_24dp.svg
+res/graphics/oneway/no entry signs/arrow.svg
+res/graphics/oneway/no entry signs/do_not_enter.svg
+res/graphics/oneway/no entry signs/no_entre.svg
+res/graphics/oneway/no entry signs/no_entry.svg
+res/graphics/oneway/no entry signs/no_entry_on_white.svg
+res/graphics/oneway/no entry signs/yellow.svg
+res/graphics/oneway/oneway_no.svg
+res/graphics/oneway/oneway_yes.svg
+res/graphics/oneway/oneway_yes_reverse.svg
+res/graphics/osm_anon_avatar.svg
+res/graphics/overlay.svg
+res/graphics/overlay/crosshair.svg
+res/graphics/pin/circle.svg
+res/graphics/pin/dot.svg
+res/graphics/pin/pin.svg
+res/graphics/quest/access.svg
+res/graphics/quest/access_point.svg
+res/graphics/quest/aerialway_bicycle.svg
+res/graphics/quest/aerialway_oneway.svg
+res/graphics/quest/apple.svg
+res/graphics/quest/artwork.svg
+res/graphics/quest/baby.svg
+res/graphics/quest/barrier.svg
+res/graphics/quest/barrier_on_path.svg
+res/graphics/quest/beach.svg
+res/graphics/quest/beer.svg
+res/graphics/quest/bench_poi.svg
+res/graphics/quest/bicycle.svg
+res/graphics/quest/bicycle_charger.svg
+res/graphics/quest/bicycle_incline.svg
+res/graphics/quest/bicycle_parking.svg
+res/graphics/quest/bicycle_parking_access.svg
+res/graphics/quest/bicycle_parking_capacity.svg
+res/graphics/quest/bicycle_parking_cover.svg
+res/graphics/quest/bicycle_parking_fee.svg
+res/graphics/quest/bicycle_pump.svg
+res/graphics/quest/bicycle_rental.svg
+res/graphics/quest/bicycle_rental_capacity.svg
+res/graphics/quest/bicycle_repair.svg
+res/graphics/quest/bicycle_second_hand.svg
+res/graphics/quest/bicycleway.svg
+res/graphics/quest/bicycleway_surface.svg
+res/graphics/quest/bicycleway_surface_detail.svg
+res/graphics/quest/bicycleway_width.svg
+res/graphics/quest/bin_public_transport.svg
+res/graphics/quest/blind.svg
+res/graphics/quest/blind_bus.svg
+res/graphics/quest/blind_pedestrian_crossing.svg
+res/graphics/quest/blind_traffic_lights.svg
+res/graphics/quest/blind_traffic_lights_sound.svg
+res/graphics/quest/board_type.svg
+res/graphics/quest/boat.svg
+res/graphics/quest/bridge.svg
+res/graphics/quest/building.svg
+res/graphics/quest/building_height.svg
+res/graphics/quest/building_inside.svg
+res/graphics/quest/building_levels.svg
+res/graphics/quest/building_underground.svg
+res/graphics/quest/bus.svg
+res/graphics/quest/bus_stop_lit.svg
+res/graphics/quest/bus_stop_name.svg
+res/graphics/quest/bus_stop_shelter.svg
+res/graphics/quest/cabin.svg
+res/graphics/quest/calendar.svg
+res/graphics/quest/car.svg
+res/graphics/quest/car_air_compressor.svg
+res/graphics/quest/car_bumpy.svg
+res/graphics/quest/car_charger.svg
+res/graphics/quest/car_wash.svg
+res/graphics/quest/caravan.svg
+res/graphics/quest/card.svg
+res/graphics/quest/charger_capacity.svg
+res/graphics/quest/charger_operator.svg
+res/graphics/quest/charger_socket.svg
+res/graphics/quest/check.svg
+res/graphics/quest/choker.svg
+res/graphics/quest/christian.svg
+res/graphics/quest/cow.svg
+res/graphics/quest/crown.svg
+res/graphics/quest/defibrillator.svg
+res/graphics/quest/doctor_type.svg
+res/graphics/quest/door.svg
+res/graphics/quest/dot.svg
+res/graphics/quest/drinking_water.svg
+res/graphics/quest/fee.svg
+res/graphics/quest/ferry.svg
+res/graphics/quest/ferry_bicycle.svg
+res/graphics/quest/ferry_hgv.svg
+res/graphics/quest/fire.svg
+res/graphics/quest/fire_hydrant.svg
+res/graphics/quest/fire_hydrant_diameter.svg
+res/graphics/quest/fire_hydrant_grass.svg
+res/graphics/quest/fire_hydrant_ref.svg
+res/graphics/quest/firewood.svg
+res/graphics/quest/first_aid_kit.svg
+res/graphics/quest/footway_surface.svg
+res/graphics/quest/footway_surface_detail.svg
+res/graphics/quest/fuel.svg
+res/graphics/quest/fuel_self_service.svg
+res/graphics/quest/glutenfree.svg
+res/graphics/quest/hairdresser.svg
+res/graphics/quest/halal.svg
+res/graphics/quest/housenumber.svg
+res/graphics/quest/information.svg
+res/graphics/quest/kerb_tactile_paving.svg
+res/graphics/quest/kerb_type.svg
+res/graphics/quest/kosher.svg
+res/graphics/quest/label.svg
+res/graphics/quest/lantern.svg
+res/graphics/quest/laundry.svg
+res/graphics/quest/leaf.svg
+res/graphics/quest/level.svg
+res/graphics/quest/mail.svg
+res/graphics/quest/mail_ref.svg
+res/graphics/quest/max_height.svg
+res/graphics/quest/max_height_measure.svg
+res/graphics/quest/max_speed.svg
+res/graphics/quest/max_weight.svg
+res/graphics/quest/max_width.svg
+res/graphics/quest/memorial.svg
+res/graphics/quest/money.svg
+res/graphics/quest/moped_access.svg
+res/graphics/quest/motorcycle.svg
+res/graphics/quest/motorcycle_parking.svg
+res/graphics/quest/motorcycle_parking_capacity.svg
+res/graphics/quest/motorcycle_parking_cover.svg
+res/graphics/quest/motorcycle_parking_fee.svg
+res/graphics/quest/motorcycle_parking_surface.svg
+res/graphics/quest/mtb.svg
+res/graphics/quest/museum.svg
+res/graphics/quest/no_bicycles.svg
+res/graphics/quest/no_bicycles_lockable.svg
+res/graphics/quest/no_cars.svg
+res/graphics/quest/no_cow.svg
+res/graphics/quest/no_pedestrians.svg
+res/graphics/quest/note_create.svg
+res/graphics/quest/notes.svg
+res/graphics/quest/oneway.svg
+res/graphics/quest/opening_hours.svg
+res/graphics/quest/opening_hours_signed.svg
+res/graphics/quest/parcel_locker_brand.svg
+res/graphics/quest/parcel_locker_deposit.svg
+res/graphics/quest/parcel_locker_pickup.svg
+res/graphics/quest/parking.svg
+res/graphics/quest/parking_access.svg
+res/graphics/quest/parking_charge.svg
+res/graphics/quest/parking_fee.svg
+res/graphics/quest/parking_lane.svg
+res/graphics/quest/parking_maxstay.svg
+res/graphics/quest/path_segregation.svg
+res/graphics/quest/peak.svg
+res/graphics/quest/pedestrian.svg
+res/graphics/quest/pedestrian_crossing.svg
+res/graphics/quest/pedestrian_crossing_island.svg
+res/graphics/quest/phone.svg
+res/graphics/quest/picnic_table_cover.svg
+res/graphics/quest/pitch_lantern.svg
+res/graphics/quest/pitch_surface.svg
+res/graphics/quest/playground.svg
+res/graphics/quest/police.svg
+res/graphics/quest/poo.svg
+res/graphics/quest/power.svg
+res/graphics/quest/power_line.svg
+res/graphics/quest/quest.svg
+res/graphics/quest/railway.svg
+res/graphics/quest/recycling.svg
+res/graphics/quest/recycling_clothes.svg
+res/graphics/quest/recycling_container.svg
+res/graphics/quest/recycling_glass.svg
+res/graphics/quest/religion.svg
+res/graphics/quest/religion_service_times.svg
+res/graphics/quest/restaurant.svg
+res/graphics/quest/restaurant_vegan.svg
+res/graphics/quest/restaurant_vegetarian.svg
+res/graphics/quest/roof_shape.svg
+res/graphics/quest/seating.svg
+res/graphics/quest/shelter_capacity.svg
+res/graphics/quest/shop.svg
+res/graphics/quest/shower.svg
+res/graphics/quest/sidewalk.svg
+res/graphics/quest/sidewalk_surface.svg
+res/graphics/quest/smoking.svg
+res/graphics/quest/snow_poi.svg
+res/graphics/quest/sport.svg
+res/graphics/quest/steps.svg
+res/graphics/quest/steps_count.svg
+res/graphics/quest/steps_handrail.svg
+res/graphics/quest/steps_ramp.svg
+res/graphics/quest/steps_tactile_paving.svg
+res/graphics/quest/street.svg
+res/graphics/quest/street_lanes.svg
+res/graphics/quest/street_name.svg
+res/graphics/quest/street_name2.svg
+res/graphics/quest/street_shoulder.svg
+res/graphics/quest/street_turn_lanes.svg
+res/graphics/quest/street_width.svg
+res/graphics/quest/summit_cross.svg
+res/graphics/quest/surveillance.svg
+res/graphics/quest/surveillance_camera.svg
+res/graphics/quest/tent.svg
+res/graphics/quest/thermometer.svg
+res/graphics/quest/toilet_fee.svg
+res/graphics/quest/toilets.svg
+res/graphics/quest/toilets_wheelchair.svg
+res/graphics/quest/tower.svg
+res/graphics/quest/tractor.svg
+res/graphics/quest/traffic_lights.svg
+res/graphics/quest/traffic_lights_button.svg
+res/graphics/quest/vending_machine.svg
+res/graphics/quest/washing_hands.svg
+res/graphics/quest/way_surface.svg
+res/graphics/quest/way_surface_detail.svg
+res/graphics/quest/way_width.svg
+res/graphics/quest/wheelchair.svg
+res/graphics/quest/wheelchair_crossing.svg
+res/graphics/quest/wheelchair_width.svg
+res/graphics/quest/wifi.svg
+res/graphics/question.svg
+res/graphics/railway crossing/chicane.svg
+res/graphics/railway crossing/double_half.svg
+res/graphics/railway crossing/full.svg
+res/graphics/railway crossing/gate.svg
+res/graphics/railway crossing/half.svg
+res/graphics/railway crossing/none.svg
+res/graphics/recycling/batteries.svg
+res/graphics/recycling/beverage_cartons.svg
+res/graphics/recycling/cans.svg
+res/graphics/recycling/clothes.svg
+res/graphics/recycling/cooking_oil.svg
+res/graphics/recycling/engine_oil.svg
+res/graphics/recycling/food_waste.svg
+res/graphics/recycling/glass.svg
+res/graphics/recycling/glass_bottles.svg
+res/graphics/recycling/green_waste.svg
+res/graphics/recycling/newspaper.svg
+res/graphics/recycling/paper.svg
+res/graphics/recycling/pet_bottles.svg
+res/graphics/recycling/plastic.svg
+res/graphics/recycling/plastic_bottles.svg
+res/graphics/recycling/plastic_packaging.svg
+res/graphics/recycling/scrap_metal.svg
+res/graphics/recycling/shoes.svg
+res/graphics/recycling/small_electrical_appliances.svg
+res/graphics/religion/bahai.svg
+res/graphics/religion/buddhist.svg
+res/graphics/religion/caodaist.svg
+res/graphics/religion/chinese_folk.svg
+res/graphics/religion/christian.svg
+res/graphics/religion/confucian.svg
+res/graphics/religion/confucian2.svg
+res/graphics/religion/hindu.svg
+res/graphics/religion/jain.svg
+res/graphics/religion/jewish.svg
+res/graphics/religion/muslim.svg
+res/graphics/religion/shinto.svg
+res/graphics/religion/sikh.svg
+res/graphics/religion/taoist.svg
+res/graphics/roof shape/cone.svg
+res/graphics/roof shape/dome.svg
+res/graphics/roof shape/double_saltbox.svg
+res/graphics/roof shape/double_saltbox_across.svg
+res/graphics/roof shape/flat.svg
+res/graphics/roof shape/gabled.svg
+res/graphics/roof shape/gabled_across.svg
+res/graphics/roof shape/gambrel.svg
+res/graphics/roof shape/gambrel_across.svg
+res/graphics/roof shape/half_hipped.svg
+res/graphics/roof shape/half_hipped_across.svg
+res/graphics/roof shape/hipped.svg
+res/graphics/roof shape/mansard.svg
+res/graphics/roof shape/onion.svg
+res/graphics/roof shape/pyramidal.svg
+res/graphics/roof shape/pyramidal_diagonal.svg
+res/graphics/roof shape/quadruple_saltbox.svg
+res/graphics/roof shape/round.svg
+res/graphics/roof shape/round_across.svg
+res/graphics/roof shape/round_gabled.svg
+res/graphics/roof shape/round_gabled_across.svg
+res/graphics/roof shape/round_hipped.svg
+res/graphics/roof shape/round_pyramidal.svg
+res/graphics/roof shape/round_skillion_east.svg
+res/graphics/roof shape/round_skillion_north.svg
+res/graphics/roof shape/round_skillion_south.svg
+res/graphics/roof shape/round_skillion_west.svg
+res/graphics/roof shape/saltbox.svg
+res/graphics/roof shape/saltbox_across.svg
+res/graphics/roof shape/skillion_east.svg
+res/graphics/roof shape/skillion_north.svg
+res/graphics/roof shape/skillion_south.svg
+res/graphics/roof shape/skillion_west.svg
+res/graphics/royal cypher/CIIIR.svg
+res/graphics/royal cypher/EIIR.svg
+res/graphics/royal cypher/EVIIIR.svg
+res/graphics/royal cypher/EVIIR.svg
+res/graphics/royal cypher/GR.svg
+res/graphics/royal cypher/GVIR.svg
+res/graphics/royal cypher/Scottish_Crown.svg
+res/graphics/royal cypher/VR.svg
+res/graphics/sanitary dump station/sign1.svg
+res/graphics/sanitary dump station/sign2.svg
+res/graphics/shelter_capacity/sleeping_bag.svg
+res/graphics/shoulder/no.svg
+res/graphics/shoulder/short_white_dashes.svg
+res/graphics/shoulder/two_yellow_lines.svg
+res/graphics/shoulder/white_dashes.svg
+res/graphics/shoulder/white_line.svg
+res/graphics/sidewalk/illustration_no.svg
+res/graphics/sidewalk/illustration_yes.svg
+res/graphics/sidewalk/no.svg
+res/graphics/sidewalk/no_floating.svg
+res/graphics/sidewalk/separate.svg
+res/graphics/sidewalk/separate_floating.svg
+res/graphics/sidewalk/yes.svg
+res/graphics/slow zone/slow_zone_us.svg
+res/graphics/smoothness/car.svg
+res/graphics/smoothness/city_bike.svg
+res/graphics/smoothness/pedestrian.svg
+res/graphics/smoothness/pickup_truck.svg
+res/graphics/smoothness/scooter.svg
+res/graphics/smoothness/skateboard.svg
+res/graphics/smoothness/suv.svg
+res/graphics/smoothness/tractor.svg
+res/graphics/speech bubbles/speech_bubble_none.9.svg
+res/graphics/speech bubbles/speech_bubble_top.9.svg
+res/graphics/split way/scissors.svg
+res/graphics/split way/scissors_cut.svg
+res/graphics/split way/scissors_upright.svg
+res/graphics/sport/american_football.svg
+res/graphics/sport/archery.svg
+res/graphics/sport/athletics.svg
+res/graphics/sport/australian_football.svg
+res/graphics/sport/badminton.svg
+res/graphics/sport/baseball.svg
+res/graphics/sport/basketball.svg
+res/graphics/sport/beach_volleyball.svg
+res/graphics/sport/boules.svg
+res/graphics/sport/bowls.svg
+res/graphics/sport/canadian_football.svg
+res/graphics/sport/cricket.svg
+res/graphics/sport/equestrian.svg
+res/graphics/sport/field_hockey.svg
+res/graphics/sport/gaelic_games.svg
+res/graphics/sport/golf.svg
+res/graphics/sport/gymnastics.svg
+res/graphics/sport/handball.svg
+res/graphics/sport/ice_hockey.svg
+res/graphics/sport/ice_skating.svg
+res/graphics/sport/ice_stock.svg
+res/graphics/sport/netball.svg
+res/graphics/sport/paddle_tennis.svg
+res/graphics/sport/racquetball.svg
+res/graphics/sport/roller_skating.svg
+res/graphics/sport/rugby.svg
+res/graphics/sport/sepak_takraw.svg
+res/graphics/sport/shooting.svg
+res/graphics/sport/skateboard.svg
+res/graphics/sport/soccer.svg
+res/graphics/sport/softball.svg
+res/graphics/sport/squash.svg
+res/graphics/sport/table_tennis.svg
+res/graphics/sport/tennis.svg
+res/graphics/sport/volleyball.svg
+res/graphics/step count/step.svg
+res/graphics/steps incline/up.svg
+res/graphics/steps incline/up_reversed.svg
+res/graphics/street parking/alternate side parking sign/alternate_parking_on_days.svg
+res/graphics/street parking/alternate side parking sign/no_parking_on_even_days.svg
+res/graphics/street parking/alternate side parking sign/no_parking_on_odd_days.svg
+res/graphics/street parking/bi-weekly no parking sign/no_parking_first_half_of_month.svg
+res/graphics/street parking/bi-weekly no parking sign/no_parking_second_half_of_month.svg
+res/graphics/street parking/fat_footnote.svg
+res/graphics/street parking/no parking sign/australia.svg
+res/graphics/street parking/no parking sign/mutcd.svg
+res/graphics/street parking/no parking sign/mutcd_latin.svg
+res/graphics/street parking/no parking sign/mutcd_text.svg
+res/graphics/street parking/no parking sign/mutcd_text_spanish.svg
+res/graphics/street parking/no parking sign/sadc.svg
+res/graphics/street parking/no parking sign/taiwan.svg
+res/graphics/street parking/no parking sign/vienna.svg
+res/graphics/street parking/no standing sign/mutcd_text_standing.svg
+res/graphics/street parking/no standing sign/mutcd_text_waiting.svg
+res/graphics/street parking/no stopping sign/australia.svg
+res/graphics/street parking/no stopping sign/canada.svg
+res/graphics/street parking/no stopping sign/colombia.svg
+res/graphics/street parking/no stopping sign/israel.svg
+res/graphics/street parking/no stopping sign/mutcd.svg
+res/graphics/street parking/no stopping sign/mutcd_latin.svg
+res/graphics/street parking/no stopping sign/mutcd_text.svg
+res/graphics/street parking/no stopping sign/mutcd_text_spanish.svg
+res/graphics/street parking/no stopping sign/sadc.svg
+res/graphics/street parking/no stopping sign/vienna.svg
+res/graphics/street parking/no.svg
+res/graphics/street parking/separate.svg
+res/graphics/street parking/street edge marking/double_yellow_zig_zag.svg
+res/graphics/street parking/street edge marking/red.svg
+res/graphics/street parking/street edge marking/red_double.svg
+res/graphics/street parking/street edge marking/red_on_curb.svg
+res/graphics/street parking/street edge marking/yellow_dash_x.svg
+res/graphics/street parking/street edge marking/yellow_dashes.svg
+res/graphics/street parking/street edge marking/yellow_dashes_on_curb.svg
+res/graphics/street parking/street edge marking/yellow_white_dashes_on_curb.svg
+res/graphics/street parking/street edge marking/yellow_zig_zag.svg
+res/graphics/street parking/street.svg
+res/graphics/street parking/street_broad.svg
+res/graphics/street parking/street_marked_parking_diagonal.svg
+res/graphics/street parking/street_marked_parking_parallel.svg
+res/graphics/street parking/street_marked_parking_perpendicular.svg
+res/graphics/street parking/street_narrow.svg
+res/graphics/street parking/street_none.svg
+res/graphics/street parking/street_parking_bays_diagonal.svg
+res/graphics/street parking/street_parking_bays_parallel.svg
+res/graphics/street parking/street_parking_bays_perpendicular.svg
+res/graphics/street parking/street_shoulder.svg
+res/graphics/street parking/street_shoulder_broad.svg
+res/graphics/street parking/street_very_narrow.svg
+res/graphics/surveillance/camera.svg
+res/graphics/surveillance/camera_dome.svg
+res/graphics/surveillance/camera_panning.svg
+res/graphics/traffic lights blind features/arrow.svg
+res/graphics/traffic lights blind features/sound.svg
+res/graphics/traffic lights blind features/vibration.svg
+res/graphics/tutorial/checkmark_circle.svg
+res/graphics/tutorial/logo_osm_magnifier.svg
+res/graphics/tutorial/logo_osm_magnifier_perspective.svg
+res/graphics/tutorial/logo_osm_map.svg
+res/graphics/tutorial/logo_osm_map_lighting.svg
+res/graphics/tutorial/overlay_osm_map.svg
+res/graphics/tutorial/overlay_osm_map_edit.svg
+res/graphics/tutorial/paint_roller.svg
+res/graphics/tutorial/team_size.svg
+res/graphics/undo/delete.svg
+res/graphics/undo/move_node.svg
+res/graphics/undo/split.svg
+res/graphics/undo/visibility.svg
+res/graphics/wheelchair/sign.svg

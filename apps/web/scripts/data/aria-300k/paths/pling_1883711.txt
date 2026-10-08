@@ -1,0 +1,24 @@
+flat-material-icon-theme-1.0/apps/scalable/accessories-calculator.svg
+flat-material-icon-theme-1.0/apps/scalable/accessories-camera.svg
+flat-material-icon-theme-1.0/apps/scalable/activity-log-manager.svg
+flat-material-icon-theme-1.0/apps/scalable/calendar.svg
+flat-material-icon-theme-1.0/apps/scalable/com.gexperts.Tilix.svg
+flat-material-icon-theme-1.0/apps/scalable/firefox.svg
+flat-material-icon-theme-1.0/apps/scalable/libreoffice-calc.svg
+flat-material-icon-theme-1.0/apps/scalable/libreoffice-draw.svg
+flat-material-icon-theme-1.0/apps/scalable/libreoffice-impress.svg
+flat-material-icon-theme-1.0/apps/scalable/libreoffice-main.svg
+flat-material-icon-theme-1.0/apps/scalable/system-file-manager-alternate.svg
+flat-material-icon-theme-1.0/apps/scalable/system-file-manager.svg
+flat-material-icon-theme-1.0/apps/scalable/utilities-terminal.svg
+flat-material-icon-theme-1.0/devices/scalable/drive-harddisk-usb.svg
+flat-material-icon-theme-1.0/devices/scalable/drive-optical.svg
+flat-material-icon-theme-1.0/devices/scalable/drive-removable-media-usb-pendrive.svg
+flat-material-icon-theme-1.0/devices/scalable/drive-removable-media-usb.svg
+flat-material-icon-theme-1.0/places/scalable/folder usar.svg
+flat-material-icon-theme-1.0/places/scalable/folder-download.svg
+flat-material-icon-theme-1.0/places/scalable/folder-open.svg
+flat-material-icon-theme-1.0/places/scalable/folder-recent.svg
+flat-material-icon-theme-1.0/places/scalable/folder-templates.svg
+flat-material-icon-theme-1.0/places/scalable/home.svg
+flat-material-icon-theme-1.0/places/scalable/user-desktop.svg

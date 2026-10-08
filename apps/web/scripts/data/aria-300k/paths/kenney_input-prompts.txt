@@ -1,0 +1,669 @@
+Flairs/Vector/controller_battery_empty.svg
+Flairs/Vector/controller_connecting_a.svg
+Flairs/Vector/controller_connecting_b.svg
+Flairs/Vector/controller_disconnected.svg
+Flairs/Vector/controller_generic.svg
+Flairs/Vector/controller_icon_battery_empty.svg
+Flairs/Vector/controller_icon_connecting_a.svg
+Flairs/Vector/controller_icon_connecting_b.svg
+Flairs/Vector/flair_arrow_0.svg
+Flairs/Vector/flair_arrow_1.svg
+Flairs/Vector/flair_arrow_2.svg
+Flairs/Vector/flair_arrow_3.svg
+Flairs/Vector/flair_arrow_backforth.svg
+Flairs/Vector/flair_arrow_center_0.svg
+Flairs/Vector/flair_arrow_center_1.svg
+Flairs/Vector/flair_arrow_center_2.svg
+Flairs/Vector/flair_arrow_center_3.svg
+Flairs/Vector/flair_arrow_long.svg
+Flairs/Vector/flair_arrow_short.svg
+Flairs/Vector/flair_arrow_z.svg
+Flairs/Vector/flair_arrows_diagonal_all.svg
+Flairs/Vector/flair_arrows_diagonal_left.svg
+Flairs/Vector/flair_arrows_diagonal_right.svg
+Flairs/Vector/flair_arrows_down.svg
+Flairs/Vector/flair_arrows_horizontal.svg
+Flairs/Vector/flair_arrows_left.svg
+Flairs/Vector/flair_arrows_right.svg
+Flairs/Vector/flair_arrows_up.svg
+Flairs/Vector/flair_arrows_vertical.svg
+Flairs/Vector/flair_circle_2.svg
+Flairs/Vector/flair_circle_4.svg
+Flairs/Vector/flair_circle_6.svg
+Flairs/Vector/flair_circle_target_a.svg
+Flairs/Vector/flair_circle_target_b.svg
+Flairs/Vector/flair_disabled_outline.svg
+Flairs/Vector/flair_number_0.svg
+Flairs/Vector/flair_number_0_outline.svg
+Flairs/Vector/flair_number_1.svg
+Flairs/Vector/flair_number_1_outline.svg
+Flairs/Vector/flair_number_2.svg
+Flairs/Vector/flair_number_2_outline.svg
+Flairs/Vector/flair_number_3.svg
+Flairs/Vector/flair_number_3_outline.svg
+Flairs/Vector/flair_number_4.svg
+Flairs/Vector/flair_number_4_outline.svg
+Flairs/Vector/flair_number_5.svg
+Flairs/Vector/flair_number_5_outline.svg
+Flairs/Vector/flair_number_6.svg
+Flairs/Vector/flair_number_6_outline.svg
+Flairs/Vector/flair_number_7.svg
+Flairs/Vector/flair_number_7_outline.svg
+Flairs/Vector/flair_number_8.svg
+Flairs/Vector/flair_number_8_outline.svg
+Flairs/Vector/flair_number_9.svg
+Flairs/Vector/flair_number_9_outline.svg
+Flairs/Vector/flair_small_cross_outline.svg
+Flairs/Vector/flair_small_info.svg
+Flairs/Vector/flair_small_rotate.svg
+Flairs/Vector/flair_small_rotate_outline.svg
+Generic/Vector/generic_button.svg
+Generic/Vector/generic_button_finger.svg
+Generic/Vector/generic_button_finger_pressed.svg
+Generic/Vector/generic_button_pressed.svg
+Generic/Vector/generic_button_trigger_a.svg
+Generic/Vector/generic_button_trigger_a_fill.svg
+Generic/Vector/generic_button_trigger_a_outline.svg
+Generic/Vector/generic_button_trigger_b.svg
+Generic/Vector/generic_button_trigger_b_fill.svg
+Generic/Vector/generic_button_trigger_b_outline.svg
+Generic/Vector/generic_button_trigger_c_fill.svg
+Generic/Vector/generic_button_trigger_c_outline.svg
+Generic/Vector/generic_joystick.svg
+Generic/Vector/generic_joystick_horizontal.svg
+Generic/Vector/generic_joystick_left.svg
+Generic/Vector/generic_joystick_red_right.svg
+Keyboard & Mouse/Vector/keyboard.svg
+Keyboard & Mouse/Vector/keyboard_0.svg
+Keyboard & Mouse/Vector/keyboard_5.svg
+Keyboard & Mouse/Vector/keyboard_6.svg
+Keyboard & Mouse/Vector/keyboard_alt.svg
+Keyboard & Mouse/Vector/keyboard_alt_outline.svg
+Keyboard & Mouse/Vector/keyboard_any.svg
+Keyboard & Mouse/Vector/keyboard_arrow_right_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows.svg
+Keyboard & Mouse/Vector/keyboard_arrows_down_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows_horizontal_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows_left_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows_none.svg
+Keyboard & Mouse/Vector/keyboard_arrows_right_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows_up_outline.svg
+Keyboard & Mouse/Vector/keyboard_arrows_vertical_outline.svg
+Keyboard & Mouse/Vector/keyboard_b.svg
+Keyboard & Mouse/Vector/keyboard_backspace.svg
+Keyboard & Mouse/Vector/keyboard_backspace_icon.svg
+Keyboard & Mouse/Vector/keyboard_backspace_icon_alternative.svg
+Keyboard & Mouse/Vector/keyboard_backspace_icon_alternative_outline.svg
+Keyboard & Mouse/Vector/keyboard_backspace_icon_outline.svg
+Keyboard & Mouse/Vector/keyboard_backspace_outline.svg
+Keyboard & Mouse/Vector/keyboard_capslock.svg
+Keyboard & Mouse/Vector/keyboard_capslock_icon.svg
+Keyboard & Mouse/Vector/keyboard_capslock_icon_outline.svg
+Keyboard & Mouse/Vector/keyboard_capslock_outline.svg
+Keyboard & Mouse/Vector/keyboard_command.svg
+Keyboard & Mouse/Vector/keyboard_command_outline.svg
+Keyboard & Mouse/Vector/keyboard_ctrl.svg
+Keyboard & Mouse/Vector/keyboard_ctrl_outline.svg
+Keyboard & Mouse/Vector/keyboard_d.svg
+Keyboard & Mouse/Vector/keyboard_delete.svg
+Keyboard & Mouse/Vector/keyboard_delete_outline.svg
+Keyboard & Mouse/Vector/keyboard_e_outline.svg
+Keyboard & Mouse/Vector/keyboard_end.svg
+Keyboard & Mouse/Vector/keyboard_enter.svg
+Keyboard & Mouse/Vector/keyboard_enter_outline.svg
+Keyboard & Mouse/Vector/keyboard_escape_outline.svg
+Keyboard & Mouse/Vector/keyboard_f.svg
+Keyboard & Mouse/Vector/keyboard_f1.svg
+Keyboard & Mouse/Vector/keyboard_f10.svg
+Keyboard & Mouse/Vector/keyboard_f10_outline.svg
+Keyboard & Mouse/Vector/keyboard_f11.svg
+Keyboard & Mouse/Vector/keyboard_f11_outline.svg
+Keyboard & Mouse/Vector/keyboard_f12.svg
+Keyboard & Mouse/Vector/keyboard_f12_outline.svg
+Keyboard & Mouse/Vector/keyboard_f1_outline.svg
+Keyboard & Mouse/Vector/keyboard_f2.svg
+Keyboard & Mouse/Vector/keyboard_f2_outline.svg
+Keyboard & Mouse/Vector/keyboard_f4_outline.svg
+Keyboard & Mouse/Vector/keyboard_f5.svg
+Keyboard & Mouse/Vector/keyboard_f5_outline.svg
+Keyboard & Mouse/Vector/keyboard_f7.svg
+Keyboard & Mouse/Vector/keyboard_f7_outline.svg
+Keyboard & Mouse/Vector/keyboard_f9.svg
+Keyboard & Mouse/Vector/keyboard_f9_outline.svg
+Keyboard & Mouse/Vector/keyboard_function.svg
+Keyboard & Mouse/Vector/keyboard_function_outline.svg
+Keyboard & Mouse/Vector/keyboard_g.svg
+Keyboard & Mouse/Vector/keyboard_h.svg
+Keyboard & Mouse/Vector/keyboard_home.svg
+Keyboard & Mouse/Vector/keyboard_home_outline.svg
+Keyboard & Mouse/Vector/keyboard_insert.svg
+Keyboard & Mouse/Vector/keyboard_insert_outline.svg
+Keyboard & Mouse/Vector/keyboard_k.svg
+Keyboard & Mouse/Vector/keyboard_k_outline.svg
+Keyboard & Mouse/Vector/keyboard_m.svg
+Keyboard & Mouse/Vector/keyboard_numlock.svg
+Keyboard & Mouse/Vector/keyboard_numlock_outline.svg
+Keyboard & Mouse/Vector/keyboard_numpad_enter.svg
+Keyboard & Mouse/Vector/keyboard_numpad_enter_outline.svg
+Keyboard & Mouse/Vector/keyboard_numpad_plus_outline.svg
+Keyboard & Mouse/Vector/keyboard_option.svg
+Keyboard & Mouse/Vector/keyboard_option_outline.svg
+Keyboard & Mouse/Vector/keyboard_outline.svg
+Keyboard & Mouse/Vector/keyboard_p_outline.svg
+Keyboard & Mouse/Vector/keyboard_page_down.svg
+Keyboard & Mouse/Vector/keyboard_page_down_outline.svg
+Keyboard & Mouse/Vector/keyboard_page_up.svg
+Keyboard & Mouse/Vector/keyboard_page_up_outline.svg
+Keyboard & Mouse/Vector/keyboard_pause_break.svg
+Keyboard & Mouse/Vector/keyboard_pause_break_outline.svg
+Keyboard & Mouse/Vector/keyboard_pause_outline.svg
+Keyboard & Mouse/Vector/keyboard_printscreen.svg
+Keyboard & Mouse/Vector/keyboard_printscreen_outline.svg
+Keyboard & Mouse/Vector/keyboard_question.svg
+Keyboard & Mouse/Vector/keyboard_quote.svg
+Keyboard & Mouse/Vector/keyboard_quote_outline.svg
+Keyboard & Mouse/Vector/keyboard_return.svg
+Keyboard & Mouse/Vector/keyboard_return_outline.svg
+Keyboard & Mouse/Vector/keyboard_scroll_lock.svg
+Keyboard & Mouse/Vector/keyboard_scroll_lock_outline.svg
+Keyboard & Mouse/Vector/keyboard_shift.svg
+Keyboard & Mouse/Vector/keyboard_shift_outline.svg
+Keyboard & Mouse/Vector/keyboard_space.svg
+Keyboard & Mouse/Vector/keyboard_space_outline.svg
+Keyboard & Mouse/Vector/keyboard_tab.svg
+Keyboard & Mouse/Vector/keyboard_tab_icon.svg
+Keyboard & Mouse/Vector/keyboard_tab_icon_outline.svg
+Keyboard & Mouse/Vector/keyboard_tab_outline.svg
+Keyboard & Mouse/Vector/keyboard_u.svg
+Keyboard & Mouse/Vector/keyboard_v.svg
+Keyboard & Mouse/Vector/keyboard_w.svg
+Keyboard & Mouse/Vector/keyboard_w_outline.svg
+Keyboard & Mouse/Vector/keyboard_win_outline.svg
+Keyboard & Mouse/Vector/keyboard_z.svg
+Keyboard & Mouse/Vector/mouse.svg
+Keyboard & Mouse/Vector/mouse_horizontal.svg
+Keyboard & Mouse/Vector/mouse_left_outline.svg
+Keyboard & Mouse/Vector/mouse_move.svg
+Keyboard & Mouse/Vector/mouse_outline.svg
+Keyboard & Mouse/Vector/mouse_right_outline.svg
+Keyboard & Mouse/Vector/mouse_scroll_down.svg
+Keyboard & Mouse/Vector/mouse_scroll_down_outline.svg
+Keyboard & Mouse/Vector/mouse_scroll_outline.svg
+Keyboard & Mouse/Vector/mouse_scroll_up.svg
+Keyboard & Mouse/Vector/mouse_scroll_up_outline.svg
+Keyboard & Mouse/Vector/mouse_scroll_vertical.svg
+Keyboard & Mouse/Vector/mouse_scroll_vertical_outline.svg
+Keyboard & Mouse/Vector/mouse_side.svg
+Keyboard & Mouse/Vector/mouse_side_back_outline.svg
+Keyboard & Mouse/Vector/mouse_side_forward_outline.svg
+Keyboard & Mouse/Vector/mouse_small.svg
+Keyboard & Mouse/Vector/mouse_vertical.svg
+Meta Quest/Vector/controller_quest_left.svg
+Meta Quest/Vector/controller_quest_left_letter.svg
+Meta Quest/Vector/controller_quest_right.svg
+Meta Quest/Vector/controller_quest_right_letter.svg
+Meta Quest/Vector/controller_quest_touch_plus_left.svg
+Meta Quest/Vector/controller_quest_touch_plus_right.svg
+Meta Quest/Vector/quest_button_meta.svg
+Meta Quest/Vector/quest_button_meta_outline.svg
+Meta Quest/Vector/quest_button_oculus_outline.svg
+Meta Quest/Vector/quest_grip_left.svg
+Meta Quest/Vector/quest_grip_left_outline.svg
+Meta Quest/Vector/quest_grip_right.svg
+Meta Quest/Vector/quest_grip_right_outline.svg
+Meta Quest/Vector/quest_trigger_left.svg
+Meta Quest/Vector/quest_trigger_left_outline.svg
+Meta Quest/Vector/quest_trigger_right.svg
+Meta Quest/Vector/quest_trigger_right_outline.svg
+Nintendo Gamecube/Vector/gamecube_button_color_b.svg
+Nintendo Gamecube/Vector/gamecube_button_start.svg
+Nintendo Gamecube/Vector/gamecube_button_start_outline.svg
+Nintendo Gamecube/Vector/gamecube_button_x.svg
+Nintendo Gamecube/Vector/gamecube_button_x_outline.svg
+Nintendo Gamecube/Vector/gamecube_button_x_tilted.svg
+Nintendo Gamecube/Vector/gamecube_button_x_tilted_outline.svg
+Nintendo Gamecube/Vector/gamecube_button_y_tilted.svg
+Nintendo Gamecube/Vector/gamecube_button_y_tilted_outline.svg
+Nintendo Gamecube/Vector/gamecube_button_z.svg
+Nintendo Gamecube/Vector/gamecube_button_z_outline.svg
+Nintendo Gamecube/Vector/gamecube_controller.svg
+Nintendo Gamecube/Vector/gamecube_controller_wavebird.svg
+Nintendo Gamecube/Vector/gamecube_stick_c.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_down.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_horizontal.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_left.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_right.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_top.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_up.svg
+Nintendo Gamecube/Vector/gamecube_stick_c_color_vertical.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_down.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_horizontal.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_left.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_right.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_top.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_up.svg
+Nintendo Gamecube/Vector/gamecube_stick_grip_vertical.svg
+Nintendo Gamecube/Vector/gamecube_trigger_l.svg
+Nintendo Gamecube/Vector/gamecube_trigger_l_outline.svg
+Nintendo Gamecube/Vector/gamecube_trigger_r.svg
+Nintendo Gamecube/Vector/gamecube_trigger_r_outline.svg
+Nintendo Switch 2/Vector/controller_switch_joycon_down.svg
+Nintendo Switch 2/Vector/controller_switch_joycon_up.svg
+Nintendo Switch 2/Vector/controller_switch_pro.svg
+Nintendo Switch 2/Vector/switch_button_gl.svg
+Nintendo Switch 2/Vector/switch_button_gl_outline.svg
+Nintendo Switch 2/Vector/switch_button_gr.svg
+Nintendo Switch 2/Vector/switch_button_gr_outline.svg
+Nintendo Switch 2/Vector/switch_button_zl.svg
+Nintendo Switch 2/Vector/switch_button_zl_outline.svg
+Nintendo Switch 2/Vector/switch_button_zr.svg
+Nintendo Switch 2/Vector/switch_button_zr_outline.svg
+Nintendo Switch 2/Vector/switch_joycon_left_mouse.svg
+Nintendo Switch 2/Vector/switch_joycon_left_mouse_outline.svg
+Nintendo Switch 2/Vector/switch_joycon_right_mouse.svg
+Nintendo Switch 2/Vector/switch_joycon_right_mouse_outline.svg
+Nintendo Switch/Vector/controller_switch.svg
+Nintendo Switch/Vector/controller_switch_joycon_down.svg
+Nintendo Switch/Vector/controller_switch_joycon_up.svg
+Nintendo Switch/Vector/switch_button_home.svg
+Nintendo Switch/Vector/switch_button_home_outline.svg
+Nintendo Switch/Vector/switch_button_l_outline.svg
+Nintendo Switch/Vector/switch_button_r.svg
+Nintendo Switch/Vector/switch_button_r_outline.svg
+Nintendo Switch/Vector/switch_button_sl.svg
+Nintendo Switch/Vector/switch_button_sl_outline.svg
+Nintendo Switch/Vector/switch_button_sr.svg
+Nintendo Switch/Vector/switch_button_sr_outline.svg
+Nintendo Switch/Vector/switch_button_zl.svg
+Nintendo Switch/Vector/switch_button_zl_outline.svg
+Nintendo Switch/Vector/switch_button_zr.svg
+Nintendo Switch/Vector/switch_button_zr_outline.svg
+Nintendo Switch/Vector/switch_buttons_down_outline.svg
+Nintendo Switch/Vector/switch_buttons_horizontal_outline.svg
+Nintendo Switch/Vector/switch_buttons_left_outline.svg
+Nintendo Switch/Vector/switch_buttons_none.svg
+Nintendo Switch/Vector/switch_buttons_right_outline.svg
+Nintendo Switch/Vector/switch_buttons_up_outline.svg
+Nintendo Switch/Vector/switch_buttons_vertical_outline.svg
+Nintendo Switch/Vector/switch_dpad.svg
+Nintendo Switch/Vector/switch_dpad_all.svg
+Nintendo Switch/Vector/switch_dpad_down_outline.svg
+Nintendo Switch/Vector/switch_dpad_horizontal.svg
+Nintendo Switch/Vector/switch_dpad_horizontal_outline.svg
+Nintendo Switch/Vector/switch_dpad_left_outline.svg
+Nintendo Switch/Vector/switch_dpad_right_outline.svg
+Nintendo Switch/Vector/switch_dpad_up_outline.svg
+Nintendo Switch/Vector/switch_dpad_vertical.svg
+Nintendo Switch/Vector/switch_dpad_vertical_outline.svg
+Nintendo Switch/Vector/switch_joycon.svg
+Nintendo Switch/Vector/switch_joycon_left.svg
+Nintendo Switch/Vector/switch_joycon_left_diagonal.svg
+Nintendo Switch/Vector/switch_joycon_left_diagonal_outline.svg
+Nintendo Switch/Vector/switch_joycon_left_horizontal.svg
+Nintendo Switch/Vector/switch_joycon_left_horizontal_outline.svg
+Nintendo Switch/Vector/switch_joycon_left_outline.svg
+Nintendo Switch/Vector/switch_joycon_left_rotate.svg
+Nintendo Switch/Vector/switch_joycon_left_rotate_outline.svg
+Nintendo Switch/Vector/switch_joycon_left_vertical.svg
+Nintendo Switch/Vector/switch_joycon_left_vertical_outline.svg
+Nintendo Switch/Vector/switch_joycon_outline.svg
+Nintendo Switch/Vector/switch_joycon_right.svg
+Nintendo Switch/Vector/switch_joycon_right_diagonal.svg
+Nintendo Switch/Vector/switch_joycon_right_diagonal_outline.svg
+Nintendo Switch/Vector/switch_joycon_right_horizontal.svg
+Nintendo Switch/Vector/switch_joycon_right_horizontal_outline.svg
+Nintendo Switch/Vector/switch_joycon_right_outline.svg
+Nintendo Switch/Vector/switch_joycon_right_rotate.svg
+Nintendo Switch/Vector/switch_joycon_right_rotate_outline.svg
+Nintendo Switch/Vector/switch_joycon_right_vertical.svg
+Nintendo Switch/Vector/switch_joycon_right_vertical_outline.svg
+Nintendo Switch/Vector/switch_stick_l_press.svg
+Nintendo Switch/Vector/switch_stick_r.svg
+Nintendo Switch/Vector/switch_stick_r_down.svg
+Nintendo Switch/Vector/switch_stick_r_press.svg
+Nintendo Switch/Vector/switch_stick_r_up.svg
+Nintendo Switch/Vector/switch_stick_r_vertical.svg
+Nintendo Switch/Vector/switch_stick_side_l.svg
+Nintendo Switch/Vector/switch_stick_side_r.svg
+Nintendo Switch/Vector/switch_stick_top_l.svg
+Nintendo Wii/Vector/controller_wii_classic.svg
+Nintendo Wii/Vector/controller_wii_classic_pro.svg
+Nintendo Wii/Vector/wii_button_l.svg
+Nintendo Wii/Vector/wii_button_l_outline.svg
+Nintendo Wii/Vector/wii_button_power.svg
+Nintendo Wii/Vector/wii_button_power_outline.svg
+Nintendo Wii/Vector/wii_button_r.svg
+Nintendo Wii/Vector/wii_button_r_outline.svg
+Nintendo Wii/Vector/wii_button_z.svg
+Nintendo Wii/Vector/wii_button_z_outline.svg
+Nintendo Wii/Vector/wii_button_zl.svg
+Nintendo Wii/Vector/wii_button_zl_outline.svg
+Nintendo Wii/Vector/wii_button_zr.svg
+Nintendo Wii/Vector/wii_button_zr_outline.svg
+Nintendo Wii/Vector/wii_controller.svg
+Nintendo Wii/Vector/wii_controller_diagonal.svg
+Nintendo Wii/Vector/wii_controller_diagonal_outline.svg
+Nintendo Wii/Vector/wii_controller_horizontal.svg
+Nintendo Wii/Vector/wii_controller_horizontal_outline.svg
+Nintendo Wii/Vector/wii_controller_nunchuk.svg
+Nintendo Wii/Vector/wii_controller_nunchuk_wire.svg
+Nintendo Wii/Vector/wii_controller_outline.svg
+Nintendo Wii/Vector/wii_controller_rotate.svg
+Nintendo Wii/Vector/wii_controller_rotate_outline.svg
+Nintendo Wii/Vector/wii_controller_vertical.svg
+Nintendo Wii/Vector/wii_controller_vertical_outline.svg
+Nintendo Wii/Vector/wii_dpad.svg
+Nintendo Wii/Vector/wii_dpad_down_outline.svg
+Nintendo Wii/Vector/wii_dpad_horizontal_outline.svg
+Nintendo Wii/Vector/wii_dpad_left_outline.svg
+Nintendo Wii/Vector/wii_dpad_none.svg
+Nintendo Wii/Vector/wii_dpad_right_outline.svg
+Nintendo Wii/Vector/wii_dpad_up_outline.svg
+Nintendo Wii/Vector/wii_dpad_vertical_outline.svg
+Nintendo WiiU/Vector/controller_wiiu_pro.svg
+Nintendo WiiU/Vector/wiiu_button_l.svg
+Nintendo WiiU/Vector/wiiu_button_l_outline.svg
+Nintendo WiiU/Vector/wiiu_button_r.svg
+Nintendo WiiU/Vector/wiiu_button_r_outline.svg
+Nintendo WiiU/Vector/wiiu_button_tv_outline.svg
+Nintendo WiiU/Vector/wiiu_button_zl.svg
+Nintendo WiiU/Vector/wiiu_button_zl_outline.svg
+Nintendo WiiU/Vector/wiiu_button_zr.svg
+Nintendo WiiU/Vector/wiiu_button_zr_outline.svg
+Nintendo WiiU/Vector/wiiu_controller.svg
+Nintendo WiiU/Vector/wiiu_controller_down.svg
+Nintendo WiiU/Vector/wiiu_controller_down_outline.svg
+Nintendo WiiU/Vector/wiiu_controller_outline.svg
+Nintendo WiiU/Vector/wiiu_controller_up.svg
+Nintendo WiiU/Vector/wiiu_controller_up_outlnie.svg
+PlayStation Series/Vector/controller_playstation1.svg
+PlayStation Series/Vector/controller_playstation2.svg
+PlayStation Series/Vector/controller_playstation4.svg
+PlayStation Series/Vector/controller_playstation5.svg
+PlayStation Series/Vector/playstation3_button_select.svg
+PlayStation Series/Vector/playstation3_button_select_outline.svg
+PlayStation Series/Vector/playstation3_button_start.svg
+PlayStation Series/Vector/playstation3_button_start_outline.svg
+PlayStation Series/Vector/playstation4_button_options.svg
+PlayStation Series/Vector/playstation4_button_options_outline.svg
+PlayStation Series/Vector/playstation4_button_share.svg
+PlayStation Series/Vector/playstation4_button_share_outline.svg
+PlayStation Series/Vector/playstation4_touchpad_grid.svg
+PlayStation Series/Vector/playstation4_touchpad_grid_outline.svg
+PlayStation Series/Vector/playstation4_touchpad_press.svg
+PlayStation Series/Vector/playstation4_touchpad_press_center.svg
+PlayStation Series/Vector/playstation4_touchpad_press_left.svg
+PlayStation Series/Vector/playstation4_touchpad_press_right.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_down.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_horizontal.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_left.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_right.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_up.svg
+PlayStation Series/Vector/playstation4_touchpad_swipe_vertical.svg
+PlayStation Series/Vector/playstation4_touchpad_touch.svg
+PlayStation Series/Vector/playstation4_touchpad_touch_outline.svg
+PlayStation Series/Vector/playstation5_button_create.svg
+PlayStation Series/Vector/playstation5_button_create_alternative.svg
+PlayStation Series/Vector/playstation5_button_create_alternative_outline.svg
+PlayStation Series/Vector/playstation5_button_create_outline.svg
+PlayStation Series/Vector/playstation5_button_mute.svg
+PlayStation Series/Vector/playstation5_button_mute_outline.svg
+PlayStation Series/Vector/playstation5_button_options.svg
+PlayStation Series/Vector/playstation5_button_options_alternative.svg
+PlayStation Series/Vector/playstation5_button_options_alternative_outline.svg
+PlayStation Series/Vector/playstation5_button_options_outline.svg
+PlayStation Series/Vector/playstation5_elite_fn_l.svg
+PlayStation Series/Vector/playstation5_elite_fn_l_outline.svg
+PlayStation Series/Vector/playstation5_elite_fn_r.svg
+PlayStation Series/Vector/playstation5_elite_fn_r_outline.svg
+PlayStation Series/Vector/playstation5_elite_lb.svg
+PlayStation Series/Vector/playstation5_elite_lb_outline.svg
+PlayStation Series/Vector/playstation5_elite_rb.svg
+PlayStation Series/Vector/playstation5_elite_rb_outline.svg
+PlayStation Series/Vector/playstation5_touchpad.svg
+PlayStation Series/Vector/playstation5_touchpad_outline.svg
+PlayStation Series/Vector/playstation5_touchpad_press.svg
+PlayStation Series/Vector/playstation5_touchpad_press_center.svg
+PlayStation Series/Vector/playstation5_touchpad_press_left.svg
+PlayStation Series/Vector/playstation5_touchpad_press_right.svg
+PlayStation Series/Vector/playstation5_touchpad_selected.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_down.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_horizontal.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_left.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_right.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_up.svg
+PlayStation Series/Vector/playstation5_touchpad_swipe_vertical.svg
+PlayStation Series/Vector/playstation5_touchpad_touch.svg
+PlayStation Series/Vector/playstation5_touchpad_touch_outline.svg
+PlayStation Series/Vector/playstation_button_analog.svg
+PlayStation Series/Vector/playstation_button_analog_outline.svg
+PlayStation Series/Vector/playstation_button_color_triangle_outline.svg
+PlayStation Series/Vector/playstation_button_l3.svg
+PlayStation Series/Vector/playstation_button_l3_outline.svg
+PlayStation Series/Vector/playstation_button_r3.svg
+PlayStation Series/Vector/playstation_button_r3_outline.svg
+PlayStation Series/Vector/playstation_dpad_all.svg
+PlayStation Series/Vector/playstation_dpad_down_outline.svg
+PlayStation Series/Vector/playstation_dpad_horizontal_outline.svg
+PlayStation Series/Vector/playstation_dpad_left_outline.svg
+PlayStation Series/Vector/playstation_dpad_none.svg
+PlayStation Series/Vector/playstation_dpad_right_outline.svg
+PlayStation Series/Vector/playstation_dpad_up_outline.svg
+PlayStation Series/Vector/playstation_dpad_vertical_outline.svg
+PlayStation Series/Vector/playstation_stick_side_l.svg
+PlayStation Series/Vector/playstation_trigger_l1.svg
+PlayStation Series/Vector/playstation_trigger_l1_alternative.svg
+PlayStation Series/Vector/playstation_trigger_l1_alternative_outline.svg
+PlayStation Series/Vector/playstation_trigger_l1_outline.svg
+PlayStation Series/Vector/playstation_trigger_l2.svg
+PlayStation Series/Vector/playstation_trigger_l2_alternative.svg
+PlayStation Series/Vector/playstation_trigger_l2_alternative_outline.svg
+PlayStation Series/Vector/playstation_trigger_l2_outline.svg
+PlayStation Series/Vector/playstation_trigger_r1.svg
+PlayStation Series/Vector/playstation_trigger_r1_alternative.svg
+PlayStation Series/Vector/playstation_trigger_r1_alternative_outline.svg
+PlayStation Series/Vector/playstation_trigger_r1_outline.svg
+PlayStation Series/Vector/playstation_trigger_r2.svg
+PlayStation Series/Vector/playstation_trigger_r2_alternative.svg
+PlayStation Series/Vector/playstation_trigger_r2_alternative_outline.svg
+PlayStation Series/Vector/playstation_trigger_r2_outline.svg
+Playdate/Vector/playdate_crank.svg
+Playdate/Vector/playdate_crank_clockwise.svg
+Playdate/Vector/playdate_crank_counterclockwise.svg
+Playdate/Vector/playdate_dpad_all.svg
+Playdate/Vector/playdate_dpad_down_outline.svg
+Playdate/Vector/playdate_dpad_horizontal_outline.svg
+Playdate/Vector/playdate_dpad_left_outline.svg
+Playdate/Vector/playdate_dpad_none.svg
+Playdate/Vector/playdate_dpad_right_outline.svg
+Playdate/Vector/playdate_dpad_up_outline.svg
+Playdate/Vector/playdate_dpad_vertical_outline.svg
+Playdate/Vector/playdate_icon.svg
+Playdate/Vector/playdate_icon_crank_outline.svg
+Steam Controller/Vector/controller_button_l1.svg
+Steam Controller/Vector/controller_button_l1_outline.svg
+Steam Controller/Vector/controller_button_l2.svg
+Steam Controller/Vector/controller_button_l2_outline.svg
+Steam Controller/Vector/controller_button_l4.svg
+Steam Controller/Vector/controller_button_l4_outline.svg
+Steam Controller/Vector/controller_button_l5.svg
+Steam Controller/Vector/controller_button_l5_outline.svg
+Steam Controller/Vector/controller_button_options.svg
+Steam Controller/Vector/controller_button_options_outline.svg
+Steam Controller/Vector/controller_button_quickaccess.svg
+Steam Controller/Vector/controller_button_quickaccess_outline.svg
+Steam Controller/Vector/controller_button_r1.svg
+Steam Controller/Vector/controller_button_r1_outline.svg
+Steam Controller/Vector/controller_button_r2.svg
+Steam Controller/Vector/controller_button_r2_outline.svg
+Steam Controller/Vector/controller_button_r4.svg
+Steam Controller/Vector/controller_button_r4_outline.svg
+Steam Controller/Vector/controller_button_r5.svg
+Steam Controller/Vector/controller_button_view.svg
+Steam Controller/Vector/controller_button_view_outline.svg
+Steam Controller/Vector/controller_icon_outline.svg
+Steam Controller/Vector/controller_lg.svg
+Steam Controller/Vector/controller_lg_gradient.svg
+Steam Controller/Vector/controller_lg_gradient_outline.svg
+Steam Controller/Vector/controller_lg_outline.svg
+Steam Controller/Vector/controller_rg.svg
+Steam Controller/Vector/controller_rg_gradient.svg
+Steam Controller/Vector/controller_rg_gradient_outline.svg
+Steam Controller/Vector/controller_rg_outline.svg
+Steam Controller/Vector/controller_steam.svg
+Steam Controller/Vector/controller_steam_new.svg
+Steam Controller/Vector/steam_button_back_icon.svg
+Steam Controller/Vector/steam_button_back_icon_outline.svg
+Steam Controller/Vector/steam_button_lp.svg
+Steam Controller/Vector/steam_button_lp_outline.svg
+Steam Controller/Vector/steam_button_rp_outline.svg
+Steam Controller/Vector/steam_button_start_icon.svg
+Steam Controller/Vector/steam_dpad_down.svg
+Steam Controller/Vector/steam_dpad_horizontal.svg
+Steam Controller/Vector/steam_dpad_left.svg
+Steam Controller/Vector/steam_dpad_right.svg
+Steam Controller/Vector/steam_dpad_up.svg
+Steam Controller/Vector/steam_dpad_vertical.svg
+Steam Controller/Vector/steam_lb.svg
+Steam Controller/Vector/steam_lb_outline.svg
+Steam Controller/Vector/steam_lg.svg
+Steam Controller/Vector/steam_lg_outline.svg
+Steam Controller/Vector/steam_lt.svg
+Steam Controller/Vector/steam_lt_outline.svg
+Steam Controller/Vector/steam_pad_down.svg
+Steam Controller/Vector/steam_pad_left.svg
+Steam Controller/Vector/steam_pad_right.svg
+Steam Controller/Vector/steam_pad_up.svg
+Steam Controller/Vector/steam_rb.svg
+Steam Controller/Vector/steam_rb_outline.svg
+Steam Controller/Vector/steam_rg.svg
+Steam Controller/Vector/steam_rg_outline.svg
+Steam Controller/Vector/steam_rt.svg
+Steam Controller/Vector/steam_rt_outline.svg
+Steam Deck/Vector/controller_steamdeck.svg
+Steam Deck/Vector/steamdeck_button_guide_outline.svg
+Steam Deck/Vector/steamdeck_button_l2.svg
+Steam Deck/Vector/steamdeck_button_l2_outline.svg
+Steam Deck/Vector/steamdeck_button_r2.svg
+Steam Deck/Vector/steamdeck_button_r2_outline.svg
+Steam Deck/Vector/steamdeck_dpad_horizontal_outline.svg
+Steam Deck/Vector/steamdeck_dpad_vertical_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_all.svg
+Steam Deck/Vector/steamdeck_trackpad_all_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_down.svg
+Steam Deck/Vector/steamdeck_trackpad_down_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_horizontal.svg
+Steam Deck/Vector/steamdeck_trackpad_horizontal_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_all_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_down.svg
+Steam Deck/Vector/steamdeck_trackpad_l_down_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_horizontal.svg
+Steam Deck/Vector/steamdeck_trackpad_l_horizontal_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_left.svg
+Steam Deck/Vector/steamdeck_trackpad_l_left_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_right.svg
+Steam Deck/Vector/steamdeck_trackpad_l_right_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_up.svg
+Steam Deck/Vector/steamdeck_trackpad_l_up_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_l_vertical.svg
+Steam Deck/Vector/steamdeck_trackpad_l_vertical_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_left.svg
+Steam Deck/Vector/steamdeck_trackpad_left_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_all.svg
+Steam Deck/Vector/steamdeck_trackpad_r_all_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_down.svg
+Steam Deck/Vector/steamdeck_trackpad_r_down_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_horizontal.svg
+Steam Deck/Vector/steamdeck_trackpad_r_horizontal_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_left.svg
+Steam Deck/Vector/steamdeck_trackpad_r_left_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_right.svg
+Steam Deck/Vector/steamdeck_trackpad_r_right_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_up.svg
+Steam Deck/Vector/steamdeck_trackpad_r_up_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_r_vertical.svg
+Steam Deck/Vector/steamdeck_trackpad_r_vertical_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_right.svg
+Steam Deck/Vector/steamdeck_trackpad_right_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_up.svg
+Steam Deck/Vector/steamdeck_trackpad_up_outline.svg
+Steam Deck/Vector/steamdeck_trackpad_vertical_outline.svg
+Steam Frame/Vector/controller_frame_left.svg
+Steam Frame/Vector/controller_frame_left_letter.svg
+Steam Frame/Vector/controller_frame_right.svg
+Steam Frame/Vector/controller_frame_right_letter.svg
+Touch/Vector/touch_finger_one.svg
+Touch/Vector/touch_finger_two.svg
+Touch/Vector/touch_hand_closed.svg
+Touch/Vector/touch_hand_open.svg
+Touch/Vector/touch_rotate_left.svg
+Touch/Vector/touch_rotate_right.svg
+Touch/Vector/touch_swipe_down.svg
+Touch/Vector/touch_swipe_horizontal.svg
+Touch/Vector/touch_swipe_left.svg
+Touch/Vector/touch_swipe_move.svg
+Touch/Vector/touch_swipe_right.svg
+Touch/Vector/touch_swipe_two_down.svg
+Touch/Vector/touch_swipe_two_horizontal.svg
+Touch/Vector/touch_swipe_two_left.svg
+Touch/Vector/touch_swipe_two_move.svg
+Touch/Vector/touch_swipe_two_right.svg
+Touch/Vector/touch_swipe_two_up.svg
+Touch/Vector/touch_swipe_two_vertical.svg
+Touch/Vector/touch_swipe_up.svg
+Touch/Vector/touch_swipe_vertical.svg
+Touch/Vector/touch_tap.svg
+Touch/Vector/touch_tap_double.svg
+Touch/Vector/touch_tap_hold.svg
+Touch/Vector/touch_two.svg
+Touch/Vector/touch_two_double.svg
+Touch/Vector/touch_two_hold.svg
+Touch/Vector/touch_zoom_in.svg
+Touch/Vector/touch_zoom_out.svg
+Valve Index/Vector/controller_index_left.svg
+Valve Index/Vector/controller_index_right.svg
+Valve Index/Vector/index_lt.svg
+Valve Index/Vector/index_lt_outline.svg
+Valve Index/Vector/index_rt.svg
+Valve Index/Vector/index_rt_outline.svg
+Valve Index/Vector/index_track_press.svg
+Xbox Series/Vector/controller_xbox360.svg
+Xbox Series/Vector/controller_xbox_adaptive.svg
+Xbox Series/Vector/controller_xboxone.svg
+Xbox Series/Vector/controller_xboxseries.svg
+Xbox Series/Vector/xbox_button_back.svg
+Xbox Series/Vector/xbox_button_back_outline.svg
+Xbox Series/Vector/xbox_button_share.svg
+Xbox Series/Vector/xbox_button_share_outline.svg
+Xbox Series/Vector/xbox_button_start.svg
+Xbox Series/Vector/xbox_button_start_outline.svg
+Xbox Series/Vector/xbox_button_view.svg
+Xbox Series/Vector/xbox_button_view_outline.svg
+Xbox Series/Vector/xbox_dpad_round.svg
+Xbox Series/Vector/xbox_dpad_round_down.svg
+Xbox Series/Vector/xbox_dpad_round_horizontal.svg
+Xbox Series/Vector/xbox_dpad_round_left.svg
+Xbox Series/Vector/xbox_dpad_round_right.svg
+Xbox Series/Vector/xbox_dpad_round_up.svg
+Xbox Series/Vector/xbox_dpad_round_vertical.svg
+Xbox Series/Vector/xbox_elite_paddle_bottom_left.svg
+Xbox Series/Vector/xbox_elite_paddle_bottom_left_outline.svg
+Xbox Series/Vector/xbox_elite_paddle_bottom_right.svg
+Xbox Series/Vector/xbox_elite_paddle_bottom_right_outline.svg
+Xbox Series/Vector/xbox_elite_paddle_top_left.svg
+Xbox Series/Vector/xbox_elite_paddle_top_left_outline.svg
+Xbox Series/Vector/xbox_elite_paddle_top_right.svg
+Xbox Series/Vector/xbox_elite_paddle_top_right_outline.svg
+Xbox Series/Vector/xbox_guide_outline.svg
+Xbox Series/Vector/xbox_lb.svg
+Xbox Series/Vector/xbox_lb_outline.svg
+Xbox Series/Vector/xbox_ls.svg
+Xbox Series/Vector/xbox_ls_outline.svg
+Xbox Series/Vector/xbox_lt.svg
+Xbox Series/Vector/xbox_lt_outline.svg
+Xbox Series/Vector/xbox_rb.svg
+Xbox Series/Vector/xbox_rb_outline.svg
+Xbox Series/Vector/xbox_rs_outline.svg
+Xbox Series/Vector/xbox_rt.svg
+Xbox Series/Vector/xbox_rt_outline.svg

@@ -1,0 +1,1001 @@
+packages/core/stories/assets/logo.svg
+packages/countries/src/SVG/AD_Andorra.svg
+packages/countries/src/SVG/AD_Andorra_sharp.svg
+packages/countries/src/SVG/AE_United Arab Emirates (the).svg
+packages/countries/src/SVG/AE_United Arab Emirates (the)_sharp.svg
+packages/countries/src/SVG/AF_Afghanistan.svg
+packages/countries/src/SVG/AF_Afghanistan_sharp.svg
+packages/countries/src/SVG/AG_Antigua and Barbuda.svg
+packages/countries/src/SVG/AG_Antigua and Barbuda_sharp.svg
+packages/countries/src/SVG/AI_Anguilla.svg
+packages/countries/src/SVG/AI_Anguilla_sharp.svg
+packages/countries/src/SVG/AL_Albania.svg
+packages/countries/src/SVG/AL_Albania_sharp.svg
+packages/countries/src/SVG/AM_Armenia_sharp.svg
+packages/countries/src/SVG/AO_Angola.svg
+packages/countries/src/SVG/AO_Angola_sharp.svg
+packages/countries/src/SVG/AQ_Antarctica.svg
+packages/countries/src/SVG/AQ_Antarctica_sharp.svg
+packages/countries/src/SVG/AR_Argentina.svg
+packages/countries/src/SVG/AR_Argentina_sharp.svg
+packages/countries/src/SVG/AS_American Samoa.svg
+packages/countries/src/SVG/AS_American Samoa_sharp.svg
+packages/countries/src/SVG/AT_Austria.svg
+packages/countries/src/SVG/AT_Austria_sharp.svg
+packages/countries/src/SVG/AU_Australia.svg
+packages/countries/src/SVG/AU_Australia_sharp.svg
+packages/countries/src/SVG/AW_Aruba.svg
+packages/countries/src/SVG/AW_Aruba_sharp.svg
+packages/countries/src/SVG/AX_Åland Islands.svg
+packages/countries/src/SVG/AX_Åland Islands_sharp.svg
+packages/countries/src/SVG/AZ_Azerbaijan.svg
+packages/countries/src/SVG/AZ_Azerbaijan_sharp.svg
+packages/countries/src/SVG/BA_Bosnia and Herzegovina.svg
+packages/countries/src/SVG/BA_Bosnia and Herzegovina_sharp.svg
+packages/countries/src/SVG/BB_Barbados.svg
+packages/countries/src/SVG/BB_Barbados_sharp.svg
+packages/countries/src/SVG/BD_Bangladesh.svg
+packages/countries/src/SVG/BD_Bangladesh_sharp.svg
+packages/countries/src/SVG/BE_Belgium.svg
+packages/countries/src/SVG/BE_Belgium_sharp.svg
+packages/countries/src/SVG/BF_Burkina Faso.svg
+packages/countries/src/SVG/BF_Burkina Faso_sharp.svg
+packages/countries/src/SVG/BG_Bulgaria_sharp.svg
+packages/countries/src/SVG/BH_Bahrain_sharp.svg
+packages/countries/src/SVG/BI_Burundi.svg
+packages/countries/src/SVG/BI_Burundi_sharp.svg
+packages/countries/src/SVG/BJ_Benin.svg
+packages/countries/src/SVG/BJ_Benin_sharp.svg
+packages/countries/src/SVG/BL_Saint Barthélemy_sharp.svg
+packages/countries/src/SVG/BM_Bermuda.svg
+packages/countries/src/SVG/BM_Bermuda_sharp.svg
+packages/countries/src/SVG/BN_Brunei Darussalam.svg
+packages/countries/src/SVG/BN_Brunei Darussalam_sharp.svg
+packages/countries/src/SVG/BO_Bolivia (Plurinational State of).svg
+packages/countries/src/SVG/BO_Bolivia (Plurinational State of)_sharp.svg
+packages/countries/src/SVG/BQ_Bonaire Sint Eustatius and Saba_sharp.svg
+packages/countries/src/SVG/BR_Brazil.svg
+packages/countries/src/SVG/BR_Brazil_sharp.svg
+packages/countries/src/SVG/BS_Bahamas (the).svg
+packages/countries/src/SVG/BS_Bahamas (the)_sharp.svg
+packages/countries/src/SVG/BT_Bhutan.svg
+packages/countries/src/SVG/BT_Bhutan_sharp.svg
+packages/countries/src/SVG/BV_Bouvet Island_sharp.svg
+packages/countries/src/SVG/BW_Botswana.svg
+packages/countries/src/SVG/BW_Botswana_sharp.svg
+packages/countries/src/SVG/BY_Belarus.svg
+packages/countries/src/SVG/BY_Belarus_sharp.svg
+packages/countries/src/SVG/BZ_Belize.svg
+packages/countries/src/SVG/BZ_Belize_sharp.svg
+packages/countries/src/SVG/CA_Canada.svg
+packages/countries/src/SVG/CA_Canada_sharp.svg
+packages/countries/src/SVG/CC_Cocos (Keeling) Islands (the).svg
+packages/countries/src/SVG/CC_Cocos (Keeling) Islands (the)_sharp.svg
+packages/countries/src/SVG/CD_Congo (the Democratic Republic of the).svg
+packages/countries/src/SVG/CD_Congo (the Democratic Republic of the)_sharp.svg
+packages/countries/src/SVG/CF_Central African Republic (the).svg
+packages/countries/src/SVG/CF_Central African Republic (the)_sharp.svg
+packages/countries/src/SVG/CG_Congo (the).svg
+packages/countries/src/SVG/CG_Congo (the)_sharp.svg
+packages/countries/src/SVG/CH_Switzerland.svg
+packages/countries/src/SVG/CH_Switzerland_sharp.svg
+packages/countries/src/SVG/CI_Côte d'Ivoire.svg
+packages/countries/src/SVG/CI_Côte d'Ivoire_sharp.svg
+packages/countries/src/SVG/CK_Cook Islands (the).svg
+packages/countries/src/SVG/CK_Cook Islands (the)_sharp.svg
+packages/countries/src/SVG/CL_Chile.svg
+packages/countries/src/SVG/CL_Chile_sharp.svg
+packages/countries/src/SVG/CM_Cameroon.svg
+packages/countries/src/SVG/CM_Cameroon_sharp.svg
+packages/countries/src/SVG/CN_China.svg
+packages/countries/src/SVG/CN_China_sharp.svg
+packages/countries/src/SVG/CO_Colombia.svg
+packages/countries/src/SVG/CO_Colombia_sharp.svg
+packages/countries/src/SVG/CR_Costa Rica.svg
+packages/countries/src/SVG/CR_Costa Rica_sharp.svg
+packages/countries/src/SVG/CU_Cuba.svg
+packages/countries/src/SVG/CU_Cuba_sharp.svg
+packages/countries/src/SVG/CV_Cabo Verde.svg
+packages/countries/src/SVG/CV_Cabo Verde_sharp.svg
+packages/countries/src/SVG/CW_Curaçao.svg
+packages/countries/src/SVG/CW_Curaçao_sharp.svg
+packages/countries/src/SVG/CX_Christmas Island.svg
+packages/countries/src/SVG/CX_Christmas Island_sharp.svg
+packages/countries/src/SVG/CY_Cyprus.svg
+packages/countries/src/SVG/CY_Cyprus_sharp.svg
+packages/countries/src/SVG/CZ_Czechia.svg
+packages/countries/src/SVG/CZ_Czechia_sharp.svg
+packages/countries/src/SVG/DE_Germany.svg
+packages/countries/src/SVG/DE_Germany_sharp.svg
+packages/countries/src/SVG/DJ_Djibouti.svg
+packages/countries/src/SVG/DJ_Djibouti_sharp.svg
+packages/countries/src/SVG/DM_Dominica.svg
+packages/countries/src/SVG/DM_Dominica_sharp.svg
+packages/countries/src/SVG/DO_Dominican Republic (the).svg
+packages/countries/src/SVG/DO_Dominican Republic (the)_sharp.svg
+packages/countries/src/SVG/DZ_Algeria.svg
+packages/countries/src/SVG/DZ_Algeria_sharp.svg
+packages/countries/src/SVG/EC_Ecuador.svg
+packages/countries/src/SVG/EC_Ecuador_sharp.svg
+packages/countries/src/SVG/EE_Estonia.svg
+packages/countries/src/SVG/EE_Estonia_sharp.svg
+packages/countries/src/SVG/EG_Egypt.svg
+packages/countries/src/SVG/EG_Egypt_sharp.svg
+packages/countries/src/SVG/EH_Western Sahara.svg
+packages/countries/src/SVG/EH_Western Sahara_sharp.svg
+packages/countries/src/SVG/ER_Eritrea.svg
+packages/countries/src/SVG/ER_Eritrea_sharp.svg
+packages/countries/src/SVG/ES_Spain.svg
+packages/countries/src/SVG/ES_Spain_sharp.svg
+packages/countries/src/SVG/ET_Ethiopia.svg
+packages/countries/src/SVG/ET_Ethiopia_sharp.svg
+packages/countries/src/SVG/EU_European Union.svg
+packages/countries/src/SVG/EU_European Union_sharp.svg
+packages/countries/src/SVG/FI_Finland_sharp.svg
+packages/countries/src/SVG/FJ_Fiji.svg
+packages/countries/src/SVG/FJ_Fiji_sharp.svg
+packages/countries/src/SVG/FK_Falkland Islands (the) [Malvinas].svg
+packages/countries/src/SVG/FK_Falkland Islands (the) [Malvinas]_sharp.svg
+packages/countries/src/SVG/FM_Micronesia (Federated States of).svg
+packages/countries/src/SVG/FM_Micronesia (Federated States of)_sharp.svg
+packages/countries/src/SVG/FO_Faroe Islands (the).svg
+packages/countries/src/SVG/FO_Faroe Islands (the)_sharp.svg
+packages/countries/src/SVG/GA_Gabon.svg
+packages/countries/src/SVG/GA_Gabon_sharp.svg
+packages/countries/src/SVG/GB-ENG_England.svg
+packages/countries/src/SVG/GB-ENG_England_sharp.svg
+packages/countries/src/SVG/GB-NIR_Northern Ireland.svg
+packages/countries/src/SVG/GB-NIR_Northern Ireland_sharp.svg
+packages/countries/src/SVG/GB-SCT_Scotland.svg
+packages/countries/src/SVG/GB-SCT_Scotland_sharp.svg
+packages/countries/src/SVG/GB-WLS_Wales.svg
+packages/countries/src/SVG/GB-WLS_Wales_sharp.svg
+packages/countries/src/SVG/GB_United Kingdom of Great Britain and Northern Ireland (the).svg
+packages/countries/src/SVG/GB_United Kingdom of Great Britain and Northern Ireland (the)_sharp.svg
+packages/countries/src/SVG/GD_Grenada.svg
+packages/countries/src/SVG/GD_Grenada_sharp.svg
+packages/countries/src/SVG/GE_Georgia.svg
+packages/countries/src/SVG/GE_Georgia_sharp.svg
+packages/countries/src/SVG/GF_French Guiana.svg
+packages/countries/src/SVG/GF_French Guiana_sharp.svg
+packages/countries/src/SVG/GG_Guernsey.svg
+packages/countries/src/SVG/GG_Guernsey_sharp.svg
+packages/countries/src/SVG/GH_Ghana.svg
+packages/countries/src/SVG/GH_Ghana_sharp.svg
+packages/countries/src/SVG/GI_Gibraltar.svg
+packages/countries/src/SVG/GI_Gibraltar_sharp.svg
+packages/countries/src/SVG/GL_Greenland.svg
+packages/countries/src/SVG/GL_Greenland_sharp.svg
+packages/countries/src/SVG/GM_Gambia (the).svg
+packages/countries/src/SVG/GM_Gambia (the)_sharp.svg
+packages/countries/src/SVG/GQ_Equatorial Guinea.svg
+packages/countries/src/SVG/GQ_Equatorial Guinea_sharp.svg
+packages/countries/src/SVG/GR_Greece.svg
+packages/countries/src/SVG/GR_Greece_sharp.svg
+packages/countries/src/SVG/GS_South Georgia and the South Sandwich Islands.svg
+packages/countries/src/SVG/GS_South Georgia and the South Sandwich Islands_sharp.svg
+packages/countries/src/SVG/GT_Guatemala.svg
+packages/countries/src/SVG/GT_Guatemala_sharp.svg
+packages/countries/src/SVG/GU_Guam.svg
+packages/countries/src/SVG/GU_Guam_sharp.svg
+packages/countries/src/SVG/GW_Guinea-Bissau.svg
+packages/countries/src/SVG/GW_Guinea-Bissau_sharp.svg
+packages/countries/src/SVG/GY_Guyana.svg
+packages/countries/src/SVG/GY_Guyana_sharp.svg
+packages/countries/src/SVG/HK_Hong Kong.svg
+packages/countries/src/SVG/HK_Hong Kong_sharp.svg
+packages/countries/src/SVG/HM_Heard Island and McDonald Islands.svg
+packages/countries/src/SVG/HM_Heard Island and McDonald Islands_sharp.svg
+packages/countries/src/SVG/HN_Honduras.svg
+packages/countries/src/SVG/HN_Honduras_sharp.svg
+packages/countries/src/SVG/HR_Croatia.svg
+packages/countries/src/SVG/HR_Croatia_sharp.svg
+packages/countries/src/SVG/HT_Haiti.svg
+packages/countries/src/SVG/HT_Haiti_sharp.svg
+packages/countries/src/SVG/HU_Hungary.svg
+packages/countries/src/SVG/HU_Hungary_sharp.svg
+packages/countries/src/SVG/ID_Indonesia_sharp.svg
+packages/countries/src/SVG/IL_Israel.svg
+packages/countries/src/SVG/IL_Israel_sharp.svg
+packages/countries/src/SVG/IM_Isle of Man.svg
+packages/countries/src/SVG/IM_Isle of Man_sharp.svg
+packages/countries/src/SVG/IN_India.svg
+packages/countries/src/SVG/IN_India_sharp.svg
+packages/countries/src/SVG/IO_British Indian Ocean Territory (the).svg
+packages/countries/src/SVG/IO_British Indian Ocean Territory (the)_sharp.svg
+packages/countries/src/SVG/IQ_Iraq.svg
+packages/countries/src/SVG/IQ_Iraq_sharp.svg
+packages/countries/src/SVG/IR_Iran (Islamic Republic of).svg
+packages/countries/src/SVG/IR_Iran (Islamic Republic of)_sharp.svg
+packages/countries/src/SVG/IS_Iceland_sharp.svg
+packages/countries/src/SVG/JE_Jersey.svg
+packages/countries/src/SVG/JE_Jersey_sharp.svg
+packages/countries/src/SVG/JM_Jamaica.svg
+packages/countries/src/SVG/JM_Jamaica_sharp.svg
+packages/countries/src/SVG/JO_Jordan.svg
+packages/countries/src/SVG/JO_Jordan_sharp.svg
+packages/countries/src/SVG/JP_Japan.svg
+packages/countries/src/SVG/JP_Japan_sharp.svg
+packages/countries/src/SVG/KE_Kenya.svg
+packages/countries/src/SVG/KE_Kenya_sharp.svg
+packages/countries/src/SVG/KG_Kyrgyzstan.svg
+packages/countries/src/SVG/KG_Kyrgyzstan_sharp.svg
+packages/countries/src/SVG/KH_Cambodia.svg
+packages/countries/src/SVG/KH_Cambodia_sharp.svg
+packages/countries/src/SVG/KI_Kiribati.svg
+packages/countries/src/SVG/KI_Kiribati_sharp.svg
+packages/countries/src/SVG/KM_Comoros (the).svg
+packages/countries/src/SVG/KM_Comoros (the)_sharp.svg
+packages/countries/src/SVG/KN_Saint Kitts and Nevis.svg
+packages/countries/src/SVG/KN_Saint Kitts and Nevis_sharp.svg
+packages/countries/src/SVG/KP_Korea (the Democratic People's Republic of).svg
+packages/countries/src/SVG/KP_Korea (the Democratic People's Republic of)_sharp.svg
+packages/countries/src/SVG/KR_Korea (the Republic of).svg
+packages/countries/src/SVG/KR_Korea (the Republic of)_sharp.svg
+packages/countries/src/SVG/KW_Kuwait.svg
+packages/countries/src/SVG/KW_Kuwait_sharp.svg
+packages/countries/src/SVG/KY_Cayman Islands (the).svg
+packages/countries/src/SVG/KY_Cayman Islands (the)_sharp.svg
+packages/countries/src/SVG/KZ_Kazakhstan.svg
+packages/countries/src/SVG/KZ_Kazakhstan_sharp.svg
+packages/countries/src/SVG/LA_Lao People's Democratic Republic (the).svg
+packages/countries/src/SVG/LA_Lao People's Democratic Republic (the)_sharp.svg
+packages/countries/src/SVG/LB_Lebanon.svg
+packages/countries/src/SVG/LB_Lebanon_sharp.svg
+packages/countries/src/SVG/LC_Saint Lucia.svg
+packages/countries/src/SVG/LC_Saint Lucia_sharp.svg
+packages/countries/src/SVG/LI_Liechtenstein.svg
+packages/countries/src/SVG/LI_Liechtenstein_sharp.svg
+packages/countries/src/SVG/LK_Sri Lanka.svg
+packages/countries/src/SVG/LK_Sri Lanka_sharp.svg
+packages/countries/src/SVG/LR_Liberia.svg
+packages/countries/src/SVG/LR_Liberia_sharp.svg
+packages/countries/src/SVG/LS_Lesotho.svg
+packages/countries/src/SVG/LS_Lesotho_sharp.svg
+packages/countries/src/SVG/LV_Latvia.svg
+packages/countries/src/SVG/LV_Latvia_sharp.svg
+packages/countries/src/SVG/LY_Libya.svg
+packages/countries/src/SVG/LY_Libya_sharp.svg
+packages/countries/src/SVG/MA_Morocco.svg
+packages/countries/src/SVG/MA_Morocco_sharp.svg
+packages/countries/src/SVG/MC_Monaco.svg
+packages/countries/src/SVG/MC_Monaco_sharp.svg
+packages/countries/src/SVG/MD_Moldova (the Republic of).svg
+packages/countries/src/SVG/MD_Moldova (the Republic of)_sharp.svg
+packages/countries/src/SVG/ME_Montenegro.svg
+packages/countries/src/SVG/ME_Montenegro_sharp.svg
+packages/countries/src/SVG/MG_Madagascar.svg
+packages/countries/src/SVG/MH_Marshall Islands (the).svg
+packages/countries/src/SVG/MH_Marshall Islands (the)_sharp.svg
+packages/countries/src/SVG/MK_North Macedonia.svg
+packages/countries/src/SVG/MK_North Macedonia_sharp.svg
+packages/countries/src/SVG/ML_Mali.svg
+packages/countries/src/SVG/ML_Mali_sharp.svg
+packages/countries/src/SVG/MM_Myanmar.svg
+packages/countries/src/SVG/MM_Myanmar_sharp.svg
+packages/countries/src/SVG/MN_Mongolia.svg
+packages/countries/src/SVG/MN_Mongolia_sharp.svg
+packages/countries/src/SVG/MO_Macao.svg
+packages/countries/src/SVG/MO_Macao_sharp.svg
+packages/countries/src/SVG/MP_Northern Mariana Islands (the).svg
+packages/countries/src/SVG/MP_Northern Mariana Islands (the)_sharp.svg
+packages/countries/src/SVG/MR_Mauritania.svg
+packages/countries/src/SVG/MR_Mauritania_sharp.svg
+packages/countries/src/SVG/MS_Montserrat.svg
+packages/countries/src/SVG/MS_Montserrat_sharp.svg
+packages/countries/src/SVG/MT_Malta.svg
+packages/countries/src/SVG/MT_Malta_sharp.svg
+packages/countries/src/SVG/MU_Mauritius.svg
+packages/countries/src/SVG/MU_Mauritius_sharp.svg
+packages/countries/src/SVG/MV_Maldives.svg
+packages/countries/src/SVG/MV_Maldives_sharp.svg
+packages/countries/src/SVG/MW_Malawi.svg
+packages/countries/src/SVG/MW_Malawi_sharp.svg
+packages/countries/src/SVG/MX_Mexico.svg
+packages/countries/src/SVG/MX_Mexico_sharp.svg
+packages/countries/src/SVG/MY_Malaysia.svg
+packages/countries/src/SVG/MY_Malaysia_sharp.svg
+packages/countries/src/SVG/MZ_Mozambique.svg
+packages/countries/src/SVG/MZ_Mozambique_sharp.svg
+packages/countries/src/SVG/NA_Namibia.svg
+packages/countries/src/SVG/NA_Namibia_sharp.svg
+packages/countries/src/SVG/NC_New Caledonia.svg
+packages/countries/src/SVG/NC_New Caledonia_sharp.svg
+packages/countries/src/SVG/NE_Niger (the).svg
+packages/countries/src/SVG/NE_Niger (the)_sharp.svg
+packages/countries/src/SVG/NF_Norfolk Island.svg
+packages/countries/src/SVG/NF_Norfolk Island_sharp.svg
+packages/countries/src/SVG/NG_Nigeria.svg
+packages/countries/src/SVG/NG_Nigeria_sharp.svg
+packages/countries/src/SVG/NI_Nicaragua.svg
+packages/countries/src/SVG/NI_Nicaragua_sharp.svg
+packages/countries/src/SVG/NO_Norway.svg
+packages/countries/src/SVG/NO_Norway_sharp.svg
+packages/countries/src/SVG/NP_Nepal.svg
+packages/countries/src/SVG/NP_Nepal_sharp.svg
+packages/countries/src/SVG/NR_Nauru.svg
+packages/countries/src/SVG/NR_Nauru_sharp.svg
+packages/countries/src/SVG/NU_Niue.svg
+packages/countries/src/SVG/NU_Niue_sharp.svg
+packages/countries/src/SVG/NZ_New Zealand.svg
+packages/countries/src/SVG/NZ_New Zealand_sharp.svg
+packages/countries/src/SVG/OM_Oman.svg
+packages/countries/src/SVG/OM_Oman_sharp.svg
+packages/countries/src/SVG/PA_Panama.svg
+packages/countries/src/SVG/PA_Panama_sharp.svg
+packages/countries/src/SVG/PE_Peru.svg
+packages/countries/src/SVG/PE_Peru_sharp.svg
+packages/countries/src/SVG/PF_French Polynesia.svg
+packages/countries/src/SVG/PF_French Polynesia_sharp.svg
+packages/countries/src/SVG/PG_Papua New Guinea.svg
+packages/countries/src/SVG/PG_Papua New Guinea_sharp.svg
+packages/countries/src/SVG/PH_Philippines (the).svg
+packages/countries/src/SVG/PH_Philippines (the)_sharp.svg
+packages/countries/src/SVG/PK_Pakistan.svg
+packages/countries/src/SVG/PK_Pakistan_sharp.svg
+packages/countries/src/SVG/PL_Poland.svg
+packages/countries/src/SVG/PL_Poland_sharp.svg
+packages/countries/src/SVG/PN_Pitcairn.svg
+packages/countries/src/SVG/PN_Pitcairn_sharp.svg
+packages/countries/src/SVG/PR_Puerto Rico.svg
+packages/countries/src/SVG/PR_Puerto Rico_sharp.svg
+packages/countries/src/SVG/PS_Palestine (State of)_sharp.svg
+packages/countries/src/SVG/PT_Portugal.svg
+packages/countries/src/SVG/PT_Portugal_sharp.svg
+packages/countries/src/SVG/PW_Palau.svg
+packages/countries/src/SVG/PW_Palau_sharp.svg
+packages/countries/src/SVG/PY_Paraguay.svg
+packages/countries/src/SVG/PY_Paraguay_sharp.svg
+packages/countries/src/SVG/QA_Qatar.svg
+packages/countries/src/SVG/QA_Qatar_sharp.svg
+packages/countries/src/SVG/RS_Serbia.svg
+packages/countries/src/SVG/RS_Serbia_sharp.svg
+packages/countries/src/SVG/RU_Russian Federation (the)_sharp.svg
+packages/countries/src/SVG/RW_Rwanda.svg
+packages/countries/src/SVG/RW_Rwanda_sharp.svg
+packages/countries/src/SVG/SA_Saudi Arabia.svg
+packages/countries/src/SVG/SA_Saudi Arabia_sharp.svg
+packages/countries/src/SVG/SB_Solomon Islands.svg
+packages/countries/src/SVG/SB_Solomon Islands_sharp.svg
+packages/countries/src/SVG/SC_Seychelles.svg
+packages/countries/src/SVG/SC_Seychelles_sharp.svg
+packages/countries/src/SVG/SD_Sudan (the).svg
+packages/countries/src/SVG/SD_Sudan (the)_sharp.svg
+packages/countries/src/SVG/SE_Sweden.svg
+packages/countries/src/SVG/SE_Sweden_sharp.svg
+packages/countries/src/SVG/SG_Singapore.svg
+packages/countries/src/SVG/SG_Singapore_sharp.svg
+packages/countries/src/SVG/SH_Saint Helena, Ascension and Tristan da Cunha.svg
+packages/countries/src/SVG/SH_Saint Helena, Ascension and Tristan da Cunha_sharp.svg
+packages/countries/src/SVG/SI_Slovenia.svg
+packages/countries/src/SVG/SI_Slovenia_sharp.svg
+packages/countries/src/SVG/SK_Slovakia.svg
+packages/countries/src/SVG/SK_Slovakia_sharp.svg
+packages/countries/src/SVG/SL_Sierra Leone.svg
+packages/countries/src/SVG/SM_San Marino.svg
+packages/countries/src/SVG/SM_San Marino_sharp.svg
+packages/countries/src/SVG/SN_Senegal.svg
+packages/countries/src/SVG/SN_Senegal_sharp.svg
+packages/countries/src/SVG/SO_Somalia.svg
+packages/countries/src/SVG/SO_Somalia_sharp.svg
+packages/countries/src/SVG/SR_Suriname.svg
+packages/countries/src/SVG/SR_Suriname_sharp.svg
+packages/countries/src/SVG/SS_South Sudan.svg
+packages/countries/src/SVG/SS_South Sudan_sharp.svg
+packages/countries/src/SVG/ST_Sao Tome and Principe.svg
+packages/countries/src/SVG/ST_Sao Tome and Principe_sharp.svg
+packages/countries/src/SVG/SV_El Salvador.svg
+packages/countries/src/SVG/SV_El Salvador_sharp.svg
+packages/countries/src/SVG/SX_Sint Maarten (Dutch part).svg
+packages/countries/src/SVG/SX_Sint Maarten (Dutch part)_sharp.svg
+packages/countries/src/SVG/SY_Syrian Arab Republic (the).svg
+packages/countries/src/SVG/SY_Syrian Arab Republic (the)_sharp.svg
+packages/countries/src/SVG/SZ_Eswatini.svg
+packages/countries/src/SVG/SZ_Eswatini_sharp.svg
+packages/countries/src/SVG/TC_Turks and Caicos Islands (the).svg
+packages/countries/src/SVG/TC_Turks and Caicos Islands (the)_sharp.svg
+packages/countries/src/SVG/TF_French Southern Territories (the).svg
+packages/countries/src/SVG/TF_French Southern Territories (the)_sharp.svg
+packages/countries/src/SVG/TG_Togo.svg
+packages/countries/src/SVG/TG_Togo_sharp.svg
+packages/countries/src/SVG/TH_Thailand.svg
+packages/countries/src/SVG/TH_Thailand_sharp.svg
+packages/countries/src/SVG/TJ_Tajikistan.svg
+packages/countries/src/SVG/TJ_Tajikistan_sharp.svg
+packages/countries/src/SVG/TK_Tokelau.svg
+packages/countries/src/SVG/TK_Tokelau_sharp.svg
+packages/countries/src/SVG/TL_Timor-Leste.svg
+packages/countries/src/SVG/TL_Timor-Leste_sharp.svg
+packages/countries/src/SVG/TM_Turkmenistan.svg
+packages/countries/src/SVG/TM_Turkmenistan_sharp.svg
+packages/countries/src/SVG/TN_Tunisia.svg
+packages/countries/src/SVG/TN_Tunisia_sharp.svg
+packages/countries/src/SVG/TO_Tonga.svg
+packages/countries/src/SVG/TO_Tonga_sharp.svg
+packages/countries/src/SVG/TR_Türkiye.svg
+packages/countries/src/SVG/TR_Türkiye_sharp.svg
+packages/countries/src/SVG/TT_Trinidad and Tobago.svg
+packages/countries/src/SVG/TT_Trinidad and Tobago_sharp.svg
+packages/countries/src/SVG/TV_Tuvalu.svg
+packages/countries/src/SVG/TV_Tuvalu_sharp.svg
+packages/countries/src/SVG/TW_Taiwan (Province of China).svg
+packages/countries/src/SVG/TW_Taiwan (Province of China)_sharp.svg
+packages/countries/src/SVG/TZ_Tanzania (the United Republic of).svg
+packages/countries/src/SVG/TZ_Tanzania (the United Republic of)_sharp.svg
+packages/countries/src/SVG/UA_Ukraine.svg
+packages/countries/src/SVG/UA_Ukraine_sharp.svg
+packages/countries/src/SVG/UG_Uganda.svg
+packages/countries/src/SVG/UG_Uganda_sharp.svg
+packages/countries/src/SVG/UM_United States Minor Outlying Islands (the)_sharp.svg
+packages/countries/src/SVG/UN_United Nations.svg
+packages/countries/src/SVG/UN_United Nations_sharp.svg
+packages/countries/src/SVG/US_United States of America (the).svg
+packages/countries/src/SVG/US_United States of America (the)_sharp.svg
+packages/countries/src/SVG/UY_Uruguay.svg
+packages/countries/src/SVG/UY_Uruguay_sharp.svg
+packages/countries/src/SVG/UZ_Uzbekistan.svg
+packages/countries/src/SVG/UZ_Uzbekistan_sharp.svg
+packages/countries/src/SVG/VA_Holy See (the).svg
+packages/countries/src/SVG/VA_Holy See (the)_sharp.svg
+packages/countries/src/SVG/VC_Saint Vincent and the Grenadines.svg
+packages/countries/src/SVG/VC_Saint Vincent and the Grenadines_sharp.svg
+packages/countries/src/SVG/VE_Venezuela (Bolivarian Republic of).svg
+packages/countries/src/SVG/VE_Venezuela (Bolivarian Republic of)_sharp.svg
+packages/countries/src/SVG/VG_Virgin Islands (British).svg
+packages/countries/src/SVG/VG_Virgin Islands (British)_sharp.svg
+packages/countries/src/SVG/VI_Virgin Islands (U.S.).svg
+packages/countries/src/SVG/VI_Virgin Islands (U.S.)_sharp.svg
+packages/countries/src/SVG/VU_Vanuatu.svg
+packages/countries/src/SVG/VU_Vanuatu_sharp.svg
+packages/countries/src/SVG/WS_Samoa.svg
+packages/countries/src/SVG/WS_Samoa_sharp.svg
+packages/countries/src/SVG/XK_Kosovo (the Republic of).svg
+packages/countries/src/SVG/XK_Kosovo (the Republic of)_sharp.svg
+packages/countries/src/SVG/YE_Yemen.svg
+packages/countries/src/SVG/YE_Yemen_sharp.svg
+packages/countries/src/SVG/ZA_South Africa.svg
+packages/countries/src/SVG/ZA_South Africa_sharp.svg
+packages/countries/src/SVG/ZM_Zambia.svg
+packages/countries/src/SVG/ZM_Zambia_sharp.svg
+packages/countries/src/SVG/ZW_Zimbabwe.svg
+packages/countries/src/SVG/ZW_Zimbabwe_sharp.svg
+packages/icons/src/SVG/accessible.svg
+packages/icons/src/SVG/accessible_solid.svg
+packages/icons/src/SVG/add-document.svg
+packages/icons/src/SVG/add-document_solid.svg
+packages/icons/src/SVG/add-to-grid.svg
+packages/icons/src/SVG/add-to-grid_solid.svg
+packages/icons/src/SVG/add-user.svg
+packages/icons/src/SVG/add.svg
+packages/icons/src/SVG/announcement.svg
+packages/icons/src/SVG/api.svg
+packages/icons/src/SVG/app-switcher.svg
+packages/icons/src/SVG/arrow-down.svg
+packages/icons/src/SVG/arrow-left.svg
+packages/icons/src/SVG/arrow-right.svg
+packages/icons/src/SVG/arrow-up.svg
+packages/icons/src/SVG/attach.svg
+packages/icons/src/SVG/bank-check.svg
+packages/icons/src/SVG/bank-check_solid.svg
+packages/icons/src/SVG/bank.svg
+packages/icons/src/SVG/bank_solid.svg
+packages/icons/src/SVG/bar-chart.svg
+packages/icons/src/SVG/battery.svg
+packages/icons/src/SVG/battery_solid.svg
+packages/icons/src/SVG/bookmark.svg
+packages/icons/src/SVG/bookmark_solid.svg
+packages/icons/src/SVG/boolean.svg
+packages/icons/src/SVG/boolean_solid.svg
+packages/icons/src/SVG/browser.svg
+packages/icons/src/SVG/browser_solid.svg
+packages/icons/src/SVG/build-report.svg
+packages/icons/src/SVG/build-report_solid.svg
+packages/icons/src/SVG/building.svg
+packages/icons/src/SVG/building_solid.svg
+packages/icons/src/SVG/buildings.svg
+packages/icons/src/SVG/buildings_solid.svg
+packages/icons/src/SVG/calculator.svg
+packages/icons/src/SVG/calculator_solid.svg
+packages/icons/src/SVG/calendar.svg
+packages/icons/src/SVG/calendar_solid.svg
+packages/icons/src/SVG/call.svg
+packages/icons/src/SVG/call_solid.svg
+packages/icons/src/SVG/cart.svg
+packages/icons/src/SVG/cart_solid.svg
+packages/icons/src/SVG/chart-area.svg
+packages/icons/src/SVG/chart-bar.svg
+packages/icons/src/SVG/chart-box-plot.svg
+packages/icons/src/SVG/chart-bubble.svg
+packages/icons/src/SVG/chart-bubble_solid.svg
+packages/icons/src/SVG/chart-bullet.svg
+packages/icons/src/SVG/chart-candlestick.svg
+packages/icons/src/SVG/chart-candlestick_solid.svg
+packages/icons/src/SVG/chart-column.svg
+packages/icons/src/SVG/chart-donut.svg
+packages/icons/src/SVG/chart-line.svg
+packages/icons/src/SVG/chart-line_solid.svg
+packages/icons/src/SVG/chart-pie.svg
+packages/icons/src/SVG/chart-pie_solid.svg
+packages/icons/src/SVG/chart-scatter.svg
+packages/icons/src/SVG/chart-scatter_solid.svg
+packages/icons/src/SVG/chart-stacked-bar.svg
+packages/icons/src/SVG/chart-waterfall.svg
+packages/icons/src/SVG/chat-group.svg
+packages/icons/src/SVG/chat-group_solid.svg
+packages/icons/src/SVG/chat.svg
+packages/icons/src/SVG/chat_solid.svg
+packages/icons/src/SVG/chatting.svg
+packages/icons/src/SVG/chatting_solid.svg
+packages/icons/src/SVG/checkmark.svg
+packages/icons/src/SVG/checkmark_solid.svg
+packages/icons/src/SVG/chevron-down.svg
+packages/icons/src/SVG/chevron-left.svg
+packages/icons/src/SVG/chevron-right.svg
+packages/icons/src/SVG/chevron-up.svg
+packages/icons/src/SVG/clock.svg
+packages/icons/src/SVG/clock_solid.svg
+packages/icons/src/SVG/clone.svg
+packages/icons/src/SVG/close.svg
+packages/icons/src/SVG/close_small.svg
+packages/icons/src/SVG/closedcaption-disabled.svg
+packages/icons/src/SVG/closedcaption-disabled_solid.svg
+packages/icons/src/SVG/closedcaption.svg
+packages/icons/src/SVG/closedcaption_solid.svg
+packages/icons/src/SVG/cloud-disabled.svg
+packages/icons/src/SVG/cloud-disabled_solid.svg
+packages/icons/src/SVG/cloud-download.svg
+packages/icons/src/SVG/cloud-download_solid.svg
+packages/icons/src/SVG/cloud-success.svg
+packages/icons/src/SVG/cloud-success_solid.svg
+packages/icons/src/SVG/cloud-sync.svg
+packages/icons/src/SVG/cloud-sync_solid.svg
+packages/icons/src/SVG/cloud-upload.svg
+packages/icons/src/SVG/cloud-upload_solid.svg
+packages/icons/src/SVG/cloud.svg
+packages/icons/src/SVG/cloud_solid.svg
+packages/icons/src/SVG/coffee.svg
+packages/icons/src/SVG/coffee_solid.svg
+packages/icons/src/SVG/collapse-all-horizontal.svg
+packages/icons/src/SVG/collapse-all.svg
+packages/icons/src/SVG/collapse.svg
+packages/icons/src/SVG/column-chooser.svg
+packages/icons/src/SVG/column-chooser_solid.svg
+packages/icons/src/SVG/commentary.svg
+packages/icons/src/SVG/commentary_solid.svg
+packages/icons/src/SVG/compare.svg
+packages/icons/src/SVG/compare_solid.svg
+packages/icons/src/SVG/compass.svg
+packages/icons/src/SVG/compass_solid.svg
+packages/icons/src/SVG/cookie.svg
+packages/icons/src/SVG/cookie_solid.svg
+packages/icons/src/SVG/copy.svg
+packages/icons/src/SVG/copy_solid.svg
+packages/icons/src/SVG/credit-card.svg
+packages/icons/src/SVG/credit-card_solid.svg
+packages/icons/src/SVG/crops.svg
+packages/icons/src/SVG/crops_solid.svg
+packages/icons/src/SVG/csv.svg
+packages/icons/src/SVG/csv_solid.svg
+packages/icons/src/SVG/currency-exchange.svg
+packages/icons/src/SVG/currency.svg
+packages/icons/src/SVG/currency_solid.svg
+packages/icons/src/SVG/cut.svg
+packages/icons/src/SVG/dark.svg
+packages/icons/src/SVG/dark_solid.svg
+packages/icons/src/SVG/dashboard.svg
+packages/icons/src/SVG/dashboard_solid.svg
+packages/icons/src/SVG/database.svg
+packages/icons/src/SVG/database_solid.svg
+packages/icons/src/SVG/dataset-manager.svg
+packages/icons/src/SVG/dataset-manager_solid.svg
+packages/icons/src/SVG/dataset.svg
+packages/icons/src/SVG/delete.svg
+packages/icons/src/SVG/delete_solid.svg
+packages/icons/src/SVG/devices.svg
+packages/icons/src/SVG/devices_solid.svg
+packages/icons/src/SVG/diamond.svg
+packages/icons/src/SVG/display.svg
+packages/icons/src/SVG/display_solid.svg
+packages/icons/src/SVG/divide.svg
+packages/icons/src/SVG/document-draft.svg
+packages/icons/src/SVG/document-edit.svg
+packages/icons/src/SVG/document-search.svg
+packages/icons/src/SVG/document.svg
+packages/icons/src/SVG/document_solid.svg
+packages/icons/src/SVG/does-not-equal.svg
+packages/icons/src/SVG/double-chevron-down.svg
+packages/icons/src/SVG/double-chevron-left.svg
+packages/icons/src/SVG/double-chevron-right.svg
+packages/icons/src/SVG/double-chevron-up.svg
+packages/icons/src/SVG/download.svg
+packages/icons/src/SVG/drag-row.svg
+packages/icons/src/SVG/edit.svg
+packages/icons/src/SVG/edit_solid.svg
+packages/icons/src/SVG/equal.svg
+packages/icons/src/SVG/error-execute.svg
+packages/icons/src/SVG/error.svg
+packages/icons/src/SVG/error_solid.svg
+packages/icons/src/SVG/expand-all-horizontal.svg
+packages/icons/src/SVG/expand-all.svg
+packages/icons/src/SVG/expand.svg
+packages/icons/src/SVG/exponentiation.svg
+packages/icons/src/SVG/export.svg
+packages/icons/src/SVG/export_solid.svg
+packages/icons/src/SVG/favorite-half.svg
+packages/icons/src/SVG/favorite.svg
+packages/icons/src/SVG/favorite_solid.svg
+packages/icons/src/SVG/favorite_strong.svg
+packages/icons/src/SVG/feedback.svg
+packages/icons/src/SVG/feedback_solid.svg
+packages/icons/src/SVG/figma.svg
+packages/icons/src/SVG/filter-clear.svg
+packages/icons/src/SVG/filter-clear_solid.svg
+packages/icons/src/SVG/filter.svg
+packages/icons/src/SVG/filter_solid.svg
+packages/icons/src/SVG/first.svg
+packages/icons/src/SVG/flag.svg
+packages/icons/src/SVG/flag_solid.svg
+packages/icons/src/SVG/folder-closed.svg
+packages/icons/src/SVG/folder-closed_solid.svg
+packages/icons/src/SVG/folder-open.svg
+packages/icons/src/SVG/folder-open_solid.svg
+packages/icons/src/SVG/forward-10.svg
+packages/icons/src/SVG/forward-15.svg
+packages/icons/src/SVG/forward-30.svg
+packages/icons/src/SVG/forward-5.svg
+packages/icons/src/SVG/github.svg
+packages/icons/src/SVG/globe.svg
+packages/icons/src/SVG/globe_solid.svg
+packages/icons/src/SVG/greater-than-equal-to.svg
+packages/icons/src/SVG/greater-than.svg
+packages/icons/src/SVG/grid.svg
+packages/icons/src/SVG/grid_solid.svg
+packages/icons/src/SVG/group.svg
+packages/icons/src/SVG/group_solid.svg
+packages/icons/src/SVG/growth.svg
+packages/icons/src/SVG/guide-closed.svg
+packages/icons/src/SVG/guide-closed_solid.svg
+packages/icons/src/SVG/guide-open.svg
+packages/icons/src/SVG/guide-open_solid.svg
+packages/icons/src/SVG/handshake.svg
+packages/icons/src/SVG/handshake_solid.svg
+packages/icons/src/SVG/headphones-disabled.svg
+packages/icons/src/SVG/headphones-disabled_solid.svg
+packages/icons/src/SVG/headphones.svg
+packages/icons/src/SVG/headphones_solid.svg
+packages/icons/src/SVG/help-circle.svg
+packages/icons/src/SVG/help-circle_solid.svg
+packages/icons/src/SVG/help.svg
+packages/icons/src/SVG/help_solid.svg
+packages/icons/src/SVG/hidden.svg
+packages/icons/src/SVG/hidden_solid.svg
+packages/icons/src/SVG/hierarchy.svg
+packages/icons/src/SVG/hierarchy_solid.svg
+packages/icons/src/SVG/history.svg
+packages/icons/src/SVG/holiday.svg
+packages/icons/src/SVG/holiday_solid.svg
+packages/icons/src/SVG/home.svg
+packages/icons/src/SVG/home_solid.svg
+packages/icons/src/SVG/hospital.svg
+packages/icons/src/SVG/hospital_solid.svg
+packages/icons/src/SVG/image.svg
+packages/icons/src/SVG/image_solid.svg
+packages/icons/src/SVG/import.svg
+packages/icons/src/SVG/import_solid.svg
+packages/icons/src/SVG/inbox.svg
+packages/icons/src/SVG/inbox_solid.svg
+packages/icons/src/SVG/indent.svg
+packages/icons/src/SVG/infinite.svg
+packages/icons/src/SVG/info.svg
+packages/icons/src/SVG/info_solid.svg
+packages/icons/src/SVG/jigsaw.svg
+packages/icons/src/SVG/jigsaw_solid.svg
+packages/icons/src/SVG/key-backspace.svg
+packages/icons/src/SVG/key-capslock.svg
+packages/icons/src/SVG/key-command.svg
+packages/icons/src/SVG/key-control.svg
+packages/icons/src/SVG/key-enter.svg
+packages/icons/src/SVG/key-option.svg
+packages/icons/src/SVG/key-shift.svg
+packages/icons/src/SVG/key-tab.svg
+packages/icons/src/SVG/key.svg
+packages/icons/src/SVG/key_solid.svg
+packages/icons/src/SVG/laptop.svg
+packages/icons/src/SVG/laptop_solid.svg
+packages/icons/src/SVG/last.svg
+packages/icons/src/SVG/layers.svg
+packages/icons/src/SVG/layers_solid.svg
+packages/icons/src/SVG/less-than-equal-to.svg
+packages/icons/src/SVG/less-than.svg
+packages/icons/src/SVG/light.svg
+packages/icons/src/SVG/light_solid.svg
+packages/icons/src/SVG/lightbulb.svg
+packages/icons/src/SVG/lightbulb_solid.svg
+packages/icons/src/SVG/like.svg
+packages/icons/src/SVG/like_solid.svg
+packages/icons/src/SVG/line-chart.svg
+packages/icons/src/SVG/linked.svg
+packages/icons/src/SVG/linkedin.svg
+packages/icons/src/SVG/linkedin_solid.svg
+packages/icons/src/SVG/list.svg
+packages/icons/src/SVG/loader.svg
+packages/icons/src/SVG/location.svg
+packages/icons/src/SVG/location_solid.svg
+packages/icons/src/SVG/locked.svg
+packages/icons/src/SVG/locked_solid.svg
+packages/icons/src/SVG/magic-wand.svg
+packages/icons/src/SVG/maintenance.svg
+packages/icons/src/SVG/maintenance_solid.svg
+packages/icons/src/SVG/man-woman.svg
+packages/icons/src/SVG/man-woman_solid.svg
+packages/icons/src/SVG/man.svg
+packages/icons/src/SVG/man_solid.svg
+packages/icons/src/SVG/map.svg
+packages/icons/src/SVG/map_solid.svg
+packages/icons/src/SVG/marker.svg
+packages/icons/src/SVG/marker_solid.svg
+packages/icons/src/SVG/maximize.svg
+packages/icons/src/SVG/maximize_solid.svg
+packages/icons/src/SVG/medical-kit.svg
+packages/icons/src/SVG/medical-kit_solid.svg
+packages/icons/src/SVG/menu.svg
+packages/icons/src/SVG/message-forward.svg
+packages/icons/src/SVG/message-reply-all.svg
+packages/icons/src/SVG/message-reply.svg
+packages/icons/src/SVG/message.svg
+packages/icons/src/SVG/message_solid.svg
+packages/icons/src/SVG/micro-menu.svg
+packages/icons/src/SVG/microphone-disabled.svg
+packages/icons/src/SVG/microphone-disabled_solid.svg
+packages/icons/src/SVG/microphone.svg
+packages/icons/src/SVG/microphone_solid.svg
+packages/icons/src/SVG/minimize.svg
+packages/icons/src/SVG/mobile.svg
+packages/icons/src/SVG/mobile_solid.svg
+packages/icons/src/SVG/mouse.svg
+packages/icons/src/SVG/mouse_solid.svg
+packages/icons/src/SVG/move-all.svg
+packages/icons/src/SVG/move-horizontal.svg
+packages/icons/src/SVG/move-vertical.svg
+packages/icons/src/SVG/multiply.svg
+packages/icons/src/SVG/music-disabled.svg
+packages/icons/src/SVG/music-disabled_solid.svg
+packages/icons/src/SVG/music.svg
+packages/icons/src/SVG/music_solid.svg
+packages/icons/src/SVG/not-allowed.svg
+packages/icons/src/SVG/note.svg
+packages/icons/src/SVG/note_solid.svg
+packages/icons/src/SVG/notification-read.svg
+packages/icons/src/SVG/notification-read_solid.svg
+packages/icons/src/SVG/notification.svg
+packages/icons/src/SVG/notification_solid.svg
+packages/icons/src/SVG/outdent.svg
+packages/icons/src/SVG/overflow-menu.svg
+packages/icons/src/SVG/panel-close-bottom.svg
+packages/icons/src/SVG/panel-close-bottom_solid.svg
+packages/icons/src/SVG/panel-close-left.svg
+packages/icons/src/SVG/panel-close-left_solid.svg
+packages/icons/src/SVG/panel-close-right.svg
+packages/icons/src/SVG/panel-close-right_solid.svg
+packages/icons/src/SVG/panel-close-top.svg
+packages/icons/src/SVG/panel-close-top_solid.svg
+packages/icons/src/SVG/panel-open-bottom.svg
+packages/icons/src/SVG/panel-open-bottom_solid.svg
+packages/icons/src/SVG/panel-open-left.svg
+packages/icons/src/SVG/panel-open-left_solid.svg
+packages/icons/src/SVG/panel-open-right.svg
+packages/icons/src/SVG/panel-open-right_solid.svg
+packages/icons/src/SVG/panel-open-top.svg
+packages/icons/src/SVG/panel-open-top_solid.svg
+packages/icons/src/SVG/paste.svg
+packages/icons/src/SVG/paste_solid.svg
+packages/icons/src/SVG/pause.svg
+packages/icons/src/SVG/pause_solid.svg
+packages/icons/src/SVG/pdf.svg
+packages/icons/src/SVG/pdf_solid.svg
+packages/icons/src/SVG/percentage.svg
+packages/icons/src/SVG/pi.svg
+packages/icons/src/SVG/picnic.svg
+packages/icons/src/SVG/picnic_solid.svg
+packages/icons/src/SVG/pin.svg
+packages/icons/src/SVG/pin_solid.svg
+packages/icons/src/SVG/pivot.svg
+packages/icons/src/SVG/pivot_solid.svg
+packages/icons/src/SVG/place-in.svg
+packages/icons/src/SVG/play.svg
+packages/icons/src/SVG/play_solid.svg
+packages/icons/src/SVG/policy.svg
+packages/icons/src/SVG/pot-food.svg
+packages/icons/src/SVG/pot-food_solid.svg
+packages/icons/src/SVG/presentation.svg
+packages/icons/src/SVG/presentation_solid.svg
+packages/icons/src/SVG/price-ladder.svg
+packages/icons/src/SVG/print.svg
+packages/icons/src/SVG/print_solid.svg
+packages/icons/src/SVG/progress-cancelled.svg
+packages/icons/src/SVG/progress-closed.svg
+packages/icons/src/SVG/progress-complete.svg
+packages/icons/src/SVG/progress-draft.svg
+packages/icons/src/SVG/progress-inprogress.svg
+packages/icons/src/SVG/progress-onhold.svg
+packages/icons/src/SVG/progress-rejected.svg
+packages/icons/src/SVG/progress-todo.svg
+packages/icons/src/SVG/protection.svg
+packages/icons/src/SVG/protection_solid.svg
+packages/icons/src/SVG/receipt.svg
+packages/icons/src/SVG/receipt_solid.svg
+packages/icons/src/SVG/redo.svg
+packages/icons/src/SVG/refresh.svg
+packages/icons/src/SVG/remove-document.svg
+packages/icons/src/SVG/remove-document_solid.svg
+packages/icons/src/SVG/remove-user.svg
+packages/icons/src/SVG/remove.svg
+packages/icons/src/SVG/replay-10.svg
+packages/icons/src/SVG/replay-15.svg
+packages/icons/src/SVG/replay-30.svg
+packages/icons/src/SVG/replay-5.svg
+packages/icons/src/SVG/restore.svg
+packages/icons/src/SVG/run-report.svg
+packages/icons/src/SVG/run-report_solid.svg
+packages/icons/src/SVG/salt-shaker.svg
+packages/icons/src/SVG/salt-shaker_solid.svg
+packages/icons/src/SVG/save.svg
+packages/icons/src/SVG/save_solid.svg
+packages/icons/src/SVG/scales.svg
+packages/icons/src/SVG/scales_solid.svg
+packages/icons/src/SVG/schedule-time.svg
+packages/icons/src/SVG/schedule-time_solid.svg
+packages/icons/src/SVG/schedule.svg
+packages/icons/src/SVG/school.svg
+packages/icons/src/SVG/school_solid.svg
+packages/icons/src/SVG/search.svg
+packages/icons/src/SVG/search_solid.svg
+packages/icons/src/SVG/semantic-dissatisfied.svg
+packages/icons/src/SVG/semantic-dissatisfied_solid.svg
+packages/icons/src/SVG/semantic-neutral.svg
+packages/icons/src/SVG/semantic-neutral_solid.svg
+packages/icons/src/SVG/semantic-satisfied.svg
+packages/icons/src/SVG/semantic-satisfied_solid.svg
+packages/icons/src/SVG/semantic-very-dissatisfied.svg
+packages/icons/src/SVG/semantic-very-dissatisfied_solid.svg
+packages/icons/src/SVG/semantic-very-satisfied.svg
+packages/icons/src/SVG/semantic-very-satisfied_solid.svg
+packages/icons/src/SVG/send.svg
+packages/icons/src/SVG/send_solid.svg
+packages/icons/src/SVG/settings.svg
+packages/icons/src/SVG/settings_solid.svg
+packages/icons/src/SVG/share.svg
+packages/icons/src/SVG/share_solid.svg
+packages/icons/src/SVG/signal.svg
+packages/icons/src/SVG/signature.svg
+packages/icons/src/SVG/signpost.svg
+packages/icons/src/SVG/signpost_solid.svg
+packages/icons/src/SVG/slide.svg
+packages/icons/src/SVG/slide_solid.svg
+packages/icons/src/SVG/sort-alpha-ascend.svg
+packages/icons/src/SVG/sort-alpha-descend.svg
+packages/icons/src/SVG/sort-ascend.svg
+packages/icons/src/SVG/sort-descend.svg
+packages/icons/src/SVG/sort-num-ascend.svg
+packages/icons/src/SVG/sort-num-descend.svg
+packages/icons/src/SVG/sort.svg
+packages/icons/src/SVG/sortable-alpha.svg
+packages/icons/src/SVG/sortable-num.svg
+packages/icons/src/SVG/sparkle-refresh.svg
+packages/icons/src/SVG/sparkle-refresh_solid.svg
+packages/icons/src/SVG/sparkle.svg
+packages/icons/src/SVG/sparkle_solid.svg
+packages/icons/src/SVG/split-view.svg
+packages/icons/src/SVG/square-root.svg
+packages/icons/src/SVG/stackoverflow.svg
+packages/icons/src/SVG/step-default.svg
+packages/icons/src/SVG/step-success.svg
+packages/icons/src/SVG/stethoscope.svg
+packages/icons/src/SVG/stethoscope_solid.svg
+packages/icons/src/SVG/stop.svg
+packages/icons/src/SVG/stop_solid.svg
+packages/icons/src/SVG/storage.svg
+packages/icons/src/SVG/storage_solid.svg
+packages/icons/src/SVG/storefront.svg
+packages/icons/src/SVG/storefront_solid.svg
+packages/icons/src/SVG/string-number.svg
+packages/icons/src/SVG/string-text.svg
+packages/icons/src/SVG/success-circle.svg
+packages/icons/src/SVG/success.svg
+packages/icons/src/SVG/success_small.svg
+packages/icons/src/SVG/success_small_solid.svg
+packages/icons/src/SVG/success_solid.svg
+packages/icons/src/SVG/sum.svg
+packages/icons/src/SVG/sum_solid.svg
+packages/icons/src/SVG/summarize.svg
+packages/icons/src/SVG/swap.svg
+packages/icons/src/SVG/symphony.svg
+packages/icons/src/SVG/sync.svg
+packages/icons/src/SVG/tag-clear.svg
+packages/icons/src/SVG/tag-clear_solid.svg
+packages/icons/src/SVG/tag.svg
+packages/icons/src/SVG/tag_solid.svg
+packages/icons/src/SVG/tails.svg
+packages/icons/src/SVG/tails_solid.svg
+packages/icons/src/SVG/target.svg
+packages/icons/src/SVG/tear-out.svg
+packages/icons/src/SVG/text-align-center.svg
+packages/icons/src/SVG/text-align-justify.svg
+packages/icons/src/SVG/text-align-left.svg
+packages/icons/src/SVG/text-align-right.svg
+packages/icons/src/SVG/text-bold.svg
+packages/icons/src/SVG/text-color.svg
+packages/icons/src/SVG/text-highlight.svg
+packages/icons/src/SVG/text-italics.svg
+packages/icons/src/SVG/text-ordered-list.svg
+packages/icons/src/SVG/text-strikethrough.svg
+packages/icons/src/SVG/text-underline.svg
+packages/icons/src/SVG/thumbs-down.svg
+packages/icons/src/SVG/thumbs-down_solid.svg
+packages/icons/src/SVG/thumbs-up.svg
+packages/icons/src/SVG/thumbs-up_solid.svg
+packages/icons/src/SVG/tote.svg
+packages/icons/src/SVG/tote_solid.svg
+packages/icons/src/SVG/travel.svg
+packages/icons/src/SVG/travel_solid.svg
+packages/icons/src/SVG/tree.svg
+packages/icons/src/SVG/tree_solid.svg
+packages/icons/src/SVG/triangle-down.svg
+packages/icons/src/SVG/triangle-left.svg
+packages/icons/src/SVG/triangle-right-down.svg
+packages/icons/src/SVG/triangle-right.svg
+packages/icons/src/SVG/triangle-up.svg
+packages/icons/src/SVG/type.svg
+packages/icons/src/SVG/type_solid.svg
+packages/icons/src/SVG/undo.svg
+packages/icons/src/SVG/ungroup.svg
+packages/icons/src/SVG/ungroup_solid.svg
+packages/icons/src/SVG/universal-access.svg
+packages/icons/src/SVG/universal-access_solid.svg
+packages/icons/src/SVG/unlinked.svg
+packages/icons/src/SVG/unlocked.svg
+packages/icons/src/SVG/unlocked_solid.svg
+packages/icons/src/SVG/upload.svg
+packages/icons/src/SVG/urgency-critical.svg
+packages/icons/src/SVG/urgency-high.svg
+packages/icons/src/SVG/urgency-low.svg
+packages/icons/src/SVG/urgency-medium.svg
+packages/icons/src/SVG/urgency-none.svg
+packages/icons/src/SVG/urgency-ontime.svg
+packages/icons/src/SVG/user-admin.svg
+packages/icons/src/SVG/user-admin_solid.svg
+packages/icons/src/SVG/user-badge.svg
+packages/icons/src/SVG/user-group.svg
+packages/icons/src/SVG/user-group_solid.svg
+packages/icons/src/SVG/user-search.svg
+packages/icons/src/SVG/user.svg
+packages/icons/src/SVG/user_solid.svg
+packages/icons/src/SVG/utensils.svg
+packages/icons/src/SVG/utensils_solid.svg
+packages/icons/src/SVG/video-disabled.svg
+packages/icons/src/SVG/video.svg
+packages/icons/src/SVG/video_solid.svg
+packages/icons/src/SVG/visible.svg
+packages/icons/src/SVG/visible_solid.svg
+packages/icons/src/SVG/volume-down.svg
+packages/icons/src/SVG/volume-off.svg
+packages/icons/src/SVG/volume-up.svg
+packages/icons/src/SVG/warning.svg
+packages/icons/src/SVG/warning_solid.svg
+packages/icons/src/SVG/watch.svg
+packages/icons/src/SVG/watch_solid.svg
+packages/icons/src/SVG/waveform.svg
+packages/icons/src/SVG/weight.svg
+packages/icons/src/SVG/weight_solid.svg
+packages/icons/src/SVG/wifi-disabled.svg
+packages/icons/src/SVG/wifi.svg
+packages/icons/src/SVG/woman.svg
+packages/icons/src/SVG/woman_solid.svg
+packages/icons/src/SVG/woodland.svg
+packages/icons/src/SVG/woodland_solid.svg
+packages/icons/src/SVG/workflow.svg
+packages/icons/src/SVG/workflow_solid.svg
+packages/icons/src/SVG/xls.svg
+packages/icons/src/SVG/xls_solid.svg
+packages/icons/src/SVG/zip.svg
+packages/icons/src/SVG/zip_solid.svg
