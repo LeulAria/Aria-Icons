@@ -258,7 +258,14 @@ async function loadPathList(family: Family): Promise<string[] | null> {
 	}
 }
 
-function classifyPath(rel: string, theme: boolean): { name: string; style: string } | null {
+const STYLE_NAME_RE =
+	/^(line|outline|outlined|solid|fill|filled|bold|light|thin|regular|duotone|twotone|two-tone|bulk|broken|color|mono|glyph|icons?|24|16|32|48|scalable|soft|sharp|round|rounded|square|mini|micro)$/i;
+
+function classifyPath(
+	rel: string,
+	theme: boolean,
+	opts: { uniqueNames?: boolean } = {},
+): { name: string; style: string } | null {
 	const norm = rel.replace(/\\/g, "/");
 	if (!/\.svg$/i.test(norm)) return null;
 	const base = path.basename(norm).replace(/\.svg$/i, "");
@@ -270,15 +277,23 @@ function classifyPath(rel: string, theme: boolean): { name: string; style: strin
 			style: symbolic ? "symbolic" : "color",
 		};
 	}
-	// Flat: use immediate parent as style when it looks like a style folder.
+	// Flat: parent folder is often the style (`fill/foo.svg`). Some packs invert
+	// that (`foo/Bold.svg`) — detect style-like basenames and swap.
 	const parts = norm.split("/");
 	const parent = parts.length >= 2 ? parts[parts.length - 2]! : "";
-	const styleHint =
-		/^(line|outline|outlined|solid|fill|filled|bold|light|thin|regular|duotone|twotone|two-tone|bulk|broken|color|mono|glyph|icons?|24|16|32|48|scalable)$/i.test(
-			parent,
-		)
-			? kebab(parent)
-			: "";
+	if (STYLE_NAME_RE.test(base) && parent && !STYLE_NAME_RE.test(parent)) {
+		return { name: kebab(parent), style: kebab(base) };
+	}
+	const styleHint = STYLE_NAME_RE.test(parent) ? kebab(parent) : "";
+	// Path lists are already deduped; keep path-derived names so duplicate
+	// basenames in different folders (e.g. button.svg) stay distinct.
+	if (opts.uniqueNames) {
+		const withoutStyle = styleHint
+			? parts.filter((_, i) => i !== parts.length - 2).join("/")
+			: norm;
+		const stem = withoutStyle.replace(/\.svg$/i, "");
+		return { name: kebab(stem), style: styleHint };
+	}
 	return { name: kebab(base), style: styleHint };
 }
 
@@ -419,13 +434,14 @@ async function collectFromTree(
 	exclude: RegExp | null,
 ): Promise<NamedSvg[]> {
 	const best = new Map<string, { item: NamedSvg; rank: number }>();
+	const uniqueNames = Boolean(wanted?.length) && !theme;
 
 	const takeAbs = async (abs: string, relForClassify: string) => {
 		const norm = relForClassify.replace(/\\/g, "/").replace(/^\.\//, "");
 		if (/\/(?:cursors?|previews?|templates?|debian|docs?|screenshots?)(\/|$)/i.test(norm)) return;
 		if (include && !include.test(norm)) return;
 		if (exclude && exclude.test(norm)) return;
-		const classified = classifyPath(norm, theme);
+		const classified = classifyPath(norm, theme, { uniqueNames });
 		if (!classified) return;
 		let svg: string;
 		try {
@@ -621,60 +637,49 @@ async function fetchPhyloPic(workDir: string): Promise<NamedSvg[]> {
 	await ensureDir(workDir);
 	const buildJson = JSON.parse(await fetchText("https://api.phylopic.org/")) as {
 		build?: number;
-		_links?: { build?: { href?: string } };
 	};
-	// Current build is advertised on the API root.
-	let build = buildJson.build;
-	if (build == null) {
-		const href = buildJson._links?.build?.href;
-		const m = href?.match(/build=(\d+)/);
-		build = m ? Number(m[1]) : undefined;
-	}
-	if (build == null) {
-		// Fallback: poke images endpoint without build filter via docs default.
-		const probe = JSON.parse(
-			await fetchText("https://api.phylopic.org/images?embed_items=true&filter_license_nc=false&filter_license_sa=false&page=0"),
-		) as { build?: number };
-		build = probe.build;
-	}
+	const build = buildJson.build;
 	if (build == null) throw new Error("Could not resolve PhyloPic build number");
 
-	const items: NamedSvg[] = [];
-	let page = 0;
-	let totalPages = 1;
-	while (page < totalPages) {
-		const url = `https://api.phylopic.org/images?build=${build}&embed_items=true&filter_license_nc=false&filter_license_sa=false&page=${page}`;
-		const data = JSON.parse(await fetchText(url)) as {
-			totalPages?: number;
-			_links?: { items?: Array<{ href?: string }> };
-			_embedded?: {
-				items?: Array<{
-					uuid?: string;
-					_links?: {
-						vectorFile?: { href?: string };
-						contributor?: { title?: string };
-						license?: { href?: string };
-					};
-				}>;
-			};
+	type PhyloItem = {
+		uuid?: string;
+		_links?: {
+			vectorFile?: { href?: string };
+			contributor?: { title?: string };
+			license?: { href?: string };
+			self?: { href?: string };
 		};
-		totalPages = data.totalPages ?? totalPages;
+	};
+	type PhyloPage = {
+		_links?: { next?: { href?: string } | null };
+		_embedded?: { items?: PhyloItem[] };
+	};
+
+	const items: NamedSvg[] = [];
+	let href: string | null =
+		`/images?build=${build}&embed_items=true&filter_license_nc=false&filter_license_sa=false&page=0`;
+	let page = 0;
+	while (href) {
+		const url = href.startsWith("http") ? href : `https://api.phylopic.org${href}`;
+		const data = JSON.parse(await fetchText(url)) as PhyloPage;
 		const embedded = data._embedded?.items ?? [];
 		for (const img of embedded) {
-			const uuid = img.uuid;
+			const selfHref = img._links?.self?.href ?? "";
+			const uuid =
+				img.uuid ||
+				selfHref.match(/\/images\/([0-9a-f-]{36})/i)?.[1] ||
+				img._links?.vectorFile?.href?.match(/\/images\/([0-9a-f-]{36})\//i)?.[1];
 			const vector = img._links?.vectorFile?.href;
 			if (!uuid || !vector) continue;
 			const licenseHref = img._links?.license?.href ?? "";
-			if (/nc|sa/i.test(licenseHref) && !/by\/\d/i.test(licenseHref)) {
-				// Extra belt-and-braces: API filter should already drop NC/SA.
-			}
 			try {
-				const svg = await fetchText(vector.startsWith("http") ? vector : `https://images.phylopic.org${vector}`, 60_000);
+				const svg = await fetchText(
+					vector.startsWith("http") ? vector : `https://images.phylopic.org${vector}`,
+					60_000,
+				);
 				if (!svg.includes("<svg")) continue;
 				const contributor = img._links?.contributor?.title;
 				const attr = contributor ? `PhyloPic / ${contributor}` : "PhyloPic";
-				// Attribution for CC-BY items is recorded at set level; per-image
-				// credit stays in a comment for redistributors.
 				const stamped = svg.includes("<!--")
 					? svg
 					: `<!-- ${attr}; ${licenseHref || "see phylopic.org"} -->\n${svg}`;
@@ -684,7 +689,9 @@ async function fetchPhyloPic(workDir: string): Promise<NamedSvg[]> {
 			}
 		}
 		page++;
-		if (page % 20 === 0) console.log(`  … PhyloPic page ${page}/${totalPages} (${items.length} svgs)`);
+		const next = data._links?.next?.href ?? null;
+		href = next;
+		if (page % 20 === 0) console.log(`  … PhyloPic page ${page} (${items.length} svgs)`);
 	}
 	return items;
 }
