@@ -34,6 +34,32 @@ function run(command: string, args: string[], env: Partial<NodeJS.ProcessEnv> = 
 	});
 }
 
+/** Oversized vendored packs use Git LFS — ensure real blobs before gzip/deploy. */
+async function ensureGitLfsPulled() {
+	try {
+		await run("git", ["lfs", "version"]);
+	} catch {
+		console.log("→ git-lfs not available — skip LFS pull");
+		return;
+	}
+	try {
+		console.log("→ Pulling Git LFS icon packs…");
+		// Repo root may be monorepo parent when Vercel Root Directory is apps/web.
+		await run("git", ["lfs", "pull", "--include", "apps/web/icons/vendored/**"]);
+	} catch (error) {
+		console.warn(
+			"→ git lfs pull failed (continuing):",
+			error instanceof Error ? error.message : error,
+		);
+	}
+}
+
+function looksLikeGitLfsPointer(buf: Buffer): boolean {
+	if (buf.length > 300) return false;
+	const head = buf.subarray(0, 64).toString("utf8");
+	return head.startsWith("version https://git-lfs.github.com/spec/v1");
+}
+
 /** Run a repo script with the local tsx binary (Vercel calls `next build`, not `bun`). */
 function runScript(
 	script: string,
@@ -129,6 +155,7 @@ export async function prepareProductionIcons() {
 	const onVercel = process.env.VERCEL === "1" || process.env.FETCH_ICONS === "1";
 
 	if (onVercel) {
+		await ensureGitLfsPulled();
 		await fs.mkdir(path.join(process.cwd(), "icons", "iconify"), {
 			recursive: true,
 		});
@@ -205,17 +232,32 @@ export async function compressIconPacksForDeploy() {
 
 	let before = 0;
 	let after = 0;
+	let skippedPointers = 0;
+	let gzipped = 0;
 	for (const { from, to } of targets) {
 		const raw = await fs.readFile(from);
+		if (!from.endsWith(".gz") && looksLikeGitLfsPointer(raw)) {
+			skippedPointers++;
+			console.warn(
+				`→ Skipping Git LFS pointer (not pulled): ${path.relative(process.cwd(), from)}`,
+			);
+			continue;
+		}
 		const compressed = from.endsWith(".gz") ? raw : await gzipAsync(raw, { level: 9 });
 		await fs.writeFile(to, compressed);
 		await fs.unlink(from);
 		before += raw.length;
 		after += compressed.length;
+		gzipped++;
 	}
-	if (targets.length > 0) {
+	if (gzipped > 0) {
 		console.log(
-			`→ Gzipped ${targets.length} icon packs for deploy (${(before / 1e6).toFixed(1)} MB → ${(after / 1e6).toFixed(1)} MB); vendored packs moved to public/icon-packs/`,
+			`→ Gzipped ${gzipped} icon packs for deploy (${(before / 1e6).toFixed(1)} MB → ${(after / 1e6).toFixed(1)} MB); vendored packs moved to public/icon-packs/`,
+		);
+	}
+	if (skippedPointers > 0) {
+		console.warn(
+			`→ Left ${skippedPointers} LFS pointer pack(s) in place — enable Git LFS on the host or fix git lfs pull`,
 		);
 	}
 }
