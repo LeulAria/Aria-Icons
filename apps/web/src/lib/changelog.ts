@@ -10,6 +10,30 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
 	{
+		date: "2026-10-08",
+		version: "1.027M",
+		title: "Ten more open icon families",
+		tag: "Icons",
+		summary:
+			"Vendored 10 open icon families from the October 2026 gap report, including With Icons (20 styles), MX Icons, Reicon Glass, Obra, Meya, Finicon, and several animated sets with static SVG extracts. Two candidates were skipped: 3dicons (raster-only) and Morphicons (a morphing library, already used by Aria for stroke morphing). The browse catalog now lists about 1,027,248 icons across 562 sets.",
+		added: [
+			"Added With Icons in 20 styles (9,999 icons) — [withevergrow/withicons](https://github.com/withevergrow/withicons), MIT.",
+			"Added MX Icons in Bold, Broken, Bulk, Linear, Outline, and Twotone (10,832 icons) — [ig-imanish/mx-icons](https://github.com/ig-imanish/mx-icons), MIT.",
+			"Added Reicon Glass (2,665 icons) — [dqev/reicon-glass](https://github.com/dqev/reicon-glass), MIT (README; no LICENSE file).",
+			"Added Obra Icons (1,047 icons) — [Obra-Studio/obra-icons-mr](https://github.com/Obra-Studio/obra-icons-mr), MIT.",
+			"Added Meya Icons in Outline and Duotone (858 icons) — [nazmijavier/meya-icons](https://github.com/nazmijavier/meya-icons), MIT.",
+			"Added Finicon (512 icons) — [npm finicon](https://www.npmjs.com/package/finicon), MIT (README).",
+			"Added Singularity Icons in Color and Symbolic (474 icons) — [singularityos-lab/singularity-themes](https://github.com/singularityos-lab/singularity-themes), GPL-3.0.",
+			"Added Animated Icons (Koven Labs) (335 icons, static extracts) — [kovenlabs/animated-icons](https://github.com/kovenlabs/animated-icons), MIT.",
+			"Added Its Hover (211 icons, static extracts) — [itshover/itshover](https://github.com/itshover/itshover), Apache-2.0.",
+			"Added Iconimate (166 icons, static extracts) — [smammar100/Iconimate](https://github.com/smammar100/Iconimate), MIT.",
+		],
+		removed: [
+			"Skipped 3dicons ([realvjy/3dicons](https://github.com/realvjy/3dicons), CC0-1.0): no usable static SVGs — 3D raster/Blender renders (previously removed for blurred artwork).",
+			"Skipped Morphicons ([guillermolg00/morphicons](https://github.com/guillermolg00/morphicons), MIT): morphing library, not an icon pack; Aria already depends on it for stroke morphing.",
+		],
+	},
+	{
 		date: "2026-10-03",
 		version: "1M",
 		title: "One million icons",
