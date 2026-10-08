@@ -2748,6 +2748,112 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "simple", label: "Simple", group: "solid", roots: ["simple"] },
 		],
 	},
+	{
+		id: "withicons",
+		label: "With Icons",
+		homepage: "https://github.com/withevergrow/withicons",
+		styles: [
+			{ id: "anime", label: "Anime", group: "solid", roots: ["anime"] },
+			{ id: "bauhaus", label: "Bauhaus", group: "solid", roots: ["bauhaus"] },
+			{ id: "blueprint", label: "Blueprint", group: "line", roots: ["blueprint"] },
+			{ id: "coquette", label: "Coquette", group: "solid", roots: ["coquette"] },
+			{ id: "duo", label: "Duo", group: "solid", roots: ["duo"] },
+			{ id: "engrave", label: "Engrave", group: "line", roots: ["engrave"] },
+			{ id: "glass", label: "Glass", group: "solid", roots: ["glass"] },
+			{ id: "gloss", label: "Gloss", group: "solid", roots: ["gloss"] },
+			{ id: "gothic", label: "Gothic", group: "solid", roots: ["gothic"] },
+			{ id: "kawaii", label: "Kawaii", group: "line", roots: ["kawaii"] },
+			{ id: "line", label: "Line", group: "line", roots: ["line"] },
+			{ id: "luxe", label: "Luxe", group: "solid", roots: ["luxe"] },
+			{ id: "pastel", label: "Pastel", group: "solid", roots: ["pastel"] },
+			{ id: "pixel", label: "Pixel", group: "solid", roots: ["pixel"] },
+			{ id: "plush", label: "Plush", group: "solid", roots: ["plush"] },
+			{ id: "retro", label: "Retro", group: "solid", roots: ["retro"] },
+			{ id: "sketch", label: "Sketch", group: "line", roots: ["sketch"] },
+			{ id: "skeuo", label: "Skeuo", group: "line", roots: ["skeuo"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+			{ id: "sticker", label: "Sticker", group: "solid", roots: ["sticker"] },
+		],
+	},
+	{
+		id: "finicon",
+		label: "Finicon",
+		homepage: "https://www.npmjs.com/package/finicon",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "reicon-glass",
+		label: "Reicon Glass",
+		homepage: "https://github.com/dqev/reicon-glass",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "obra-icons",
+		label: "Obra Icons",
+		homepage: "https://github.com/Obra-Studio/obra-icons-mr",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "meya-icons",
+		label: "Meya Icons",
+		homepage: "https://github.com/nazmijavier/meya-icons",
+		styles: [
+			{ id: "duotone", label: "Duotone", group: "solid", roots: ["duotone"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+		],
+	},
+	{
+		id: "iconimate",
+		label: "Iconimate",
+		homepage: "https://github.com/smammar100/Iconimate",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "itshover",
+		label: "Its Hover",
+		homepage: "https://github.com/itshover/itshover",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "mx-icons",
+		label: "MX Icons",
+		homepage: "https://github.com/ig-imanish/mx-icons",
+		styles: [
+			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
+			{ id: "broken", label: "Broken", group: "line", roots: ["broken"] },
+			{ id: "bulk", label: "Bulk", group: "solid", roots: ["bulk"] },
+			{ id: "linear", label: "Linear", group: "line", roots: ["linear"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "twotone", label: "Twotone", group: "line", roots: ["twotone"] },
+		],
+	},
+	{
+		id: "koven-animated-icons",
+		label: "Animated Icons (Koven Labs)",
+		homepage: "https://github.com/kovenlabs/animated-icons",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "singularity-icons",
+		label: "Singularity Icons",
+		homepage: "https://github.com/singularityos-lab/singularity-themes",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "symbolic", label: "Symbolic", group: "line", roots: ["symbolic"] },
+		],
+	},
 	// P0_FAMILIES_END
 	// Material Symbols weights Iconify doesn't carry (it has 200 and 400): bun run fetch:material-symbols
 	{

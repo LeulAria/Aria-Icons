@@ -14,7 +14,7 @@
 
 # Aria Icons
 
-**1,000,000 SVG icons - searchable, customizable, and a package manager for your icon codebase.**
+**1,000,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
 
 Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
 

@@ -665,7 +665,12 @@ export async function buildPackHashIndex(vendoredDir: string, skip: Set<string>)
 		const stamp = `${stat.size}:${stat.mtimeMs}`;
 		let hashes = cache[setId]?.stamp === stamp ? cache[setId]!.hashes : null;
 		if (!hashes) {
-			const pack = JSON.parse(await fs.promises.readFile(path.join(vendoredDir, file), "utf8")) as {
+			const raw = await fs.promises.readFile(path.join(vendoredDir, file), "utf8");
+			// Shallow clones leave some large packs as Git LFS pointers.
+			if (raw.startsWith("version https://git-lfs.github.com/")) {
+				continue;
+			}
+			const pack = JSON.parse(raw) as {
 				icons: Record<string, PackedIcon>;
 			};
 			hashes = Object.values(pack.icons).map((icon) => svgHash(icon.svg));
