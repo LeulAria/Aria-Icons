@@ -5,3 +5,7 @@ apps/web/icons/vendored/suru-plus-icons.json filter=lfs diff=lfs merge=lfs -text
 apps/web/icons/vendored/bioicons.json filter=lfs diff=lfs merge=lfs -text
 apps/web/icons/vendored/os-catalina-icons.json filter=lfs diff=lfs merge=lfs -text
 apps/web/icons/vendored/mint-x-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/phylopic-silhouettes-cc0-pdm-cc-by-only.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/pling-2049257.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/amckenna41-iso3166-flags.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/pling-2316184.json filter=lfs diff=lfs merge=lfs -text
