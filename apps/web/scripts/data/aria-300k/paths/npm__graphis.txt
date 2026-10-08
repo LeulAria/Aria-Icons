@@ -1,0 +1,2 @@
+font/graphis_bold.svg
+font/graphis_regular.svg

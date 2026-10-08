@@ -1,0 +1,29 @@
+gui-mobile-icons/Gui Icons/Svg Files/Broken heart.svg
+gui-mobile-icons/Gui Icons/Svg Files/Cross.svg
+gui-mobile-icons/Gui Icons/Svg Files/Crown.svg
+gui-mobile-icons/Gui Icons/Svg Files/Data List.svg
+gui-mobile-icons/Gui Icons/Svg Files/Door Lock.svg
+gui-mobile-icons/Gui Icons/Svg Files/Download Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Exit Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Healthbar.svg
+gui-mobile-icons/Gui Icons/Svg Files/Home Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/List Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Lock In Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Medal.svg
+gui-mobile-icons/Gui Icons/Svg Files/Music Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/No Music.svg
+gui-mobile-icons/Gui Icons/Svg Files/No Sound.svg
+gui-mobile-icons/Gui Icons/Svg Files/Options.svg
+gui-mobile-icons/Gui Icons/Svg Files/Options2.svg
+gui-mobile-icons/Gui Icons/Svg Files/Photo.svg
+gui-mobile-icons/Gui Icons/Svg Files/Power.svg
+gui-mobile-icons/Gui Icons/Svg Files/Record Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Repeat Icons 2.svg
+gui-mobile-icons/Gui Icons/Svg Files/Repeat Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Ribbons 1.svg
+gui-mobile-icons/Gui Icons/Svg Files/Search Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Sound Icons.svg
+gui-mobile-icons/Gui Icons/Svg Files/Sound On.svg
+gui-mobile-icons/Gui Icons/Svg Files/User Profile.svg
+gui-mobile-icons/Gui Icons/Svg Files/Wrench.svg

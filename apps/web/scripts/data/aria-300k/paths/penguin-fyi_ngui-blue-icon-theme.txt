@@ -1,0 +1,8 @@
+nGUI-Blue/22x22/apps/copyq.svg
+nGUI-Blue/22x22/apps/cs-applets.svg
+nGUI-Blue/22x22/apps/gufw.svg
+nGUI-Blue/22x22/apps/org.freedesktop.Bustle.svg
+nGUI-Blue/22x22/apps/preferences-desktop-wallpaper.svg
+nGUI-Blue/22x22/apps/preferences-desktop.svg
+nGUI-Blue/22x22/apps/system-software-update.svg
+nGUI-Blue/22x22/apps/tmm.svg

@@ -36,6 +36,12 @@ export type IconSetConfig = {
 	id: IconSetId;
 	label: string;
 	homepage?: string;
+	/** SPDX-ish licence string for the vendored pack (from upstream). */
+	license?: string;
+	/** True when the upstream licence is copyleft (GPL/LGPL/CC-BY-SA/MPL/EPL/…). */
+	copyleft?: boolean;
+	/** Required attribution text or URL when the licence demands it (e.g. CC-BY). */
+	attribution?: string;
 	styles: IconSetStyle[];
 };
 
@@ -2855,6 +2861,45 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	// P0_FAMILIES_END
+	// GAP_300K_START
+	{
+		id: "albybarber-bettercons",
+		label: "bettercons",
+		homepage: "https://github.com/albybarber/bettercons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "pling-1306053",
+		label: "CarbonBannerIcons",
+		homepage: "https://www.opendesktop.org/p/1306053",
+		license: "GPL-3.0 (Pling licence field)",
+		copyleft: true,
+		styles: [
+			{ id: "color", label: "Icons", group: "solid", roots: ["color"] },
+		],
+	},
+	{
+		id: "penguin-fyi-ngui-blue-icon-theme",
+		label: "NGUI Blue",
+		homepage: "https://github.com/penguin-fyi/ngui-blue-icon-theme",
+		license: "MIT",
+		styles: [
+			{ id: "color", label: "Icons", group: "solid", roots: ["color"] },
+		],
+	},
+	{
+		id: "boolfly-chat-icons",
+		label: "@boolfly.chat/icons",
+		homepage: "https://www.npmjs.com/package/@boolfly.chat/icons",
+		license: "MIT (package.json)",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	// GAP_300K_END
 	// Material Symbols weights Iconify doesn't carry (it has 200 and 400): bun run fetch:material-symbols
 	{
 		id: "material-symbols-100",

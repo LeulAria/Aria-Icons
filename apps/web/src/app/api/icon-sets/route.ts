@@ -18,6 +18,9 @@ export async function GET() {
 				id: set.id,
 				label: set.label,
 				homepage: set.homepage ?? null,
+				license: set.license ?? null,
+				copyleft: set.copyleft ?? false,
+				attribution: set.attribution ?? null,
 				styles: styles.map((s) => ({
 					id: s.id,
 					label: s.label,

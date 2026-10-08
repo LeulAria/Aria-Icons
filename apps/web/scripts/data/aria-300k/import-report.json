@@ -1,0 +1,96 @@
+{
+  "albybarber_bettercons": {
+    "key": "albybarber_bettercons",
+    "label": "bettercons",
+    "source": "https://github.com/albybarber/bettercons",
+    "setId": "albybarber-bettercons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 266,
+    "round": 2,
+    "status": "ok",
+    "count": 266,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 266
+      }
+    ]
+  },
+  "pling_1306053": {
+    "key": "pling_1306053",
+    "label": "CarbonBannerIcons",
+    "source": "https://www.opendesktop.org/p/1306053",
+    "setId": "pling-1306053",
+    "license": "GPL-3.0 (Pling licence field)",
+    "copyleft": true,
+    "expected": 21,
+    "round": 2,
+    "status": "ok",
+    "count": 21,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Icons",
+        "group": "solid",
+        "count": 21
+      }
+    ]
+  },
+  "penguin-fyi_ngui-blue-icon-theme": {
+    "key": "penguin-fyi_ngui-blue-icon-theme",
+    "label": "NGUI Blue",
+    "source": "https://github.com/penguin-fyi/ngui-blue-icon-theme",
+    "setId": "penguin-fyi-ngui-blue-icon-theme",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 8,
+    "round": 1,
+    "status": "ok",
+    "count": 8,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Icons",
+        "group": "solid",
+        "count": 8
+      }
+    ]
+  },
+  "npm__boolfly.chat__icons": {
+    "key": "npm__boolfly.chat__icons",
+    "label": "@boolfly.chat/icons",
+    "source": "https://www.npmjs.com/package/@boolfly.chat/icons",
+    "setId": "boolfly-chat-icons",
+    "license": "MIT (package.json)",
+    "copyleft": false,
+    "expected": 21,
+    "round": 2,
+    "status": "ok",
+    "count": 20,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 20
+      }
+    ],
+    "note": "got 20 vs research 21"
+  },
+  "npm__graphis": {
+    "key": "npm__graphis",
+    "label": "Graphis",
+    "source": "https://github.com/loreanvictor/graphis",
+    "setId": "graphis",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 2,
+    "round": 1,
+    "status": "empty",
+    "count": 0,
+    "note": "no usable SVGs after fetch/filter"
+  }
+}

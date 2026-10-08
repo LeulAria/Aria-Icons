@@ -1,0 +1,332 @@
+svg/cargonet/CargoNet-24x24.svg
+svg/cargonet/cargo-fill-24x24.svg
+svg/cargonet/cargo-outline-24x24.svg
+svg/cargonet/freight train-fill-24x24.svg
+svg/cargonet/freight train-outline-24x24.svg
+svg/communication/chapter-fill-24x24.svg
+svg/communication/chapter-outline-24x24.svg
+svg/communication/code-fill-24x24.svg
+svg/communication/code-outline-24x24.svg
+svg/communication/cookies-fill-24x24.svg
+svg/communication/cookies-outline-24x24.svg
+svg/communication/copy-fill-24x24.svg
+svg/communication/copy-outline-24x24.svg
+svg/communication/customer service-fill-24x24.svg
+svg/communication/customer service-outline-24x24.svg
+svg/communication/edit-fill-24x24.svg
+svg/communication/edit-outline-24x24.svg
+svg/communication/folder-fill-24x24.svg
+svg/communication/folder-outline-24x24.svg
+svg/communication/headphones-fill-24x24.svg
+svg/communication/headphones-outline-24x24.svg
+svg/communication/keyboard-fill-24x24.svg
+svg/communication/keyboard-outline-24x24.svg
+svg/communication/language-fill-24x24.svg
+svg/communication/language-outline-24x24.svg
+svg/communication/mobile-fill-24x24.svg
+svg/communication/newspaper-fill-24x24.svg
+svg/communication/newspaper-outline-24x24.svg
+svg/communication/pc-fill-24x24.svg
+svg/communication/phone signal-fill-24x24.svg
+svg/communication/phone signal-outline-24x24.svg
+svg/communication/phone-outline-24x24.svg
+svg/communication/picture-fill-24x24.svg
+svg/communication/picture-outline-24x24.svg
+svg/communication/podcast-fill-24x24.svg
+svg/communication/podcast-outline-24x24.svg
+svg/communication/qr-fill-24x24.svg
+svg/communication/qr-outline-24x24.svg
+svg/communication/robot-fill-24x24.svg
+svg/communication/robot-outline-24x24.svg
+svg/communication/share-fill-24x24.svg
+svg/communication/share-outline-24x24.svg
+svg/communication/sound off-fill-24x24.svg
+svg/communication/sound off-outline-24x24.svg
+svg/communication/sound on-fill-24x24.svg
+svg/communication/sound on-outline-24x24.svg
+svg/communication/speech bubble-fill-24x24.svg
+svg/communication/speech bubble-outline-24x24.svg
+svg/communication/tablet-outline-24x24.svg
+svg/feedback/frown-outline-24x24.svg
+svg/feedback/neutral-outline-24x24.svg
+svg/feedback/service-outline-24x24.svg
+svg/feedback/smile-outline-24x24.svg
+svg/feedback/thumbs down-fill-24x24.svg
+svg/feedback/thumbs down-outline-24x24.svg
+svg/feedback/thumbs up-fill-24x24.svg
+svg/feedback/thumbs up-outline-24x24.svg
+svg/layout/contract2-outline-24x24.svg
+svg/layout/draghandle-fill-24x24.svg
+svg/layout/expand2-outline-24x24.svg
+svg/layout/list-outline-24x24.svg
+svg/layout/open new window-fill-24x24.svg
+svg/layout/open new window-outline-24x24.svg
+svg/map/compass-fill-24x24.svg
+svg/map/compass-outline-24x24.svg
+svg/map/map-fill-24x24.svg
+svg/map/map-outline-24x24.svg
+svg/map/parking-outline-24x24.svg
+svg/map/position on map-fill-24x24.svg
+svg/map/position on map-outline-24x24.svg
+svg/map/satellite-fill-24x24.svg
+svg/map/satellite-outline-24x24.svg
+svg/media-controller/backward 15 (media controller)-fill-24x24.svg
+svg/media-controller/backward 15 (media controller)-outline-24x24.svg
+svg/media-controller/forward 15 (media controller)-fill-24x24.svg
+svg/media-controller/forward 15 (media controller)-outline-24x24.svg
+svg/media-controller/next (media controller)-fill-24x24.svg
+svg/media-controller/pause (media controller)-outline-24x24.svg
+svg/media-controller/play (media controller)-outline-24x24.svg
+svg/media-controller/previous (media controller)-fill-24x24.svg
+svg/misc/autumn-fill-24x24.svg
+svg/misc/autumn-outline-24x24.svg
+svg/misc/components-fill-24x24.svg
+svg/misc/components-outline-24x24.svg
+svg/misc/guidelines-fill-24x24.svg
+svg/misc/guidelines-outline-24x24.svg
+svg/misc/paperclip-fill-24x24.svg
+svg/misc/paperclip-outline-24x24.svg
+svg/misc/service-standard-fill-24x24.svg
+svg/misc/service-standard-outline-24x24.svg
+svg/misc/spring-fill-24x24.svg
+svg/misc/spring-outline-24x24.svg
+svg/misc/stars-fill-24x24.svg
+svg/misc/stars-outline-24x24.svg
+svg/misc/summer-fill-24x24.svg
+svg/misc/summer-outline-24x24.svg
+svg/misc/theme-fill-24x24.svg
+svg/misc/theme-outline-24x24.svg
+svg/misc/tokens-outline-24x24.svg
+svg/misc/vy-24x24.svg
+svg/misc/winter-fill-24x24.svg
+svg/misc/winter-outline-24x24.svg
+svg/navigation/battery-fill-24x24.svg
+svg/navigation/battery-outline-24x24.svg
+svg/navigation/bookmark-fill-24x24.svg
+svg/navigation/bookmark-outline-24x24.svg
+svg/navigation/calendar-fill-24x24.svg
+svg/navigation/calendar-outline-24x24.svg
+svg/navigation/change direction-fill-24x24.svg
+svg/navigation/change direction-outline-24x24.svg
+svg/navigation/close-outline-24x24.svg
+svg/navigation/delete-fill-24x24.svg
+svg/navigation/delete-outline-24x24.svg
+svg/navigation/departure-outline-24x24.svg
+svg/navigation/destination-outline-24x24.svg
+svg/navigation/e mail-fill-24x24.svg
+svg/navigation/e mail-outline-24x24.svg
+svg/navigation/favourite-fill-24x24.svg
+svg/navigation/favourite-outline-24x24.svg
+svg/navigation/filter-fill-24x24.svg
+svg/navigation/filter-outline-24x24.svg
+svg/navigation/history-fill-24x24.svg
+svg/navigation/history-outline-24x24.svg
+svg/navigation/like-outline-24x24.svg
+svg/navigation/log out-fill-24x24.svg
+svg/navigation/log out-outline-24x24.svg
+svg/navigation/notification mute-fill-24x24.svg
+svg/navigation/notification mute-outline-24x24.svg
+svg/navigation/notification received-fill-24x24.svg
+svg/navigation/notification received-outline-24x24.svg
+svg/navigation/notification-fill-24x24.svg
+svg/navigation/notification-outline-24x24.svg
+svg/navigation/password-fill-24x24.svg
+svg/navigation/password-outline-24x24.svg
+svg/navigation/pdf-fill-24x24.svg
+svg/navigation/pdf-outline-24x24.svg
+svg/navigation/profile-fill-24x24.svg
+svg/navigation/profile-outline-24x24.svg
+svg/navigation/refresh-fill-24x24.svg
+svg/navigation/refresh-outline-24x24.svg
+svg/navigation/ruter-fill-24x24.svg
+svg/navigation/search-fill-24x24.svg
+svg/navigation/search-outline-24x24.svg
+svg/navigation/settings x2-fill-24x24.svg
+svg/navigation/settings x2-outline-24x24.svg
+svg/navigation/update-fill-24x24.svg
+svg/navigation/update-outline-24x24.svg
+svg/onboard-service/aircondition-fill-24x24.svg
+svg/onboard-service/aircondition-outline-24x24.svg
+svg/onboard-service/baby changing-fill-24x24.svg
+svg/onboard-service/baby changing-outline-24x24.svg
+svg/onboard-service/cafe-fill-24x24.svg
+svg/onboard-service/cafe-outline-24x24.svg
+svg/onboard-service/child seat-fill-24x24.svg
+svg/onboard-service/child seat-outline-24x24.svg
+svg/onboard-service/coffee cart-fill-24x24.svg
+svg/onboard-service/coffee cart-outline-24x24.svg
+svg/onboard-service/coffee machine-fill-24x24.svg
+svg/onboard-service/coffee machine-outline-24x24.svg
+svg/onboard-service/coffee-fill-24x24.svg
+svg/onboard-service/coffee-outline-24x24.svg
+svg/onboard-service/comfort-fill-24x24.svg
+svg/onboard-service/comfort-outline-24x24.svg
+svg/onboard-service/family-fill-24x24.svg
+svg/onboard-service/family-outline-24x24.svg
+svg/onboard-service/guide dog-fill-24x24.svg
+svg/onboard-service/large dog-fill-24x24.svg
+svg/onboard-service/large dog-outline-24x24.svg
+svg/onboard-service/luggage plus-fill-24x24.svg
+svg/onboard-service/luggage plus-outline-24x24.svg
+svg/onboard-service/luggage special 1-fill-24x24.svg
+svg/onboard-service/luggage special 1-outline-24x24.svg
+svg/onboard-service/luggage special 2-fill-24x24.svg
+svg/onboard-service/luggage special 2-outline-24x24.svg
+svg/onboard-service/luggage-fill-24x24.svg
+svg/onboard-service/luggage-outline-24x24.svg
+svg/onboard-service/no wifi-fill-24x24.svg
+svg/onboard-service/no wifi-outline-24x24.svg
+svg/onboard-service/pet allowed-fill-24x24.svg
+svg/onboard-service/pet allowed-outline-24x24.svg
+svg/onboard-service/pet not allowed-fill-24x24.svg
+svg/onboard-service/pet not allowed-outline-24x24.svg
+svg/onboard-service/play room-fill-24x24.svg
+svg/onboard-service/play room-outline-24x24.svg
+svg/onboard-service/power outlet-fill-24x24.svg
+svg/onboard-service/power outlet-outline-24x24.svg
+svg/onboard-service/reclining seat-fill-24x24.svg
+svg/onboard-service/reclining seat-outline-24x24.svg
+svg/onboard-service/ski storage-fill-24x24.svg
+svg/onboard-service/ski storage-outline-24x24.svg
+svg/onboard-service/skicard-fill-24x24.svg
+svg/onboard-service/skicard-outline-24x24.svg
+svg/onboard-service/sleep 6 beds-fill-24x24.svg
+svg/onboard-service/sleep 6 beds-outline-24x24.svg
+svg/onboard-service/sleep-fill-24x24.svg
+svg/onboard-service/sleep-outline-24x24.svg
+svg/onboard-service/small dog-fill-24x24.svg
+svg/onboard-service/small dog-outline-24x24.svg
+svg/onboard-service/stroller-fill-24x24.svg
+svg/onboard-service/stroller-outline-24x24.svg
+svg/onboard-service/toilet-fill-24x24.svg
+svg/onboard-service/toilet-outline-24x24.svg
+svg/onboard-service/usb charging-fill-24x24.svg
+svg/onboard-service/usb charging-outline-24x24.svg
+svg/onboard-service/vending machine-fill-24x24.svg
+svg/onboard-service/vending machine-outline-24x24.svg
+svg/onboard-service/vy pluss-24x24.svg
+svg/onboard-service/water-fill-24x24.svg
+svg/onboard-service/water-outline-24x24.svg
+svg/onboard-service/wheelchair-fill-24x24.svg
+svg/onboard-service/wheelchair-outline-24x24.svg
+svg/onboard-service/wifi-fill-24x24.svg
+svg/onboard-service/wifi-outline-24x24.svg
+svg/payment/campaign-fill-24x24.svg
+svg/payment/campaign-outline-24x24.svg
+svg/payment/card-fill-24x24.svg
+svg/payment/card-outline-24x24.svg
+svg/payment/coupon-fill-24x24.svg
+svg/payment/coupon-outline-24x24.svg
+svg/payment/discount-fill-24x24.svg
+svg/payment/discount-outline-24x24.svg
+svg/payment/klippekort-fill-24x24.svg
+svg/payment/klippekort-outline-24x24.svg
+svg/payment/kroner-outline-24x24.svg
+svg/payment/refund card-fill-24x24.svg
+svg/payment/refund card-outline-24x24.svg
+svg/payment/refund krone-fill-24x24.svg
+svg/payment/refund krone-outline-24x24.svg
+svg/payment/smartprice-fill-24x24.svg
+svg/payment/smartprice-outline-24x24.svg
+svg/payment/wallet-fill-24x24.svg
+svg/payment/wallet-outline-24x24.svg
+svg/social-media/github-outline-24x24.svg
+svg/social-media/tiktok-24x24.svg
+svg/social-media/x-24x24.svg
+svg/transportation/airplane-fill-24x24.svg
+svg/transportation/airplane-outline-24x24.svg
+svg/transportation/alt transport-fill-24x24.svg
+svg/transportation/alt transport-outline-24x24.svg
+svg/transportation/bicycle-fill-24x24.svg
+svg/transportation/bus-fill-24x24.svg
+svg/transportation/bus-outline-24x24.svg
+svg/transportation/car-fill-24x24.svg
+svg/transportation/car-outline-24x24.svg
+svg/transportation/express bus-fill-24x24.svg
+svg/transportation/express bus-outline-24x24.svg
+svg/transportation/ferry-fill-24x24.svg
+svg/transportation/ferry-outline-24x24.svg
+svg/transportation/large car-fill-24x24.svg
+svg/transportation/large car-outline-24x24.svg
+svg/transportation/maxitaxi-fill-24x24.svg
+svg/transportation/maxitaxi-outline-24x24.svg
+svg/transportation/minibuss-fill-24x24.svg
+svg/transportation/minibuss-outline-24x24.svg
+svg/transportation/run-fill-24x24.svg
+svg/transportation/run-outline-24x24.svg
+svg/transportation/scooter-fill-24x24.svg
+svg/transportation/scooter-outline-24x24.svg
+svg/transportation/small car-fill-24x24.svg
+svg/transportation/small car-outline-24x24.svg
+svg/transportation/stroll-fill-24x24.svg
+svg/transportation/stroll-outline-24x24.svg
+svg/transportation/taxi-fill-24x24.svg
+svg/transportation/taxi-outline-24x24.svg
+svg/transportation/tracks-fill-24x24.svg
+svg/transportation/train-fill-24x24.svg
+svg/transportation/train-outline-24x24.svg
+svg/transportation/tram-fill-24x24.svg
+svg/transportation/tram-outline-24x24.svg
+svg/transportation/wagon-fill-24x24.svg
+svg/transportation/wagon-outline-24x24.svg
+svg/transportation/walk-fill-24x24.svg
+svg/transportation/walk-outline-24x24.svg
+svg/travel/capacity carriage-fill-24x24.svg
+svg/travel/capacity carriage-outline-24x24.svg
+svg/travel/capacity seat-fill-24x24.svg
+svg/travel/capacity seat-outline-24x24.svg
+svg/travel/city-outline-24x24.svg
+svg/travel/cottage-fill-24x24.svg
+svg/travel/cottage-outline-24x24.svg
+svg/travel/forest-fill-24x24.svg
+svg/travel/forest-outline-24x24.svg
+svg/travel/green journey-fill-24x24.svg
+svg/travel/green journey-outline-24x24.svg
+svg/travel/gym-fill-24x24.svg
+svg/travel/gym-outline-24x24.svg
+svg/travel/home-fill-24x24.svg
+svg/travel/home-outline-24x24.svg
+svg/travel/insurance-fill-24x24.svg
+svg/travel/insurance-outline-24x24.svg
+svg/travel/mountain-fill-24x24.svg
+svg/travel/mountain-outline-24x24.svg
+svg/travel/night-fill-24x24.svg
+svg/travel/night-outline-24x24.svg
+svg/travel/person-fill-24x24.svg
+svg/travel/person-outline-24x24.svg
+svg/travel/pluss seat-fill-24x24.svg
+svg/travel/pluss seat-outline-24x24.svg
+svg/travel/school-fill-24x24.svg
+svg/travel/school-outline-24x24.svg
+svg/travel/seat not available-fill-24x24.svg
+svg/travel/seat-fill-24x24.svg
+svg/travel/seat-outline-24x24.svg
+svg/travel/sofa-fill-24x24.svg
+svg/travel/sofa-outline-24x24.svg
+svg/travel/stopwatch-fill-24x24.svg
+svg/travel/stopwatch-outline-24x24.svg
+svg/travel/table-fill-24x24.svg
+svg/travel/table-outline-24x24.svg
+svg/travel/ticket add-fill-24x24.svg
+svg/travel/ticket add-outline-24x24.svg
+svg/travel/ticket control-fill-24x24.svg
+svg/travel/ticket control-outline-24x24.svg
+svg/travel/ticket location-fill-24x24.svg
+svg/travel/ticket location-outline-24x24.svg
+svg/travel/ticket pdf-fill-24x24.svg
+svg/travel/ticket pdf-outline-24x24.svg
+svg/travel/ticket smartpris-fill-24x24.svg
+svg/travel/ticket smartpris-outline-24x24.svg
+svg/travel/ticket zone-outline-24x24.svg
+svg/travel/ticket-fill-24x24.svg
+svg/travel/ticket-outline-24x24.svg
+svg/travel/tourney-fill-24x24.svg
+svg/travel/tourney-outline-24x24.svg
+svg/travel/town-fill-24x24.svg
+svg/travel/town-outline-24x24.svg
+svg/travel/trip-fill-24x24.svg
+svg/travel/trip-outline-24x24.svg
+svg/travel/wait-fill-24x24.svg
+svg/travel/wait-outline-24x24.svg
+svg/travel/work-fill-24x24.svg
+svg/travel/work-outline-24x24.svg

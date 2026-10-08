@@ -1,0 +1,878 @@
+assets/Access time/svg/ic_refineui_access-time_24_filled.svg
+assets/Access time/svg/ic_refineui_access-time_24_regular.svg
+assets/Accessibility/svg/ic_refineui_accessibility_24_filled.svg
+assets/Accessibility/svg/ic_refineui_accessibility_24_regular.svg
+assets/Add circle/svg/ic_refineui_add-circle_24_filled.svg
+assets/Add circle/svg/ic_refineui_add-circle_24_regular.svg
+assets/Add square/svg/ic_refineui_add-square_24_filled.svg
+assets/Add square/svg/ic_refineui_add-square_24_regular.svg
+assets/Add/svg/ic_refineui_add_24_filled.svg
+assets/Add/svg/ic_refineui_add_24_regular.svg
+assets/Airplane/svg/ic_refineui_airplane_24_filled.svg
+assets/Airplane/svg/ic_refineui_airplane_24_regular.svg
+assets/Album/svg/ic_refineui_album_24_filled.svg
+assets/Album/svg/ic_refineui_album_24_regular.svg
+assets/Alert badge/svg/ic_refineui_alert-badge_24_filled.svg
+assets/Alert badge/svg/ic_refineui_alert-badge_24_regular.svg
+assets/Alert off/svg/ic_refineui_alert-off_24_filled.svg
+assets/Alert off/svg/ic_refineui_alert-off_24_regular.svg
+assets/Alert/svg/ic_refineui_alert_24_filled.svg
+assets/Alert/svg/ic_refineui_alert_24_regular.svg
+assets/Align bottom/svg/ic_refineui_align-bottom_24_filled.svg
+assets/Align bottom/svg/ic_refineui_align-bottom_24_regular.svg
+assets/Align center horizontal/svg/ic_refineui_align-center-horizontal_24_filled.svg
+assets/Align center horizontal/svg/ic_refineui_align-center-horizontal_24_regular.svg
+assets/Align center vertical/svg/ic_refineui_align-center-vertical_24_filled.svg
+assets/Align center vertical/svg/ic_refineui_align-center-vertical_24_regular.svg
+assets/Align left/svg/ic_refineui_align-left_24_filled.svg
+assets/Align left/svg/ic_refineui_align-left_24_regular.svg
+assets/Align right/svg/ic_refineui_align-right_24_filled.svg
+assets/Align right/svg/ic_refineui_align-right_24_regular.svg
+assets/Align top/svg/ic_refineui_align-top_24_filled.svg
+assets/Align top/svg/ic_refineui_align-top_24_regular.svg
+assets/Android/svg/ic_refineui_android_24_filled.svg
+assets/Android/svg/ic_refineui_android_24_regular.svg
+assets/App folder/svg/ic_refineui_app-folder_24_filled.svg
+assets/App folder/svg/ic_refineui_app-folder_24_regular.svg
+assets/App recent/svg/ic_refineui_app-recent_24_filled.svg
+assets/App recent/svg/ic_refineui_app-recent_24_regular.svg
+assets/App title/svg/ic_refineui_app-title_24_filled.svg
+assets/App title/svg/ic_refineui_app-title_24_regular.svg
+assets/Appstore/svg/ic_refineui_appstore_24_filled.svg
+assets/Appstore/svg/ic_refineui_appstore_24_regular.svg
+assets/Autosum/svg/ic_refineui_autosum_24_filled.svg
+assets/Autosum/svg/ic_refineui_autosum_24_regular.svg
+assets/Backpack/svg/ic_refineui_backpack_24_filled.svg
+assets/Backpack/svg/ic_refineui_backpack_24_regular.svg
+assets/Backspace/svg/ic_refineui_backspace_24_filled.svg
+assets/Backspace/svg/ic_refineui_backspace_24_regular.svg
+assets/Badge/svg/ic_refineui_badge_24_filled.svg
+assets/Badge/svg/ic_refineui_badge_24_regular.svg
+assets/Balloon/svg/ic_refineui_balloon_24_filled.svg
+assets/Balloon/svg/ic_refineui_balloon_24_regular.svg
+assets/Bar chart horizontal descending/svg/ic_refineui_bar-chart-horizontal-descending_24_filled.svg
+assets/Bar chart horizontal descending/svg/ic_refineui_bar-chart-horizontal-descending_24_regular.svg
+assets/Bar chart horizontal/svg/ic_refineui_bar-chart-horizontal_24_filled.svg
+assets/Bar chart horizontal/svg/ic_refineui_bar-chart-horizontal_24_regular.svg
+assets/Bar chart vertical descending/svg/ic_refineui_bar-chart-vertical-descending_24_filled.svg
+assets/Bar chart vertical descending/svg/ic_refineui_bar-chart-vertical-descending_24_regular.svg
+assets/Bar chart vertical/svg/ic_refineui_bar-chart-vertical_24_filled.svg
+assets/Bar chart vertical/svg/ic_refineui_bar-chart-vertical_24_regular.svg
+assets/Barcode scanner/svg/ic_refineui_barcode-scanner_24_filled.svg
+assets/Barcode scanner/svg/ic_refineui_barcode-scanner_24_regular.svg
+assets/Battery 0/svg/ic_refineui_battery-0_24_filled.svg
+assets/Battery 0/svg/ic_refineui_battery-0_24_regular.svg
+assets/Battery 10/svg/ic_refineui_battery-10_24_filled.svg
+assets/Battery 10/svg/ic_refineui_battery-10_24_regular.svg
+assets/Battery 100/svg/ic_refineui_battery-100_24_filled.svg
+assets/Battery 100/svg/ic_refineui_battery-100_24_regular.svg
+assets/Battery 20/svg/ic_refineui_battery-20_24_filled.svg
+assets/Battery 20/svg/ic_refineui_battery-20_24_regular.svg
+assets/Battery 30/svg/ic_refineui_battery-30_24_filled.svg
+assets/Battery 30/svg/ic_refineui_battery-30_24_regular.svg
+assets/Battery 40/svg/ic_refineui_battery-40_24_filled.svg
+assets/Battery 40/svg/ic_refineui_battery-40_24_regular.svg
+assets/Battery 50/svg/ic_refineui_battery-50_24_filled.svg
+assets/Battery 50/svg/ic_refineui_battery-50_24_regular.svg
+assets/Battery 60/svg/ic_refineui_battery-60_24_filled.svg
+assets/Battery 60/svg/ic_refineui_battery-60_24_regular.svg
+assets/Battery 70/svg/ic_refineui_battery-70_24_filled.svg
+assets/Battery 70/svg/ic_refineui_battery-70_24_regular.svg
+assets/Battery 80/svg/ic_refineui_battery-80_24_filled.svg
+assets/Battery 80/svg/ic_refineui_battery-80_24_regular.svg
+assets/Battery 90/svg/ic_refineui_battery-90_24_filled.svg
+assets/Battery 90/svg/ic_refineui_battery-90_24_regular.svg
+assets/Block/svg/ic_refineui_block_24_filled.svg
+assets/Block/svg/ic_refineui_block_24_regular.svg
+assets/Bluetooth/svg/ic_refineui_bluetooth_24_filled.svg
+assets/Bluetooth/svg/ic_refineui_bluetooth_24_regular.svg
+assets/Blur/svg/ic_refineui_blur_24_filled.svg
+assets/Blur/svg/ic_refineui_blur_24_regular.svg
+assets/Board/svg/ic_refineui_board_24_filled.svg
+assets/Board/svg/ic_refineui_board_24_regular.svg
+assets/Book/svg/ic_refineui_book_24_filled.svg
+assets/Book/svg/ic_refineui_book_24_regular.svg
+assets/Bookmark/svg/ic_refineui_bookmark_24_filled.svg
+assets/Bookmark/svg/ic_refineui_bookmark_24_regular.svg
+assets/Bug/svg/ic_refineui_bug_24_filled.svg
+assets/Bug/svg/ic_refineui_bug_24_regular.svg
+assets/Button/svg/ic_refineui_button_24_filled.svg
+assets/Button/svg/ic_refineui_button_24_regular.svg
+assets/Calculator/svg/ic_refineui_calculator_24_filled.svg
+assets/Calculator/svg/ic_refineui_calculator_24_regular.svg
+assets/Calendar/svg/ic_refineui_calendar_24_filled.svg
+assets/Calendar/svg/ic_refineui_calendar_24_regular.svg
+assets/Camera/svg/ic_refineui_camera_24_filled.svg
+assets/Camera/svg/ic_refineui_camera_24_regular.svg
+assets/Cart/svg/ic_refineui_cart_24_filled.svg
+assets/Cart/svg/ic_refineui_cart_24_regular.svg
+assets/Carton box/svg/ic_refineui_carton-box_24_filled.svg
+assets/Carton box/svg/ic_refineui_carton-box_24_regular.svg
+assets/Chart/svg/ic_refineui_chart_24_filled.svg
+assets/Chart/svg/ic_refineui_chart_24_regular.svg
+assets/Chat add/svg/ic_refineui_chat-add_24_filled.svg
+assets/Chat add/svg/ic_refineui_chat-add_24_regular.svg
+assets/Chat empty/svg/ic_refineui_chat-empty_24_filled.svg
+assets/Chat empty/svg/ic_refineui_chat-empty_24_regular.svg
+assets/Chat/svg/ic_refineui_chat_24_filled.svg
+assets/Chat/svg/ic_refineui_chat_24_regular.svg
+assets/Checkmark/svg/ic_refineui_checkmark_24_filled.svg
+assets/Checkmark/svg/ic_refineui_checkmark_24_regular.svg
+assets/Chess/svg/ic_refineui_chess_24_filled.svg
+assets/Chess/svg/ic_refineui_chess_24_regular.svg
+assets/Chevron down/svg/ic_refineui_chevron-down_24_filled.svg
+assets/Chevron down/svg/ic_refineui_chevron-down_24_regular.svg
+assets/Chevron left/svg/ic_refineui_chevron-left_24_filled.svg
+assets/Chevron left/svg/ic_refineui_chevron-left_24_regular.svg
+assets/Chevron right/svg/ic_refineui_chevron-right_24_filled.svg
+assets/Chevron right/svg/ic_refineui_chevron-right_24_regular.svg
+assets/Chevron up/svg/ic_refineui_chevron-up_24_filled.svg
+assets/Chevron up/svg/ic_refineui_chevron-up_24_regular.svg
+assets/Circle/svg/ic_refineui_circle_24_regular.svg
+assets/Clipboard/svg/ic_refineui_clipboard_24_filled.svg
+assets/Clipboard/svg/ic_refineui_clipboard_24_regular.svg
+assets/Clock alarm/svg/ic_refineui_clock-alarm_24_filled.svg
+assets/Clock alarm/svg/ic_refineui_clock-alarm_24_regular.svg
+assets/Clock/svg/ic_refineui_clock_24_filled.svg
+assets/Clock/svg/ic_refineui_clock_24_regular.svg
+assets/Cloud/svg/ic_refineui_cloud_24_filled.svg
+assets/Cloud/svg/ic_refineui_cloud_24_regular.svg
+assets/Clover/svg/ic_refineui_clover_24_filled.svg
+assets/Clover/svg/ic_refineui_clover_24_regular.svg
+assets/Code block/svg/ic_refineui_code-block_24_filled.svg
+assets/Code block/svg/ic_refineui_code-block_24_regular.svg
+assets/Code/svg/ic_refineui_code_24_filled.svg
+assets/Code/svg/ic_refineui_code_24_regular.svg
+assets/Comma/svg/ic_refineui_comma_24_filled.svg
+assets/Comma/svg/ic_refineui_comma_24_regular.svg
+assets/Comment/svg/ic_refineui_comment_24_filled.svg
+assets/Comment/svg/ic_refineui_comment_24_regular.svg
+assets/Cone/svg/ic_refineui_cone_24_filled.svg
+assets/Cone/svg/ic_refineui_cone_24_regular.svg
+assets/Contrast/svg/ic_refineui_contrast_24_filled.svg
+assets/Control button/svg/ic_refineui_control-button_24_filled.svg
+assets/Control button/svg/ic_refineui_control-button_24_regular.svg
+assets/Cookie/svg/ic_refineui_cookie_24_filled.svg
+assets/Cookie/svg/ic_refineui_cookie_24_regular.svg
+assets/Copy/svg/ic_refineui_copy_24_filled.svg
+assets/Copy/svg/ic_refineui_copy_24_regular.svg
+assets/Couch/svg/ic_refineui_couch_24_filled.svg
+assets/Couch/svg/ic_refineui_couch_24_regular.svg
+assets/Cpu/svg/ic_refineui_cpu_24_filled.svg
+assets/Cpu/svg/ic_refineui_cpu_24_regular.svg
+assets/Crop/svg/ic_refineui_crop_24_filled.svg
+assets/Crop/svg/ic_refineui_crop_24_regular.svg
+assets/Crown/svg/ic_refineui_crown_24_filled.svg
+assets/Crown/svg/ic_refineui_crown_24_regular.svg
+assets/Css/svg/ic_refineui_css_24_filled.svg
+assets/Css/svg/ic_refineui_css_24_regular.svg
+assets/Cube/svg/ic_refineui_cube_24_filled.svg
+assets/Cube/svg/ic_refineui_cube_24_regular.svg
+assets/Cursor/svg/ic_refineui_cursor_24_filled.svg
+assets/Cursor/svg/ic_refineui_cursor_24_regular.svg
+assets/Cut/svg/ic_refineui_cut_24_filled.svg
+assets/Cut/svg/ic_refineui_cut_24_regular.svg
+assets/Dart/svg/ic_refineui_dart_24_filled.svg
+assets/Dart/svg/ic_refineui_dart_24_regular.svg
+assets/Database/svg/ic_refineui_database_24_filled.svg
+assets/Database/svg/ic_refineui_database_24_regular.svg
+assets/Delete off/svg/ic_refineui_delete-off_24_filled.svg
+assets/Delete off/svg/ic_refineui_delete-off_24_regular.svg
+assets/Delete/svg/ic_refineui_delete_24_filled.svg
+assets/Delete/svg/ic_refineui_delete_24_regular.svg
+assets/Dentist/svg/ic_refineui_dentist_24_filled.svg
+assets/Dentist/svg/ic_refineui_dentist_24_regular.svg
+assets/Desk/svg/ic_refineui_desk_24_filled.svg
+assets/Desk/svg/ic_refineui_desk_24_regular.svg
+assets/Desktop mac/svg/ic_refineui_desktop-mac_24_filled.svg
+assets/Desktop mac/svg/ic_refineui_desktop-mac_24_regular.svg
+assets/Desktop/svg/ic_refineui_desktop_24_filled.svg
+assets/Desktop/svg/ic_refineui_desktop_24_regular.svg
+assets/Dialpad/svg/ic_refineui_dialpad_24_filled.svg
+assets/Dialpad/svg/ic_refineui_dialpad_24_regular.svg
+assets/Diamond/svg/ic_refineui_diamond_24_filled.svg
+assets/Diamond/svg/ic_refineui_diamond_24_regular.svg
+assets/Dismiss circle/svg/ic_refineui_dismiss-circle_24_filled.svg
+assets/Dismiss circle/svg/ic_refineui_dismiss-circle_24_regular.svg
+assets/Dismiss square/svg/ic_refineui_dismiss-square_24_filled.svg
+assets/Dismiss square/svg/ic_refineui_dismiss-square_24_regular.svg
+assets/Dismiss/svg/ic_refineui_dismiss_24_filled.svg
+assets/Dismiss/svg/ic_refineui_dismiss_24_regular.svg
+assets/Doctor/svg/ic_refineui_doctor_24_filled.svg
+assets/Doctor/svg/ic_refineui_doctor_24_regular.svg
+assets/Document border/svg/ic_refineui_document-border_24_filled.svg
+assets/Document border/svg/ic_refineui_document-border_24_regular.svg
+assets/Document/svg/ic_refineui_document_24_filled.svg
+assets/Document/svg/ic_refineui_document_24_regular.svg
+assets/Door/svg/ic_refineui_door_24_filled.svg
+assets/Door/svg/ic_refineui_door_24_regular.svg
+assets/Drag/svg/ic_refineui_drag_24_filled.svg
+assets/Drag/svg/ic_refineui_drag_24_regular.svg
+assets/Drawer/svg/ic_refineui_drawer_24_filled.svg
+assets/Drawer/svg/ic_refineui_drawer_24_regular.svg
+assets/Drop/svg/ic_refineui_drop_24_filled.svg
+assets/Drop/svg/ic_refineui_drop_24_regular.svg
+assets/Dual screen/svg/ic_refineui_dual-screen_24_filled.svg
+assets/Dual screen/svg/ic_refineui_dual-screen_24_regular.svg
+assets/Dumbbell/svg/ic_refineui_dumbbell_24_filled.svg
+assets/Dumbbell/svg/ic_refineui_dumbbell_24_regular.svg
+assets/Dust/svg/ic_refineui_dust_24_filled.svg
+assets/Dust/svg/ic_refineui_dust_24_regular.svg
+assets/Earth/svg/ic_refineui_earth_24_filled.svg
+assets/Earth/svg/ic_refineui_earth_24_regular.svg
+assets/Edit off/svg/ic_refineui_edit-off_24_filled.svg
+assets/Edit off/svg/ic_refineui_edit-off_24_regular.svg
+assets/Edit/svg/ic_refineui_edit_24_filled.svg
+assets/Edit/svg/ic_refineui_edit_24_regular.svg
+assets/Elevator/svg/ic_refineui_elevator_24_filled.svg
+assets/Elevator/svg/ic_refineui_elevator_24_regular.svg
+assets/Emoji angry/svg/ic_refineui_emoji-angry_24_filled.svg
+assets/Emoji angry/svg/ic_refineui_emoji-angry_24_regular.svg
+assets/Emoji cool/svg/ic_refineui_emoji-cool_24_filled.svg
+assets/Emoji cool/svg/ic_refineui_emoji-cool_24_regular.svg
+assets/Emoji grimacing/svg/ic_refineui_emoji-grimacing_24_filled.svg
+assets/Emoji grimacing/svg/ic_refineui_emoji-grimacing_24_regular.svg
+assets/Emoji laugh/svg/ic_refineui_emoji-laugh_24_filled.svg
+assets/Emoji laugh/svg/ic_refineui_emoji-laugh_24_regular.svg
+assets/Emoji meh/svg/ic_refineui_emoji-meh_24_filled.svg
+assets/Emoji meh/svg/ic_refineui_emoji-meh_24_regular.svg
+assets/Emoji sad/svg/ic_refineui_emoji-sad_24_filled.svg
+assets/Emoji sad/svg/ic_refineui_emoji-sad_24_regular.svg
+assets/Emoji surprise/svg/ic_refineui_emoji-surprise_24_filled.svg
+assets/Emoji surprise/svg/ic_refineui_emoji-surprise_24_regular.svg
+assets/Emoji/svg/ic_refineui_emoji_24_filled.svg
+assets/Emoji/svg/ic_refineui_emoji_24_regular.svg
+assets/Engine/svg/ic_refineui_engine_24_filled.svg
+assets/Engine/svg/ic_refineui_engine_24_regular.svg
+assets/Equal circle/svg/ic_refineui_equal-circle_24_filled.svg
+assets/Equal circle/svg/ic_refineui_equal-circle_24_regular.svg
+assets/Equal off/svg/ic_refineui_equal-off_24_filled.svg
+assets/Equal off/svg/ic_refineui_equal-off_24_regular.svg
+assets/Equal/svg/ic_refineui_equal_24_filled.svg
+assets/Equal/svg/ic_refineui_equal_24_regular.svg
+assets/Error circle/svg/ic_refineui_error-circle_24_filled.svg
+assets/Error circle/svg/ic_refineui_error-circle_24_regular.svg
+assets/Eye off/svg/ic_refineui_eye-off_24_filled.svg
+assets/Eye off/svg/ic_refineui_eye-off_24_regular.svg
+assets/Eye/svg/ic_refineui_eye_24_filled.svg
+assets/Eye/svg/ic_refineui_eye_24_regular.svg
+assets/Eyedropper off/svg/ic_refineui_eyedropper-off_24_filled.svg
+assets/Eyedropper off/svg/ic_refineui_eyedropper-off_24_regular.svg
+assets/Eyedropper/svg/ic_refineui_eyedropper_24_filled.svg
+assets/Eyedropper/svg/ic_refineui_eyedropper_24_regular.svg
+assets/Fast forward/svg/ic_refineui_fast-forward_24_filled.svg
+assets/Fast forward/svg/ic_refineui_fast-forward_24_regular.svg
+assets/Filmstrip off/svg/ic_refineui_filmstrip-off_24_filled.svg
+assets/Filmstrip off/svg/ic_refineui_filmstrip-off_24_regular.svg
+assets/Filmstrip/svg/ic_refineui_filmstrip_24_filled.svg
+assets/Filmstrip/svg/ic_refineui_filmstrip_24_regular.svg
+assets/Filter/svg/ic_refineui_filter_24_filled.svg
+assets/Filter/svg/ic_refineui_filter_24_regular.svg
+assets/Fire/svg/ic_refineui_fire_24_filled.svg
+assets/Fire/svg/ic_refineui_fire_24_regular.svg
+assets/Flag off/svg/ic_refineui_flag-off_24_filled.svg
+assets/Flag off/svg/ic_refineui_flag-off_24_regular.svg
+assets/Flag/svg/ic_refineui_flag_24_filled.svg
+assets/Flag/svg/ic_refineui_flag_24_regular.svg
+assets/Flash off/svg/ic_refineui_flash-off_24_filled.svg
+assets/Flash off/svg/ic_refineui_flash-off_24_regular.svg
+assets/Flash/svg/ic_refineui_flash_24_filled.svg
+assets/Flash/svg/ic_refineui_flash_24_regular.svg
+assets/Flashlight off/svg/ic_refineui_flashlight-off_24_filled.svg
+assets/Flashlight off/svg/ic_refineui_flashlight-off_24_regular.svg
+assets/Flashlight/svg/ic_refineui_flashlight_24_filled.svg
+assets/Flashlight/svg/ic_refineui_flashlight_24_regular.svg
+assets/Flip horizontal/svg/ic_refineui_flip-horizontal_24_filled.svg
+assets/Flip horizontal/svg/ic_refineui_flip-horizontal_24_regular.svg
+assets/Flip verticial/svg/ic_refineui_flip-verticial_24_filled.svg
+assets/Flip verticial/svg/ic_refineui_flip-verticial_24_regular.svg
+assets/Folder open/svg/ic_refineui_folder-open_24_filled.svg
+assets/Folder open/svg/ic_refineui_folder-open_24_regular.svg
+assets/Folder/svg/ic_refineui_folder_24_filled.svg
+assets/Folder/svg/ic_refineui_folder_24_regular.svg
+assets/Form/svg/ic_refineui_form_24_filled.svg
+assets/Form/svg/ic_refineui_form_24_regular.svg
+assets/Frame/svg/ic_refineui_frame_24_filled.svg
+assets/Frame/svg/ic_refineui_frame_24_regular.svg
+assets/Full screen maximize/svg/ic_refineui_full-screen-maximize_24_filled.svg
+assets/Full screen maximize/svg/ic_refineui_full-screen-maximize_24_regular.svg
+assets/Full screen minimize/svg/ic_refineui_full-screen-minimize_24_filled.svg
+assets/Full screen minimize/svg/ic_refineui_full-screen-minimize_24_regular.svg
+assets/Games/svg/ic_refineui_games_24_filled.svg
+assets/Games/svg/ic_refineui_games_24_regular.svg
+assets/Gantt chart/svg/ic_refineui_gantt-chart_24_filled.svg
+assets/Gantt chart/svg/ic_refineui_gantt-chart_24_regular.svg
+assets/Gas station/svg/ic_refineui_gas-station_24_filled.svg
+assets/Gas station/svg/ic_refineui_gas-station_24_regular.svg
+assets/Gas/svg/ic_refineui_gas_24_filled.svg
+assets/Gas/svg/ic_refineui_gas_24_regular.svg
+assets/Gavel/svg/ic_refineui_gavel_24_filled.svg
+assets/Gavel/svg/ic_refineui_gavel_24_regular.svg
+assets/Gif/svg/ic_refineui_gif_24_filled.svg
+assets/Gif/svg/ic_refineui_gif_24_regular.svg
+assets/Gift card/svg/ic_refineui_gift-card_24_filled.svg
+assets/Gift card/svg/ic_refineui_gift-card_24_regular.svg
+assets/Gift/svg/ic_refineui_gift_24_filled.svg
+assets/Gift/svg/ic_refineui_gift_24_regular.svg
+assets/Git/svg/ic_refineui_git_24_filled.svg
+assets/Git/svg/ic_refineui_git_24_regular.svg
+assets/Glasses/svg/ic_refineui_glasses_24_filled.svg
+assets/Glasses/svg/ic_refineui_glasses_24_regular.svg
+assets/Global/svg/ic_refineui_global_24_filled.svg
+assets/Global/svg/ic_refineui_global_24_regular.svg
+assets/Grid/svg/ic_refineui_grid_24_filled.svg
+assets/Grid/svg/ic_refineui_grid_24_regular.svg
+assets/Guest/svg/ic_refineui_guest_24_filled.svg
+assets/Guest/svg/ic_refineui_guest_24_regular.svg
+assets/Guitar/svg/ic_refineui_guitar_24_filled.svg
+assets/Guitar/svg/ic_refineui_guitar_24_regular.svg
+assets/Hammer/svg/ic_refineui_hammer_24_filled.svg
+assets/Hammer/svg/ic_refineui_hammer_24_regular.svg
+assets/Hard drive/svg/ic_refineui_hard-drive_24_filled.svg
+assets/Hard drive/svg/ic_refineui_hard-drive_24_regular.svg
+assets/Hat graduation/svg/ic_refineui_hat-graduation_24_filled.svg
+assets/Hat graduation/svg/ic_refineui_hat-graduation_24_regular.svg
+assets/Hd/svg/ic_refineui_hd_24_filled.svg
+assets/Hd/svg/ic_refineui_hd_24_regular.svg
+assets/Hdr off/svg/ic_refineui_hdr-off_24_filled.svg
+assets/Hdr off/svg/ic_refineui_hdr-off_24_regular.svg
+assets/Hdr/svg/ic_refineui_hdr_24_filled.svg
+assets/Hdr/svg/ic_refineui_hdr_24_regular.svg
+assets/Headphones mic/svg/ic_refineui_headphones-mic_24_filled.svg
+assets/Headphones mic/svg/ic_refineui_headphones-mic_24_regular.svg
+assets/Headphones/svg/ic_refineui_headphones_24_filled.svg
+assets/Headphones/svg/ic_refineui_headphones_24_regular.svg
+assets/Headset vr/svg/ic_refineui_headset-vr_24_filled.svg
+assets/Headset vr/svg/ic_refineui_headset-vr_24_regular.svg
+assets/Heart broken/svg/ic_refineui_heart-broken_24_filled.svg
+assets/Heart broken/svg/ic_refineui_heart-broken_24_regular.svg
+assets/Heart/svg/ic_refineui_heart_24_filled.svg
+assets/Heart/svg/ic_refineui_heart_24_regular.svg
+assets/Hexagon/svg/ic_refineui_hexagon_24_filled.svg
+assets/Hexagon/svg/ic_refineui_hexagon_24_regular.svg
+assets/Highlight/svg/ic_refineui_highlight_24_filled.svg
+assets/Highlight/svg/ic_refineui_highlight_24_regular.svg
+assets/Highway/svg/ic_refineui_highway_24_filled.svg
+assets/Highway/svg/ic_refineui_highway_24_regular.svg
+assets/Home checkmark/svg/ic_refineui_home-checkmark_24_filled.svg
+assets/Home checkmark/svg/ic_refineui_home-checkmark_24_regular.svg
+assets/Home/svg/ic_refineui_home_24_filled.svg
+assets/Home/svg/ic_refineui_home_24_regular.svg
+assets/Hourglass half/svg/ic_refineui_hourglass-half_24_filled.svg
+assets/Hourglass half/svg/ic_refineui_hourglass-half_24_regular.svg
+assets/Hourglass one quarter/svg/ic_refineui_hourglass-one-quarter_24_filled.svg
+assets/Hourglass one quarter/svg/ic_refineui_hourglass-one-quarter_24_regular.svg
+assets/Hourglass three quarter/svg/ic_refineui_hourglass-three-quarter_24_filled.svg
+assets/Hourglass three quarter/svg/ic_refineui_hourglass-three-quarter_24_regular.svg
+assets/Hourglass/svg/ic_refineui_hourglass_24_filled.svg
+assets/Hourglass/svg/ic_refineui_hourglass_24_regular.svg
+assets/Html/svg/ic_refineui_html_24_filled.svg
+assets/Html/svg/ic_refineui_html_24_regular.svg
+assets/Image circle/svg/ic_refineui_image-circle_24_filled.svg
+assets/Image circle/svg/ic_refineui_image-circle_24_regular.svg
+assets/Image/svg/ic_refineui_image_24_filled.svg
+assets/Image/svg/ic_refineui_image_24_regular.svg
+assets/Important/svg/ic_refineui_important_24_filled.svg
+assets/Important/svg/ic_refineui_important_24_regular.svg
+assets/Incognito/svg/ic_refineui_incognito_24_filled.svg
+assets/Incognito/svg/ic_refineui_incognito_24_regular.svg
+assets/Info/svg/ic_refineui_info_24_filled.svg
+assets/Info/svg/ic_refineui_info_24_regular.svg
+assets/Ios arrow ltr/svg/ic_refineui_ios-arrow-ltr_24_filled.svg
+assets/Ios arrow ltr/svg/ic_refineui_ios-arrow-ltr_24_regular.svg
+assets/Ios arrow rtl/svg/ic_refineui_ios-arrow-rtl_24_filled.svg
+assets/Ios arrow rtl/svg/ic_refineui_ios-arrow-rtl_24_regular.svg
+assets/Ios chevron ltr/svg/ic_refineui_ios-chevron-ltr_24_filled.svg
+assets/Ios chevron ltr/svg/ic_refineui_ios-chevron-ltr_24_regular.svg
+assets/Ios chevron rtl/svg/ic_refineui_ios-chevron-rtl_24_filled.svg
+assets/Ios chevron rtl/svg/ic_refineui_ios-chevron-rtl_24_regular.svg
+assets/Ios/svg/ic_refineui_ios_24_filled.svg
+assets/Ios/svg/ic_refineui_ios_24_regular.svg
+assets/Iot/svg/ic_refineui_iot_24_filled.svg
+assets/Iot/svg/ic_refineui_iot_24_regular.svg
+assets/Javascript/svg/ic_refineui_javascript_24_filled.svg
+assets/Javascript/svg/ic_refineui_javascript_24_regular.svg
+assets/Joystick/svg/ic_refineui_joystick_24_filled.svg
+assets/Joystick/svg/ic_refineui_joystick_24_regular.svg
+assets/Json file/svg/ic_refineui_json-file_24_filled.svg
+assets/Json file/svg/ic_refineui_json-file_24_regular.svg
+assets/Json/svg/ic_refineui_json_24_filled.svg
+assets/Json/svg/ic_refineui_json_24_regular.svg
+assets/Key multiple/svg/ic_refineui_key-multiple_24_filled.svg
+assets/Key multiple/svg/ic_refineui_key-multiple_24_regular.svg
+assets/Key/svg/ic_refineui_key_24_filled.svg
+assets/Key/svg/ic_refineui_key_24_regular.svg
+assets/Keyboard backspace/svg/ic_refineui_keyboard-backspace_24_filled.svg
+assets/Keyboard backspace/svg/ic_refineui_keyboard-backspace_24_regular.svg
+assets/Keyboard command/svg/ic_refineui_keyboard-command_24_filled.svg
+assets/Keyboard command/svg/ic_refineui_keyboard-command_24_regular.svg
+assets/Keyboard lock/svg/ic_refineui_keyboard-lock_24_filled.svg
+assets/Keyboard lock/svg/ic_refineui_keyboard-lock_24_regular.svg
+assets/Keyboard off/svg/ic_refineui_keyboard-off_24_filled.svg
+assets/Keyboard off/svg/ic_refineui_keyboard-off_24_regular.svg
+assets/Keyboard option/svg/ic_refineui_keyboard-option_24_filled.svg
+assets/Keyboard option/svg/ic_refineui_keyboard-option_24_regular.svg
+assets/Keyboard return/svg/ic_refineui_keyboard-return_24_filled.svg
+assets/Keyboard return/svg/ic_refineui_keyboard-return_24_regular.svg
+assets/Keyboard shift uppercase/svg/ic_refineui_keyboard-shift-uppercase_24_filled.svg
+assets/Keyboard shift uppercase/svg/ic_refineui_keyboard-shift-uppercase_24_regular.svg
+assets/Keyboard shift/svg/ic_refineui_keyboard-shift_24_filled.svg
+assets/Keyboard shift/svg/ic_refineui_keyboard-shift_24_regular.svg
+assets/Keyboard tab/svg/ic_refineui_keyboard-tab_24_filled.svg
+assets/Keyboard tab/svg/ic_refineui_keyboard-tab_24_regular.svg
+assets/Keyboard/svg/ic_refineui_keyboard_24_filled.svg
+assets/Keyboard/svg/ic_refineui_keyboard_24_regular.svg
+assets/Kiosk/svg/ic_refineui_kiosk_24_filled.svg
+assets/Kiosk/svg/ic_refineui_kiosk_24_regular.svg
+assets/Kotlin/svg/ic_refineui_kotlin_24_filled.svg
+assets/Kotlin/svg/ic_refineui_kotlin_24_regular.svg
+assets/Laptop/svg/ic_refineui_laptop_24_filled.svg
+assets/Laptop/svg/ic_refineui_laptop_24_regular.svg
+assets/Layer/svg/ic_refineui_layer_24_filled.svg
+assets/Layer/svg/ic_refineui_layer_24_regular.svg
+assets/Lightbulb/svg/ic_refineui_lightbulb_24_filled.svg
+assets/Lightbulb/svg/ic_refineui_lightbulb_24_regular.svg
+assets/Line dashes/svg/ic_refineui_line-dashes_24_filled.svg
+assets/Line dashes/svg/ic_refineui_line-dashes_24_regular.svg
+assets/Line horizontal 1 dashes/svg/ic_refineui_line-horizontal-1-dashes_24_filled.svg
+assets/Line horizontal 1 dashes/svg/ic_refineui_line-horizontal-1-dashes_24_regular.svg
+assets/Line horizontal 1/svg/ic_refineui_line-horizontal-1_24_filled.svg
+assets/Line horizontal 1/svg/ic_refineui_line-horizontal-1_24_regular.svg
+assets/Line/svg/ic_refineui_line_24_filled.svg
+assets/Line/svg/ic_refineui_line_24_regular.svg
+assets/Link/svg/ic_refineui_link_24_filled.svg
+assets/Link/svg/ic_refineui_link_24_regular.svg
+assets/Local language/svg/ic_refineui_local-language_24_filled.svg
+assets/Local language/svg/ic_refineui_local-language_24_regular.svg
+assets/Location arrow/svg/ic_refineui_location-arrow_24_filled.svg
+assets/Location arrow/svg/ic_refineui_location-arrow_24_regular.svg
+assets/Location/svg/ic_refineui_location_24_filled.svg
+assets/Location/svg/ic_refineui_location_24_regular.svg
+assets/Lock closed/svg/ic_refineui_lock-closed_24_filled.svg
+assets/Lock closed/svg/ic_refineui_lock-closed_24_regular.svg
+assets/Lock open/svg/ic_refineui_lock-open_24_filled.svg
+assets/Lock open/svg/ic_refineui_lock-open_24_regular.svg
+assets/Luggage/svg/ic_refineui_luggage_24_filled.svg
+assets/Luggage/svg/ic_refineui_luggage_24_regular.svg
+assets/Macos/svg/ic_refineui_macos_24_filled.svg
+assets/Macos/svg/ic_refineui_macos_24_regular.svg
+assets/Mail read/svg/ic_refineui_mail-read_24_filled.svg
+assets/Mail read/svg/ic_refineui_mail-read_24_regular.svg
+assets/Mail/svg/ic_refineui_mail_24_filled.svg
+assets/Mail/svg/ic_refineui_mail_24_regular.svg
+assets/Mailbox/svg/ic_refineui_mailbox_24_filled.svg
+assets/Mailbox/svg/ic_refineui_mailbox_24_regular.svg
+assets/Map/svg/ic_refineui_map_24_filled.svg
+assets/Map/svg/ic_refineui_map_24_regular.svg
+assets/Markdown/svg/ic_refineui_markdown_24_filled.svg
+assets/Markdown/svg/ic_refineui_markdown_24_regular.svg
+assets/Math symbols/svg/ic_refineui_math-symbols_24_filled.svg
+assets/Math symbols/svg/ic_refineui_math-symbols_24_regular.svg
+assets/Megaphone/svg/ic_refineui_megaphone_24_filled.svg
+assets/Megaphone/svg/ic_refineui_megaphone_24_regular.svg
+assets/Mic/svg/ic_refineui_mic_24_filled.svg
+assets/Mic/svg/ic_refineui_mic_24_regular.svg
+assets/Moon/svg/ic_refineui_moon_24_filled.svg
+assets/Moon/svg/ic_refineui_moon_24_regular.svg
+assets/More circle/svg/ic_refineui_more-circle_24_filled.svg
+assets/More circle/svg/ic_refineui_more-circle_24_regular.svg
+assets/More horizontal/svg/ic_refineui_more-horizontal_24_filled.svg
+assets/More horizontal/svg/ic_refineui_more-horizontal_24_regular.svg
+assets/More verticial/svg/ic_refineui_more-verticial_24_filled.svg
+assets/More verticial/svg/ic_refineui_more-verticial_24_regular.svg
+assets/Mouse/svg/ic_refineui_mouse_24_filled.svg
+assets/Mouse/svg/ic_refineui_mouse_24_regular.svg
+assets/Movie/svg/ic_refineui_movie_24_filled.svg
+assets/Movie/svg/ic_refineui_movie_24_regular.svg
+assets/Navigation/svg/ic_refineui_navigation_24_filled.svg
+assets/Navigation/svg/ic_refineui_navigation_24_regular.svg
+assets/Network check/svg/ic_refineui_network-check_24_filled.svg
+assets/Network check/svg/ic_refineui_network-check_24_regular.svg
+assets/News/svg/ic_refineui_news_24_filled.svg
+assets/News/svg/ic_refineui_news_24_regular.svg
+assets/Next/svg/ic_refineui_next_24_filled.svg
+assets/Next/svg/ic_refineui_next_24_regular.svg
+assets/Note/svg/ic_refineui_note_24_filled.svg
+assets/Note/svg/ic_refineui_note_24_regular.svg
+assets/Notebook/svg/ic_refineui_notebook_24_filled.svg
+assets/Notebook/svg/ic_refineui_notebook_24_regular.svg
+assets/Notepad/svg/ic_refineui_notepad_24_filled.svg
+assets/Notepad/svg/ic_refineui_notepad_24_regular.svg
+assets/Number circle 0/svg/ic_refineui_number-circle-0_24_filled.svg
+assets/Number circle 0/svg/ic_refineui_number-circle-0_24_regular.svg
+assets/Number circle 1/svg/ic_refineui_number-circle-1_24_filled.svg
+assets/Number circle 1/svg/ic_refineui_number-circle-1_24_regular.svg
+assets/Number circle 2/svg/ic_refineui_number-circle-2_24_filled.svg
+assets/Number circle 2/svg/ic_refineui_number-circle-2_24_regular.svg
+assets/Number circle 3/svg/ic_refineui_number-circle-3_24_filled.svg
+assets/Number circle 3/svg/ic_refineui_number-circle-3_24_regular.svg
+assets/Number circle 4/svg/ic_refineui_number-circle-4_24_filled.svg
+assets/Number circle 4/svg/ic_refineui_number-circle-4_24_regular.svg
+assets/Number circle 5/svg/ic_refineui_number-circle-5_24_filled.svg
+assets/Number circle 5/svg/ic_refineui_number-circle-5_24_regular.svg
+assets/Number circle 6/svg/ic_refineui_number-circle-6_24_filled.svg
+assets/Number circle 6/svg/ic_refineui_number-circle-6_24_regular.svg
+assets/Number circle 7/svg/ic_refineui_number-circle-7_24_filled.svg
+assets/Number circle 7/svg/ic_refineui_number-circle-7_24_regular.svg
+assets/Number circle 8/svg/ic_refineui_number-circle-8_24_filled.svg
+assets/Number circle 8/svg/ic_refineui_number-circle-8_24_regular.svg
+assets/Number circle 9/svg/ic_refineui_number-circle-9_24_filled.svg
+assets/Number circle 9/svg/ic_refineui_number-circle-9_24_regular.svg
+assets/Number symbol circle/svg/ic_refineui_number-symbol-circle_24_filled.svg
+assets/Number symbol circle/svg/ic_refineui_number-symbol-circle_24_regular.svg
+assets/Number symbol square/svg/ic_refineui_number-symbol-square_24_filled.svg
+assets/Number symbol square/svg/ic_refineui_number-symbol-square_24_regular.svg
+assets/Number symbol/svg/ic_refineui_number-symbol_24_filled.svg
+assets/Number symbol/svg/ic_refineui_number-symbol_24_regular.svg
+assets/Opacity/svg/ic_refineui_opacity_24_filled.svg
+assets/Opacity/svg/ic_refineui_opacity_24_regular.svg
+assets/Open off/svg/ic_refineui_open-off_24_filled.svg
+assets/Open off/svg/ic_refineui_open-off_24_regular.svg
+assets/Open/svg/ic_refineui_open_24_filled.svg
+assets/Open/svg/ic_refineui_open_24_regular.svg
+assets/Options/svg/ic_refineui_options_24_filled.svg
+assets/Options/svg/ic_refineui_options_24_regular.svg
+assets/Organization horizontal/svg/ic_refineui_organization-horizontal_24_filled.svg
+assets/Organization horizontal/svg/ic_refineui_organization-horizontal_24_regular.svg
+assets/Organization/svg/ic_refineui_organization_24_filled.svg
+assets/Organization/svg/ic_refineui_organization_24_regular.svg
+assets/Orientation/svg/ic_refineui_orientation_24_filled.svg
+assets/Orientation/svg/ic_refineui_orientation_24_regular.svg
+assets/Oval/svg/ic_refineui_oval_24_filled.svg
+assets/Oval/svg/ic_refineui_oval_24_regular.svg
+assets/Oven/svg/ic_refineui_oven_24_filled.svg
+assets/Oven/svg/ic_refineui_oven_24_regular.svg
+assets/Padding/svg/ic_refineui_padding_24_filled.svg
+assets/Padding/svg/ic_refineui_padding_24_regular.svg
+assets/Page fit/svg/ic_refineui_page-fit_24_filled.svg
+assets/Page fit/svg/ic_refineui_page-fit_24_regular.svg
+assets/Paint brush/svg/ic_refineui_paint-brush_24_filled.svg
+assets/Paint brush/svg/ic_refineui_paint-brush_24_regular.svg
+assets/Paint bucket/svg/ic_refineui_paint-bucket_24_filled.svg
+assets/Paint bucket/svg/ic_refineui_paint-bucket_24_regular.svg
+assets/Panel left/svg/ic_refineui_panel-left_16_filled.svg
+assets/Panel left/svg/ic_refineui_panel-left_16_regular.svg
+assets/Parallelogram/svg/ic_refineui_parallelogram_24_filled.svg
+assets/Parallelogram/svg/ic_refineui_parallelogram_24_regular.svg
+assets/Password/svg/ic_refineui_password_24_filled.svg
+assets/Password/svg/ic_refineui_password_24_regular.svg
+assets/Pause circle/svg/ic_refineui_pause-circle_24_filled.svg
+assets/Pause circle/svg/ic_refineui_pause-circle_24_regular.svg
+assets/Pause/svg/ic_refineui_pause_24_filled.svg
+assets/Pause/svg/ic_refineui_pause_24_regular.svg
+assets/Payment wireless/svg/ic_refineui_payment-wireless_24_filled.svg
+assets/Payment wireless/svg/ic_refineui_payment-wireless_24_regular.svg
+assets/Payment/svg/ic_refineui_payment_24_filled.svg
+assets/Payment/svg/ic_refineui_payment_24_regular.svg
+assets/Pen off/svg/ic_refineui_pen-off_24_filled.svg
+assets/Pen off/svg/ic_refineui_pen-off_24_regular.svg
+assets/Pen/svg/ic_refineui_pen_24_filled.svg
+assets/Pen/svg/ic_refineui_pen_24_regular.svg
+assets/Pentagon/svg/ic_refineui_pentagon_24_filled.svg
+assets/Pentagon/svg/ic_refineui_pentagon_24_regular.svg
+assets/Person voice/svg/ic_refineui_person-voice_24_filled.svg
+assets/Person voice/svg/ic_refineui_person-voice_24_regular.svg
+assets/Person/svg/ic_refineui_person_24_filled.svg
+assets/Person/svg/ic_refineui_person_24_regular.svg
+assets/Phone/svg/ic_refineui_phone_24_filled.svg
+assets/Phone/svg/ic_refineui_phone_24_regular.svg
+assets/Piano/svg/ic_refineui_piano_24_filled.svg
+assets/Piano/svg/ic_refineui_piano_24_regular.svg
+assets/Pin/svg/ic_refineui_pin_24_filled.svg
+assets/Pin/svg/ic_refineui_pin_24_regular.svg
+assets/Pipeline/svg/ic_refineui_pipeline_24_filled.svg
+assets/Pipeline/svg/ic_refineui_pipeline_24_regular.svg
+assets/Play circle/svg/ic_refineui_play-circle_24_filled.svg
+assets/Play circle/svg/ic_refineui_play-circle_24_regular.svg
+assets/Play/svg/ic_refineui_play_24_filled.svg
+assets/Play/svg/ic_refineui_play_24_regular.svg
+assets/Playstore/svg/ic_refineui_playstore_24_filled.svg
+assets/Playstore/svg/ic_refineui_playstore_24_regular.svg
+assets/Port hdmi/svg/ic_refineui_port-hdmi_24_filled.svg
+assets/Port hdmi/svg/ic_refineui_port-hdmi_24_regular.svg
+assets/Port micro usb/svg/ic_refineui_port-micro-usb_24_filled.svg
+assets/Port micro usb/svg/ic_refineui_port-micro-usb_24_regular.svg
+assets/Port usb a/svg/ic_refineui_port-usb-a_24_filled.svg
+assets/Port usb a/svg/ic_refineui_port-usb-a_24_regular.svg
+assets/Port usb c/svg/ic_refineui_port-usb-c_24_filled.svg
+assets/Port usb c/svg/ic_refineui_port-usb-c_24_regular.svg
+assets/Power/svg/ic_refineui_power_24_filled.svg
+assets/Power/svg/ic_refineui_power_24_regular.svg
+assets/Preview link/svg/ic_refineui_preview-link_24_filled.svg
+assets/Preview link/svg/ic_refineui_preview-link_24_regular.svg
+assets/Previous/svg/ic_refineui_previous_24_filled.svg
+assets/Previous/svg/ic_refineui_previous_24_regular.svg
+assets/Print/svg/ic_refineui_print_24_filled.svg
+assets/Print/svg/ic_refineui_print_24_regular.svg
+assets/Pulse circle/svg/ic_refineui_pulse-circle_24_filled.svg
+assets/Pulse circle/svg/ic_refineui_pulse-circle_24_regular.svg
+assets/Pulse square/svg/ic_refineui_pulse-square_24_filled.svg
+assets/Pulse square/svg/ic_refineui_pulse-square_24_regular.svg
+assets/Pulse/svg/ic_refineui_pulse_24_filled.svg
+assets/Pulse/svg/ic_refineui_pulse_24_regular.svg
+assets/Python/svg/ic_refineui_python_24_filled.svg
+assets/Python/svg/ic_refineui_python_24_regular.svg
+assets/Qr code/svg/ic_refineui_qr-code_24_filled.svg
+assets/Qr code/svg/ic_refineui_qr-code_24_regular.svg
+assets/Question circle/svg/ic_refineui_question-circle_24_filled.svg
+assets/Question circle/svg/ic_refineui_question-circle_24_regular.svg
+assets/Question/svg/ic_refineui_question_24_filled.svg
+assets/Question/svg/ic_refineui_question_24_regular.svg
+assets/Ram/svg/ic_refineui_ram_24_filled.svg
+assets/Ram/svg/ic_refineui_ram_24_regular.svg
+assets/Record stop/svg/ic_refineui_record-stop_24_filled.svg
+assets/Record stop/svg/ic_refineui_record-stop_24_regular.svg
+assets/Record/svg/ic_refineui_record_24_filled.svg
+assets/Record/svg/ic_refineui_record_24_regular.svg
+assets/Rectangle/svg/ic_refineui_rectangle_24_filled.svg
+assets/Rectangle/svg/ic_refineui_rectangle_24_regular.svg
+assets/Refineui/svg/ic_refineui_refineui_24_filled.svg
+assets/Refineui/svg/ic_refineui_refineui_24_regular.svg
+assets/Rewind/svg/ic_refineui_rewind_24_filled.svg
+assets/Rewind/svg/ic_refineui_rewind_24_regular.svg
+assets/Rhombus/svg/ic_refineui_rhombus_24_filled.svg
+assets/Rhombus/svg/ic_refineui_rhombus_24_regular.svg
+assets/Ribbon/svg/ic_refineui_ribbon_24_filled.svg
+assets/Ribbon/svg/ic_refineui_ribbon_24_regular.svg
+assets/Road cone/svg/ic_refineui_road-cone_24_filled.svg
+assets/Road cone/svg/ic_refineui_road-cone_24_regular.svg
+assets/Road/svg/ic_refineui_road_24_filled.svg
+assets/Road/svg/ic_refineui_road_24_regular.svg
+assets/Rocket/svg/ic_refineui_rocket_24_filled.svg
+assets/Rocket/svg/ic_refineui_rocket_24_regular.svg
+assets/Rotation/svg/ic_refineui_rotation_24_filled.svg
+assets/Rotation/svg/ic_refineui_rotation_24_regular.svg
+assets/Router/svg/ic_refineui_router_24_filled.svg
+assets/Router/svg/ic_refineui_router_24_regular.svg
+assets/Rss/svg/ic_refineui_rss_24_filled.svg
+assets/Rss/svg/ic_refineui_rss_24_regular.svg
+assets/Ruler/svg/ic_refineui_ruler_24_filled.svg
+assets/Ruler/svg/ic_refineui_ruler_24_regular.svg
+assets/Run/svg/ic_refineui_run_24_filled.svg
+assets/Run/svg/ic_refineui_run_24_regular.svg
+assets/Save/svg/ic_refineui_save_24_filled.svg
+assets/Save/svg/ic_refineui_save_24_regular.svg
+assets/Scales/svg/ic_refineui_scales_24_filled.svg
+assets/Scales/svg/ic_refineui_scales_24_regular.svg
+assets/Script/svg/ic_refineui_script_24_filled.svg
+assets/Script/svg/ic_refineui_script_24_regular.svg
+assets/Search/svg/ic_refineui_search_24_filled.svg
+assets/Search/svg/ic_refineui_search_24_regular.svg
+assets/Send/svg/ic_refineui_send_24_filled.svg
+assets/Send/svg/ic_refineui_send_24_regular.svg
+assets/Serial port/svg/ic_refineui_serial-port_24_filled.svg
+assets/Serial port/svg/ic_refineui_serial-port_24_regular.svg
+assets/Server link/svg/ic_refineui_server-link_24_filled.svg
+assets/Server link/svg/ic_refineui_server-link_24_regular.svg
+assets/Server play/svg/ic_refineui_server-play_24_filled.svg
+assets/Server play/svg/ic_refineui_server-play_24_regular.svg
+assets/Server/svg/ic_refineui_server_24_filled.svg
+assets/Server/svg/ic_refineui_server_24_regular.svg
+assets/Service bell/svg/ic_refineui_service-bell_24_filled.svg
+assets/Service bell/svg/ic_refineui_service-bell_24_regular.svg
+assets/Settings/svg/ic_refineui_settings_24_filled.svg
+assets/Settings/svg/ic_refineui_settings_24_regular.svg
+assets/Shape exclude/svg/ic_refineui_shape-exclude_24_filled.svg
+assets/Shape exclude/svg/ic_refineui_shape-exclude_24_regular.svg
+assets/Shape intersect/svg/ic_refineui_shape-intersect_24_filled.svg
+assets/Shape intersect/svg/ic_refineui_shape-intersect_24_regular.svg
+assets/Shape subtract/svg/ic_refineui_shape-subtract_24_filled.svg
+assets/Shape subtract/svg/ic_refineui_shape-subtract_24_regular.svg
+assets/Shape union/svg/ic_refineui_shape-union_24_filled.svg
+assets/Shape union/svg/ic_refineui_shape-union_24_regular.svg
+assets/Shapes/svg/ic_refineui_shapes_24_filled.svg
+assets/Shapes/svg/ic_refineui_shapes_24_regular.svg
+assets/Share android/svg/ic_refineui_share-android_24_filled.svg
+assets/Share android/svg/ic_refineui_share-android_24_regular.svg
+assets/Share ios/svg/ic_refineui_share-ios_24_filled.svg
+assets/Share ios/svg/ic_refineui_share-ios_24_regular.svg
+assets/Share/svg/ic_refineui_share_24_filled.svg
+assets/Share/svg/ic_refineui_share_24_regular.svg
+assets/Shell script/svg/ic_refineui_shell-script_24_filled.svg
+assets/Shell script/svg/ic_refineui_shell-script_24_regular.svg
+assets/Shield/svg/ic_refineui_shield_24_filled.svg
+assets/Shield/svg/ic_refineui_shield_24_regular.svg
+assets/Shopping bag/svg/ic_refineui_shopping-bag_24_filled.svg
+assets/Shopping bag/svg/ic_refineui_shopping-bag_24_regular.svg
+assets/Sim/svg/ic_refineui_sim_24_filled.svg
+assets/Sim/svg/ic_refineui_sim_24_regular.svg
+assets/Slide add/svg/ic_refineui_slide-add_24_filled.svg
+assets/Slide add/svg/ic_refineui_slide-add_24_regular.svg
+assets/Slide content/svg/ic_refineui_slide-content_24_filled.svg
+assets/Slide content/svg/ic_refineui_slide-content_24_regular.svg
+assets/Slide eraser/svg/ic_refineui_slide-eraser_24_filled.svg
+assets/Slide eraser/svg/ic_refineui_slide-eraser_24_regular.svg
+assets/Slide grid/svg/ic_refineui_slide-grid_24_filled.svg
+assets/Slide grid/svg/ic_refineui_slide-grid_24_regular.svg
+assets/Slide hide/svg/ic_refineui_slide-hide_24_filled.svg
+assets/Slide hide/svg/ic_refineui_slide-hide_24_regular.svg
+assets/Slide layout/svg/ic_refineui_slide-layout_24_filled.svg
+assets/Slide layout/svg/ic_refineui_slide-layout_24_regular.svg
+assets/Smartwatch/svg/ic_refineui_smartwatch_24_filled.svg
+assets/Smartwatch/svg/ic_refineui_smartwatch_24_regular.svg
+assets/Sound source/svg/ic_refineui_sound-source_24_filled.svg
+assets/Sound source/svg/ic_refineui_sound-source_24_regular.svg
+assets/Spacebar/svg/ic_refineui_spacebar_24_filled.svg
+assets/Spacebar/svg/ic_refineui_spacebar_24_regular.svg
+assets/Sport baseball/svg/ic_refineui_sport-baseball_24_filled.svg
+assets/Sport baseball/svg/ic_refineui_sport-baseball_24_regular.svg
+assets/Sport basketball/svg/ic_refineui_sport-basketball_24_filled.svg
+assets/Sport basketball/svg/ic_refineui_sport-basketball_24_regular.svg
+assets/Sport soccer/svg/ic_refineui_sport-soccer_24_filled.svg
+assets/Sport soccer/svg/ic_refineui_sport-soccer_24_regular.svg
+assets/Spray can/svg/ic_refineui_spray-can_24_filled.svg
+assets/Spray can/svg/ic_refineui_spray-can_24_regular.svg
+assets/Square hint/svg/ic_refineui_square-hint_24_filled.svg
+assets/Square hint/svg/ic_refineui_square-hint_24_regular.svg
+assets/Square multiple/svg/ic_refineui_square-multiple_24_filled.svg
+assets/Square multiple/svg/ic_refineui_square-multiple_24_regular.svg
+assets/Star/svg/ic_refineui_star_24_filled.svg
+assets/Star/svg/ic_refineui_star_24_regular.svg
+assets/Subtract/svg/ic_refineui_subtract_24_filled.svg
+assets/Subtract/svg/ic_refineui_subtract_24_regular.svg
+assets/Swift/svg/ic_refineui_swift_24_filled.svg
+assets/Swift/svg/ic_refineui_swift_24_regular.svg
+assets/Tab/svg/ic_refineui_tab_24_filled.svg
+assets/Tab/svg/ic_refineui_tab_24_regular.svg
+assets/Tablet/svg/ic_refineui_tablet_24_filled.svg
+assets/Tablet/svg/ic_refineui_tablet_24_regular.svg
+assets/Tag/svg/ic_refineui_tag_24_filled.svg
+assets/Tag/svg/ic_refineui_tag_24_regular.svg
+assets/Target/svg/ic_refineui_target_24_filled.svg
+assets/Target/svg/ic_refineui_target_24_regular.svg
+assets/Task list/svg/ic_refineui_task-list_24_filled.svg
+assets/Task list/svg/ic_refineui_task-list_24_regular.svg
+assets/Temperature/svg/ic_refineui_temperature_24_filled.svg
+assets/Temperature/svg/ic_refineui_temperature_24_regular.svg
+assets/Tent/svg/ic_refineui_tent_24_filled.svg
+assets/Tent/svg/ic_refineui_tent_24_regular.svg
+assets/Text align center/svg/ic_refineui_text-align-center_24_filled.svg
+assets/Text align center/svg/ic_refineui_text-align-center_24_regular.svg
+assets/Text align justify/svg/ic_refineui_text-align-justify_24_filled.svg
+assets/Text align justify/svg/ic_refineui_text-align-justify_24_regular.svg
+assets/Text align left/svg/ic_refineui_text-align-left_24_filled.svg
+assets/Text align left/svg/ic_refineui_text-align-left_24_regular.svg
+assets/Text align right/svg/ic_refineui_text-align-right_24_filled.svg
+assets/Text align right/svg/ic_refineui_text-align-right_24_regular.svg
+assets/Text/svg/ic_refineui_text_24_filled.svg
+assets/Text/svg/ic_refineui_text_24_regular.svg
+assets/Textbox align bottom center/svg/ic_refineui_textbox-align-bottom-center_24_filled.svg
+assets/Textbox align bottom center/svg/ic_refineui_textbox-align-bottom-center_24_regular.svg
+assets/Textbox align bottom left/svg/ic_refineui_textbox-align-bottom-left_24_filled.svg
+assets/Textbox align bottom left/svg/ic_refineui_textbox-align-bottom-left_24_regular.svg
+assets/Textbox align bottom right/svg/ic_refineui_textbox-align-bottom-right_24_filled.svg
+assets/Textbox align bottom right/svg/ic_refineui_textbox-align-bottom-right_24_regular.svg
+assets/Textbox align bottom/svg/ic_refineui_textbox-align-bottom_24_filled.svg
+assets/Textbox align bottom/svg/ic_refineui_textbox-align-bottom_24_regular.svg
+assets/Textbox align center/svg/ic_refineui_textbox-align-center_24_filled.svg
+assets/Textbox align center/svg/ic_refineui_textbox-align-center_24_regular.svg
+assets/Textbox align middle left/svg/ic_refineui_textbox-align-middle-left_24_filled.svg
+assets/Textbox align middle left/svg/ic_refineui_textbox-align-middle-left_24_regular.svg
+assets/Textbox align middle right/svg/ic_refineui_textbox-align-middle-right_24_filled.svg
+assets/Textbox align middle right/svg/ic_refineui_textbox-align-middle-right_24_regular.svg
+assets/Textbox align middle/svg/ic_refineui_textbox-align-middle_24_filled.svg
+assets/Textbox align middle/svg/ic_refineui_textbox-align-middle_24_regular.svg
+assets/Textbox align top center/svg/ic_refineui_textbox-align-top-center_24_filled.svg
+assets/Textbox align top center/svg/ic_refineui_textbox-align-top-center_24_regular.svg
+assets/Textbox align top left/svg/ic_refineui_textbox-align-top-left_24_filled.svg
+assets/Textbox align top left/svg/ic_refineui_textbox-align-top-left_24_regular.svg
+assets/Textbox align top right/svg/ic_refineui_textbox-align-top-right_24_filled.svg
+assets/Textbox align top right/svg/ic_refineui_textbox-align-top-right_24_regular.svg
+assets/Textbox align top/svg/ic_refineui_textbox-align-top_24_filled.svg
+assets/Textbox align top/svg/ic_refineui_textbox-align-top_24_regular.svg
+assets/Textbox/svg/ic_refineui_textbox_24_filled.svg
+assets/Textbox/svg/ic_refineui_textbox_24_regular.svg
+assets/Thinking/svg/ic_refineui_thinking_24_filled.svg
+assets/Thinking/svg/ic_refineui_thinking_24_regular.svg
+assets/Ticket/svg/ic_refineui_ticket_24_filled.svg
+assets/Ticket/svg/ic_refineui_ticket_24_regular.svg
+assets/Timer/svg/ic_refineui_timer_24_filled.svg
+assets/Timer/svg/ic_refineui_timer_24_regular.svg
+assets/Toggle left/svg/ic_refineui_toggle-left_24_filled.svg
+assets/Toggle left/svg/ic_refineui_toggle-left_24_regular.svg
+assets/Toggle multiple/svg/ic_refineui_toggle-multiple_24_filled.svg
+assets/Toggle multiple/svg/ic_refineui_toggle-multiple_24_regular.svg
+assets/Toggle right/svg/ic_refineui_toggle-right_24_filled.svg
+assets/Toggle right/svg/ic_refineui_toggle-right_24_regular.svg
+assets/Toolbox/svg/ic_refineui_toolbox_24_filled.svg
+assets/Toolbox/svg/ic_refineui_toolbox_24_regular.svg
+assets/Trophy/svg/ic_refineui_trophy_24_filled.svg
+assets/Trophy/svg/ic_refineui_trophy_24_regular.svg
+assets/Tv/svg/ic_refineui_tv_24_filled.svg
+assets/Tv/svg/ic_refineui_tv_24_regular.svg
+assets/Typescript/svg/ic_refineui_typescript_24_filled.svg
+assets/Typescript/svg/ic_refineui_typescript_24_regular.svg
+assets/Umbrella/svg/ic_refineui_umbrella_24_filled.svg
+assets/Umbrella/svg/ic_refineui_umbrella_24_regular.svg
+assets/Usb cable/svg/ic_refineui_usb-cable_24_filled.svg
+assets/Usb cable/svg/ic_refineui_usb-cable_24_regular.svg
+assets/Usb/svg/ic_refineui_usb_24_filled.svg
+assets/Usb/svg/ic_refineui_usb_24_regular.svg
+assets/Verified/svg/ic_refineui_verified_24_filled.svg
+assets/Verified/svg/ic_refineui_verified_24_regular.svg
+assets/Video clip/svg/ic_refineui_video-clip_24_filled.svg
+assets/Video clip/svg/ic_refineui_video-clip_24_regular.svg
+assets/Video play pause/svg/ic_refineui_video-play-pause_24_filled.svg
+assets/Video play pause/svg/ic_refineui_video-play-pause_24_regular.svg
+assets/Video/svg/ic_refineui_video_24_filled.svg
+assets/Video/svg/ic_refineui_video_24_regular.svg
+assets/Voicemail/svg/ic_refineui_voicemail_24_filled.svg
+assets/Voicemail/svg/ic_refineui_voicemail_24_regular.svg
+assets/Vote/svg/ic_refineui_vote_24_filled.svg
+assets/Vote/svg/ic_refineui_vote_24_regular.svg
+assets/Walkie talkie/svg/ic_refineui_walkie-talkie_24_filled.svg
+assets/Walkie talkie/svg/ic_refineui_walkie-talkie_24_regular.svg
+assets/Wallet/svg/ic_refineui_wallet_24_filled.svg
+assets/Wallet/svg/ic_refineui_wallet_24_regular.svg
+assets/Wand/svg/ic_refineui_wand_24_filled.svg
+assets/Wand/svg/ic_refineui_wand_24_regular.svg
+assets/Warning/svg/ic_refineui_warning_24_filled.svg
+assets/Warning/svg/ic_refineui_warning_24_regular.svg
+assets/Washer/svg/ic_refineui_washer_24_filled.svg
+assets/Washer/svg/ic_refineui_washer_24_regular.svg
+assets/Water/svg/ic_refineui_water_24_filled.svg
+assets/Water/svg/ic_refineui_water_24_regular.svg
+assets/Weather blowing snow/svg/ic_refineui_weather-blowing-snow_24_filled.svg
+assets/Weather blowing snow/svg/ic_refineui_weather-blowing-snow_24_regular.svg
+assets/Weather cloudy/svg/ic_refineui_weather-cloudy_24_filled.svg
+assets/Weather cloudy/svg/ic_refineui_weather-cloudy_24_regular.svg
+assets/Weather rain/svg/ic_refineui_weather-rain_24_filled.svg
+assets/Weather rain/svg/ic_refineui_weather-rain_24_regular.svg
+assets/Weather snow/svg/ic_refineui_weather-snow_24_filled.svg
+assets/Weather snow/svg/ic_refineui_weather-snow_24_regular.svg
+assets/Weather snowflake/svg/ic_refineui_weather-snowflake_24_filled.svg
+assets/Weather snowflake/svg/ic_refineui_weather-snowflake_24_regular.svg
+assets/Weather sunny high/svg/ic_refineui_weather-sunny-high_24_filled.svg
+assets/Weather sunny high/svg/ic_refineui_weather-sunny-high_24_regular.svg
+assets/Weather sunny low/svg/ic_refineui_weather-sunny-low_24_filled.svg
+assets/Weather sunny low/svg/ic_refineui_weather-sunny-low_24_regular.svg
+assets/Weather sunny/svg/ic_refineui_weather-sunny_24_filled.svg
+assets/Weather sunny/svg/ic_refineui_weather-sunny_24_regular.svg
+assets/Weather thunderstorm/svg/ic_refineui_weather-thunderstorm_24_filled.svg
+assets/Weather thunderstorm/svg/ic_refineui_weather-thunderstorm_24_regular.svg
+assets/Web/svg/ic_refineui_web_24_filled.svg
+assets/Web/svg/ic_refineui_web_24_regular.svg
+assets/Wifi 1/svg/ic_refineui_wifi-1_24_filled.svg
+assets/Wifi 1/svg/ic_refineui_wifi-1_24_regular.svg
+assets/Wifi 2/svg/ic_refineui_wifi-2_24_filled.svg
+assets/Wifi 2/svg/ic_refineui_wifi-2_24_regular.svg
+assets/Wifi 3/svg/ic_refineui_wifi-3_24_filled.svg
+assets/Wifi 3/svg/ic_refineui_wifi-3_24_regular.svg
+assets/Wifi 4/svg/ic_refineui_wifi-4_24_filled.svg
+assets/Wifi 4/svg/ic_refineui_wifi-4_24_regular.svg
+assets/Windows/svg/ic_refineui_windows_24_filled.svg
+assets/Windows/svg/ic_refineui_windows_24_regular.svg
+assets/Wrench/svg/ic_refineui_wrench_24_filled.svg
+assets/Wrench/svg/ic_refineui_wrench_24_regular.svg
+assets/Xray/svg/ic_refineui_xray_24_filled.svg
+assets/Xray/svg/ic_refineui_xray_24_regular.svg
+assets/Zoom in/svg/ic_refineui_zoom-in_24_filled.svg
+assets/Zoom in/svg/ic_refineui_zoom-in_24_regular.svg
+assets/Zoom out/svg/ic_refineui_zoom-out_24_filled.svg
+assets/Zoom out/svg/ic_refineui_zoom-out_24_regular.svg
+assets/Zoom/svg/ic_refineui_zoom_16_regular.svg
+assets/Zoom/svg/ic_refineui_zoom_24_filled.svg
+ios/Resources/Assets.xcassets/ic_refineui_padding_24_filled.imageset/ic_refineui_padding_24_filled.svg
+ios/Resources/Assets.xcassets/ic_refineui_padding_24_regular.imageset/ic_refineui_padding_24_regular.svg
+ios/Resources/Assets.xcassets/ic_refineui_shapes_24_filled.imageset/ic_refineui_shapes_24_filled.svg
+ios/Resources/Assets.xcassets/ic_refineui_shapes_24_regular.imageset/ic_refineui_shapes_24_regular.svg

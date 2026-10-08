@@ -1,0 +1,481 @@
+Nuvola_icons/20th century music icon.svg
+Nuvola_icons/21 ans wikipédia.svg
+Nuvola_icons/Action film clapperboard.svg
+Nuvola_icons/Adventurefilm.svg
+Nuvola_icons/Animation disc nuvola apps date.svg
+Nuvola_icons/Animation.svg
+Nuvola_icons/Anime film icon.svg
+Nuvola_icons/Aniversari Viquipèdia.svg
+Nuvola_icons/Anniversaire truite.svg
+Nuvola_icons/Armenia Georgia.svg
+Nuvola_icons/Article Collaboration and Improvement Drive.svg
+Nuvola_icons/Baroque music icon.svg
+Nuvola_icons/Battery-12V.svg
+Nuvola_icons/Black box.svg
+Nuvola_icons/BlockTestB-NAS.svg
+Nuvola_icons/Blocked user.svg
+Nuvola_icons/Blue box.svg
+Nuvola_icons/Brokken redirection.svg
+Nuvola_icons/Bus-Nuvola2.0+.svg
+Nuvola_icons/Cabinet2.svg
+Nuvola_icons/Camera-photo Upload.svg
+Nuvola_icons/Cancelled cvg.svg
+Nuvola_icons/CashRegister rear.svg
+Nuvola_icons/CashRegister.svg
+Nuvola_icons/Chess Programming.svg
+Nuvola_icons/Clapper Board Hong Kong.svg
+Nuvola_icons/Clapperboard blank.svg
+Nuvola_icons/Classical music icon.svg
+Nuvola_icons/Cloudy.svg
+Nuvola_icons/Comic Clapperboard.svg
+Nuvola_icons/Copyedit icon.svg
+Nuvola_icons/Copyrighted video game icon.svg
+Nuvola_icons/Cupboard.svg
+Nuvola_icons/Decision making.svg
+Nuvola_icons/Desklamp.svg
+Nuvola_icons/DiaryQuill icon.svg
+Nuvola_icons/Dresser axo.svg
+Nuvola_icons/Dresser.svg
+Nuvola_icons/Emblem-camera.svg
+Nuvola_icons/Emblem-cool.svg
+Nuvola_icons/Emblem-documents.svg
+Nuvola_icons/Emblem-fun.svg
+Nuvola_icons/Emblem-generic.svg
+Nuvola_icons/Emblem-multimedia.svg
+Nuvola_icons/Emblem-pictures.svg
+Nuvola_icons/Emblem-relax.svg
+Nuvola_icons/Emblem-sound.svg
+Nuvola_icons/Emblem-web.svg
+Nuvola_icons/Enterhome.svg
+Nuvola_icons/Film Comici.svg
+Nuvola_icons/Filmreel-icon.svg
+Nuvola_icons/Foodlogo, Tunisia.svg
+Nuvola_icons/Foodlogo2.svg
+Nuvola_icons/Gamepad.svg
+Nuvola_icons/Georgia people stub icon.svg
+Nuvola_icons/Globe of letters.svg
+Nuvola_icons/Globe spelling colour.svg
+Nuvola_icons/Gnome-compressed.svg
+Nuvola_icons/Gnome-dev-battery.svg
+Nuvola_icons/Gnome-dev-camera.svg
+Nuvola_icons/Gnome-dev-cdrom-audio.svg
+Nuvola_icons/Gnome-dev-dvd.svg
+Nuvola_icons/Gnome-dev-floppy.svg
+Nuvola_icons/Gnome-dev-ipod.svg
+Nuvola_icons/Gnome-dev-mouse.svg
+Nuvola_icons/Gnome-dev-network.svg
+Nuvola_icons/Gnome-dev-removable-usb.svg
+Nuvola_icons/Gnome-dev-removable.svg
+Nuvola_icons/Gnome-dev-zipdisk.svg
+Nuvola_icons/Gnome-fs-bookmark-missing.svg
+Nuvola_icons/Gnome-fs-desktop.svg
+Nuvola_icons/Gnome-fs-directory yellow.svg
+Nuvola_icons/Gnome-fs-directory-accept.svg
+Nuvola_icons/Gnome-fs-directory-visiting.svg
+Nuvola_icons/Gnome-fs-executable.svg
+Nuvola_icons/Gnome-fs-loading-icon.svg
+Nuvola_icons/Gnome-fs-network.svg
+Nuvola_icons/Gnome-fs-regular.svg
+Nuvola_icons/Gnome-fs-server.svg
+Nuvola_icons/Gnome-fs-ssh.svg
+Nuvola_icons/Gnome-fs-web.svg
+Nuvola_icons/Gnome-joystick.svg
+Nuvola_icons/Gnome-mime-application-msword.svg
+Nuvola_icons/Gnome-mime-application-pdf.svg
+Nuvola_icons/Gnome-mime-application-pgp-encrypted.svg
+Nuvola_icons/Gnome-mime-application-pgp.svg
+Nuvola_icons/Gnome-mime-application-postscript.svg
+Nuvola_icons/Gnome-mime-application-text.svg
+Nuvola_icons/Gnome-mime-application-vnd.ms-excel.svg
+Nuvola_icons/Gnome-mime-application-x-abiword.svg
+Nuvola_icons/Gnome-mime-application-x-core-file.svg
+Nuvola_icons/Gnome-mime-application-x-deb.svg
+Nuvola_icons/Gnome-mime-application-x-dvi.svg
+Nuvola_icons/Gnome-mime-application-x-executable.svg
+Nuvola_icons/Gnome-mime-application-x-font-afm.svg
+Nuvola_icons/Gnome-mime-application-x-font-psf.svg
+Nuvola_icons/Gnome-mime-application-x-font-ttf.svg
+Nuvola_icons/Gnome-mime-application-x-font.svg
+Nuvola_icons/Gnome-mime-application-x-gnome-app-info.svg
+Nuvola_icons/Gnome-mime-application-x-iso-image.svg
+Nuvola_icons/Gnome-mime-application-x-jar.svg
+Nuvola_icons/Gnome-mime-application-x-killustrator.svg
+Nuvola_icons/Gnome-mime-application-x-kpresenter.svg
+Nuvola_icons/Gnome-mime-application-x-kspread.svg
+Nuvola_icons/Gnome-mime-application-x-kword.svg
+Nuvola_icons/Gnome-mime-application-x-tex.svg
+Nuvola_icons/Gnome-mime-audio-x-midi.svg
+Nuvola_icons/Gnome-mime-audio-x-pn-realaudio.svg
+Nuvola_icons/Gnome-mime-audio.svg
+Nuvola_icons/Gnome-mime-image-svg.svg
+Nuvola_icons/Gnome-mime-image-x-cdr.svg
+Nuvola_icons/Gnome-mime-image-xcf.svg
+Nuvola_icons/Gnome-mime-image.svg
+Nuvola_icons/Gnome-mime-text-css.svg
+Nuvola_icons/Gnome-mime-text-html.svg
+Nuvola_icons/Gnome-mime-text-x-c.svg
+Nuvola_icons/Gnome-mime-text-x-credits.svg
+Nuvola_icons/Gnome-mime-text-x-install.svg
+Nuvola_icons/Gnome-mime-text-x-java.svg
+Nuvola_icons/Gnome-mime-text-x-lyx.svg
+Nuvola_icons/Gnome-mime-text-x-makefile.svg
+Nuvola_icons/Gnome-mime-text-x-patch.svg
+Nuvola_icons/Gnome-mime-text-x-sh.svg
+Nuvola_icons/Gnome-mime-text-x-sql.svg
+Nuvola_icons/Gnome-mime-text-x-troff-man.svg
+Nuvola_icons/Gnome-mime-text-x-vala.svg
+Nuvola_icons/Gnome-mime-video.svg
+Nuvola_icons/Gnome-mime-x-readme.svg
+Nuvola_icons/Gnome-personality-description.svg
+Nuvola_icons/Green box.svg
+Nuvola_icons/HS talk no circle.svg
+Nuvola_icons/HSLegal.svg
+Nuvola_icons/Heavy rain.svg
+Nuvola_icons/History clear.svg
+Nuvola_icons/Horrorfilm.svg
+Nuvola_icons/Icon - upload photo.svg
+Nuvola_icons/Icon tools and star.svg
+Nuvola_icons/Icono archivo borrar.svg
+Nuvola_icons/Icono aviso borrar.svg
+Nuvola_icons/Image-Star of life with a gold star.svg
+Nuvola_icons/Internet i Sverige.svg
+Nuvola_icons/Italian cooking icon.svg
+Nuvola_icons/Javascript icon.svg
+Nuvola_icons/Jazz music icon.svg
+Nuvola_icons/Kgpg old.svg
+Nuvola_icons/Kidsmovie.svg
+Nuvola_icons/Landscape none ka.svg
+Nuvola_icons/Landscape.svg
+Nuvola_icons/Macedonian biography stub icon.svg
+Nuvola_icons/Magicfilm icon.svg
+Nuvola_icons/MediaWiki Namespace.svg
+Nuvola_icons/MediaWiki namespace locked.svg
+Nuvola_icons/Money Icon.svg
+Nuvola_icons/Monobook icon.svg
+Nuvola_icons/Music groups icon.svg
+Nuvola_icons/Musical instruments icon.svg
+Nuvola_icons/Namespace MediaWiki.1.svg
+Nuvola_icons/Namespace MediaWiki.svg
+Nuvola_icons/Namespace Wikipedia.1.svg
+Nuvola_icons/New namespace Wikipedia.svg
+Nuvola_icons/Newdoc.svg
+Nuvola_icons/Newspaper Cover Copyright-tr.svg
+Nuvola_icons/Newspaper Cover Double.svg
+Nuvola_icons/Newspaper Cover ku.svg
+Nuvola_icons/Newspaper Cover.svg
+Nuvola_icons/No instruments.svg
+Nuvola_icons/Nuvola 2.0+ Drawing.svg
+Nuvola_icons/Nuvola 2.0+ Sculpture.svg
+Nuvola_icons/Nuvola Algerian flag-2.svg
+Nuvola_icons/Nuvola Anguillan flag.svg
+Nuvola_icons/Nuvola Antarctica flag.svg
+Nuvola_icons/Nuvola Antiguan-Barbudan flag.svg
+Nuvola_icons/Nuvola Argentine flag-2.svg
+Nuvola_icons/Nuvola Argentine man icon2.svg
+Nuvola_icons/Nuvola Armenian flag-2.svg
+Nuvola_icons/Nuvola Armenian flag.svg
+Nuvola_icons/Nuvola Arpitan Movement flag.svg
+Nuvola_icons/Nuvola Artsakh flag.svg
+Nuvola_icons/Nuvola Australian flag.svg
+Nuvola_icons/Nuvola Azores flag.svg
+Nuvola_icons/Nuvola Bahamas flag-2.svg
+Nuvola_icons/Nuvola Bahian flag.svg
+Nuvola_icons/Nuvola Boca Juniors flag.svg
+Nuvola_icons/Nuvola Brunei flag.svg
+Nuvola_icons/Nuvola Bulgaria flag.svg
+Nuvola_icons/Nuvola Buthanese flag-2.svg
+Nuvola_icons/Nuvola Buthanese flag.svg
+Nuvola_icons/Nuvola Cambodia flag.svg
+Nuvola_icons/Nuvola Canada flag-2.svg
+Nuvola_icons/Nuvola Canada flag.svg
+Nuvola_icons/Nuvola Chatham flag.svg
+Nuvola_icons/Nuvola Corsica flag.svg
+Nuvola_icons/Nuvola Costa Rican flag.svg
+Nuvola_icons/Nuvola Cuban flag.svg
+Nuvola_icons/Nuvola Curaçaoan flag.svg
+Nuvola_icons/Nuvola Dominican flag.svg
+Nuvola_icons/Nuvola Dominiquais flag.svg
+Nuvola_icons/Nuvola Dutch Guyana flag.svg
+Nuvola_icons/Nuvola Earth flag.svg
+Nuvola_icons/Nuvola Easter flag.svg
+Nuvola_icons/Nuvola England flag.svg
+Nuvola_icons/Nuvola Expert Important.svg
+Nuvola_icons/Nuvola Expert.svg
+Nuvola_icons/Nuvola Falkland flag.svg
+Nuvola_icons/Nuvola Faroese flag.svg
+Nuvola_icons/Nuvola Federation of BiH flag.svg
+Nuvola_icons/Nuvola Fijian flag.svg
+Nuvola_icons/Nuvola French Guiana flag.svg
+Nuvola_icons/Nuvola Gambian-Cape Verdean-Senegalese flag.svg
+Nuvola_icons/Nuvola Georgia flag 1990.svg
+Nuvola_icons/Nuvola Georgian flag-2.svg
+Nuvola_icons/Nuvola Georgian flag.svg
+Nuvola_icons/Nuvola German flag-2.svg
+Nuvola_icons/Nuvola Ghanaian flag-2.svg
+Nuvola_icons/Nuvola Gibraltarian flag.svg
+Nuvola_icons/Nuvola Great Britain flag.svg
+Nuvola_icons/Nuvola Green Plus.svg
+Nuvola_icons/Nuvola Greenland flag.svg
+Nuvola_icons/Nuvola Grenadian flag.svg
+Nuvola_icons/Nuvola Guadeloupe black flag.svg
+Nuvola_icons/Nuvola Guatemalan flag.svg
+Nuvola_icons/Nuvola Guyana flag.svg
+Nuvola_icons/Nuvola Haitian flag 1964.svg
+Nuvola_icons/Nuvola Haitian flag-civil.svg
+Nuvola_icons/Nuvola Hong Kong flag 1959.svg
+Nuvola_icons/Nuvola Hungary flag 1915.svg
+Nuvola_icons/Nuvola IT icon.svg
+Nuvola_icons/Nuvola Iranian flag.svg
+Nuvola_icons/Nuvola Iraqi Turkmen flag.svg
+Nuvola_icons/Nuvola Iraqi flag (1991-2004).svg
+Nuvola_icons/Nuvola Israeli flag.svg
+Nuvola_icons/Nuvola Jalisco flag (local).svg
+Nuvola_icons/Nuvola Jalisco flag.svg
+Nuvola_icons/Nuvola Jamaican flag.svg
+Nuvola_icons/Nuvola Johnston flag.svg
+Nuvola_icons/Nuvola Kalzium Recolor.svg
+Nuvola_icons/Nuvola Kosovan flag.svg
+Nuvola_icons/Nuvola Kotava flag.svg
+Nuvola_icons/Nuvola Laotian flag-1.svg
+Nuvola_icons/Nuvola Lesotho flag 1987-2006.svg
+Nuvola_icons/Nuvola List-return.svg
+Nuvola_icons/Nuvola Lithuanian flag-2.svg
+Nuvola_icons/Nuvola Mauritanian flag-2.svg
+Nuvola_icons/Nuvola Mauritian flag-2.svg
+Nuvola_icons/Nuvola Mayotte flag.svg
+Nuvola_icons/Nuvola Mexico flag-3.svg
+Nuvola_icons/Nuvola Mexico flag.svg
+Nuvola_icons/Nuvola Monaco state flag.svg
+Nuvola_icons/Nuvola Myanmar flag.svg
+Nuvola_icons/Nuvola Nauru flag-2.svg
+Nuvola_icons/Nuvola Nauru flag.svg
+Nuvola_icons/Nuvola Nepal flag.svg
+Nuvola_icons/Nuvola Netherlands Antillean flag (1959-1986).svg
+Nuvola_icons/Nuvola Nishan Sahib.svg
+Nuvola_icons/Nuvola North Korean flag.svg
+Nuvola_icons/Nuvola North and South Korean flags.svg
+Nuvola_icons/Nuvola Occitania flag with star.svg
+Nuvola_icons/Nuvola Pakistani flag.svg
+Nuvola_icons/Nuvola Patagonian flag.svg
+Nuvola_icons/Nuvola Quebec flag.svg
+Nuvola_icons/Nuvola Qulla Suyu flag.svg
+Nuvola_icons/Nuvola Republic of Peru flag-2.svg
+Nuvola_icons/Nuvola Ross flag.svg
+Nuvola_icons/Nuvola Réunion ARF flag.svg
+Nuvola_icons/Nuvola Réunion cultural flag.svg
+Nuvola_icons/Nuvola Réunion flag.svg
+Nuvola_icons/Nuvola Saint Barthélemy flag.svg
+Nuvola_icons/Nuvola Saint Martin flag.svg
+Nuvola_icons/Nuvola Saint Pierre flag.svg
+Nuvola_icons/Nuvola Sardinia flag.svg
+Nuvola_icons/Nuvola Saudi flag.svg
+Nuvola_icons/Nuvola Smith Antarctic flag.svg
+Nuvola_icons/Nuvola Somalian flag-2.svg
+Nuvola_icons/Nuvola Somaliland flag.svg
+Nuvola_icons/Nuvola South African flag.svg
+Nuvola_icons/Nuvola South Korean flag.svg
+Nuvola_icons/Nuvola Spain flag escudada.svg
+Nuvola_icons/Nuvola Spanish flag 1945.svg
+Nuvola_icons/Nuvola Spanish flag 1977.svg
+Nuvola_icons/Nuvola Swiss flag-2.svg
+Nuvola_icons/Nuvola Syrian Turkomen flag.svg
+Nuvola_icons/Nuvola Tajik flag.svg
+Nuvola_icons/Nuvola Teenager.svg
+Nuvola_icons/Nuvola Trinbagonian flag.svg
+Nuvola_icons/Nuvola UK icon.svg
+Nuvola_icons/Nuvola US Virgin Islands flag.svg
+Nuvola_icons/Nuvola USA flag.svg
+Nuvola_icons/Nuvola Ulster Nation flag.svg
+Nuvola_icons/Nuvola United Kingdom flag-2.svg
+Nuvola_icons/Nuvola Venezuelan state flag.svg
+Nuvola_icons/Nuvola Venezuelian flag.svg
+Nuvola_icons/Nuvola Vietnamese flag-2.svg
+Nuvola_icons/Nuvola Vincentian flag.svg
+Nuvola_icons/Nuvola Vojvodina flag.svg
+Nuvola_icons/Nuvola Wallis and Futuna flag.svg
+Nuvola_icons/Nuvola Walloon flag.svg
+Nuvola_icons/Nuvola apps agent.svg
+Nuvola_icons/Nuvola apps amor.svg
+Nuvola_icons/Nuvola apps arts.svg
+Nuvola_icons/Nuvola apps artsmidimanager.svg
+Nuvola_icons/Nuvola apps backward arrow.svg
+Nuvola_icons/Nuvola apps bad kcontrol.svg
+Nuvola_icons/Nuvola apps bug2.svg
+Nuvola_icons/Nuvola apps cache 2.svg
+Nuvola_icons/Nuvola apps cache.svg
+Nuvola_icons/Nuvola apps chat.svg
+Nuvola_icons/Nuvola apps cookiefl.svg
+Nuvola_icons/Nuvola apps core.svg
+Nuvola_icons/Nuvola apps date bn.svg
+Nuvola_icons/Nuvola apps download manager2.svg
+Nuvola_icons/Nuvola apps edu film.svg
+Nuvola_icons/Nuvola apps edu mathematics-ar.svg
+Nuvola_icons/Nuvola apps edu mathematics.svg
+Nuvola_icons/Nuvola apps edu miscellaneous (no words).svg
+Nuvola_icons/Nuvola apps edu miscellaneous (tsulagi).svg
+Nuvola_icons/Nuvola apps edu miscellaneous Greek.svg
+Nuvola_icons/Nuvola apps edu multimedia.svg
+Nuvola_icons/Nuvola apps emacs vector.svg
+Nuvola_icons/Nuvola apps email.svg
+Nuvola_icons/Nuvola apps filetypes blue.svg
+Nuvola_icons/Nuvola apps filetypes orange.svg
+Nuvola_icons/Nuvola apps flashkard.svg
+Nuvola_icons/Nuvola apps fonts.svg
+Nuvola_icons/Nuvola apps forward arrow.svg
+Nuvola_icons/Nuvola apps important JS.svg
+Nuvola_icons/Nuvola apps indeximg.svg
+Nuvola_icons/Nuvola apps iper.svg
+Nuvola_icons/Nuvola apps ipo.svg
+Nuvola_icons/Nuvola apps kate.svg
+Nuvola_icons/Nuvola apps katomic.svg
+Nuvola_icons/Nuvola apps kchart.svg
+Nuvola_icons/Nuvola apps kcmmidi.svg
+Nuvola_icons/Nuvola apps kdict.svg
+Nuvola_icons/Nuvola apps kedit.svg
+Nuvola_icons/Nuvola apps khangman.svg
+Nuvola_icons/Nuvola apps kmplot.svg
+Nuvola_icons/Nuvola apps kolf.svg
+Nuvola_icons/Nuvola apps konquest redX.svg
+Nuvola_icons/Nuvola apps konquest.svg
+Nuvola_icons/Nuvola apps kopete.svg
+Nuvola_icons/Nuvola apps korganizer.svg
+Nuvola_icons/Nuvola apps kpdf2.svg
+Nuvola_icons/Nuvola apps kpovmodeler.svg
+Nuvola_icons/Nuvola apps kruler.svg
+Nuvola_icons/Nuvola apps kscd.svg
+Nuvola_icons/Nuvola apps ktip.svg
+Nuvola_icons/Nuvola apps kugar.svg
+Nuvola_icons/Nuvola apps kuickshow.svg
+Nuvola_icons/Nuvola apps kuser BR.svg
+Nuvola_icons/Nuvola apps kview.svg
+Nuvola_icons/Nuvola apps kweather.svg
+Nuvola_icons/Nuvola apps kworldclock.svg
+Nuvola_icons/Nuvola apps locale-2.svg
+Nuvola_icons/Nuvola apps multimedia.svg
+Nuvola_icons/Nuvola apps mycomputer.svg
+Nuvola_icons/Nuvola apps package development.svg
+Nuvola_icons/Nuvola apps package graphics.svg
+Nuvola_icons/Nuvola apps package system.svg
+Nuvola_icons/Nuvola apps package toys cat.svg
+Nuvola_icons/Nuvola apps password.svg
+Nuvola_icons/Nuvola apps tree question.svg
+Nuvola_icons/Nuvola apps tree.svg
+Nuvola_icons/Nuvola apps user with flash.svg
+Nuvola_icons/Nuvola apps user with note.svg
+Nuvola_icons/Nuvola armless chair.svg
+Nuvola_icons/Nuvola arrow left.svg
+Nuvola_icons/Nuvola arrow right.svg
+Nuvola_icons/Nuvola cake 5.svg
+Nuvola_icons/Nuvola chat icon.svg
+Nuvola_icons/Nuvola check-out alt.svg
+Nuvola_icons/Nuvola check-out.svg
+Nuvola_icons/Nuvola clipboard lined.svg
+Nuvola_icons/Nuvola clock warning.svg
+Nuvola_icons/Nuvola commons icon.svg
+Nuvola_icons/Nuvola debate2.svg
+Nuvola_icons/Nuvola debate3.svg
+Nuvola_icons/Nuvola desk 1.svg
+Nuvola_icons/Nuvola desk 2.svg
+Nuvola_icons/Nuvola desk 3.svg
+Nuvola_icons/Nuvola desk 4.svg
+Nuvola_icons/Nuvola devices camera mount.svg
+Nuvola_icons/Nuvola devices scanner.svg
+Nuvola_icons/Nuvola devices tv.svg
+Nuvola_icons/Nuvola energy.svg
+Nuvola_icons/Nuvola erotic film icon.svg
+Nuvola_icons/Nuvola filesystems file locked.svg
+Nuvola_icons/Nuvola filesystems folder games.svg
+Nuvola_icons/Nuvola filesystems folder important.svg
+Nuvola_icons/Nuvola filesystems folder midi.svg
+Nuvola_icons/Nuvola filesystems folder template.svg
+Nuvola_icons/Nuvola filesystems services-gray.svg
+Nuvola_icons/Nuvola filing cabinet.svg
+Nuvola_icons/Nuvola folding chair.svg
+Nuvola_icons/Nuvola gnome-fs-trash-empty.svg
+Nuvola_icons/Nuvola gnome-fs-trash-full repaired.svg
+Nuvola_icons/Nuvola image important.svg
+Nuvola_icons/Nuvola industrial shelf.svg
+Nuvola_icons/Nuvola kdict glass.svg
+Nuvola_icons/Nuvola milk carton.svg
+Nuvola_icons/Nuvola mimetypes kchart chrt.svg
+Nuvola_icons/Nuvola mimetypes log.svg
+Nuvola_icons/Nuvola mimetypes source.svg
+Nuvola_icons/Nuvola music.svg
+Nuvola_icons/Nuvola recliner.svg
+Nuvola_icons/Nuvola table.svg
+Nuvola_icons/Nuvola weather heavy cloud.svg
+Nuvola_icons/Nuvola weather heavy rain.svg
+Nuvola_icons/Nuvola weather light cloud.svg
+Nuvola_icons/Nuvola weather showers.svg
+Nuvola_icons/Nuvola weather snow.svg
+Nuvola_icons/Nuvola weather sunny.svg
+Nuvola_icons/Nuvola web broom.svg
+Nuvola_icons/Nuvola web opinion.svg
+Nuvola_icons/Nuvola web question.svg
+Nuvola_icons/Nuvola web tool.svg
+Nuvola_icons/Nuvola wikt icon.svg
+Nuvola_icons/Nuvola-fs-chardev.svg
+Nuvola_icons/Nuvola-inspired-terminal.svg
+Nuvola_icons/Nuvola-like search pictures.svg
+Nuvola_icons/Nuvola-like search trash.svg
+Nuvola_icons/Nuvola-style website icon.svg
+Nuvola_icons/NuvolaDrama.svg
+Nuvola_icons/Nuvolish-declension.svg
+Nuvola_icons/Nuvolish-translation.svg
+Nuvola_icons/Ooo calc.svg
+Nuvola_icons/Orange box.svg
+Nuvola_icons/Out of date clock icon.svg
+Nuvola_icons/Oven and range.svg
+Nuvola_icons/Overcast.svg
+Nuvola_icons/P Cinema.svg
+Nuvola_icons/P medicine caution.svg
+Nuvola_icons/Picframe blue bg.svg
+Nuvola_icons/Picframe.svg
+Nuvola_icons/Pied-noir.svg
+Nuvola_icons/Polyamlogo.svg
+Nuvola_icons/Presa de decissions.svg
+Nuvola_icons/PrirodneNauke.svg
+Nuvola_icons/QA icon clr.svg
+Nuvola_icons/Red box.svg
+Nuvola_icons/Refrigerator1.svg
+Nuvola_icons/Refrigerator2.svg
+Nuvola_icons/Renaissance music icon.svg
+Nuvola_icons/Romantic music icon.svg
+Nuvola_icons/STOP nuvola with clock.svg
+Nuvola_icons/SVG-bug.svg
+Nuvola_icons/Shopping basket yellow.svg
+Nuvola_icons/Shopping basket.svg
+Nuvola_icons/Showers.svg
+Nuvola_icons/Snow.svg
+Nuvola_icons/Sock block.svg
+Nuvola_icons/Stop hand nuvola with clock.svg
+Nuvola_icons/Stop hand nuvola yellow.svg
+Nuvola_icons/Stop question nuvola with clock.svg
+Nuvola_icons/Stop question nuvola.svg
+Nuvola_icons/Stop x nuvola with clock.svg
+Nuvola_icons/Stop-hand-nuvola-alternate-text-in-Tamil-language.svg
+Nuvola_icons/Tablature music icon.svg
+Nuvola_icons/Table axo.svg
+Nuvola_icons/Table.svg
+Nuvola_icons/Tango Globe of Letters.svg
+Nuvola_icons/Thriller film clapperboard.svg
+Nuvola_icons/Time to stop.svg
+Nuvola_icons/To validate.svg
+Nuvola_icons/Toilet blue.svg
+Nuvola_icons/Toilet green.svg
+Nuvola_icons/Toolbaricon source.svg
+Nuvola_icons/Tvfilm.svg
+Nuvola_icons/Underconstruction clock icon gray.svg
+Nuvola_icons/User with smile.svg
+Nuvola_icons/Userbox-single.svg
+Nuvola_icons/Uvola apps date 2016fa.svg
+Nuvola_icons/Vg graphics.svg
+Nuvola_icons/Vg history icon alt.svg
+Nuvola_icons/Video Game Cleanup.svg
+Nuvola_icons/WPVisualArts.svg
+Nuvola_icons/War-film-stub.svg
+Nuvola_icons/Washer1.svg
+Nuvola_icons/Web-browser.svg
+Nuvola_icons/Wikiversaire-5.svg
+Nuvola_icons/Xbutton.svg
+Nuvola_icons/Yellow box.svg

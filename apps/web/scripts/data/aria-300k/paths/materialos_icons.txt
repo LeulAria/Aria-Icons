@@ -1,0 +1,219 @@
+Files/Accessibility Settings.svg
+Files/Address Book File.svg
+Files/Air Audio.svg
+Files/Allo.svg
+Files/Ally.svg
+Files/Amazon.svg
+Files/App Ops.svg
+Files/Arch Linux Alt 1.svg
+Files/Audio File.svg
+Files/Beatport.svg
+Files/Binary File.svg
+Files/Blender File.svg
+Files/Bluetooth Settings.svg
+Files/Browser Alt 1.svg
+Files/CM Theme Engine.svg
+Files/CSS File.svg
+Files/Cabinet Alt 1.svg
+Files/CalDAV Sync.svg
+Files/Calendar File.svg
+Files/Calendar.svg
+Files/CardDAV Sync.svg
+Files/Certificate.svg
+Files/Changelog File.svg
+Files/Chrome Alt 1.svg
+Files/Classnote Timetable.svg
+Files/Clips Folder.svg
+Files/Cloud Folder.svg
+Files/Color Picker Alt 1.svg
+Files/Color Picker.svg
+Files/Color Settings.svg
+Files/Compressed XCF File.svg
+Files/Cover Plan.svg
+Files/DB Navigator.svg
+Files/DOS Executable File.svg
+Files/Database File.svg
+Files/Dconf Editor.svg
+Files/Debian.svg
+Files/Display Settings.svg
+Files/Documents Folder Cyan.svg
+Files/Documents Folder.svg
+Files/Download Folder Cyan.svg
+Files/Download Folder.svg
+Files/Drawing File.svg
+Files/Drawing Template File.svg
+Files/Dropbox Folder.svg
+Files/EPUB File.svg
+Files/EasyTAG.svg
+Files/Empathy.svg
+Files/Evince Alt 1.svg
+Files/Evince.svg
+Files/Excel File.svg
+Files/Extension File.svg
+Files/F Droid.svg
+Files/Facebook.svg
+Files/Fedora.svg
+Files/File Manager .svg
+Files/File Roller.svg
+Files/Flash File.svg
+Files/Flash.svg
+Files/Flickr.svg
+Files/Folder Alt.svg
+Files/Folder Cyan.svg
+Files/Folder Video .svg
+Files/Font File.svg
+Files/Fruit Ninja.svg
+Files/GIMP Alt 1.svg
+Files/GTA San Andreas.svg
+Files/Gallary.svg
+Files/Glade File.svg
+Files/Gnome Boxes.svg
+Files/Google Alt 2.svg
+Files/Google Play Music Alt 3.svg
+Files/Gtkrc File.svg
+Files/HTML Alt 2 File.svg
+Files/HTML File.svg
+Files/Hipchat.svg
+Files/Illustrator File.svg
+Files/Image File.svg
+Files/Image Viewer.svg
+Files/Information Settings.svg
+Files/Information.svg
+Files/Inkscape.svg
+Files/Input Tablet Settings.svg
+Files/Instagram Alt 1.svg
+Files/Install File.svg
+Files/Java File.svg
+Files/Javascript File Alt 1.svg
+Files/Javascript File.svg
+Files/KLWP Alt 1.svg
+Files/Keyboard Settings.svg
+Files/Linux Mint.svg
+Files/Locale Settings.svg
+Files/MSN.svg
+Files/Makefile File.svg
+Files/Midori.svg
+Files/Mono Develop File.svg
+Files/Moovit.svg
+Files/Motion Stills.svg
+Files/Mouse Settings.svg
+Files/Movies Folder.svg
+Files/Music Folder Cyan.svg
+Files/Music Folder.svg
+Files/Napster.svg
+Files/Netflix.svg
+Files/Network Folder.svg
+Files/Network Server Folder.svg
+Files/Network Settings.svg
+Files/Newegg.svg
+Files/Notifications Settings.svg
+Files/Onefootball.svg
+Files/Online Account Settings.svg
+Files/OpenDocument Chart File.svg
+Files/OpenDocument Chart Template File.svg
+Files/OpenDocument Formula File.svg
+Files/OpenDocument Formula Template File.svg
+Files/OpenDocument Master Document File.svg
+Files/PDF FIle Alt 1.svg
+Files/PDF File.svg
+Files/PHP File Alt 1.svg
+Files/PHP File.svg
+Files/Pencil.svg
+Files/Photo Sync.svg
+Files/Photos Folder.svg
+Files/Photoshop File.svg
+Files/Pictures Folder Cyan.svg
+Files/Pictures Folder.svg
+Files/Plain File.svg
+Files/Playlist File.svg
+Files/Pocket Alt 1.svg
+Files/Postscript File.svg
+Files/Power Settings.svg
+Files/Powerpoint File.svg
+Files/Presentation File.svg
+Files/Presentation Template File.svg
+Files/Printer Settings.svg
+Files/Privacy Settings.svg
+Files/Publicshare Folder.svg
+Files/Pushbullet.svg
+Files/Python File Alt 1.svg
+Files/Python File.svg
+Files/Quickpic Alt 2.svg
+Files/Quora.svg
+Files/RAR File.svg
+Files/RSS File.svg
+Files/Recent Folder.svg
+Files/Retroarch.svg
+Files/Rhythmbox.svg
+Files/Ruby File Alt 1.svg
+Files/Ruby File.svg
+Files/Safe In Cloud.svg
+Files/Saved Search Folder.svg
+Files/Screenshot.svg
+Files/Script File Alt 1.svg
+Files/Script File Alt 2.svg
+Files/Script File.svg
+Files/Search.svg
+Files/Series Folder.svg
+Files/Sharing Settings.svg
+Files/Slack.svg
+Files/Smart Playlist File.svg
+Files/Smuxi.svg
+Files/Snapchat.svg
+Files/Software Package.svg
+Files/Software Store.svg
+Files/Solid Explorer.svg
+Files/Sonos.svg
+Files/Sound Settings.svg
+Files/Soundcloud Downloader.svg
+Files/Soundcloud.svg
+Files/Soundrecorder.svg
+Files/Spotify.svg
+Files/Steam Alt 2.svg
+Files/Synaptic.svg
+Files/Sync.svg
+Files/System Folder.svg
+Files/System Monitor.svg
+Files/Table File.svg
+Files/Table Template File.svg
+Files/Template File File.svg
+Files/Template Folder.svg
+Files/Templates Folder.svg
+Files/Terminal.svg
+Files/Text Editor Alt 1.svg
+Files/Text File.svg
+Files/Theme File.svg
+Files/Timberman.svg
+Files/Time Settings.svg
+Files/Titanium Backup.svg
+Files/Torrent.svg
+Files/Totem.svg
+Files/Trash.svg
+Files/Tunable.svg
+Files/Ubuntu.svg
+Files/Unknown File Alt 1.svg
+Files/Unknown File.svg
+Files/User Desktop Folder .svg
+Files/User Home Folder .svg
+Files/User Home Folder Cyan.svg
+Files/User Settings.svg
+Files/Users File.svg
+Files/Vector File.svg
+Files/Vector Template File.svg
+Files/Video File.svg
+Files/Videos Folder Cyan.svg
+Files/Videos Folder.svg
+Files/Vim.svg
+Files/Visuals Folder.svg
+Files/Wallpaper Settings.svg
+Files/Weather Timeline.svg
+Files/Web Template File.svg
+Files/Word File Alt 2.svg
+Files/Word File.svg
+Files/Word Template File.svg
+Files/XCF File.svg
+Files/XML File.svg
+Files/Xposed GEL Settings.svg
+Files/Xposed Installer Alt 1.svg
+Files/openSUSE.svg
+Files/pCloud.svg
