@@ -11,6 +11,26 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
 	{
 		date: "2026-10-08",
+		version: "1.302M",
+		title: "~300k open icon families",
+		tag: "Icons",
+		summary:
+			"Vendored 597 open SVG icon families from the October 2026 gap research (rounds 1 + 2): 274,321 icons after the pack quality/dedupe pass. About 135,099 icons are from copyleft families (GPL/LGPL/CC-BY-SA/MPL/EPL) and 139,222 from permissive licences; each set records licence, copyleft, and CC-BY attribution in metadata. Icons are packed JSON under icons/vendored/ (same approach as prior large imports). 24 research families were skipped (unreachable or empty sources). The browse catalog now lists about 1,301,569 icons across 1,159 sets.",
+		added: [
+			"Added PhyloPic silhouettes (11,067 icons) — [phylopic.org](https://www.phylopic.org/), CC0 / PDM / CC-BY.",
+			"Added Lazycons Pro (5,936 icons) — [xprateek/lazycons_pro](https://github.com/xprateek/lazycons_pro), Apache-2.0.",
+			"Added luceviasicons (4,802 icons) — [luceviasicons/luceviasicons](https://github.com/luceviasicons/luceviasicons), MIT.",
+			"Added Besgnulinux Circle (4,622 icons) — [opendesktop 2158340](https://www.opendesktop.org/p/2158340), GPL-3.0.",
+			"Added Alfa-Bank UI primitives (4,287 icons) — [npm ui-primitives](https://www.npmjs.com/package/ui-primitives), MIT.",
+			"Added Cisco Momentum Design icons (3,223 icons) — [momentum-design/momentum-design](https://github.com/momentum-design/momentum-design), MIT (registered from the earlier P0 fetch list).",
+			"Added 591 further open families from the gap research (git, npm, Pling/OCS, Wikimedia, OpenGameArt, archives) with licence metadata on each set.",
+		],
+		removed: [
+			"Skipped 24 research families whose sources were unreachable, returned empty/non-SVG payloads, or could not be extracted (Pling downloads, corrupt archives, Wikimedia misses, NIH BioArt API, etc.). Nothing was substituted.",
+		],
+	},
+	{
+		date: "2026-10-08",
 		version: "1.027M",
 		title: "Ten more open icon families",
 		tag: "Icons",

@@ -167,45 +167,87 @@ async function fetchText(url: string, timeoutMs = 120_000): Promise<string> {
 }
 
 async function ensureDir(dir: string) {
-	await fs.mkdir(dir, { recursive: true });
+	try {
+		await fs.mkdir(dir, { recursive: true });
+	} catch (err) {
+		const code = err && typeof err === "object" && "code" in err ? (err as { code?: string }).code : "";
+		if (code !== "EEXIST") throw err;
+	}
+}
+
+function sniffArchiveExt(buf: Buffer): string | null {
+	if (buf.length >= 4 && buf[0] === 0x50 && buf[1] === 0x4b) return ".zip";
+	if (buf.length >= 3 && buf[0] === 0x1f && buf[1] === 0x8b) return ".tar.gz";
+	if (buf.length >= 6 && buf[0] === 0xfd && buf[1] === 0x37 && buf[2] === 0x7a) return ".tar.xz";
+	if (buf.length >= 4 && buf[0] === 0x28 && buf[1] === 0xb5 && buf[2] === 0x2f && buf[3] === 0xfd) {
+		return ".tar.zst";
+	}
+	if (buf.length >= 3 && buf[0] === 0x42 && buf[1] === 0x5a && buf[2] === 0x68) return ".tar.bz2";
+	if (buf.length >= 5 && buf.toString("utf8", 0, 5) === "ustar") return ".tar";
+	if (buf.length >= 262 && buf.toString("utf8", 257, 262) === "ustar") return ".tar";
+	return null;
+}
+
+function toJsRegex(pattern: string): RegExp {
+	// Research manifests sometimes use Python-style (?i) inline flags.
+	let flags = "";
+	let body = pattern;
+	const inline = /^\(\?([imsux]+)\)/.exec(body);
+	if (inline) {
+		flags = inline[1]!.replace(/u/g, "").replace(/x/g, "");
+		body = body.slice(inline[0].length);
+	}
+	return new RegExp(body, flags);
 }
 
 async function extractArchive(archivePath: string, dest: string) {
 	await fs.rm(dest, { recursive: true, force: true });
 	await ensureDir(dest);
-	const lower = archivePath.toLowerCase();
-	if (lower.endsWith(".zip")) {
-		const buf = await fs.readFile(archivePath);
+	const buf = await fs.readFile(archivePath);
+	const sniffed = sniffArchiveExt(buf);
+	const lower = (sniffed ?? archivePath).toLowerCase();
+	if (lower.endsWith(".zip") || sniffed === ".zip") {
 		const zip = await JSZip.loadAsync(buf);
 		for (const [name, entry] of Object.entries(zip.files)) {
 			if (entry.dir) continue;
 			const out = path.join(dest, name);
 			await ensureDir(path.dirname(out));
-			await fs.writeFile(out, await entry.async("nodebuffer"));
+			try {
+				await fs.writeFile(out, await entry.async("nodebuffer"));
+			} catch (err) {
+				const code = err && typeof err === "object" && "code" in err ? (err as { code?: string }).code : "";
+				if (code === "EISDIR") continue;
+				throw err;
+			}
 		}
 		return;
 	}
+	// Persist sniffed extension so tar sees the right compression.
+	let pathForTar = archivePath;
+	if (sniffed && !archivePath.endsWith(sniffed)) {
+		pathForTar = `${archivePath}${sniffed}`;
+		await fs.writeFile(pathForTar, buf);
+	}
 	if (lower.endsWith(".tar.zst") || lower.endsWith(".tzst")) {
-		await run("tar", ["--use-compress-program=zstd", "-xf", archivePath, "-C", dest]);
+		await run("tar", ["--use-compress-program=zstd", "-xf", pathForTar, "-C", dest]);
 		return;
 	}
 	if (lower.endsWith(".tar.xz") || lower.endsWith(".txz")) {
-		await run("tar", ["-xJf", archivePath, "-C", dest]);
+		await run("tar", ["-xJf", pathForTar, "-C", dest]);
 		return;
 	}
 	if (lower.endsWith(".tar.bz2") || lower.endsWith(".tbz2")) {
-		await run("tar", ["-xjf", archivePath, "-C", dest]);
+		await run("tar", ["-xjf", pathForTar, "-C", dest]);
 		return;
 	}
 	if (lower.endsWith(".tar.gz") || lower.endsWith(".tgz") || lower.endsWith(".tar")) {
-		await run("tar", ["-xf", archivePath, "-C", dest]);
+		await run("tar", ["-xf", pathForTar, "-C", dest]);
 		return;
 	}
-	// Fall back to tar autodetection / unzip.
 	try {
-		await run("tar", ["-xf", archivePath, "-C", dest]);
+		await run("tar", ["-xf", pathForTar, "-C", dest]);
 	} catch {
-		await run("unzip", ["-q", archivePath, "-d", dest]);
+		await run("unzip", ["-q", "-o", pathForTar, "-d", dest]);
 	}
 }
 
@@ -222,24 +264,15 @@ async function unwrapRoot(dir: string): Promise<string> {
 async function downloadAndExtract(url: string, workDir: string): Promise<string> {
 	await fs.rm(workDir, { recursive: true, force: true });
 	await ensureDir(workDir);
-	const extGuess = (() => {
-		const clean = url.split("?")[0]!.toLowerCase();
-		if (clean.endsWith(".zip")) return ".zip";
-		if (clean.endsWith(".tar.xz") || clean.endsWith(".txz")) return ".tar.xz";
-		if (clean.endsWith(".tar.zst")) return ".tar.zst";
-		if (clean.endsWith(".tar.bz2")) return ".tar.bz2";
-		if (clean.endsWith(".tgz") || clean.endsWith(".tar.gz")) return ".tar.gz";
-		if (clean.endsWith(".tar")) return ".tar";
-		return ".bin";
-	})();
-	const archivePath = path.join(workDir, `source${extGuess === ".bin" ? ".tar.gz" : extGuess}`);
 	const buf = await fetchBuffer(url);
-	// Detect zip by magic even when URL has no extension.
-	const isZip = buf.length > 3 && buf[0] === 0x50 && buf[1] === 0x4b;
-	const finalPath = isZip && !archivePath.endsWith(".zip") ? `${archivePath}.zip` : archivePath;
-	await fs.writeFile(finalPath, buf);
+	if (buf.length < 64) throw new Error(`Download too small (${buf.length} bytes) from ${url}`);
+	const head = buf.toString("utf8", 0, Math.min(buf.length, 200)).trimStart();
+	if (/^<!DOCTYPE|^<html/i.test(head)) throw new Error(`Download returned HTML instead of archive from ${url}`);
+	const sniffed = sniffArchiveExt(buf) ?? ".bin";
+	const archivePath = path.join(workDir, `source${sniffed}`);
+	await fs.writeFile(archivePath, buf);
 	const extractDir = path.join(workDir, "extracted");
-	await extractArchive(finalPath, extractDir);
+	await extractArchive(archivePath, extractDir);
 	return unwrapRoot(extractDir);
 }
 
@@ -490,37 +523,39 @@ async function collectFromTree(
 	return [...best.values()].map((v) => v.item);
 }
 
+async function cloneGitRepo(repoUrl: string, dest: string) {
+	await fs.rm(dest, { recursive: true, force: true });
+	await ensureDir(path.dirname(dest));
+	const normalized = repoUrl.endsWith(".git") ? repoUrl : `${repoUrl.replace(/\/$/, "")}.git`;
+	await run("git", ["clone", "--depth", "1", normalized, dest], undefined, 600_000);
+	return dest;
+}
+
 async function fetchGitFamily(family: Family, workDir: string): Promise<string> {
+	const repoUrl = family.fetch.repo ?? family.source_url;
 	const url =
 		family.fetch.archive_url ||
-		(family.fetch.repo
+		(family.fetch.repo && /github\.com/i.test(family.fetch.repo)
 			? family.fetch.repo.replace(/\.git$/, "").replace(/https:\/\/github\.com\//, "https://codeload.github.com/") +
 				"/tar.gz/HEAD"
 			: null);
-	if (!url) {
-		// gitlab / other: try archive_url from instructions or clone
-		const repo = family.fetch.repo ?? family.source_url;
-		if (/gitlab\.com/i.test(repo)) {
-			const m = repo.match(/gitlab\.com\/([^/]+\/[^/]+)/);
-			if (m) {
-				const archive = `https://gitlab.com/${m[1]}/-/archive/master/${m[1]!.split("/").pop()}-master.tar.gz`;
-				return downloadAndExtract(archive, workDir);
+	if (url) {
+		try {
+			return await downloadAndExtract(url, workDir);
+		} catch (err) {
+			if (/gitlab\.com|codeberg\.org/i.test(repoUrl) || /HTTP 40[036]|HTML instead/i.test(String(err))) {
+				return cloneGitRepo(repoUrl, path.join(workDir, "clone"));
 			}
+			if (/github\.com/i.test(repoUrl)) {
+				return cloneGitRepo(repoUrl, path.join(workDir, "clone"));
+			}
+			throw err;
 		}
-		throw new Error("No archive_url/repo for git family");
 	}
-	try {
-		return await downloadAndExtract(url, workDir);
-	} catch (err) {
-		// Some repos use main vs master in codeload HEAD; fall back to git clone.
-		const repoUrl = family.fetch.repo ?? family.source_url;
-		if (!/github\.com/i.test(repoUrl)) throw err;
-		const dest = path.join(workDir, "clone");
-		await fs.rm(dest, { recursive: true, force: true });
-		await ensureDir(workDir);
-		await run("git", ["clone", "--depth", "1", repoUrl.replace(/\.git$/, "") + ".git", dest], undefined, 600_000);
-		return dest;
+	if (/gitlab\.com|codeberg\.org|github\.com/i.test(repoUrl)) {
+		return cloneGitRepo(repoUrl, path.join(workDir, "clone"));
 	}
+	throw new Error("No archive_url/repo for git family");
 }
 
 async function fetchNpmFamily(family: Family, workDir: string): Promise<string> {
@@ -607,23 +642,34 @@ async function fetchWikimedia(family: Family, workDir: string): Promise<string> 
 	let fail = 0;
 	for (const rel of wanted) {
 		const base = path.basename(rel);
-		const candidates = [base, base.replace(/ /g, "_")];
+		const candidates = [
+			base,
+			base.replace(/ /g, "_"),
+			base.replace(/_/g, " "),
+			decodeURIComponent(base.replace(/\+/g, " ")),
+		];
 		let wrote = false;
-		for (const name of candidates) {
-			const url = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}`;
-			try {
-				const buf = await fetchBuffer(url, 60_000);
-				const text = buf.toString("utf8");
-				if (!text.includes("<svg")) continue;
-				const out = path.join(root, rel);
-				await ensureDir(path.dirname(out));
-				await fs.writeFile(out, buf);
-				wrote = true;
-				ok++;
-				break;
-			} catch {
-				/* try next */
+		for (const name of [...new Set(candidates)]) {
+			const urls = [
+				`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name)}`,
+				`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name).replace(/%20/g, "_")}`,
+			];
+			for (const url of urls) {
+				try {
+					const buf = await fetchBuffer(url, 60_000);
+					const text = buf.toString("utf8");
+					if (!text.includes("<svg")) continue;
+					const out = path.join(root, rel);
+					await ensureDir(path.dirname(out));
+					await fs.writeFile(out, buf);
+					wrote = true;
+					ok++;
+					break;
+				} catch {
+					/* try next */
+				}
 			}
+			if (wrote) break;
 		}
 		if (!wrote) fail++;
 	}
@@ -659,34 +705,39 @@ async function fetchPhyloPic(workDir: string): Promise<NamedSvg[]> {
 	let href: string | null =
 		`/images?build=${build}&embed_items=true&filter_license_nc=false&filter_license_sa=false&page=0`;
 	let page = 0;
+	const VECTOR_CONCURRENCY = 12;
 	while (href) {
 		const url = href.startsWith("http") ? href : `https://api.phylopic.org${href}`;
 		const data = JSON.parse(await fetchText(url)) as PhyloPage;
 		const embedded = data._embedded?.items ?? [];
-		for (const img of embedded) {
+		const jobs = embedded.map((img) => async () => {
 			const selfHref = img._links?.self?.href ?? "";
 			const uuid =
 				img.uuid ||
 				selfHref.match(/\/images\/([0-9a-f-]{36})/i)?.[1] ||
 				img._links?.vectorFile?.href?.match(/\/images\/([0-9a-f-]{36})\//i)?.[1];
 			const vector = img._links?.vectorFile?.href;
-			if (!uuid || !vector) continue;
+			if (!uuid || !vector) return null;
 			const licenseHref = img._links?.license?.href ?? "";
 			try {
 				const svg = await fetchText(
 					vector.startsWith("http") ? vector : `https://images.phylopic.org${vector}`,
 					60_000,
 				);
-				if (!svg.includes("<svg")) continue;
+				if (!svg.includes("<svg")) return null;
 				const contributor = img._links?.contributor?.title;
 				const attr = contributor ? `PhyloPic / ${contributor}` : "PhyloPic";
 				const stamped = svg.includes("<!--")
 					? svg
 					: `<!-- ${attr}; ${licenseHref || "see phylopic.org"} -->\n${svg}`;
-				items.push({ name: uuid, svg: stamped, style: "solid" });
+				return { name: uuid, svg: stamped, style: "solid" } satisfies NamedSvg;
 			} catch {
-				/* skip one */
+				return null;
 			}
+		});
+		for (let i = 0; i < jobs.length; i += VECTOR_CONCURRENCY) {
+			const batch = await Promise.all(jobs.slice(i, i + VECTOR_CONCURRENCY).map((fn) => fn()));
+			for (const row of batch) if (row) items.push(row);
 		}
 		page++;
 		const next = data._links?.next?.href ?? null;
@@ -813,8 +864,8 @@ async function importFamily(
 		} else {
 			const root = await resolveTree(family, workDir);
 			const wanted = await loadPathList(family);
-			const include = family.include_regex ? new RegExp(family.include_regex) : null;
-			const exclude = family.exclude_regex ? new RegExp(family.exclude_regex) : null;
+			const include = family.include_regex ? toJsRegex(family.include_regex) : null;
+			const exclude = family.exclude_regex ? toJsRegex(family.exclude_regex) : null;
 			const theme = isThemeFamily(family);
 			let resolvedWanted = 0;
 			if (wanted?.length) {
