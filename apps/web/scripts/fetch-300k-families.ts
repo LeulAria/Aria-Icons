@@ -659,34 +659,39 @@ async function fetchPhyloPic(workDir: string): Promise<NamedSvg[]> {
 	let href: string | null =
 		`/images?build=${build}&embed_items=true&filter_license_nc=false&filter_license_sa=false&page=0`;
 	let page = 0;
+	const VECTOR_CONCURRENCY = 12;
 	while (href) {
 		const url = href.startsWith("http") ? href : `https://api.phylopic.org${href}`;
 		const data = JSON.parse(await fetchText(url)) as PhyloPage;
 		const embedded = data._embedded?.items ?? [];
-		for (const img of embedded) {
+		const jobs = embedded.map((img) => async () => {
 			const selfHref = img._links?.self?.href ?? "";
 			const uuid =
 				img.uuid ||
 				selfHref.match(/\/images\/([0-9a-f-]{36})/i)?.[1] ||
 				img._links?.vectorFile?.href?.match(/\/images\/([0-9a-f-]{36})\//i)?.[1];
 			const vector = img._links?.vectorFile?.href;
-			if (!uuid || !vector) continue;
+			if (!uuid || !vector) return null;
 			const licenseHref = img._links?.license?.href ?? "";
 			try {
 				const svg = await fetchText(
 					vector.startsWith("http") ? vector : `https://images.phylopic.org${vector}`,
 					60_000,
 				);
-				if (!svg.includes("<svg")) continue;
+				if (!svg.includes("<svg")) return null;
 				const contributor = img._links?.contributor?.title;
 				const attr = contributor ? `PhyloPic / ${contributor}` : "PhyloPic";
 				const stamped = svg.includes("<!--")
 					? svg
 					: `<!-- ${attr}; ${licenseHref || "see phylopic.org"} -->\n${svg}`;
-				items.push({ name: uuid, svg: stamped, style: "solid" });
+				return { name: uuid, svg: stamped, style: "solid" } satisfies NamedSvg;
 			} catch {
-				/* skip one */
+				return null;
 			}
+		});
+		for (let i = 0; i < jobs.length; i += VECTOR_CONCURRENCY) {
+			const batch = await Promise.all(jobs.slice(i, i + VECTOR_CONCURRENCY).map((fn) => fn()));
+			for (const row of batch) if (row) items.push(row);
 		}
 		page++;
 		const next = data._links?.next?.href ?? null;
