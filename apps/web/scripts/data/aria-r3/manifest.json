@@ -1,0 +1,5044 @@
+{
+ "generated": "2026-10-11",
+ "purpose": "Round 3 gap-research icon families (strict icons only; clipart + aggregators listed in skipped-pre.json)",
+ "totals": {
+  "families": 176,
+  "new_unique": 81973,
+  "new_unique_copyleft": 5398,
+  "new_unique_permissive": 76575,
+  "skipped_pre": 22,
+  "skipped_pre_icons": 337959
+ },
+ "families": [
+  {
+   "round": 3,
+   "key": "npm__krz-icons",
+   "name": "krz-icons",
+   "source_url": "https://www.npmjs.com/package/krz-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "krz-icons",
+    "archive_url": null,
+    "instructions": "npm pack krz-icons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 16868,
+   "notes": "source=npm-sweep; research_id=npm:krz-icons",
+   "research_id": "npm:krz-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__stria-icons",
+   "name": "stria-icons",
+   "source_url": "https://www.npmjs.com/package/stria-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "stria-icons",
+    "archive_url": null,
+    "instructions": "npm pack stria-icons; SVGs under dist/svg/duotone"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg/duotone",
+    "dist/svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 9738,
+   "notes": "source=npm-sweep; research_id=npm:stria-icons",
+   "research_id": "npm:stria-icons"
+  },
+  {
+   "round": 3,
+   "key": "appica-dev_appica-icons",
+   "name": "appica-dev/appica-icons",
+   "source_url": "https://github.com/appica-dev/appica-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/appica-dev/appica-icons.git",
+    "archive_url": "https://codeload.github.com/appica-dev/appica-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/appica-dev/appica-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/system",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 4301,
+   "notes": "source=x-sweep; research_id=appica-dev/appica-icons",
+   "research_id": "appica-dev/appica-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@ferran_suils_iconkit",
+   "name": "@ferran_suils/iconkit",
+   "source_url": "https://www.npmjs.com/package/@ferran_suils/iconkit",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@ferran_suils/iconkit",
+    "archive_url": null,
+    "instructions": "npm pack @ferran_suils/iconkit; SVGs under svg/outline"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg/outline",
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 4261,
+   "notes": "source=npm-sweep; research_id=npm:@ferran_suils/iconkit",
+   "research_id": "npm:@ferran_suils/iconkit"
+  },
+  {
+   "round": 3,
+   "key": "lyderhansen_splunk-icon-library",
+   "name": "lyderhansen/splunk-icon-library",
+   "source_url": "https://github.com/lyderhansen/splunk-icon-library",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/lyderhansen/splunk-icon-library.git",
+    "archive_url": "https://codeload.github.com/lyderhansen/splunk-icon-library/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/lyderhansen/splunk-icon-library"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "appserver/static/icons/_other",
+    "appserver/static/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 3187,
+   "notes": "source=github-x-deep; research_id=lyderhansen/splunk-icon-library",
+   "research_id": "lyderhansen/splunk-icon-library"
+  },
+  {
+   "round": 3,
+   "key": "mic-360_zenicons",
+   "name": "mic-360/zenicons",
+   "source_url": "https://github.com/mic-360/zenicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/mic-360/zenicons.git",
+    "archive_url": "https://codeload.github.com/mic-360/zenicons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/mic-360/zenicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svgs"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 2545,
+   "notes": "source=github-keyword-windows; research_id=mic-360/zenicons",
+   "research_id": "mic-360/zenicons"
+  },
+  {
+   "round": 3,
+   "key": "onuro_ubericons",
+   "name": "onuro/ubericons",
+   "source_url": "https://github.com/onuro/ubericons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/onuro/ubericons.git",
+    "archive_url": "https://codeload.github.com/onuro/ubericons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/onuro/ubericons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/free",
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 2026,
+   "notes": "source=github-keyword-windows; research_id=onuro/ubericons",
+   "research_id": "onuro/ubericons"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__nesstero_DarK-icons",
+   "name": "gitlab:nesstero/DarK-icons",
+   "source_url": "https://gitlab.com/nesstero/DarK-icons",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/nesstero/DarK-icons.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/nesstero/DarK-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "DarK-SRC/scalable/pool",
+    "DarK-SRC/scalable"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1532,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:nesstero/DarK-icons",
+   "research_id": "gitlab:nesstero/DarK-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__archie123-kerke-icons",
+   "name": "archie123-kerke-icons",
+   "source_url": "https://www.npmjs.com/package/archie123-kerke-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "archie123-kerke-icons",
+    "archive_url": null,
+    "instructions": "npm pack archie123-kerke-icons; SVGs under icons/kerke"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/kerke",
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1506,
+   "notes": "source=npm-sweep; research_id=npm:archie123-kerke-icons",
+   "research_id": "npm:archie123-kerke-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@ui5_webcomponents-icons",
+   "name": "@ui5/webcomponents-icons",
+   "source_url": "https://www.npmjs.com/package/@ui5/webcomponents-icons",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@ui5/webcomponents-icons",
+    "archive_url": null,
+    "instructions": "npm pack @ui5/webcomponents-icons; SVGs under dist/v4"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/v4",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1190,
+   "notes": "source=npm-sweep-2; research_id=npm:@ui5/webcomponents-icons",
+   "research_id": "npm:@ui5/webcomponents-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__gnomicon",
+   "name": "gnomicon",
+   "source_url": "https://www.npmjs.com/package/gnomicon",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "npm",
+    "package": "gnomicon",
+    "archive_url": null,
+    "instructions": "npm pack gnomicon; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1157,
+   "notes": "source=npm-sweep; research_id=npm:gnomicon",
+   "research_id": "npm:gnomicon"
+  },
+  {
+   "round": 3,
+   "key": "bchoubert_bc-font",
+   "name": "bchoubert/bc-font",
+   "source_url": "https://github.com/bchoubert/bc-font",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/bchoubert/bc-font.git",
+    "archive_url": "https://codeload.github.com/bchoubert/bc-font/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/bchoubert/bc-font"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1143,
+   "notes": "source=github-monthly-owners; research_id=bchoubert/bc-font",
+   "research_id": "bchoubert/bc-font"
+  },
+  {
+   "round": 3,
+   "key": "npm__@winplaybox_icons",
+   "name": "@winplaybox/icons",
+   "source_url": "https://www.npmjs.com/package/@winplaybox/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@winplaybox/icons",
+    "archive_url": null,
+    "instructions": "npm pack @winplaybox/icons; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1109,
+   "notes": "source=npm-sweep-3; research_id=npm:@winplaybox/icons",
+   "research_id": "npm:@winplaybox/icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@rhds_icons",
+   "name": "@rhds/icons",
+   "source_url": "https://www.npmjs.com/package/@rhds/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@rhds/icons",
+    "archive_url": null,
+    "instructions": "npm pack @rhds/icons; SVGs under standard"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "standard"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 1021,
+   "notes": "source=npm-sweep-2; research_id=npm:@rhds/icons",
+   "research_id": "npm:@rhds/icons"
+  },
+  {
+   "round": 3,
+   "key": "opengemeenten_iconenset",
+   "name": "opengemeenten/iconenset",
+   "source_url": "https://github.com/opengemeenten/iconenset",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/opengemeenten/iconenset.git",
+    "archive_url": "https://codeload.github.com/opengemeenten/iconenset/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/opengemeenten/iconenset"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Svg/Line",
+    "Svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 947,
+   "notes": "source=github-monthly-owners; research_id=opengemeenten/iconenset",
+   "research_id": "opengemeenten/iconenset"
+  },
+  {
+   "round": 3,
+   "key": "npm__@salesforce-ux_design-system",
+   "name": "@salesforce-ux/design-system",
+   "source_url": "https://www.npmjs.com/package/@salesforce-ux/design-system",
+   "licence": "BSD-3-Clause",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@salesforce-ux/design-system",
+    "archive_url": null,
+    "instructions": "npm pack @salesforce-ux/design-system; SVGs under assets/icons/utility"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/icons/utility",
+    "assets/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 906,
+   "notes": "source=npm-sweep-2; research_id=npm:@salesforce-ux/design-system",
+   "research_id": "npm:@salesforce-ux/design-system"
+  },
+  {
+   "round": 3,
+   "key": "microfocus_ias-icons",
+   "name": "microfocus/ias-icons",
+   "source_url": "https://github.com/microfocus/ias-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/microfocus/ias-icons.git",
+    "archive_url": "https://codeload.github.com/microfocus/ias-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/microfocus/ias-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 837,
+   "notes": "source=github-monthly-owners; research_id=microfocus/ias-icons",
+   "research_id": "microfocus/ias-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@udir-design_icons",
+   "name": "@udir-design/icons",
+   "source_url": "https://www.npmjs.com/package/@udir-design/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@udir-design/icons",
+    "archive_url": null,
+    "instructions": "npm pack @udir-design/icons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 815,
+   "notes": "source=npm-sweep; research_id=npm:@udir-design/icons",
+   "research_id": "npm:@udir-design/icons"
+  },
+  {
+   "round": 3,
+   "key": "uxthings_popicons",
+   "name": "uxthings/popicons",
+   "source_url": "https://github.com/uxthings/popicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/uxthings/popicons.git",
+    "archive_url": "https://codeload.github.com/uxthings/popicons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/uxthings/popicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg/line",
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 795,
+   "notes": "source=x-sweep; research_id=uxthings/popicons",
+   "research_id": "uxthings/popicons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@derroce_icons",
+   "name": "@derroce/icons",
+   "source_url": "https://www.npmjs.com/package/@derroce/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@derroce/icons",
+    "archive_url": null,
+    "instructions": "npm pack @derroce/icons; SVGs under src/icons/Bold/Essetional"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/icons/Bold/Essetional",
+    "src/icons/Bold"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 758,
+   "notes": "source=npm-sweep; research_id=npm:@derroce/icons",
+   "research_id": "npm:@derroce/icons"
+  },
+  {
+   "round": 3,
+   "key": "michaelbollin_food-icons",
+   "name": "michaelbollin/food-icons",
+   "source_url": "https://github.com/michaelbollin/food-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/michaelbollin/food-icons.git",
+    "archive_url": "https://codeload.github.com/michaelbollin/food-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/michaelbollin/food-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/ingredients/svg",
+    "icons/ingredients"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 743,
+   "notes": "source=github-keyword-windows; research_id=michaelbollin/food-icons",
+   "research_id": "michaelbollin/food-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__iobroker.icons-mfd-svg",
+   "name": "iobroker.icons-mfd-svg",
+   "source_url": "https://www.npmjs.com/package/iobroker.icons-mfd-svg",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "npm",
+    "package": "iobroker.icons-mfd-svg",
+    "archive_url": null,
+    "instructions": "npm pack iobroker.icons-mfd-svg; SVGs under www"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "www"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 705,
+   "notes": "source=npm-sweep; research_id=npm:iobroker.icons-mfd-svg",
+   "research_id": "npm:iobroker.icons-mfd-svg"
+  },
+  {
+   "round": 3,
+   "key": "vytautas9_fabric-icons",
+   "name": "vytautas9/fabric-icons",
+   "source_url": "https://github.com/vytautas9/fabric-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/vytautas9/fabric-icons.git",
+    "archive_url": "https://codeload.github.com/vytautas9/fabric-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/vytautas9/fabric-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/high_res/workspace_ui",
+    "icons/high_res"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 650,
+   "notes": "source=github-keyword-windows; research_id=vytautas9/fabric-icons",
+   "research_id": "vytautas9/fabric-icons"
+  },
+  {
+   "round": 3,
+   "key": "dot-alter_altered-icons",
+   "name": "dot-alter/altered-icons",
+   "source_url": "https://github.com/dot-alter/altered-icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/dot-alter/altered-icons.git",
+    "archive_url": "https://codeload.github.com/dot-alter/altered-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/dot-alter/altered-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/chubby/line",
+    "icons/chubby"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 644,
+   "notes": "source=github-x-deep; research_id=dot-alter/altered-icons",
+   "research_id": "dot-alter/altered-icons"
+  },
+  {
+   "round": 3,
+   "key": "presslabs_react-particles-icons",
+   "name": "presslabs/react-particles-icons",
+   "source_url": "https://github.com/presslabs/react-particles-icons",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/presslabs/react-particles-icons.git",
+    "archive_url": "https://codeload.github.com/presslabs/react-particles-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/presslabs/react-particles-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "resources/icons/20px",
+    "resources/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 637,
+   "notes": "source=github-monthly-owners; research_id=presslabs/react-particles-icons",
+   "research_id": "presslabs/react-particles-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@devui-design_icons",
+   "name": "@devui-design/icons",
+   "source_url": "https://www.npmjs.com/package/@devui-design/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@devui-design/icons",
+    "archive_url": null,
+    "instructions": "npm pack @devui-design/icons; SVGs under icomoon/svg/mean/common"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icomoon/svg/mean/common",
+    "icomoon/svg/mean"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 614,
+   "notes": "source=npm-sweep-3; research_id=npm:@devui-design/icons",
+   "research_id": "npm:@devui-design/icons"
+  },
+  {
+   "round": 3,
+   "key": "glombek_umbicosaurus",
+   "name": "glombek/umbicosaurus",
+   "source_url": "https://github.com/glombek/umbicosaurus",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/glombek/umbicosaurus.git",
+    "archive_url": "https://codeload.github.com/glombek/umbicosaurus/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/glombek/umbicosaurus"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "umbraco/Umbicosaurus.Demo/Umbraco/assets/icons",
+    "umbraco/Umbicosaurus.Demo/Umbraco/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 614,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=glombek/umbicosaurus",
+   "research_id": "glombek/umbicosaurus"
+  },
+  {
+   "round": 3,
+   "key": "teddy95_pokemon-font",
+   "name": "teddy95/pokemon-font",
+   "source_url": "https://github.com/teddy95/pokemon-font",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/teddy95/pokemon-font.git",
+    "archive_url": "https://codeload.github.com/teddy95/pokemon-font/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/teddy95/pokemon-font"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 602,
+   "notes": "source=github-monthly-owners; research_id=teddy95/pokemon-font",
+   "research_id": "teddy95/pokemon-font"
+  },
+  {
+   "round": 3,
+   "key": "npm__@coveo_atomic-react",
+   "name": "@coveo/atomic-react",
+   "source_url": "https://www.npmjs.com/package/@coveo/atomic-react",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@coveo/atomic-react",
+    "archive_url": null,
+    "instructions": "npm pack @coveo/atomic-react; SVGs under dist/assets"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/assets",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 599,
+   "notes": "source=npm-sweep-2; research_id=npm:@coveo/atomic-react",
+   "research_id": "npm:@coveo/atomic-react"
+  },
+  {
+   "round": 3,
+   "key": "npm__@agentscope-ai_icons",
+   "name": "@agentscope-ai/icons",
+   "source_url": "https://www.npmjs.com/package/@agentscope-ai/icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@agentscope-ai/icons",
+    "archive_url": null,
+    "instructions": "npm pack @agentscope-ai/icons; SVGs under src/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 579,
+   "notes": "source=npm-sweep-3; research_id=npm:@agentscope-ai/icons",
+   "research_id": "npm:@agentscope-ai/icons"
+  },
+  {
+   "round": 3,
+   "key": "shrinks99_blender-icons",
+   "name": "shrinks99/blender-icons",
+   "source_url": "https://github.com/shrinks99/blender-icons",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/shrinks99/blender-icons.git",
+    "archive_url": "https://codeload.github.com/shrinks99/blender-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/shrinks99/blender-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "blender-icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 558,
+   "notes": "source=x-sweep; research_id=shrinks99/blender-icons",
+   "research_id": "shrinks99/blender-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@toroll_tagin-icons",
+   "name": "@toroll/tagin-icons",
+   "source_url": "https://www.npmjs.com/package/@toroll/tagin-icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@toroll/tagin-icons",
+    "archive_url": null,
+    "instructions": "npm pack @toroll/tagin-icons; SVGs under icons/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/svg",
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 546,
+   "notes": "source=npm-sweep; research_id=npm:@toroll/tagin-icons",
+   "research_id": "npm:@toroll/tagin-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@adersolutions_icons",
+   "name": "@adersolutions/icons",
+   "source_url": "https://www.npmjs.com/package/@adersolutions/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@adersolutions/icons",
+    "archive_url": null,
+    "instructions": "npm pack @adersolutions/icons; SVGs under src/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 494,
+   "notes": "source=npm-sweep; research_id=npm:@adersolutions/icons",
+   "research_id": "npm:@adersolutions/icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@persianlabs_icons",
+   "name": "@persianlabs/icons",
+   "source_url": "https://www.npmjs.com/package/@persianlabs/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@persianlabs/icons",
+    "archive_url": null,
+    "instructions": "npm pack @persianlabs/icons; SVGs under assets/website-applications/mono"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/website-applications/mono",
+    "assets/website-applications"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 492,
+   "notes": "source=npm-sweep-2; research_id=npm:@persianlabs/icons",
+   "research_id": "npm:@persianlabs/icons"
+  },
+  {
+   "round": 3,
+   "key": "myuitsu_openmatrix9",
+   "name": "myuitsu/openmatrix9",
+   "source_url": "https://github.com/myuitsu/openmatrix9",
+   "licence": "LGPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/myuitsu/openmatrix9.git",
+    "archive_url": "https://codeload.github.com/myuitsu/openmatrix9/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/myuitsu/openmatrix9"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Resources/icons/core-minimal",
+    "Resources/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 483,
+   "notes": "source=github-x-deep; research_id=myuitsu/openmatrix9",
+   "research_id": "myuitsu/openmatrix9"
+  },
+  {
+   "round": 3,
+   "key": "npm__iobroker.icons-freepic",
+   "name": "iobroker.icons-freepic",
+   "source_url": "https://www.npmjs.com/package/iobroker.icons-freepic",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "iobroker.icons-freepic",
+    "archive_url": null,
+    "instructions": "npm pack iobroker.icons-freepic; SVGs under www/housethings"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "www/housethings",
+    "www"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 481,
+   "notes": "source=npm-sweep-2; research_id=npm:iobroker.icons-freepic",
+   "research_id": "npm:iobroker.icons-freepic"
+  },
+  {
+   "round": 3,
+   "key": "npm__@qlik_sprout-icons",
+   "name": "@qlik/sprout-icons",
+   "source_url": "https://www.npmjs.com/package/@qlik/sprout-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@qlik/sprout-icons",
+    "archive_url": null,
+    "instructions": "npm pack @qlik/sprout-icons; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 456,
+   "notes": "source=npm-sweep; research_id=npm:@qlik/sprout-icons",
+   "research_id": "npm:@qlik/sprout-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@brightspace-ui_core",
+   "name": "@brightspace-ui/core",
+   "source_url": "https://www.npmjs.com/package/@brightspace-ui/core",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@brightspace-ui/core",
+    "archive_url": null,
+    "instructions": "npm pack @brightspace-ui/core; SVGs under components/icons/images/tier1"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "components/icons/images/tier1",
+    "components/icons/images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 451,
+   "notes": "source=npm-sweep-3; research_id=npm:@brightspace-ui/core",
+   "research_id": "npm:@brightspace-ui/core"
+  },
+  {
+   "round": 3,
+   "key": "alaa-sufi_shihab-icons",
+   "name": "alaa-sufi/shihab-icons",
+   "source_url": "https://github.com/alaa-sufi/shihab-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/alaa-sufi/shihab-icons.git",
+    "archive_url": "https://codeload.github.com/alaa-sufi/shihab-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/alaa-sufi/shihab-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/TowTone/arrow",
+    "icons/TowTone"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 424,
+   "notes": "source=github-search; research_id=alaa-sufi/shihab-icons",
+   "research_id": "alaa-sufi/shihab-icons"
+  },
+  {
+   "round": 3,
+   "key": "coingaming_moon-icons-react",
+   "name": "coingaming/moon-icons-react",
+   "source_url": "https://github.com/coingaming/moon-icons-react",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/coingaming/moon-icons-react.git",
+    "archive_url": "https://codeload.github.com/coingaming/moon-icons-react/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/coingaming/moon-icons-react"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 416,
+   "notes": "source=github-cjk-ds-gov; research_id=coingaming/moon-icons-react",
+   "research_id": "coingaming/moon-icons-react"
+  },
+  {
+   "round": 3,
+   "key": "npm__supercons",
+   "name": "supercons",
+   "source_url": "https://www.npmjs.com/package/supercons",
+   "licence": "BSD",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "supercons",
+    "archive_url": null,
+    "instructions": "npm pack supercons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 408,
+   "notes": "source=npm-sweep-3; research_id=npm:supercons",
+   "research_id": "npm:supercons"
+  },
+  {
+   "round": 3,
+   "key": "npm__detechies-icons",
+   "name": "detechies-icons",
+   "source_url": "https://www.npmjs.com/package/detechies-icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "detechies-icons",
+    "archive_url": null,
+    "instructions": "npm pack detechies-icons; SVGs under svg-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg-icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 389,
+   "notes": "source=npm-sweep-2; research_id=npm:detechies-icons",
+   "research_id": "npm:detechies-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__iconmuse",
+   "name": "iconmuse",
+   "source_url": "https://www.npmjs.com/package/iconmuse",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "iconmuse",
+    "archive_url": null,
+    "instructions": "npm pack iconmuse; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 338,
+   "notes": "source=npm-sweep; research_id=npm:iconmuse",
+   "research_id": "npm:iconmuse"
+  },
+  {
+   "round": 3,
+   "key": "npm__@cfpb_cfpb-design-system",
+   "name": "@cfpb/cfpb-design-system",
+   "source_url": "https://www.npmjs.com/package/@cfpb/cfpb-design-system",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@cfpb/cfpb-design-system",
+    "archive_url": null,
+    "instructions": "npm pack @cfpb/cfpb-design-system; SVGs under src/components/cfpb-icons/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/components/cfpb-icons/icons",
+    "src/components/cfpb-icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 307,
+   "notes": "source=npm-sweep-3; research_id=npm:@cfpb/cfpb-design-system",
+   "research_id": "npm:@cfpb/cfpb-design-system"
+  },
+  {
+   "round": 3,
+   "key": "oxoyo_crazy-loading",
+   "name": "oxoyo/crazy-loading",
+   "source_url": "https://github.com/oxoyo/crazy-loading",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/oxoyo/crazy-loading.git",
+    "archive_url": "https://codeload.github.com/oxoyo/crazy-loading/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/oxoyo/crazy-loading"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 302,
+   "notes": "source=github-search; research_id=oxoyo/crazy-loading",
+   "research_id": "oxoyo/crazy-loading"
+  },
+  {
+   "round": 3,
+   "key": "npm__@finery_ccy-icons",
+   "name": "@finery/ccy-icons",
+   "source_url": "https://www.npmjs.com/package/@finery/ccy-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@finery/ccy-icons",
+    "archive_url": null,
+    "instructions": "npm pack @finery/ccy-icons; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 294,
+   "notes": "source=npm-sweep; research_id=npm:@finery/ccy-icons",
+   "research_id": "npm:@finery/ccy-icons"
+  },
+  {
+   "round": 3,
+   "key": "mteheran_colombia-icons",
+   "name": "mteheran/colombia-icons",
+   "source_url": "https://github.com/mteheran/colombia-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/mteheran/colombia-icons.git",
+    "archive_url": "https://codeload.github.com/mteheran/colombia-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/mteheran/colombia-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/svg/genericos",
+    "icons/svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 293,
+   "notes": "source=x-sweep; research_id=mteheran/colombia-icons",
+   "research_id": "mteheran/colombia-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@l3-lib_ui-style",
+   "name": "@l3-lib/ui-style",
+   "source_url": "https://www.npmjs.com/package/@l3-lib/ui-style",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@l3-lib/ui-style",
+    "archive_url": null,
+    "instructions": "npm pack @l3-lib/ui-style; SVGs under src/Icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/Icons",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 292,
+   "notes": "source=npm-sweep-3; research_id=npm:@l3-lib/ui-style",
+   "research_id": "npm:@l3-lib/ui-style"
+  },
+  {
+   "round": 3,
+   "key": "fpgawars_icestudio-block-icons",
+   "name": "fpgawars/icestudio-block-icons",
+   "source_url": "https://github.com/fpgawars/icestudio-block-icons",
+   "licence": "LGPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/fpgawars/icestudio-block-icons.git",
+    "archive_url": "https://codeload.github.com/fpgawars/icestudio-block-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/fpgawars/icestudio-block-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Sound/Notas",
+    "Sound"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 274,
+   "notes": "source=github-monthly-owners; research_id=fpgawars/icestudio-block-icons",
+   "research_id": "fpgawars/icestudio-block-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__icon-batch",
+   "name": "icon-batch",
+   "source_url": "https://www.npmjs.com/package/icon-batch",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "icon-batch",
+    "archive_url": null,
+    "instructions": "npm pack icon-batch; SVGs under SVG"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "SVG"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 268,
+   "notes": "source=npm-sweep; research_id=npm:icon-batch",
+   "research_id": "npm:icon-batch"
+  },
+  {
+   "round": 3,
+   "key": "indxsearch_indx-pixl",
+   "name": "indxsearch/indx-pixl",
+   "source_url": "https://github.com/indxsearch/indx-pixl",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/indxsearch/indx-pixl.git",
+    "archive_url": "https://codeload.github.com/indxsearch/indx-pixl/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/indxsearch/indx-pixl"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "raw-icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 268,
+   "notes": "source=github-search; research_id=indxsearch/indx-pixl",
+   "research_id": "indxsearch/indx-pixl"
+  },
+  {
+   "round": 3,
+   "key": "phillbush_haiku-icons",
+   "name": "phillbush/haiku-icons",
+   "source_url": "https://github.com/phillbush/haiku-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/phillbush/haiku-icons.git",
+    "archive_url": "https://codeload.github.com/phillbush/haiku-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/phillbush/haiku-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 265,
+   "notes": "source=github-x-deep; research_id=phillbush/haiku-icons",
+   "research_id": "phillbush/haiku-icons"
+  },
+  {
+   "round": 3,
+   "key": "atomicsmash_launchpad-icons",
+   "name": "atomicsmash/launchpad-icons",
+   "source_url": "https://github.com/atomicsmash/launchpad-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/atomicsmash/launchpad-icons.git",
+    "archive_url": "https://codeload.github.com/atomicsmash/launchpad-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/atomicsmash/launchpad-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/icons",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 245,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=atomicsmash/launchpad-icons",
+   "research_id": "atomicsmash/launchpad-icons"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__radicons_radicons",
+   "name": "gitlab:radicons/radicons",
+   "source_url": "https://gitlab.com/radicons/radicons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/radicons/radicons.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/radicons/radicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "others"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 241,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:radicons/radicons",
+   "research_id": "gitlab:radicons/radicons"
+  },
+  {
+   "round": 3,
+   "key": "aquasecurity_cloudsec-icons",
+   "name": "aquasecurity/cloudsec-icons",
+   "source_url": "https://github.com/aquasecurity/cloudsec-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/aquasecurity/cloudsec-icons.git",
+    "archive_url": "https://codeload.github.com/aquasecurity/cloudsec-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/aquasecurity/cloudsec-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 239,
+   "notes": "source=x-sweep; research_id=aquasecurity/cloudsec-icons",
+   "research_id": "aquasecurity/cloudsec-icons"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__willmac321_cowboymoji",
+   "name": "gitlab:willmac321/cowboymoji",
+   "source_url": "https://gitlab.com/willmac321/cowboymoji",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/willmac321/cowboymoji.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/willmac321/cowboymoji"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/cowboy/svg",
+    "assets/cowboy"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 226,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:willmac321/cowboymoji",
+   "research_id": "gitlab:willmac321/cowboymoji"
+  },
+  {
+   "round": 3,
+   "key": "danielwerg_r6data",
+   "name": "danielwerg/r6data",
+   "source_url": "https://github.com/danielwerg/r6data",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/danielwerg/r6data.git",
+    "archive_url": "https://codeload.github.com/danielwerg/r6data/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/danielwerg/r6data"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/assets/operators/abilities/svgs",
+    "src/assets/operators/abilities"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 217,
+   "notes": "source=github-search; research_id=danielwerg/r6data",
+   "research_id": "danielwerg/r6data"
+  },
+  {
+   "round": 3,
+   "key": "afnan-hossain_atmoscene",
+   "name": "afnan-hossain/atmoscene",
+   "source_url": "https://github.com/afnan-hossain/atmoscene",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/afnan-hossain/atmoscene.git",
+    "archive_url": "https://codeload.github.com/afnan-hossain/atmoscene/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/afnan-hossain/atmoscene"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "apps/lab/assets/meteocons-flat",
+    "apps/lab/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 212,
+   "notes": "source=github-keyword-windows; research_id=afnan-hossain/atmoscene",
+   "research_id": "afnan-hossain/atmoscene"
+  },
+  {
+   "round": 3,
+   "key": "justrealmilk_destiny-icons",
+   "name": "justrealmilk/destiny-icons",
+   "source_url": "https://github.com/justrealmilk/destiny-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/justrealmilk/destiny-icons.git",
+    "archive_url": "https://codeload.github.com/justrealmilk/destiny-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/justrealmilk/destiny-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "general"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 212,
+   "notes": "source=github-monthly-owners; research_id=justrealmilk/destiny-icons",
+   "research_id": "justrealmilk/destiny-icons"
+  },
+  {
+   "round": 3,
+   "key": "jonatansoderberg_maui.spine",
+   "name": "jonatansoderberg/maui.spine",
+   "source_url": "https://github.com/jonatansoderberg/maui.spine",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/jonatansoderberg/maui.spine.git",
+    "archive_url": "https://codeload.github.com/jonatansoderberg/maui.spine/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/jonatansoderberg/maui.spine"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/Plugin.Maui.Spine.Svg.Icons/Images",
+    "src/Plugin.Maui.Spine.Svg.Icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 207,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=jonatansoderberg/maui.spine",
+   "research_id": "jonatansoderberg/maui.spine"
+  },
+  {
+   "round": 3,
+   "key": "zerox2cool_d365dt",
+   "name": "zerox2cool/d365dt",
+   "source_url": "https://github.com/zerox2cool/d365dt",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/zerox2cool/d365dt.git",
+    "archive_url": "https://codeload.github.com/zerox2cool/d365dt/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/zerox2cool/d365dt"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "pkg/ZStudio.D365.DTPkg.Icons/ZD365DT-Icons/svg",
+    "pkg/ZStudio.D365.DTPkg.Icons/ZD365DT-Icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 204,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=zerox2cool/d365dt",
+   "research_id": "zerox2cool/d365dt"
+  },
+  {
+   "round": 3,
+   "key": "npm__bit-icons",
+   "name": "bit-icons",
+   "source_url": "https://www.npmjs.com/package/bit-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "bit-icons",
+    "archive_url": null,
+    "instructions": "npm pack bit-icons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 197,
+   "notes": "source=npm-sweep-2; research_id=npm:bit-icons",
+   "research_id": "npm:bit-icons"
+  },
+  {
+   "round": 3,
+   "key": "headpoolnumerique_irad-cryptokit",
+   "name": "headpoolnumerique/irad-cryptokit",
+   "source_url": "https://github.com/headpoolnumerique/irad-cryptokit",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/headpoolnumerique/irad-cryptokit.git",
+    "archive_url": "https://codeload.github.com/headpoolnumerique/irad-cryptokit/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/headpoolnumerique/irad-cryptokit"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "SVGs"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 190,
+   "notes": "source=github-search; research_id=headpoolnumerique/irad-cryptokit",
+   "research_id": "headpoolnumerique/irad-cryptokit"
+  },
+  {
+   "round": 3,
+   "key": "dabisaigomez-prog_bitline",
+   "name": "dabisaigomez-prog/bitline",
+   "source_url": "https://github.com/dabisaigomez-prog/bitline",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/dabisaigomez-prog/bitline.git",
+    "archive_url": "https://codeload.github.com/dabisaigomez-prog/bitline/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/dabisaigomez-prog/bitline"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "stroke-20px"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 184,
+   "notes": "source=github-x-deep; research_id=dabisaigomez-prog/bitline",
+   "research_id": "dabisaigomez-prog/bitline"
+  },
+  {
+   "round": 3,
+   "key": "yisibell_nuxt-svg-icons",
+   "name": "yisibell/nuxt-svg-icons",
+   "source_url": "https://github.com/yisibell/nuxt-svg-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/yisibell/nuxt-svg-icons.git",
+    "archive_url": "https://codeload.github.com/yisibell/nuxt-svg-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/yisibell/nuxt-svg-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "playground/assets/icons/filter/length/hover",
+    "playground/assets/icons/filter/length"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 178,
+   "notes": "source=x-sweep; research_id=yisibell/nuxt-svg-icons",
+   "research_id": "yisibell/nuxt-svg-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__even-toolkit",
+   "name": "even-toolkit",
+   "source_url": "https://www.npmjs.com/package/even-toolkit",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "even-toolkit",
+    "archive_url": null,
+    "instructions": "npm pack even-toolkit; SVGs under web/icons/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "web/icons/svg",
+    "web/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 171,
+   "notes": "source=npm-sweep; research_id=npm:even-toolkit",
+   "research_id": "npm:even-toolkit"
+  },
+  {
+   "round": 3,
+   "key": "code4history_chokei",
+   "name": "code4history/chokei",
+   "source_url": "https://github.com/code4history/chokei",
+   "licence": "CC-BY-SA-4.0",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/code4history/chokei.git",
+    "archive_url": "https://codeload.github.com/code4history/chokei/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/code4history/chokei"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 171,
+   "notes": "source=github-cjk-ds-gov; research_id=code4history/chokei",
+   "research_id": "code4history/chokei"
+  },
+  {
+   "round": 3,
+   "key": "npm__@youseedk_dna",
+   "name": "@youseedk/dna",
+   "source_url": "https://www.npmjs.com/package/@youseedk/dna",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@youseedk/dna",
+    "archive_url": null,
+    "instructions": "npm pack @youseedk/dna; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 168,
+   "notes": "source=npm-sweep-2; research_id=npm:@youseedk/dna",
+   "research_id": "npm:@youseedk/dna"
+  },
+  {
+   "round": 3,
+   "key": "npm__termina-icons",
+   "name": "termina-icons",
+   "source_url": "https://www.npmjs.com/package/termina-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "termina-icons",
+    "archive_url": null,
+    "instructions": "npm pack termina-icons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 167,
+   "notes": "source=npm-sweep; research_id=npm:termina-icons",
+   "research_id": "npm:termina-icons"
+  },
+  {
+   "round": 3,
+   "key": "maxsteenbergen_pebble-icons",
+   "name": "maxsteenbergen/pebble-icons",
+   "source_url": "https://github.com/maxsteenbergen/pebble-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/maxsteenbergen/pebble-icons.git",
+    "archive_url": "https://codeload.github.com/maxsteenbergen/pebble-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/maxsteenbergen/pebble-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 166,
+   "notes": "source=github-search; research_id=maxsteenbergen/pebble-icons",
+   "research_id": "maxsteenbergen/pebble-icons"
+  },
+  {
+   "round": 3,
+   "key": "theartificial_pokemon-icons",
+   "name": "theartificial/pokemon-icons",
+   "source_url": "https://github.com/theartificial/pokemon-icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/theartificial/pokemon-icons.git",
+    "archive_url": "https://codeload.github.com/theartificial/pokemon-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/theartificial/pokemon-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "_icons/SVG",
+    "_icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 147,
+   "notes": "source=github-monthly-owners; research_id=theartificial/pokemon-icons",
+   "research_id": "theartificial/pokemon-icons"
+  },
+  {
+   "round": 3,
+   "key": "codeberg__k1t_WeatherIcons",
+   "name": "codeberg:k1t/WeatherIcons",
+   "source_url": "https://codeberg.org/k1t/WeatherIcons",
+   "licence": "LGPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://codeberg.org/k1t/WeatherIcons.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://codeberg.org/k1t/WeatherIcons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "SVG/1st Set - Monochrome",
+    "SVG"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 138,
+   "notes": "source=gitlab-codeberg; research_id=codeberg:k1t/WeatherIcons",
+   "research_id": "codeberg:k1t/WeatherIcons"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__glab-forks_debian_gnome-team_gnome-icon-theme",
+   "name": "gitlab:glab-forks/debian/gnome-team/gnome-icon-theme",
+   "source_url": "https://gitlab.com/glab-forks/debian/gnome-team/gnome-icon-theme",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/glab-forks/debian/gnome-team/gnome-icon-theme.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/glab-forks/debian/gnome-team/gnome-icon-theme"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 134,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:glab-forks/debian/gnome-team/gnome-icon-theme",
+   "research_id": "gitlab:glab-forks/debian/gnome-team/gnome-icon-theme"
+  },
+  {
+   "round": 3,
+   "key": "userfrm_egui-charts",
+   "name": "userfrm/egui-charts",
+   "source_url": "https://github.com/userfrm/egui-charts",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/userfrm/egui-charts.git",
+    "archive_url": "https://codeload.github.com/userfrm/egui-charts/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/userfrm/egui-charts"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/icons/chart_types",
+    "assets/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 131,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=userfrm/egui-charts",
+   "research_id": "userfrm/egui-charts"
+  },
+  {
+   "round": 3,
+   "key": "npm__@lightspeed_cirrus-icon",
+   "name": "@lightspeed/cirrus-icon",
+   "source_url": "https://www.npmjs.com/package/@lightspeed/cirrus-icon",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@lightspeed/cirrus-icon",
+    "archive_url": null,
+    "instructions": "npm pack @lightspeed/cirrus-icon; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 129,
+   "notes": "source=npm-sweep; research_id=npm:@lightspeed/cirrus-icon",
+   "research_id": "npm:@lightspeed/cirrus-icon"
+  },
+  {
+   "round": 3,
+   "key": "npm__ibm-icon-font",
+   "name": "ibm-icon-font",
+   "source_url": "https://www.npmjs.com/package/ibm-icon-font",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "ibm-icon-font",
+    "archive_url": null,
+    "instructions": "npm pack ibm-icon-font; SVGs under src"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 128,
+   "notes": "source=npm-sweep-3; research_id=npm:ibm-icon-font",
+   "research_id": "npm:ibm-icon-font"
+  },
+  {
+   "round": 3,
+   "key": "npm__hr-icons",
+   "name": "hr-icons",
+   "source_url": "https://www.npmjs.com/package/hr-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "hr-icons",
+    "archive_url": null,
+    "instructions": "npm pack hr-icons; SVGs under dist/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/svg",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 127,
+   "notes": "source=npm-sweep; research_id=npm:hr-icons",
+   "research_id": "npm:hr-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@icon_linea-basic-elaboration",
+   "name": "@icon/linea-basic-elaboration",
+   "source_url": "https://www.npmjs.com/package/@icon/linea-basic-elaboration",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@icon/linea-basic-elaboration",
+    "archive_url": null,
+    "instructions": "npm pack @icon/linea-basic-elaboration; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 126,
+   "notes": "source=npm-sweep-2; research_id=npm:@icon/linea-basic-elaboration",
+   "research_id": "npm:@icon/linea-basic-elaboration"
+  },
+  {
+   "round": 3,
+   "key": "npm__@obosbbl_grunnmuren-icons",
+   "name": "@obosbbl/grunnmuren-icons",
+   "source_url": "https://www.npmjs.com/package/@obosbbl/grunnmuren-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@obosbbl/grunnmuren-icons",
+    "archive_url": null,
+    "instructions": "npm pack @obosbbl/grunnmuren-icons; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 126,
+   "notes": "source=npm-sweep-3; research_id=npm:@obosbbl/grunnmuren-icons",
+   "research_id": "npm:@obosbbl/grunnmuren-icons"
+  },
+  {
+   "round": 3,
+   "key": "warhammer40kgroup_wh40k-icon",
+   "name": "warhammer40kgroup/wh40k-icon",
+   "source_url": "https://github.com/warhammer40kgroup/wh40k-icon",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/warhammer40kgroup/wh40k-icon.git",
+    "archive_url": "https://codeload.github.com/warhammer40kgroup/wh40k-icon/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/warhammer40kgroup/wh40k-icon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svgs/Xenos/Necrons",
+    "src/svgs/Xenos"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 126,
+   "notes": "source=github-search; research_id=warhammer40kgroup/wh40k-icon",
+   "research_id": "warhammer40kgroup/wh40k-icon"
+  },
+  {
+   "round": 3,
+   "key": "rafascalet_let-icons",
+   "name": "rafascalet/let-icons",
+   "source_url": "https://github.com/rafascalet/let-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/rafascalet/let-icons.git",
+    "archive_url": "https://codeload.github.com/rafascalet/let-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/rafascalet/let-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/icons",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 124,
+   "notes": "source=x-sweep; research_id=rafascalet/let-icons",
+   "research_id": "rafascalet/let-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@icon_linea-basic",
+   "name": "@icon/linea-basic",
+   "source_url": "https://www.npmjs.com/package/@icon/linea-basic",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@icon/linea-basic",
+    "archive_url": null,
+    "instructions": "npm pack @icon/linea-basic; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 122,
+   "notes": "source=npm-sweep-2; research_id=npm:@icon/linea-basic",
+   "research_id": "npm:@icon/linea-basic"
+  },
+  {
+   "round": 3,
+   "key": "npm__seti-ui",
+   "name": "seti-ui",
+   "source_url": "https://www.npmjs.com/package/seti-ui",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "seti-ui",
+    "archive_url": null,
+    "instructions": "npm pack seti-ui; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 117,
+   "notes": "source=npm-sweep-3; research_id=npm:seti-ui",
+   "research_id": "npm:seti-ui"
+  },
+  {
+   "round": 3,
+   "key": "npm__gaia-font-icons",
+   "name": "gaia-font-icons",
+   "source_url": "https://www.npmjs.com/package/gaia-font-icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "gaia-font-icons",
+    "archive_url": null,
+    "instructions": "npm pack gaia-font-icons; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 114,
+   "notes": "source=npm-sweep; research_id=npm:gaia-font-icons",
+   "research_id": "npm:gaia-font-icons"
+  },
+  {
+   "round": 3,
+   "key": "cncf_svg-autocrop",
+   "name": "cncf/svg-autocrop",
+   "source_url": "https://github.com/cncf/svg-autocrop",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/cncf/svg-autocrop.git",
+    "archive_url": "https://codeload.github.com/cncf/svg-autocrop/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/cncf/svg-autocrop"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "fixtures"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 113,
+   "notes": "source=x-sweep; research_id=cncf/svg-autocrop",
+   "research_id": "cncf/svg-autocrop"
+  },
+  {
+   "round": 3,
+   "key": "plotly_plotly-icons",
+   "name": "plotly/plotly-icons",
+   "source_url": "https://github.com/plotly/plotly-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/plotly/plotly-icons.git",
+    "archive_url": "https://codeload.github.com/plotly/plotly-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/plotly/plotly-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 108,
+   "notes": "source=github-monthly-owners; research_id=plotly/plotly-icons",
+   "research_id": "plotly/plotly-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@dr2rai_raid-canvas",
+   "name": "@dr2rai/raid-canvas",
+   "source_url": "https://www.npmjs.com/package/@dr2rai/raid-canvas",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@dr2rai/raid-canvas",
+    "archive_url": null,
+    "instructions": "npm pack @dr2rai/raid-canvas; SVGs under assets/stereotypes"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/stereotypes",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 107,
+   "notes": "source=npm-sweep-3; research_id=npm:@dr2rai/raid-canvas",
+   "research_id": "npm:@dr2rai/raid-canvas"
+  },
+  {
+   "round": 3,
+   "key": "npm__openwebicons",
+   "name": "openwebicons",
+   "source_url": "https://www.npmjs.com/package/openwebicons",
+   "licence": "OFL-1.1",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "openwebicons",
+    "archive_url": null,
+    "instructions": "npm pack openwebicons; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 107,
+   "notes": "source=npm-sweep; research_id=npm:openwebicons",
+   "research_id": "npm:openwebicons"
+  },
+  {
+   "round": 3,
+   "key": "k00ni_semicon",
+   "name": "k00ni/semicon",
+   "source_url": "https://github.com/k00ni/semicon",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/k00ni/semicon.git",
+    "archive_url": "https://codeload.github.com/k00ni/semicon/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/k00ni/semicon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/svg",
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 106,
+   "notes": "source=x-sweep; research_id=k00ni/semicon",
+   "research_id": "k00ni/semicon"
+  },
+  {
+   "round": 3,
+   "key": "npm__font-mfizz",
+   "name": "font-mfizz",
+   "source_url": "https://www.npmjs.com/package/font-mfizz",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "font-mfizz",
+    "archive_url": null,
+    "instructions": "npm pack font-mfizz; SVGs under src/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 102,
+   "notes": "source=npm-sweep-2; research_id=npm:font-mfizz",
+   "research_id": "npm:font-mfizz"
+  },
+  {
+   "round": 3,
+   "key": "papillonapp_papicons",
+   "name": "papillonapp/papicons",
+   "source_url": "https://github.com/papillonapp/papicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/papillonapp/papicons.git",
+    "archive_url": "https://codeload.github.com/papillonapp/papicons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/papillonapp/papicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 99,
+   "notes": "source=x-sweep; research_id=papillonapp/papicons",
+   "research_id": "papillonapp/papicons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@manageiq_font-fabulous",
+   "name": "@manageiq/font-fabulous",
+   "source_url": "https://www.npmjs.com/package/@manageiq/font-fabulous",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@manageiq/font-fabulous",
+    "archive_url": null,
+    "instructions": "npm pack @manageiq/font-fabulous; SVGs under assets/images/font-fabulous"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/images/font-fabulous",
+    "assets/images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 95,
+   "notes": "source=npm-sweep; research_id=npm:@manageiq/font-fabulous",
+   "research_id": "npm:@manageiq/font-fabulous"
+  },
+  {
+   "round": 3,
+   "key": "mondaycom_vibe",
+   "name": "mondaycom/vibe",
+   "source_url": "https://github.com/mondaycom/vibe",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/mondaycom/vibe.git",
+    "archive_url": "https://codeload.github.com/mondaycom/vibe/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/mondaycom/vibe"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "packages/icons/src/svg",
+    "packages/icons/src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 94,
+   "notes": "source=awesome-lists; research_id=mondaycom/vibe",
+   "research_id": "mondaycom/vibe"
+  },
+  {
+   "round": 3,
+   "key": "baryodev_kapehan",
+   "name": "baryodev/kapehan",
+   "source_url": "https://github.com/baryodev/kapehan",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/baryodev/kapehan.git",
+    "archive_url": "https://codeload.github.com/baryodev/kapehan/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/baryodev/kapehan"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 93,
+   "notes": "source=github-search; research_id=baryodev/kapehan",
+   "research_id": "baryodev/kapehan"
+  },
+  {
+   "round": 3,
+   "key": "file-icons_mfixx",
+   "name": "file-icons/mfixx",
+   "source_url": "https://github.com/file-icons/mfixx",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/file-icons/mfixx.git",
+    "archive_url": "https://codeload.github.com/file-icons/mfixx/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/file-icons/mfixx"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 93,
+   "notes": "source=github-search; research_id=file-icons/mfixx",
+   "research_id": "file-icons/mfixx"
+  },
+  {
+   "round": 3,
+   "key": "npm__@icon_gonzocons",
+   "name": "@icon/gonzocons",
+   "source_url": "https://www.npmjs.com/package/@icon/gonzocons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@icon/gonzocons",
+    "archive_url": null,
+    "instructions": "npm pack @icon/gonzocons; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 89,
+   "notes": "source=npm-sweep-2; research_id=npm:@icon/gonzocons",
+   "research_id": "npm:@icon/gonzocons"
+  },
+  {
+   "round": 3,
+   "key": "rylydou_sharp-icons",
+   "name": "rylydou/sharp-icons",
+   "source_url": "https://github.com/rylydou/sharp-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/rylydou/sharp-icons.git",
+    "archive_url": "https://codeload.github.com/rylydou/sharp-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/rylydou/sharp-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 89,
+   "notes": "source=github-search; research_id=rylydou/sharp-icons",
+   "research_id": "rylydou/sharp-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@eotl_icons",
+   "name": "@eotl/icons",
+   "source_url": "https://www.npmjs.com/package/@eotl/icons",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@eotl/icons",
+    "archive_url": null,
+    "instructions": "npm pack @eotl/icons; SVGs under dist"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 87,
+   "notes": "source=npm-sweep; research_id=npm:@eotl/icons",
+   "research_id": "npm:@eotl/icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@posten_hedwig",
+   "name": "@posten/hedwig",
+   "source_url": "https://www.npmjs.com/package/@posten/hedwig",
+   "licence": "BSD-2-Clause",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@posten/hedwig",
+    "archive_url": null,
+    "instructions": "npm pack @posten/hedwig; SVGs under assets/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/icons",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 87,
+   "notes": "source=npm-sweep-3; research_id=npm:@posten/hedwig",
+   "research_id": "npm:@posten/hedwig"
+  },
+  {
+   "round": 3,
+   "key": "npm__waste-categories",
+   "name": "waste-categories",
+   "source_url": "https://www.npmjs.com/package/waste-categories",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "waste-categories",
+    "archive_url": null,
+    "instructions": "npm pack waste-categories; SVGs under dictionaries/ADEME/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dictionaries/ADEME/svg",
+    "dictionaries/ADEME"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 83,
+   "notes": "source=npm-sweep-3; research_id=npm:waste-categories",
+   "research_id": "npm:waste-categories"
+  },
+  {
+   "round": 3,
+   "key": "npm__@bs-solutions_bastion-icons",
+   "name": "@bs-solutions/bastion-icons",
+   "source_url": "https://www.npmjs.com/package/@bs-solutions/bastion-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@bs-solutions/bastion-icons",
+    "archive_url": null,
+    "instructions": "npm pack @bs-solutions/bastion-icons; SVGs under common"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "common"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 80,
+   "notes": "source=npm-sweep; research_id=npm:@bs-solutions/bastion-icons",
+   "research_id": "npm:@bs-solutions/bastion-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@icon_linea-ecommerce",
+   "name": "@icon/linea-ecommerce",
+   "source_url": "https://www.npmjs.com/package/@icon/linea-ecommerce",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@icon/linea-ecommerce",
+    "archive_url": null,
+    "instructions": "npm pack @icon/linea-ecommerce; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 79,
+   "notes": "source=npm-sweep-2; research_id=npm:@icon/linea-ecommerce",
+   "research_id": "npm:@icon/linea-ecommerce"
+  },
+  {
+   "round": 3,
+   "key": "gip-recia_icons-pack",
+   "name": "gip-recia/icons-pack",
+   "source_url": "https://github.com/gip-recia/icons-pack",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/gip-recia/icons-pack.git",
+    "archive_url": "https://codeload.github.com/gip-recia/icons-pack/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/gip-recia/icons-pack"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "portlet_icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 79,
+   "notes": "source=github-keyword-windows; research_id=gip-recia/icons-pack",
+   "research_id": "gip-recia/icons-pack"
+  },
+  {
+   "round": 3,
+   "key": "npm__@cruglobal_cornerstone-design-system",
+   "name": "@cruglobal/cornerstone-design-system",
+   "source_url": "https://www.npmjs.com/package/@cruglobal/cornerstone-design-system",
+   "licence": "BSD-3-Clause",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@cruglobal/cornerstone-design-system",
+    "archive_url": null,
+    "instructions": "npm pack @cruglobal/cornerstone-design-system; SVGs under libraries/cru-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "libraries/cru-icons",
+    "libraries"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 78,
+   "notes": "source=npm-sweep-3; research_id=npm:@cruglobal/cornerstone-design-system",
+   "research_id": "npm:@cruglobal/cornerstone-design-system"
+  },
+  {
+   "round": 3,
+   "key": "johan-boshoff_blade-car-makes-icons",
+   "name": "johan-boshoff/blade-car-makes-icons",
+   "source_url": "https://github.com/johan-boshoff/blade-car-makes-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/johan-boshoff/blade-car-makes-icons.git",
+    "archive_url": "https://codeload.github.com/johan-boshoff/blade-car-makes-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/johan-boshoff/blade-car-makes-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "resources/svg",
+    "resources"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 78,
+   "notes": "source=github-x-deep; research_id=johan-boshoff/blade-car-makes-icons",
+   "research_id": "johan-boshoff/blade-car-makes-icons"
+  },
+  {
+   "round": 3,
+   "key": "codeat3_blade-inau-icons",
+   "name": "codeat3/blade-inau-icons",
+   "source_url": "https://github.com/codeat3/blade-inau-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/codeat3/blade-inau-icons.git",
+    "archive_url": "https://codeload.github.com/codeat3/blade-inau-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/codeat3/blade-inau-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "resources/svg",
+    "resources"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 77,
+   "notes": "source=github-monthly-owners; research_id=codeat3/blade-inau-icons",
+   "research_id": "codeat3/blade-inau-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@gooddata_sdk-ui-kit",
+   "name": "@gooddata/sdk-ui-kit",
+   "source_url": "https://www.npmjs.com/package/@gooddata/sdk-ui-kit",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@gooddata/sdk-ui-kit",
+    "archive_url": null,
+    "instructions": "npm pack @gooddata/sdk-ui-kit; SVGs under styles/images/visualization-types"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "styles/images/visualization-types",
+    "styles/images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 75,
+   "notes": "source=npm-sweep-3; research_id=npm:@gooddata/sdk-ui-kit",
+   "research_id": "npm:@gooddata/sdk-ui-kit"
+  },
+  {
+   "round": 3,
+   "key": "npm__@musora_icons",
+   "name": "@musora/icons",
+   "source_url": "https://www.npmjs.com/package/@musora/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@musora/icons",
+    "archive_url": null,
+    "instructions": "npm pack @musora/icons; SVGs under assets/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/svg",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 74,
+   "notes": "source=npm-sweep; research_id=npm:@musora/icons",
+   "research_id": "npm:@musora/icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__iobroker.yr",
+   "name": "iobroker.yr",
+   "source_url": "https://www.npmjs.com/package/iobroker.yr",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "iobroker.yr",
+    "archive_url": null,
+    "instructions": "npm pack iobroker.yr; SVGs under admin/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "admin/icons",
+    "admin"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 74,
+   "notes": "source=npm-sweep-3; research_id=npm:iobroker.yr",
+   "research_id": "npm:iobroker.yr"
+  },
+  {
+   "round": 3,
+   "key": "cubing_icons",
+   "name": "cubing/icons",
+   "source_url": "https://github.com/cubing/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/cubing/icons.git",
+    "archive_url": "https://codeload.github.com/cubing/icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/cubing/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg/unofficial",
+    "src/svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 72,
+   "notes": "source=github-monthly-owners; research_id=cubing/icons",
+   "research_id": "cubing/icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__light-boilerplate",
+   "name": "light-boilerplate",
+   "source_url": "https://www.npmjs.com/package/light-boilerplate",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "light-boilerplate",
+    "archive_url": null,
+    "instructions": "npm pack light-boilerplate; SVGs under src/images/vectorSprite-assets"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/images/vectorSprite-assets",
+    "src/images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 71,
+   "notes": "source=npm-sweep-3; research_id=npm:light-boilerplate",
+   "research_id": "npm:light-boilerplate"
+  },
+  {
+   "round": 3,
+   "key": "npm__@adso-sass_flags",
+   "name": "@adso-sass/flags",
+   "source_url": "https://www.npmjs.com/package/@adso-sass/flags",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@adso-sass/flags",
+    "archive_url": null,
+    "instructions": "npm pack @adso-sass/flags; SVGs under assets/svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/svg",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 70,
+   "notes": "source=npm-sweep; research_id=npm:@adso-sass/flags",
+   "research_id": "npm:@adso-sass/flags"
+  },
+  {
+   "round": 3,
+   "key": "lexrus_fontdiao",
+   "name": "lexrus/fontdiao",
+   "source_url": "https://github.com/lexrus/fontdiao",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/lexrus/fontdiao.git",
+    "archive_url": "https://codeload.github.com/lexrus/fontdiao/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/lexrus/fontdiao"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 70,
+   "notes": "source=github-cjk-ds-gov; research_id=lexrus/fontdiao",
+   "research_id": "lexrus/fontdiao"
+  },
+  {
+   "round": 3,
+   "key": "npm__facilio-icons-svg",
+   "name": "facilio-icons-svg",
+   "source_url": "https://www.npmjs.com/package/facilio-icons-svg",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "facilio-icons-svg",
+    "archive_url": null,
+    "instructions": "npm pack facilio-icons-svg; SVGs under svg-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg-icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 69,
+   "notes": "source=npm-sweep-2; research_id=npm:facilio-icons-svg",
+   "research_id": "npm:facilio-icons-svg"
+  },
+  {
+   "round": 3,
+   "key": "inausoft_icons",
+   "name": "inausoft/icons",
+   "source_url": "https://github.com/inausoft/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/inausoft/icons.git",
+    "archive_url": "https://codeload.github.com/inausoft/icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/inausoft/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 69,
+   "notes": "source=x-sweep; research_id=inausoft/icons",
+   "research_id": "inausoft/icons"
+  },
+  {
+   "round": 3,
+   "key": "yuta-nihei_mue-icon",
+   "name": "yuta-nihei/mue-icon",
+   "source_url": "https://github.com/yuta-nihei/mue-icon",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/yuta-nihei/mue-icon.git",
+    "archive_url": "https://codeload.github.com/yuta-nihei/mue-icon/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/yuta-nihei/mue-icon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg/duotone",
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 69,
+   "notes": "source=github-keyword-windows; research_id=yuta-nihei/mue-icon",
+   "research_id": "yuta-nihei/mue-icon"
+  },
+  {
+   "round": 3,
+   "key": "npm__mp-design-system",
+   "name": "mp-design-system",
+   "source_url": "https://www.npmjs.com/package/mp-design-system",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "mp-design-system",
+    "archive_url": null,
+    "instructions": "npm pack mp-design-system; SVGs under dist/assets/images"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/assets/images",
+    "dist/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 68,
+   "notes": "source=npm-sweep-3; research_id=npm:mp-design-system",
+   "research_id": "npm:mp-design-system"
+  },
+  {
+   "round": 3,
+   "key": "npm__pokeapi-sprites",
+   "name": "pokeapi-sprites",
+   "source_url": "https://www.npmjs.com/package/pokeapi-sprites",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "pokeapi-sprites",
+    "archive_url": null,
+    "instructions": "npm pack pokeapi-sprites; SVGs under sprites/pokemon/other/dream-world"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "sprites/pokemon/other/dream-world",
+    "sprites/pokemon/other"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 67,
+   "notes": "source=npm-sweep-2; research_id=npm:pokeapi-sprites",
+   "research_id": "npm:pokeapi-sprites"
+  },
+  {
+   "round": 3,
+   "key": "npm__@frosted-ui_icons",
+   "name": "@frosted-ui/icons",
+   "source_url": "https://www.npmjs.com/package/@frosted-ui/icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@frosted-ui/icons",
+    "archive_url": null,
+    "instructions": "npm pack @frosted-ui/icons; SVGs under pictograms"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "pictograms"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 64,
+   "notes": "source=npm-sweep; research_id=npm:@frosted-ui/icons",
+   "research_id": "npm:@frosted-ui/icons"
+  },
+  {
+   "round": 3,
+   "key": "acruxray_getmeteome-icon-font",
+   "name": "acruxray/getmeteome-icon-font",
+   "source_url": "https://github.com/acruxray/getmeteome-icon-font",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/acruxray/getmeteome-icon-font.git",
+    "archive_url": "https://codeload.github.com/acruxray/getmeteome-icon-font/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/acruxray/getmeteome-icon-font"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 64,
+   "notes": "source=github-monthly-owners; research_id=acruxray/getmeteome-icon-font",
+   "research_id": "acruxray/getmeteome-icon-font"
+  },
+  {
+   "round": 3,
+   "key": "npm__atsarul-mujahidin",
+   "name": "atsarul-mujahidin",
+   "source_url": "https://www.npmjs.com/package/atsarul-mujahidin",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "atsarul-mujahidin",
+    "archive_url": null,
+    "instructions": "npm pack atsarul-mujahidin; SVGs under icons/muslim-brand/atsarul-mujahidin"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/muslim-brand/atsarul-mujahidin",
+    "icons/muslim-brand"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 63,
+   "notes": "source=npm-sweep-2; research_id=npm:atsarul-mujahidin",
+   "research_id": "npm:atsarul-mujahidin"
+  },
+  {
+   "round": 3,
+   "key": "halfmage_raster",
+   "name": "halfmage/raster",
+   "source_url": "https://github.com/halfmage/raster",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/halfmage/raster.git",
+    "archive_url": "https://codeload.github.com/halfmage/raster/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/halfmage/raster"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons/core",
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 62,
+   "notes": "source=github-search; research_id=halfmage/raster",
+   "research_id": "halfmage/raster"
+  },
+  {
+   "round": 3,
+   "key": "npm__@jdcfe_icons-svg",
+   "name": "@jdcfe/icons-svg",
+   "source_url": "https://www.npmjs.com/package/@jdcfe/icons-svg",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@jdcfe/icons-svg",
+    "archive_url": null,
+    "instructions": "npm pack @jdcfe/icons-svg; SVGs under inline-svg/outlined"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "inline-svg/outlined",
+    "inline-svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 60,
+   "notes": "source=npm-sweep; research_id=npm:@jdcfe/icons-svg",
+   "research_id": "npm:@jdcfe/icons-svg"
+  },
+  {
+   "round": 3,
+   "key": "npm__gadget-icons",
+   "name": "gadget-icons",
+   "source_url": "https://www.npmjs.com/package/gadget-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "gadget-icons",
+    "archive_url": null,
+    "instructions": "npm pack gadget-icons; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 60,
+   "notes": "source=npm-sweep; research_id=npm:gadget-icons",
+   "research_id": "npm:gadget-icons"
+  },
+  {
+   "round": 3,
+   "key": "hearthsim_hs-icons",
+   "name": "hearthsim/hs-icons",
+   "source_url": "https://github.com/hearthsim/hs-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/hearthsim/hs-icons.git",
+    "archive_url": "https://codeload.github.com/hearthsim/hs-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/hearthsim/hs-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "SVG"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 60,
+   "notes": "source=github-search; research_id=hearthsim/hs-icons",
+   "research_id": "hearthsim/hs-icons"
+  },
+  {
+   "round": 3,
+   "key": "erudus_erudus-icons",
+   "name": "erudus/erudus-icons",
+   "source_url": "https://github.com/erudus/erudus-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/erudus/erudus-icons.git",
+    "archive_url": "https://codeload.github.com/erudus/erudus-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/erudus/erudus-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 59,
+   "notes": "source=github-monthly-owners; research_id=erudus/erudus-icons",
+   "research_id": "erudus/erudus-icons"
+  },
+  {
+   "round": 3,
+   "key": "aflegel_tabletop.fantasyflighticons",
+   "name": "aflegel/tabletop.fantasyflighticons",
+   "source_url": "https://github.com/aflegel/tabletop.fantasyflighticons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/aflegel/tabletop.fantasyflighticons.git",
+    "archive_url": "https://codeload.github.com/aflegel/tabletop.fantasyflighticons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/aflegel/tabletop.fantasyflighticons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "inkscape/sw-imperial-assault",
+    "inkscape"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 57,
+   "notes": "source=github-monthly-owners; research_id=aflegel/tabletop.fantasyflighticons",
+   "research_id": "aflegel/tabletop.fantasyflighticons"
+  },
+  {
+   "round": 3,
+   "key": "pfefferle_openwebicons",
+   "name": "pfefferle/openwebicons",
+   "source_url": "https://github.com/pfefferle/openwebicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/pfefferle/openwebicons.git",
+    "archive_url": "https://codeload.github.com/pfefferle/openwebicons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/pfefferle/openwebicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 57,
+   "notes": "source=x-sweep; research_id=pfefferle/openwebicons",
+   "research_id": "pfefferle/openwebicons"
+  },
+  {
+   "round": 3,
+   "key": "viglino_font-cassini",
+   "name": "viglino/font-cassini",
+   "source_url": "https://github.com/viglino/font-cassini",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/viglino/font-cassini.git",
+    "archive_url": "https://codeload.github.com/viglino/font-cassini/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/viglino/font-cassini"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg/bati",
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 56,
+   "notes": "source=github-topical; research_id=viglino/font-cassini",
+   "research_id": "viglino/font-cassini"
+  },
+  {
+   "round": 3,
+   "key": "npm__banklogos",
+   "name": "banklogos",
+   "source_url": "https://www.npmjs.com/package/banklogos",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "banklogos",
+    "archive_url": null,
+    "instructions": "npm pack banklogos; SVGs under assets"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 53,
+   "notes": "source=npm-sweep; research_id=npm:banklogos",
+   "research_id": "npm:banklogos"
+  },
+  {
+   "round": 3,
+   "key": "sgryphon_osa-icon-library",
+   "name": "sgryphon/osa-icon-library",
+   "source_url": "https://github.com/sgryphon/osa-icon-library",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/sgryphon/osa-icon-library.git",
+    "archive_url": "https://codeload.github.com/sgryphon/osa-icon-library/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/sgryphon/osa-icon-library"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "out"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 53,
+   "notes": "source=github-keyword-windows; research_id=sgryphon/osa-icon-library",
+   "research_id": "sgryphon/osa-icon-library"
+  },
+  {
+   "round": 3,
+   "key": "deb__emelfm2-svg-icons",
+   "name": "deb:emelfm2-svg-icons",
+   "source_url": "https://packages.debian.org/sid/emelfm2-svg-icons",
+   "licence": "GPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "debian",
+    "package": "emelfm2-svg-icons",
+    "archive_url": null,
+    "instructions": "download debian binary package emelfm2-svg-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "usr/share/pixmaps/emelfm2",
+    "usr/share/pixmaps"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 52,
+   "notes": "source=debian-icon-themes; research_id=deb:emelfm2-svg-icons",
+   "research_id": "deb:emelfm2-svg-icons"
+  },
+  {
+   "round": 3,
+   "key": "ahuseyn_state-icons",
+   "name": "ahuseyn/state-icons",
+   "source_url": "https://github.com/ahuseyn/state-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/ahuseyn/state-icons.git",
+    "archive_url": "https://codeload.github.com/ahuseyn/state-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/ahuseyn/state-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 51,
+   "notes": "source=github-x-deep; research_id=ahuseyn/state-icons",
+   "research_id": "ahuseyn/state-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__holiverse-icon-font-plugin",
+   "name": "holiverse-icon-font-plugin",
+   "source_url": "https://www.npmjs.com/package/holiverse-icon-font-plugin",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "holiverse-icon-font-plugin",
+    "archive_url": null,
+    "instructions": "npm pack holiverse-icon-font-plugin; SVGs under src/assets/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/assets/icons",
+    "src/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 51,
+   "notes": "source=npm-sweep; research_id=npm:holiverse-icon-font-plugin",
+   "research_id": "npm:holiverse-icon-font-plugin"
+  },
+  {
+   "round": 3,
+   "key": "lrenhrda_nav-maneuver-icons",
+   "name": "lrenhrda/nav-maneuver-icons",
+   "source_url": "https://github.com/lrenhrda/nav-maneuver-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/lrenhrda/nav-maneuver-icons.git",
+    "archive_url": "https://codeload.github.com/lrenhrda/nav-maneuver-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/lrenhrda/nav-maneuver-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 51,
+   "notes": "source=github-monthly-owners; research_id=lrenhrda/nav-maneuver-icons",
+   "research_id": "lrenhrda/nav-maneuver-icons"
+  },
+  {
+   "round": 3,
+   "key": "deb__gnome-icon-theme-gartoon",
+   "name": "deb:gnome-icon-theme-gartoon",
+   "source_url": "https://packages.debian.org/sid/gnome-icon-theme-gartoon",
+   "licence": "GPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "debian",
+    "package": "gnome-icon-theme-gartoon",
+    "archive_url": null,
+    "instructions": "download debian binary package gnome-icon-theme-gartoon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "usr/share/icons/gartoon/scalable/apps",
+    "usr/share/icons/gartoon/scalable"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 48,
+   "notes": "source=debian-icon-themes; research_id=deb:gnome-icon-theme-gartoon",
+   "research_id": "deb:gnome-icon-theme-gartoon"
+  },
+  {
+   "round": 3,
+   "key": "consansri_benicons",
+   "name": "consansri/benicons",
+   "source_url": "https://github.com/consansri/benicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/consansri/benicons.git",
+    "archive_url": "https://codeload.github.com/consansri/benicons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/consansri/benicons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 47,
+   "notes": "source=github-keyword-windows; research_id=consansri/benicons",
+   "research_id": "consansri/benicons"
+  },
+  {
+   "round": 3,
+   "key": "aisamanra_fruit-icons",
+   "name": "aisamanra/fruit-icons",
+   "source_url": "https://github.com/aisamanra/fruit-icons",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/aisamanra/fruit-icons.git",
+    "archive_url": "https://codeload.github.com/aisamanra/fruit-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/aisamanra/fruit-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 45,
+   "notes": "source=github-monthly-owners; research_id=aisamanra/fruit-icons",
+   "research_id": "aisamanra/fruit-icons"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__mcloide1977_tomorrowio-icons-reactjs",
+   "name": "gitlab:mcloide1977/tomorrowio-icons-reactjs",
+   "source_url": "https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/lib/V1_icons/black",
+    "src/lib/V1_icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 44,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:mcloide1977/tomorrowio-icons-reactjs",
+   "research_id": "gitlab:mcloide1977/tomorrowio-icons-reactjs"
+  },
+  {
+   "round": 3,
+   "key": "mapbox_directions-icons",
+   "name": "mapbox/directions-icons",
+   "source_url": "https://github.com/mapbox/directions-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/mapbox/directions-icons.git",
+    "archive_url": "https://codeload.github.com/mapbox/directions-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/mapbox/directions-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 42,
+   "notes": "source=github-monthly-owners; research_id=mapbox/directions-icons",
+   "research_id": "mapbox/directions-icons"
+  },
+  {
+   "round": 3,
+   "key": "mybbgroup_myicon",
+   "name": "mybbgroup/myicon",
+   "source_url": "https://github.com/mybbgroup/myicon",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/mybbgroup/myicon.git",
+    "archive_url": "https://codeload.github.com/mybbgroup/myicon/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/mybbgroup/myicon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svgs",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 42,
+   "notes": "source=github-monthly-owners; research_id=mybbgroup/myicon",
+   "research_id": "mybbgroup/myicon"
+  },
+  {
+   "round": 3,
+   "key": "marcintreder_icons-test",
+   "name": "marcintreder/icons-test",
+   "source_url": "https://github.com/marcintreder/icons-test",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/marcintreder/icons-test.git",
+    "archive_url": "https://codeload.github.com/marcintreder/icons-test/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/marcintreder/icons-test"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/icons/SVG",
+    "assets/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 38,
+   "notes": "source=github-monthly-owners; research_id=marcintreder/icons-test",
+   "research_id": "marcintreder/icons-test"
+  },
+  {
+   "round": 3,
+   "key": "skadja_seemly",
+   "name": "skadja/seemly",
+   "source_url": "https://github.com/skadja/seemly",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/skadja/seemly.git",
+    "archive_url": "https://codeload.github.com/skadja/seemly/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/skadja/seemly"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "SVG"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 38,
+   "notes": "source=github-search; research_id=skadja/seemly",
+   "research_id": "skadja/seemly"
+  },
+  {
+   "round": 3,
+   "key": "bignutty_discord-mana-icons",
+   "name": "bignutty/discord-mana-icons",
+   "source_url": "https://github.com/bignutty/discord-mana-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/bignutty/discord-mana-icons.git",
+    "archive_url": "https://codeload.github.com/bignutty/discord-mana-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/bignutty/discord-mana-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 37,
+   "notes": "source=github-keyword-windows; research_id=bignutty/discord-mana-icons",
+   "research_id": "bignutty/discord-mana-icons"
+  },
+  {
+   "round": 3,
+   "key": "damir-sijakovic_boxie_icons",
+   "name": "damir-sijakovic/boxie_icons",
+   "source_url": "https://github.com/damir-sijakovic/boxie_icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/damir-sijakovic/boxie_icons.git",
+    "archive_url": "https://codeload.github.com/damir-sijakovic/boxie_icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/damir-sijakovic/boxie_icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "diy-kit"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 36,
+   "notes": "source=github-keyword-windows; research_id=damir-sijakovic/boxie_icons",
+   "research_id": "damir-sijakovic/boxie_icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__iobroker.icons-smarthome",
+   "name": "iobroker.icons-smarthome",
+   "source_url": "https://www.npmjs.com/package/iobroker.icons-smarthome",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "iobroker.icons-smarthome",
+    "archive_url": null,
+    "instructions": "npm pack iobroker.icons-smarthome; SVGs under www"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "www"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 36,
+   "notes": "source=npm-sweep; research_id=npm:iobroker.icons-smarthome",
+   "research_id": "npm:iobroker.icons-smarthome"
+  },
+  {
+   "round": 3,
+   "key": "ultraschall_ultraschall-font-icons",
+   "name": "ultraschall/ultraschall-font-icons",
+   "source_url": "https://github.com/ultraschall/ultraschall-font-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/ultraschall/ultraschall-font-icons.git",
+    "archive_url": "https://codeload.github.com/ultraschall/ultraschall-font-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/ultraschall/ultraschall-font-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "data/assets/coffee",
+    "data/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 34,
+   "notes": "source=github-monthly-owners; research_id=ultraschall/ultraschall-font-icons",
+   "research_id": "ultraschall/ultraschall-font-icons"
+  },
+  {
+   "round": 3,
+   "key": "madebyretcy_azul",
+   "name": "madebyretcy/azul",
+   "source_url": "https://github.com/madebyretcy/azul",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/madebyretcy/azul.git",
+    "archive_url": "https://codeload.github.com/madebyretcy/azul/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/madebyretcy/azul"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "packages/icons/src/line",
+    "packages/icons/src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 33,
+   "notes": "source=github-search; research_id=madebyretcy/azul",
+   "research_id": "madebyretcy/azul"
+  },
+  {
+   "round": 3,
+   "key": "npm__@tremorvideo_aikon",
+   "name": "@tremorvideo/aikon",
+   "source_url": "https://www.npmjs.com/package/@tremorvideo/aikon",
+   "licence": "Unlicense",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@tremorvideo/aikon",
+    "archive_url": null,
+    "instructions": "npm pack @tremorvideo/aikon; SVGs under svg"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 31,
+   "notes": "source=npm-sweep-2; research_id=npm:@tremorvideo/aikon",
+   "research_id": "npm:@tremorvideo/aikon"
+  },
+  {
+   "round": 3,
+   "key": "npm__@holidayextras_brand-globals",
+   "name": "@holidayextras/brand-globals",
+   "source_url": "https://www.npmjs.com/package/@holidayextras/brand-globals",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@holidayextras/brand-globals",
+    "archive_url": null,
+    "instructions": "npm pack @holidayextras/brand-globals; SVGs under assets/images/icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/images/icons",
+    "assets/images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 30,
+   "notes": "source=npm-sweep-3; research_id=npm:@holidayextras/brand-globals",
+   "research_id": "npm:@holidayextras/brand-globals"
+  },
+  {
+   "round": 3,
+   "key": "npm__@snappmarket_icons_clothes",
+   "name": "@snappmarket/icons_clothes",
+   "source_url": "https://www.npmjs.com/package/@snappmarket/icons_clothes",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@snappmarket/icons_clothes",
+    "archive_url": null,
+    "instructions": "npm pack @snappmarket/icons_clothes; SVGs under CollaredIcon"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "CollaredIcon"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 30,
+   "notes": "source=npm-sweep-2; research_id=npm:@snappmarket/icons_clothes",
+   "research_id": "npm:@snappmarket/icons_clothes"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__Psypherium2010_alphanumeric_bulb_icons",
+   "name": "gitlab:Psypherium2010/alphanumeric_bulb_icons",
+   "source_url": "https://gitlab.com/Psypherium2010/alphanumeric_bulb_icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/Psypherium2010/alphanumeric_bulb_icons.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/Psypherium2010/alphanumeric_bulb_icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Alphanumeric_Bulb_Icons/apps/scalable",
+    "Alphanumeric_Bulb_Icons/apps"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 30,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:Psypherium2010/alphanumeric_bulb_icons",
+   "research_id": "gitlab:Psypherium2010/alphanumeric_bulb_icons"
+  },
+  {
+   "round": 3,
+   "key": "igorhart_front-icons",
+   "name": "igorhart/front-icons",
+   "source_url": "https://github.com/igorhart/front-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/igorhart/front-icons.git",
+    "archive_url": "https://codeload.github.com/igorhart/front-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/igorhart/front-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/icons",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 30,
+   "notes": "source=github-search; research_id=igorhart/front-icons",
+   "research_id": "igorhart/front-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__iobroker.brightsky",
+   "name": "iobroker.brightsky",
+   "source_url": "https://www.npmjs.com/package/iobroker.brightsky",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "iobroker.brightsky",
+    "archive_url": null,
+    "instructions": "npm pack iobroker.brightsky; SVGs under admin/icons/icebear"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "admin/icons/icebear",
+    "admin/icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 30,
+   "notes": "source=npm-sweep-3; research_id=npm:iobroker.brightsky",
+   "research_id": "npm:iobroker.brightsky"
+  },
+  {
+   "round": 3,
+   "key": "eyes22798_svgicon-viewer",
+   "name": "eyes22798/svgicon-viewer",
+   "source_url": "https://github.com/eyes22798/svgicon-viewer",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/eyes22798/svgicon-viewer.git",
+    "archive_url": "https://codeload.github.com/eyes22798/svgicon-viewer/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/eyes22798/svgicon-viewer"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/\u56fe\u6807",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 29,
+   "notes": "source=github-search; research_id=eyes22798/svgicon-viewer",
+   "research_id": "eyes22798/svgicon-viewer"
+  },
+  {
+   "round": 3,
+   "key": "npm__@icon_linea-music",
+   "name": "@icon/linea-music",
+   "source_url": "https://www.npmjs.com/package/@icon/linea-music",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@icon/linea-music",
+    "archive_url": null,
+    "instructions": "npm pack @icon/linea-music; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 28,
+   "notes": "source=npm-sweep-2; research_id=npm:@icon/linea-music",
+   "research_id": "npm:@icon/linea-music"
+  },
+  {
+   "round": 3,
+   "key": "gitlab__VibhasSharma_moka-icon-theme",
+   "name": "gitlab:VibhasSharma/moka-icon-theme",
+   "source_url": "https://gitlab.com/VibhasSharma/moka-icon-theme",
+   "licence": "GPL",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://gitlab.com/VibhasSharma/moka-icon-theme.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://gitlab.com/VibhasSharma/moka-icon-theme"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/web",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 28,
+   "notes": "source=gitlab-codeberg; research_id=gitlab:VibhasSharma/moka-icon-theme",
+   "research_id": "gitlab:VibhasSharma/moka-icon-theme"
+  },
+  {
+   "round": 3,
+   "key": "cyberhuginn_react-iranian-bank-logo",
+   "name": "cyberhuginn/react-iranian-bank-logo",
+   "source_url": "https://github.com/cyberhuginn/react-iranian-bank-logo",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/cyberhuginn/react-iranian-bank-logo.git",
+    "archive_url": "https://codeload.github.com/cyberhuginn/react-iranian-bank-logo/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/cyberhuginn/react-iranian-bank-logo"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 27,
+   "notes": "source=github-keyword-windows; research_id=cyberhuginn/react-iranian-bank-logo",
+   "research_id": "cyberhuginn/react-iranian-bank-logo"
+  },
+  {
+   "round": 3,
+   "key": "go-icons_seti",
+   "name": "go-icons/seti",
+   "source_url": "https://github.com/go-icons/seti",
+   "licence": "BSD",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/go-icons/seti.git",
+    "archive_url": "https://codeload.github.com/go-icons/seti/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/go-icons/seti"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svg"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 27,
+   "notes": "source=github-keyword-windows; research_id=go-icons/seti",
+   "research_id": "go-icons/seti"
+  },
+  {
+   "round": 3,
+   "key": "npm__scienceicons",
+   "name": "scienceicons",
+   "source_url": "https://www.npmjs.com/package/scienceicons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "scienceicons",
+    "archive_url": null,
+    "instructions": "npm pack scienceicons; SVGs under 24/solid"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "24/solid",
+    "24"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 27,
+   "notes": "source=npm-sweep; research_id=npm:scienceicons",
+   "research_id": "npm:scienceicons"
+  },
+  {
+   "round": 3,
+   "key": "madmanmayson_web-icons",
+   "name": "madmanmayson/web-icons",
+   "source_url": "https://github.com/madmanmayson/web-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/madmanmayson/web-icons.git",
+    "archive_url": "https://codeload.github.com/madmanmayson/web-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/madmanmayson/web-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 25,
+   "notes": "source=github-search; research_id=madmanmayson/web-icons",
+   "research_id": "madmanmayson/web-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__z-icon",
+   "name": "z-icon",
+   "source_url": "https://www.npmjs.com/package/z-icon",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "z-icon",
+    "archive_url": null,
+    "instructions": "npm pack z-icon; SVGs under svgs"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svgs"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 24,
+   "notes": "source=npm-sweep-2; research_id=npm:z-icon",
+   "research_id": "npm:z-icon"
+  },
+  {
+   "round": 3,
+   "key": "npm__@hanzo_design",
+   "name": "@hanzo/design",
+   "source_url": "https://www.npmjs.com/package/@hanzo/design",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@hanzo/design",
+    "archive_url": null,
+    "instructions": "npm pack @hanzo/design; SVGs under assets/logos"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "assets/logos",
+    "assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 23,
+   "notes": "source=npm-sweep-3; research_id=npm:@hanzo/design",
+   "research_id": "npm:@hanzo/design"
+  },
+  {
+   "round": 3,
+   "key": "npm__@kontourai_ui",
+   "name": "@kontourai/ui",
+   "source_url": "https://www.npmjs.com/package/@kontourai/ui",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@kontourai/ui",
+    "archive_url": null,
+    "instructions": "npm pack @kontourai/ui; SVGs under icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 23,
+   "notes": "source=npm-sweep-3; research_id=npm:@kontourai/ui",
+   "research_id": "npm:@kontourai/ui"
+  },
+  {
+   "round": 3,
+   "key": "eepnet_emissary",
+   "name": "eepnet/emissary",
+   "source_url": "https://github.com/eepnet/emissary",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/eepnet/emissary.git",
+    "archive_url": "https://codeload.github.com/eepnet/emissary/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/eepnet/emissary"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "emissary-cli/assets/icons",
+    "emissary-cli/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 23,
+   "notes": "source=registries-crates-packagist-gems-nuget; research_id=eepnet/emissary",
+   "research_id": "eepnet/emissary"
+  },
+  {
+   "round": 3,
+   "key": "julkuh_aviaticons",
+   "name": "julkuh/aviaticons",
+   "source_url": "https://github.com/julkuh/aviaticons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/julkuh/aviaticons.git",
+    "archive_url": "https://codeload.github.com/julkuh/aviaticons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/julkuh/aviaticons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 23,
+   "notes": "source=github-monthly-owners; research_id=julkuh/aviaticons",
+   "research_id": "julkuh/aviaticons"
+  },
+  {
+   "round": 3,
+   "key": "sempijja_navigation-icons",
+   "name": "sempijja/navigation-icons",
+   "source_url": "https://github.com/sempijja/navigation-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/sempijja/navigation-icons.git",
+    "archive_url": "https://codeload.github.com/sempijja/navigation-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/sempijja/navigation-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/svg",
+    "src"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 23,
+   "notes": "source=x-deep-round5; research_id=sempijja/navigation-icons",
+   "research_id": "sempijja/navigation-icons"
+  },
+  {
+   "round": 3,
+   "key": "codeberg__NerdShore_svg-icons-to-woff2",
+   "name": "codeberg:NerdShore/svg-icons-to-woff2",
+   "source_url": "https://codeberg.org/NerdShore/svg-icons-to-woff2",
+   "licence": "ISC",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://codeberg.org/NerdShore/svg-icons-to-woff2.git",
+    "archive_url": null,
+    "instructions": "git clone --depth 1 https://codeberg.org/NerdShore/svg-icons-to-woff2"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "svgs/custom",
+    "svgs"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 22,
+   "notes": "source=gitlab-codeberg; research_id=codeberg:NerdShore/svg-icons-to-woff2",
+   "research_id": "codeberg:NerdShore/svg-icons-to-woff2"
+  },
+  {
+   "round": 3,
+   "key": "soikat27_currently",
+   "name": "soikat27/currently",
+   "source_url": "https://github.com/soikat27/currently",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/soikat27/currently.git",
+    "archive_url": "https://codeload.github.com/soikat27/currently/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/soikat27/currently"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/assets/weather-icons",
+    "src/assets"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 22,
+   "notes": "source=github-keyword-windows; research_id=soikat27/currently",
+   "research_id": "soikat27/currently"
+  },
+  {
+   "round": 3,
+   "key": "npm__@ilo-org_brand-assets",
+   "name": "@ilo-org/brand-assets",
+   "source_url": "https://www.npmjs.com/package/@ilo-org/brand-assets",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@ilo-org/brand-assets",
+    "archive_url": null,
+    "instructions": "npm pack @ilo-org/brand-assets; SVGs under dist/assets"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/assets",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 21,
+   "notes": "source=npm-sweep-3; research_id=npm:@ilo-org/brand-assets",
+   "research_id": "npm:@ilo-org/brand-assets"
+  },
+  {
+   "round": 3,
+   "key": "npm__mod-arch-shared",
+   "name": "mod-arch-shared",
+   "source_url": "https://www.npmjs.com/package/mod-arch-shared",
+   "licence": "Apache-2.0",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "mod-arch-shared",
+    "archive_url": null,
+    "instructions": "npm pack mod-arch-shared; SVGs under dist/images"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "dist/images",
+    "dist"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 21,
+   "notes": "source=npm-sweep-3; research_id=npm:mod-arch-shared",
+   "research_id": "npm:mod-arch-shared"
+  },
+  {
+   "round": 3,
+   "key": "3sidedcoin_veggies-and-fruits-icons",
+   "name": "3sidedcoin/veggies-and-fruits-icons",
+   "source_url": "https://github.com/3sidedcoin/veggies-and-fruits-icons",
+   "licence": "CC0",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/3sidedcoin/veggies-and-fruits-icons.git",
+    "archive_url": "https://codeload.github.com/3sidedcoin/veggies-and-fruits-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/3sidedcoin/veggies-and-fruits-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Fruits"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 20,
+   "notes": "source=github-keyword-windows; research_id=3sidedcoin/veggies-and-fruits-icons",
+   "research_id": "3sidedcoin/veggies-and-fruits-icons"
+  },
+  {
+   "round": 3,
+   "key": "npm__@arivedha_astro-icons",
+   "name": "@arivedha/astro-icons",
+   "source_url": "https://www.npmjs.com/package/@arivedha/astro-icons",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "npm",
+    "package": "@arivedha/astro-icons",
+    "archive_url": null,
+    "instructions": "npm pack @arivedha/astro-icons; SVGs under src/rashi/compact"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "src/rashi/compact",
+    "src/rashi"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 20,
+   "notes": "source=npm-sweep; research_id=npm:@arivedha/astro-icons",
+   "research_id": "npm:@arivedha/astro-icons"
+  },
+  {
+   "round": 3,
+   "key": "joshuakimsey_amcharts-svg-icons-additions",
+   "name": "joshuakimsey/amcharts-svg-icons-additions",
+   "source_url": "https://github.com/joshuakimsey/amcharts-svg-icons-additions",
+   "licence": "CC-BY",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/joshuakimsey/amcharts-svg-icons-additions.git",
+    "archive_url": "https://codeload.github.com/joshuakimsey/amcharts-svg-icons-additions/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/joshuakimsey/amcharts-svg-icons-additions"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "Original Icons/animated",
+    "Original Icons"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 20,
+   "notes": "source=github-search; research_id=joshuakimsey/amcharts-svg-icons-additions",
+   "research_id": "joshuakimsey/amcharts-svg-icons-additions"
+  },
+  {
+   "round": 3,
+   "key": "masihgh_iranian-bank-list",
+   "name": "masihgh/iranian-bank-list",
+   "source_url": "https://github.com/masihgh/iranian-bank-list",
+   "licence": "MIT",
+   "copyleft": false,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/masihgh/iranian-bank-list.git",
+    "archive_url": "https://codeload.github.com/masihgh/iranian-bank-list/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/masihgh/iranian-bank-list"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "images"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 20,
+   "notes": "source=github-search; research_id=masihgh/iranian-bank-list",
+   "research_id": "masihgh/iranian-bank-list"
+  },
+  {
+   "round": 3,
+   "key": "adejong5_star-trek-icons",
+   "name": "adejong5/star-trek-icons",
+   "source_url": "https://github.com/adejong5/star-trek-icons",
+   "licence": "CC-BY-SA",
+   "copyleft": true,
+   "fetch": {
+    "type": "git",
+    "repo": "https://github.com/adejong5/star-trek-icons.git",
+    "archive_url": "https://codeload.github.com/adejong5/star-trek-icons/tar.gz/HEAD",
+    "instructions": "git clone --depth 1 https://github.com/adejong5/star-trek-icons"
+   },
+   "selection_mode": "flat",
+   "theme_handling": {
+    "rule": "flat set: size variants collapsed"
+   },
+   "include_regex": null,
+   "exclude_regex": null,
+   "svg_subpaths": [
+    "StarTrek"
+   ],
+   "paths_file": null,
+   "paths_listed": 0,
+   "new_unique": 20,
+   "notes": "source=github-x-deep; research_id=adejong5/star-trek-icons",
+   "research_id": "adejong5/star-trek-icons"
+  }
+ ]
+}

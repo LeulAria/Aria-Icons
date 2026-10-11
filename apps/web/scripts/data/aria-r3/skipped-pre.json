@@ -1,0 +1,134 @@
+[
+ {
+  "id": "clker",
+  "reason": "clipart bucket excluded by import policy",
+  "license": "CC0",
+  "verified_unique": 76376
+ },
+ {
+  "id": "openclipart",
+  "reason": "clipart bucket excluded by import policy",
+  "license": "CC0",
+  "verified_unique": 52453
+ },
+ {
+  "id": "wikimedia2-permissive",
+  "reason": "Wikimedia Commons aggregator: HF dataset unauthorized (401); per-file licences mixed; SVG road-sign drawings not trivially separable",
+  "license": "PD/CC0/CC-BY (per file)",
+  "verified_unique": 49133
+ },
+ {
+  "id": "svgrepo-CC_Attribution",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "CC-BY",
+  "verified_unique": 37089
+ },
+ {
+  "id": "svgrepo-PD",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "Public Domain",
+  "verified_unique": 25895
+ },
+ {
+  "id": "npm:@houstonicons/react",
+  "reason": "paid/proprietary LICENSE file (not redistributable)",
+  "license": "CC0-1.0",
+  "verified_unique": 23791
+ },
+ {
+  "id": "svgrepo-MIT",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "MIT",
+  "verified_unique": 20577
+ },
+ {
+  "id": "wikimedia-permissive",
+  "reason": "Wikimedia Commons aggregator: HF dataset unauthorized (401); per-file licences mixed; SVG road-sign drawings not trivially separable",
+  "license": "PD/CC0/CC-BY (per file)",
+  "verified_unique": 12787
+ },
+ {
+  "id": "wikimedia-copyleft",
+  "reason": "Wikimedia Commons aggregator: HF dataset unauthorized (401); per-file licences mixed; SVG road-sign drawings not trivially separable",
+  "license": "CC-BY-SA/GPL (per file)",
+  "verified_unique": 10179
+ },
+ {
+  "id": "svgfind-pd",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "Public Domain",
+  "verified_unique": 8924
+ },
+ {
+  "id": "svgrepo-CC0",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "CC0",
+  "verified_unique": 8888
+ },
+ {
+  "id": "svgrepo-Apache",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "Apache",
+  "verified_unique": 3119
+ },
+ {
+  "id": "svgrepo-GPL",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "GPL",
+  "verified_unique": 2006
+ },
+ {
+  "id": "npm:@visa/nova-icons-svg",
+  "reason": "duplicate set id already shipped: visa-nova-icons-svg",
+  "license": "Apache-2.0",
+  "verified_unique": 1641
+ },
+ {
+  "id": "npm:@next-core/brick-icons",
+  "reason": "duplicate set id already shipped: next-core-brick-icons",
+  "license": "GPL-3.0",
+  "verified_unique": 1612
+ },
+ {
+  "id": "wikimedia2-copyleft",
+  "reason": "Wikimedia Commons aggregator: HF dataset unauthorized (401); per-file licences mixed; SVG road-sign drawings not trivially separable",
+  "license": "CC-BY-SA/GPL (per file)",
+  "verified_unique": 1365
+ },
+ {
+  "id": "npm:@sit-onyx/icons",
+  "reason": "duplicate set id already shipped: sit-onyx-icons",
+  "license": "Apache-2.0",
+  "verified_unique": 620
+ },
+ {
+  "id": "svgrepo-MLP",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "MLP",
+  "verified_unique": 458
+ },
+ {
+  "id": "svgrepo-OFL",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "OFL",
+  "verified_unique": 405
+ },
+ {
+  "id": "npm:@ui5/webcomponents-icons-tnt",
+  "reason": "duplicate set id already shipped: ui5-webcomponents-icons-tnt",
+  "license": "Apache-2.0",
+  "verified_unique": 319
+ },
+ {
+  "id": "svgrepo-BSD",
+  "reason": "SVG Repo/SVGFind residual path lists not in upload; full licence-split import would reintroduce geometry duplicates of the existing catalogue",
+  "license": "BSD",
+  "verified_unique": 211
+ },
+ {
+  "id": "npm:vigil-icons",
+  "reason": "duplicate set id already shipped: vigil-icons",
+  "license": "OFL-1.1",
+  "verified_unique": 111
+ }
+]

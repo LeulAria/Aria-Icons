@@ -1,0 +1,3900 @@
+{
+  "npm__krz-icons": {
+    "key": "npm__krz-icons",
+    "label": "krz-icons",
+    "source": "https://www.npmjs.com/package/krz-icons",
+    "setId": "krz-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 16868,
+    "round": 3,
+    "status": "ok",
+    "count": 20132,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 20132
+      }
+    ],
+    "note": "got 20132 vs research 16868"
+  },
+  "npm__stria-icons": {
+    "key": "npm__stria-icons",
+    "label": "stria-icons",
+    "source": "https://www.npmjs.com/package/stria-icons",
+    "setId": "stria-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 9738,
+    "round": 3,
+    "status": "ok",
+    "count": 12578,
+    "styles": [
+      {
+        "id": "duotone",
+        "label": "Duotone",
+        "group": "solid",
+        "count": 2425
+      },
+      {
+        "id": "light",
+        "label": "Light",
+        "group": "line",
+        "count": 2425
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "regular",
+        "label": "Regular",
+        "group": "line",
+        "count": 2425
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 452
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 2425
+      },
+      {
+        "id": "thin",
+        "label": "Thin",
+        "group": "line",
+        "count": 2425
+      }
+    ],
+    "note": "got 12578 vs research 9738"
+  },
+  "appica-dev_appica-icons": {
+    "key": "appica-dev_appica-icons",
+    "label": "appica-dev/appica-icons",
+    "source": "https://github.com/appica-dev/appica-icons",
+    "setId": "appica-dev-appica-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 4301,
+    "round": 3,
+    "status": "ok",
+    "count": 5016,
+    "styles": [
+      {
+        "id": "bold",
+        "label": "Bold",
+        "group": "solid",
+        "count": 1
+      },
+      {
+        "id": "icons",
+        "label": "Icons",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 5012
+      },
+      {
+        "id": "square",
+        "label": "Square",
+        "group": "line",
+        "count": 1
+      }
+    ],
+    "note": "got 5016 vs research 4301"
+  },
+  "npm__@ferran_suils_iconkit": {
+    "key": "npm__@ferran_suils_iconkit",
+    "label": "@ferran_suils/iconkit",
+    "source": "https://www.npmjs.com/package/@ferran_suils/iconkit",
+    "setId": "ferran-suils-iconkit",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 4261,
+    "round": 3,
+    "status": "ok",
+    "count": 4610,
+    "styles": [
+      {
+        "id": "outline",
+        "label": "Outline",
+        "group": "line",
+        "count": 3039
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 1570
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 1
+      }
+    ],
+    "note": "got 4610 vs research 4261"
+  },
+  "lyderhansen_splunk-icon-library": {
+    "key": "lyderhansen_splunk-icon-library",
+    "label": "lyderhansen/splunk-icon-library",
+    "source": "https://github.com/lyderhansen/splunk-icon-library",
+    "setId": "lyderhansen-splunk-icon-library",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 3187,
+    "round": 3,
+    "status": "ok",
+    "count": 3879,
+    "styles": [
+      {
+        "id": "light",
+        "label": "Light",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 3877
+      },
+      {
+        "id": "square",
+        "label": "Square",
+        "group": "line",
+        "count": 1
+      }
+    ],
+    "note": "got 3879 vs research 3187"
+  },
+  "mic-360_zenicons": {
+    "key": "mic-360_zenicons",
+    "label": "mic-360/zenicons",
+    "source": "https://github.com/mic-360/zenicons",
+    "setId": "mic-360-zenicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 2545,
+    "round": 3,
+    "status": "ok",
+    "count": 3073,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 3073
+      }
+    ],
+    "note": "got 3073 vs research 2545"
+  },
+  "onuro_ubericons": {
+    "key": "onuro_ubericons",
+    "label": "onuro/ubericons",
+    "source": "https://github.com/onuro/ubericons",
+    "setId": "onuro-ubericons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 2026,
+    "round": 3,
+    "status": "ok",
+    "count": 2500,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 2500
+      }
+    ],
+    "note": "got 2500 vs research 2026"
+  },
+  "gitlab__nesstero_DarK-icons": {
+    "key": "gitlab__nesstero_DarK-icons",
+    "label": "gitlab:nesstero/DarK-icons",
+    "source": "https://gitlab.com/nesstero/DarK-icons",
+    "setId": "gitlab-nesstero-dar-k-icons",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 1532,
+    "round": 3,
+    "status": "ok",
+    "count": 7268,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Color",
+        "group": "solid",
+        "count": 1
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 7266
+      }
+    ],
+    "note": "got 7268 vs research 1532"
+  },
+  "npm__archie123-kerke-icons": {
+    "key": "npm__archie123-kerke-icons",
+    "label": "archie123-kerke-icons",
+    "source": "https://www.npmjs.com/package/archie123-kerke-icons",
+    "setId": "archie123-kerke-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 1506,
+    "round": 3,
+    "status": "ok",
+    "count": 1723,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 1723
+      }
+    ],
+    "note": "got 1723 vs research 1506"
+  },
+  "npm__@ui5_webcomponents-icons": {
+    "key": "npm__@ui5_webcomponents-icons",
+    "label": "@ui5/webcomponents-icons",
+    "source": "https://www.npmjs.com/package/@ui5/webcomponents-icons",
+    "setId": "ui5-webcomponents-icons",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 1190,
+    "round": 3,
+    "status": "ok",
+    "count": 705,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 705
+      }
+    ],
+    "note": "got 705 vs research 1190"
+  },
+  "npm__gnomicon": {
+    "key": "npm__gnomicon",
+    "label": "gnomicon",
+    "source": "https://www.npmjs.com/package/gnomicon",
+    "setId": "gnomicon",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 1157,
+    "round": 3,
+    "status": "ok",
+    "count": 1581,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 1581
+      }
+    ],
+    "note": "got 1581 vs research 1157"
+  },
+  "bchoubert_bc-font": {
+    "key": "bchoubert_bc-font",
+    "label": "bchoubert/bc-font",
+    "source": "https://github.com/bchoubert/bc-font",
+    "setId": "bchoubert-bc-font",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 1143,
+    "round": 3,
+    "status": "ok",
+    "count": 1286,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 1286
+      }
+    ],
+    "note": "got 1286 vs research 1143"
+  },
+  "npm__@winplaybox_icons": {
+    "key": "npm__@winplaybox_icons",
+    "label": "@winplaybox/icons",
+    "source": "https://www.npmjs.com/package/@winplaybox/icons",
+    "setId": "winplaybox-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 1109,
+    "round": 3,
+    "status": "ok",
+    "count": 1259,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 1259
+      }
+    ],
+    "note": "got 1259 vs research 1109"
+  },
+  "npm__@rhds_icons": {
+    "key": "npm__@rhds_icons",
+    "label": "@rhds/icons",
+    "source": "https://www.npmjs.com/package/@rhds/icons",
+    "setId": "rhds-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 1021,
+    "round": 3,
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "got 555 vs research 1021; pack quality pass left 0 icons"
+  },
+  "opengemeenten_iconenset": {
+    "key": "opengemeenten_iconenset",
+    "label": "opengemeenten/iconenset",
+    "source": "https://github.com/opengemeenten/iconenset",
+    "setId": "opengemeenten-iconenset",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 947,
+    "round": 3,
+    "status": "ok",
+    "count": 1004,
+    "styles": [
+      {
+        "id": "fill",
+        "label": "Fill",
+        "group": "solid",
+        "count": 251
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 251
+      },
+      {
+        "id": "regular",
+        "label": "Regular",
+        "group": "line",
+        "count": 251
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 251
+      }
+    ],
+    "note": "got 1004 vs research 947"
+  },
+  "npm__@salesforce-ux_design-system": {
+    "key": "npm__@salesforce-ux_design-system",
+    "label": "@salesforce-ux/design-system",
+    "source": "https://www.npmjs.com/package/@salesforce-ux/design-system",
+    "setId": "salesforce-ux-design-system",
+    "license": "BSD-3-Clause",
+    "copyleft": false,
+    "expected": 906,
+    "round": 3,
+    "status": "ok",
+    "count": 1468,
+    "styles": [
+      {
+        "id": "bold",
+        "label": "Bold",
+        "group": "solid",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 1467
+      }
+    ],
+    "note": "got 1468 vs research 906"
+  },
+  "microfocus_ias-icons": {
+    "key": "microfocus_ias-icons",
+    "label": "microfocus/ias-icons",
+    "source": "https://github.com/microfocus/ias-icons",
+    "setId": "microfocus-ias-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 837,
+    "round": 3,
+    "status": "ok",
+    "count": 896,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 896
+      }
+    ],
+    "note": "got 896 vs research 837"
+  },
+  "npm__@udir-design_icons": {
+    "key": "npm__@udir-design_icons",
+    "label": "@udir-design/icons",
+    "source": "https://www.npmjs.com/package/@udir-design/icons",
+    "setId": "udir-design-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 815,
+    "round": 3,
+    "status": "ok",
+    "count": 959,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 959
+      }
+    ],
+    "note": "got 959 vs research 815"
+  },
+  "uxthings_popicons": {
+    "key": "uxthings_popicons",
+    "label": "uxthings/popicons",
+    "source": "https://github.com/uxthings/popicons",
+    "setId": "uxthings-popicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 795,
+    "round": 3,
+    "status": "ok",
+    "count": 969,
+    "styles": [
+      {
+        "id": "duotone",
+        "label": "Duotone",
+        "group": "solid",
+        "count": 323
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 323
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 323
+      }
+    ],
+    "note": "got 969 vs research 795"
+  },
+  "npm__@derroce_icons": {
+    "key": "npm__@derroce_icons",
+    "label": "@derroce/icons",
+    "source": "https://www.npmjs.com/package/@derroce/icons",
+    "setId": "derroce-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 758,
+    "round": 3,
+    "status": "ok",
+    "count": 473,
+    "styles": [
+      {
+        "id": "bold",
+        "label": "Bold",
+        "group": "solid",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 472
+      }
+    ],
+    "note": "got 473 vs research 758"
+  },
+  "michaelbollin_food-icons": {
+    "key": "michaelbollin_food-icons",
+    "label": "michaelbollin/food-icons",
+    "source": "https://github.com/michaelbollin/food-icons",
+    "setId": "michaelbollin-food-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 743,
+    "round": 3,
+    "status": "ok",
+    "count": 451,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 451
+      }
+    ],
+    "note": "got 451 vs research 743"
+  },
+  "npm__iobroker.icons-mfd-svg": {
+    "key": "npm__iobroker.icons-mfd-svg",
+    "label": "iobroker.icons-mfd-svg",
+    "source": "https://www.npmjs.com/package/iobroker.icons-mfd-svg",
+    "setId": "iobroker-icons-mfd-svg",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 705,
+    "round": 3,
+    "status": "ok",
+    "count": 933,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 933
+      }
+    ],
+    "note": "got 933 vs research 705"
+  },
+  "vytautas9_fabric-icons": {
+    "key": "vytautas9_fabric-icons",
+    "label": "vytautas9/fabric-icons",
+    "source": "https://github.com/vytautas9/fabric-icons",
+    "setId": "vytautas9-fabric-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 650,
+    "round": 3,
+    "status": "ok",
+    "count": 763,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 763
+      }
+    ],
+    "note": "got 763 vs research 650"
+  },
+  "dot-alter_altered-icons": {
+    "key": "dot-alter_altered-icons",
+    "label": "dot-alter/altered-icons",
+    "source": "https://github.com/dot-alter/altered-icons",
+    "setId": "dot-alter-altered-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 644,
+    "round": 3,
+    "status": "ok",
+    "count": 350,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 350
+      }
+    ],
+    "note": "got 350 vs research 644"
+  },
+  "presslabs_react-particles-icons": {
+    "key": "presslabs_react-particles-icons",
+    "label": "presslabs/react-particles-icons",
+    "source": "https://github.com/presslabs/react-particles-icons",
+    "setId": "presslabs-react-particles-icons",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 637,
+    "round": 3,
+    "status": "ok",
+    "count": 716,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 716
+      }
+    ],
+    "note": "got 716 vs research 637"
+  },
+  "npm__@devui-design_icons": {
+    "key": "npm__@devui-design_icons",
+    "label": "@devui-design/icons",
+    "source": "https://www.npmjs.com/package/@devui-design/icons",
+    "setId": "devui-design-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 614,
+    "round": 3,
+    "status": "ok",
+    "count": 408,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 408
+      }
+    ],
+    "note": "got 408 vs research 614"
+  },
+  "glombek_umbicosaurus": {
+    "key": "glombek_umbicosaurus",
+    "label": "glombek/umbicosaurus",
+    "source": "https://github.com/glombek/umbicosaurus",
+    "setId": "glombek-umbicosaurus",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 614,
+    "round": 3,
+    "status": "ok",
+    "count": 609,
+    "styles": [
+      {
+        "id": "icons",
+        "label": "Icons",
+        "group": "line",
+        "count": 605
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 4
+      }
+    ],
+    "note": "got 609 vs research 614"
+  },
+  "teddy95_pokemon-font": {
+    "key": "teddy95_pokemon-font",
+    "label": "teddy95/pokemon-font",
+    "source": "https://github.com/teddy95/pokemon-font",
+    "setId": "teddy95-pokemon-font",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 602,
+    "round": 3,
+    "status": "ok",
+    "count": 1202,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 1202
+      }
+    ],
+    "note": "got 1202 vs research 602"
+  },
+  "npm__@coveo_atomic-react": {
+    "key": "npm__@coveo_atomic-react",
+    "label": "@coveo/atomic-react",
+    "source": "https://www.npmjs.com/package/@coveo/atomic-react",
+    "setId": "coveo-atomic-react",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 599,
+    "round": 3,
+    "status": "ok",
+    "count": 689,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 689
+      }
+    ],
+    "note": "got 689 vs research 599"
+  },
+  "npm__@agentscope-ai_icons": {
+    "key": "npm__@agentscope-ai_icons",
+    "label": "@agentscope-ai/icons",
+    "source": "https://www.npmjs.com/package/@agentscope-ai/icons",
+    "setId": "agentscope-ai-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 579,
+    "round": 3,
+    "status": "ok",
+    "count": 684,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 684
+      }
+    ],
+    "note": "got 684 vs research 579"
+  },
+  "shrinks99_blender-icons": {
+    "key": "shrinks99_blender-icons",
+    "label": "shrinks99/blender-icons",
+    "source": "https://github.com/shrinks99/blender-icons",
+    "setId": "shrinks99-blender-icons",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 558,
+    "round": 3,
+    "status": "ok",
+    "count": 666,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 666
+      }
+    ],
+    "note": "got 666 vs research 558"
+  },
+  "npm__@toroll_tagin-icons": {
+    "key": "npm__@toroll_tagin-icons",
+    "label": "@toroll/tagin-icons",
+    "source": "https://www.npmjs.com/package/@toroll/tagin-icons",
+    "setId": "toroll-tagin-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 546,
+    "round": 3,
+    "status": "ok",
+    "count": 614,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 614
+      }
+    ],
+    "note": "got 614 vs research 546"
+  },
+  "npm__@adersolutions_icons": {
+    "key": "npm__@adersolutions_icons",
+    "label": "@adersolutions/icons",
+    "source": "https://www.npmjs.com/package/@adersolutions/icons",
+    "setId": "adersolutions-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 494,
+    "round": 3,
+    "status": "ok",
+    "count": 534,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 534
+      }
+    ],
+    "note": "got 534 vs research 494"
+  },
+  "npm__@persianlabs_icons": {
+    "key": "npm__@persianlabs_icons",
+    "label": "@persianlabs/icons",
+    "source": "https://www.npmjs.com/package/@persianlabs/icons",
+    "setId": "persianlabs-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 492,
+    "round": 3,
+    "status": "ok",
+    "count": 799,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Color",
+        "group": "solid",
+        "count": 398
+      },
+      {
+        "id": "mono",
+        "label": "Mono",
+        "group": "line",
+        "count": 401
+      }
+    ],
+    "note": "got 799 vs research 492"
+  },
+  "myuitsu_openmatrix9": {
+    "key": "myuitsu_openmatrix9",
+    "label": "myuitsu/openmatrix9",
+    "source": "https://github.com/myuitsu/openmatrix9",
+    "setId": "myuitsu-openmatrix9",
+    "license": "LGPL",
+    "copyleft": true,
+    "expected": 483,
+    "round": 3,
+    "status": "ok",
+    "count": 510,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 510
+      }
+    ],
+    "note": "got 510 vs research 483"
+  },
+  "npm__iobroker.icons-freepic": {
+    "key": "npm__iobroker.icons-freepic",
+    "label": "iobroker.icons-freepic",
+    "source": "https://www.npmjs.com/package/iobroker.icons-freepic",
+    "setId": "iobroker-icons-freepic",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 481,
+    "round": 3,
+    "status": "ok",
+    "count": 621,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 621
+      }
+    ],
+    "note": "got 621 vs research 481"
+  },
+  "npm__@qlik_sprout-icons": {
+    "key": "npm__@qlik_sprout-icons",
+    "label": "@qlik/sprout-icons",
+    "source": "https://www.npmjs.com/package/@qlik/sprout-icons",
+    "setId": "qlik-sprout-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 456,
+    "round": 3,
+    "status": "ok",
+    "count": 522,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 522
+      }
+    ],
+    "note": "got 522 vs research 456"
+  },
+  "npm__@brightspace-ui_core": {
+    "key": "npm__@brightspace-ui_core",
+    "label": "@brightspace-ui/core",
+    "source": "https://www.npmjs.com/package/@brightspace-ui/core",
+    "setId": "brightspace-ui-core",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 451,
+    "round": 3,
+    "status": "ok",
+    "count": 323,
+    "styles": [
+      {
+        "id": "bold",
+        "label": "Bold",
+        "group": "solid",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 322
+      }
+    ],
+    "note": "got 323 vs research 451"
+  },
+  "alaa-sufi_shihab-icons": {
+    "key": "alaa-sufi_shihab-icons",
+    "label": "alaa-sufi/shihab-icons",
+    "source": "https://github.com/alaa-sufi/shihab-icons",
+    "setId": "alaa-sufi-shihab-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 424,
+    "round": 3,
+    "status": "ok",
+    "count": 254,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 254
+      }
+    ],
+    "note": "got 254 vs research 424"
+  },
+  "coingaming_moon-icons-react": {
+    "key": "coingaming_moon-icons-react",
+    "label": "coingaming/moon-icons-react",
+    "source": "https://github.com/coingaming/moon-icons-react",
+    "setId": "coingaming-moon-icons-react",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 416,
+    "round": 3,
+    "status": "ok",
+    "count": 478,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 478
+      }
+    ],
+    "note": "got 478 vs research 416"
+  },
+  "npm__supercons": {
+    "key": "npm__supercons",
+    "label": "supercons",
+    "source": "https://www.npmjs.com/package/supercons",
+    "setId": "supercons",
+    "license": "BSD",
+    "copyleft": false,
+    "expected": 408,
+    "round": 3,
+    "status": "ok",
+    "count": 461,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 461
+      }
+    ],
+    "note": "got 461 vs research 408"
+  },
+  "npm__detechies-icons": {
+    "key": "npm__detechies-icons",
+    "label": "detechies-icons",
+    "source": "https://www.npmjs.com/package/detechies-icons",
+    "setId": "detechies-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 389,
+    "round": 3,
+    "status": "ok",
+    "count": 502,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 502
+      }
+    ],
+    "note": "got 502 vs research 389"
+  },
+  "npm__iconmuse": {
+    "key": "npm__iconmuse",
+    "label": "iconmuse",
+    "source": "https://www.npmjs.com/package/iconmuse",
+    "setId": "iconmuse",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 338,
+    "round": 3,
+    "status": "ok",
+    "count": 349,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 349
+      }
+    ],
+    "note": "got 349 vs research 338"
+  },
+  "npm__@cfpb_cfpb-design-system": {
+    "key": "npm__@cfpb_cfpb-design-system",
+    "label": "@cfpb/cfpb-design-system",
+    "source": "https://www.npmjs.com/package/@cfpb/cfpb-design-system",
+    "setId": "cfpb-cfpb-design-system",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 307,
+    "round": 3,
+    "status": "ok",
+    "count": 340,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 340
+      }
+    ],
+    "note": "got 340 vs research 307"
+  },
+  "oxoyo_crazy-loading": {
+    "key": "oxoyo_crazy-loading",
+    "label": "oxoyo/crazy-loading",
+    "source": "https://github.com/oxoyo/crazy-loading",
+    "setId": "oxoyo-crazy-loading",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 302,
+    "round": 3,
+    "status": "ok",
+    "count": 376,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 376
+      }
+    ],
+    "note": "got 376 vs research 302"
+  },
+  "npm__@finery_ccy-icons": {
+    "key": "npm__@finery_ccy-icons",
+    "label": "@finery/ccy-icons",
+    "source": "https://www.npmjs.com/package/@finery/ccy-icons",
+    "setId": "finery-ccy-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 294,
+    "round": 3,
+    "status": "ok",
+    "count": 329,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 329
+      }
+    ],
+    "note": "got 329 vs research 294"
+  },
+  "mteheran_colombia-icons": {
+    "key": "mteheran_colombia-icons",
+    "label": "mteheran/colombia-icons",
+    "source": "https://github.com/mteheran/colombia-icons",
+    "setId": "mteheran-colombia-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 293,
+    "round": 3,
+    "status": "ok",
+    "count": 291,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 291
+      }
+    ],
+    "note": "got 291 vs research 293"
+  },
+  "npm__@l3-lib_ui-style": {
+    "key": "npm__@l3-lib_ui-style",
+    "label": "@l3-lib/ui-style",
+    "source": "https://www.npmjs.com/package/@l3-lib/ui-style",
+    "setId": "l3-lib-ui-style",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 292,
+    "round": 3,
+    "status": "ok",
+    "count": 343,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 343
+      }
+    ],
+    "note": "got 343 vs research 292"
+  },
+  "fpgawars_icestudio-block-icons": {
+    "key": "fpgawars_icestudio-block-icons",
+    "label": "fpgawars/icestudio-block-icons",
+    "source": "https://github.com/fpgawars/icestudio-block-icons",
+    "setId": "fpgawars-icestudio-block-icons",
+    "license": "LGPL",
+    "copyleft": true,
+    "expected": 274,
+    "round": 3,
+    "status": "ok",
+    "count": 884,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 884
+      }
+    ],
+    "note": "got 884 vs research 274"
+  },
+  "npm__icon-batch": {
+    "key": "npm__icon-batch",
+    "label": "icon-batch",
+    "source": "https://www.npmjs.com/package/icon-batch",
+    "setId": "icon-batch",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 268,
+    "round": 3,
+    "status": "ok",
+    "count": 343,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 343
+      }
+    ],
+    "note": "got 343 vs research 268"
+  },
+  "indxsearch_indx-pixl": {
+    "key": "indxsearch_indx-pixl",
+    "label": "indxsearch/indx-pixl",
+    "source": "https://github.com/indxsearch/indx-pixl",
+    "setId": "indxsearch-indx-pixl",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 268,
+    "round": 3,
+    "status": "ok",
+    "count": 402,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 402
+      }
+    ],
+    "note": "got 402 vs research 268"
+  },
+  "phillbush_haiku-icons": {
+    "key": "phillbush_haiku-icons",
+    "label": "phillbush/haiku-icons",
+    "source": "https://github.com/phillbush/haiku-icons",
+    "setId": "phillbush-haiku-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 265,
+    "round": 3,
+    "status": "ok",
+    "count": 369,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 369
+      }
+    ],
+    "note": "got 369 vs research 265"
+  },
+  "atomicsmash_launchpad-icons": {
+    "key": "atomicsmash_launchpad-icons",
+    "label": "atomicsmash/launchpad-icons",
+    "source": "https://github.com/atomicsmash/launchpad-icons",
+    "setId": "atomicsmash-launchpad-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 245,
+    "round": 3,
+    "status": "ok",
+    "count": 281,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 281
+      }
+    ],
+    "note": "got 281 vs research 245"
+  },
+  "gitlab__radicons_radicons": {
+    "key": "gitlab__radicons_radicons",
+    "label": "gitlab:radicons/radicons",
+    "source": "https://gitlab.com/radicons/radicons",
+    "setId": "gitlab-radicons-radicons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 241,
+    "round": 3,
+    "status": "ok",
+    "count": 322,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 322
+      }
+    ],
+    "note": "got 322 vs research 241"
+  },
+  "aquasecurity_cloudsec-icons": {
+    "key": "aquasecurity_cloudsec-icons",
+    "label": "aquasecurity/cloudsec-icons",
+    "source": "https://github.com/aquasecurity/cloudsec-icons",
+    "setId": "aquasecurity-cloudsec-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 239,
+    "round": 3,
+    "status": "ok",
+    "count": 248,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 248
+      }
+    ],
+    "note": "got 248 vs research 239"
+  },
+  "gitlab__willmac321_cowboymoji": {
+    "key": "gitlab__willmac321_cowboymoji",
+    "label": "gitlab:willmac321/cowboymoji",
+    "source": "https://gitlab.com/willmac321/cowboymoji",
+    "setId": "gitlab-willmac321-cowboymoji",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 226,
+    "round": 3,
+    "status": "ok",
+    "count": 313,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 313
+      }
+    ],
+    "note": "got 313 vs research 226"
+  },
+  "danielwerg_r6data": {
+    "key": "danielwerg_r6data",
+    "label": "danielwerg/r6data",
+    "source": "https://github.com/danielwerg/r6data",
+    "setId": "danielwerg-r6data",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 217,
+    "round": 3,
+    "status": "ok",
+    "count": 257,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 257
+      }
+    ],
+    "note": "got 257 vs research 217"
+  },
+  "afnan-hossain_atmoscene": {
+    "key": "afnan-hossain_atmoscene",
+    "label": "afnan-hossain/atmoscene",
+    "source": "https://github.com/afnan-hossain/atmoscene",
+    "setId": "afnan-hossain-atmoscene",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 212,
+    "round": 3,
+    "status": "ok",
+    "count": 475,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 475
+      }
+    ],
+    "note": "got 475 vs research 212"
+  },
+  "justrealmilk_destiny-icons": {
+    "key": "justrealmilk_destiny-icons",
+    "label": "justrealmilk/destiny-icons",
+    "source": "https://github.com/justrealmilk/destiny-icons",
+    "setId": "justrealmilk-destiny-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 212,
+    "round": 3,
+    "status": "ok",
+    "count": 228,
+    "styles": [
+      {
+        "id": "light",
+        "label": "Light",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 227
+      }
+    ],
+    "note": "got 228 vs research 212"
+  },
+  "jonatansoderberg_maui.spine": {
+    "key": "jonatansoderberg_maui.spine",
+    "label": "jonatansoderberg/maui.spine",
+    "source": "https://github.com/jonatansoderberg/maui.spine",
+    "setId": "jonatansoderberg-maui-spine",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 207,
+    "round": 3,
+    "status": "ok",
+    "count": 228,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 228
+      }
+    ],
+    "note": "got 228 vs research 207"
+  },
+  "zerox2cool_d365dt": {
+    "key": "zerox2cool_d365dt",
+    "label": "zerox2cool/d365dt",
+    "source": "https://github.com/zerox2cool/d365dt",
+    "setId": "zerox2cool-d365dt",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 204,
+    "round": 3,
+    "status": "ok",
+    "count": 255,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 255
+      }
+    ],
+    "note": "got 255 vs research 204"
+  },
+  "npm__bit-icons": {
+    "key": "npm__bit-icons",
+    "label": "bit-icons",
+    "source": "https://www.npmjs.com/package/bit-icons",
+    "setId": "bit-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 197,
+    "round": 3,
+    "status": "ok",
+    "count": 217,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 217
+      }
+    ],
+    "note": "got 217 vs research 197"
+  },
+  "headpoolnumerique_irad-cryptokit": {
+    "key": "headpoolnumerique_irad-cryptokit",
+    "label": "headpoolnumerique/irad-cryptokit",
+    "source": "https://github.com/headpoolnumerique/irad-cryptokit",
+    "setId": "headpoolnumerique-irad-cryptokit",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 190,
+    "round": 3,
+    "status": "ok",
+    "count": 209,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 209
+      }
+    ],
+    "note": "got 209 vs research 190"
+  },
+  "dabisaigomez-prog_bitline": {
+    "key": "dabisaigomez-prog_bitline",
+    "label": "dabisaigomez-prog/bitline",
+    "source": "https://github.com/dabisaigomez-prog/bitline",
+    "setId": "dabisaigomez-prog-bitline",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 184,
+    "round": 3,
+    "status": "ok",
+    "count": 200,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 200
+      }
+    ],
+    "note": "got 200 vs research 184"
+  },
+  "yisibell_nuxt-svg-icons": {
+    "key": "yisibell_nuxt-svg-icons",
+    "label": "yisibell/nuxt-svg-icons",
+    "source": "https://github.com/yisibell/nuxt-svg-icons",
+    "setId": "yisibell-nuxt-svg-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 178,
+    "round": 3,
+    "status": "ok",
+    "count": 81,
+    "styles": [
+      {
+        "id": "icons",
+        "label": "Icons",
+        "group": "solid",
+        "count": 7
+      },
+      {
+        "id": "mini",
+        "label": "Mini",
+        "group": "line",
+        "count": 3
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 68
+      },
+      {
+        "id": "square",
+        "label": "Square",
+        "group": "line",
+        "count": 3
+      }
+    ],
+    "note": "got 81 vs research 178"
+  },
+  "npm__even-toolkit": {
+    "key": "npm__even-toolkit",
+    "label": "even-toolkit",
+    "source": "https://www.npmjs.com/package/even-toolkit",
+    "setId": "even-toolkit",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 171,
+    "round": 3,
+    "status": "ok",
+    "count": 191,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 191
+      }
+    ],
+    "note": "got 191 vs research 171"
+  },
+  "code4history_chokei": {
+    "key": "code4history_chokei",
+    "label": "code4history/chokei",
+    "source": "https://github.com/code4history/chokei",
+    "setId": "code4history-chokei",
+    "license": "CC-BY-SA-4.0",
+    "copyleft": true,
+    "expected": 171,
+    "round": 3,
+    "status": "ok",
+    "count": 177,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 177
+      }
+    ],
+    "note": "got 177 vs research 171"
+  },
+  "npm__@youseedk_dna": {
+    "key": "npm__@youseedk_dna",
+    "label": "@youseedk/dna",
+    "source": "https://www.npmjs.com/package/@youseedk/dna",
+    "setId": "youseedk-dna",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 168,
+    "round": 3,
+    "status": "ok",
+    "count": 204,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 204
+      }
+    ],
+    "note": "got 204 vs research 168"
+  },
+  "npm__termina-icons": {
+    "key": "npm__termina-icons",
+    "label": "termina-icons",
+    "source": "https://www.npmjs.com/package/termina-icons",
+    "setId": "termina-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 167,
+    "round": 3,
+    "status": "ok",
+    "count": 185,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 184
+      },
+      {
+        "id": "square",
+        "label": "Square",
+        "group": "solid",
+        "count": 1
+      }
+    ],
+    "note": "got 185 vs research 167"
+  },
+  "maxsteenbergen_pebble-icons": {
+    "key": "maxsteenbergen_pebble-icons",
+    "label": "maxsteenbergen/pebble-icons",
+    "source": "https://github.com/maxsteenbergen/pebble-icons",
+    "setId": "maxsteenbergen-pebble-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 166,
+    "round": 3,
+    "status": "ok",
+    "count": 170,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 170
+      }
+    ],
+    "note": "got 170 vs research 166"
+  },
+  "theartificial_pokemon-icons": {
+    "key": "theartificial_pokemon-icons",
+    "label": "theartificial/pokemon-icons",
+    "source": "https://github.com/theartificial/pokemon-icons",
+    "setId": "theartificial-pokemon-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 147,
+    "round": 3,
+    "status": "ok",
+    "count": 1453,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 1453
+      }
+    ],
+    "note": "got 1453 vs research 147"
+  },
+  "codeberg__k1t_WeatherIcons": {
+    "key": "codeberg__k1t_WeatherIcons",
+    "label": "codeberg:k1t/WeatherIcons",
+    "source": "https://codeberg.org/k1t/WeatherIcons",
+    "setId": "codeberg-k1t-weather-icons",
+    "license": "LGPL",
+    "copyleft": true,
+    "expected": 138,
+    "round": 3,
+    "status": "ok",
+    "count": 22,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 22
+      }
+    ],
+    "note": "got 22 vs research 138"
+  },
+  "gitlab__glab-forks_debian_gnome-team_gnome-icon-theme": {
+    "key": "gitlab__glab-forks_debian_gnome-team_gnome-icon-theme",
+    "label": "gitlab:glab-forks/debian/gnome-team/gnome-icon-theme",
+    "source": "https://gitlab.com/glab-forks/debian/gnome-team/gnome-icon-theme",
+    "setId": "gitlab-glab-forks-debian-gnome-team-gnome-icon-theme",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 134,
+    "round": 3,
+    "status": "ok",
+    "count": 175,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 175
+      }
+    ],
+    "note": "got 175 vs research 134"
+  },
+  "userfrm_egui-charts": {
+    "key": "userfrm_egui-charts",
+    "label": "userfrm/egui-charts",
+    "source": "https://github.com/userfrm/egui-charts",
+    "setId": "userfrm-egui-charts",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 131,
+    "round": 3,
+    "status": "ok",
+    "count": 153,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 153
+      }
+    ],
+    "note": "got 153 vs research 131"
+  },
+  "npm__@lightspeed_cirrus-icon": {
+    "key": "npm__@lightspeed_cirrus-icon",
+    "label": "@lightspeed/cirrus-icon",
+    "source": "https://www.npmjs.com/package/@lightspeed/cirrus-icon",
+    "setId": "lightspeed-cirrus-icon",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 129,
+    "round": 3,
+    "status": "ok",
+    "count": 149,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 149
+      }
+    ],
+    "note": "got 149 vs research 129"
+  },
+  "npm__ibm-icon-font": {
+    "key": "npm__ibm-icon-font",
+    "label": "ibm-icon-font",
+    "source": "https://www.npmjs.com/package/ibm-icon-font",
+    "setId": "ibm-icon-font",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 128,
+    "round": 3,
+    "status": "ok",
+    "count": 149,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 149
+      }
+    ],
+    "note": "got 149 vs research 128"
+  },
+  "npm__hr-icons": {
+    "key": "npm__hr-icons",
+    "label": "hr-icons",
+    "source": "https://www.npmjs.com/package/hr-icons",
+    "setId": "hr-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 127,
+    "round": 3,
+    "status": "ok",
+    "count": 128,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 128
+      }
+    ],
+    "note": "got 128 vs research 127"
+  },
+  "npm__@icon_linea-basic-elaboration": {
+    "key": "npm__@icon_linea-basic-elaboration",
+    "label": "@icon/linea-basic-elaboration",
+    "source": "https://www.npmjs.com/package/@icon/linea-basic-elaboration",
+    "setId": "icon-linea-basic-elaboration",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 126,
+    "round": 3,
+    "status": "ok",
+    "count": 145,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 145
+      }
+    ],
+    "note": "got 145 vs research 126"
+  },
+  "npm__@obosbbl_grunnmuren-icons": {
+    "key": "npm__@obosbbl_grunnmuren-icons",
+    "label": "@obosbbl/grunnmuren-icons",
+    "source": "https://www.npmjs.com/package/@obosbbl/grunnmuren-icons",
+    "setId": "obosbbl-grunnmuren-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 126,
+    "round": 3,
+    "status": "ok",
+    "count": 146,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 146
+      }
+    ],
+    "note": "got 146 vs research 126"
+  },
+  "warhammer40kgroup_wh40k-icon": {
+    "key": "warhammer40kgroup_wh40k-icon",
+    "label": "warhammer40kgroup/wh40k-icon",
+    "source": "https://github.com/warhammer40kgroup/wh40k-icon",
+    "setId": "warhammer40kgroup-wh40k-icon",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 126,
+    "round": 3,
+    "status": "ok",
+    "count": 103,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 103
+      }
+    ],
+    "note": "got 103 vs research 126"
+  },
+  "rafascalet_let-icons": {
+    "key": "rafascalet_let-icons",
+    "label": "rafascalet/let-icons",
+    "source": "https://github.com/rafascalet/let-icons",
+    "setId": "rafascalet-let-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 124,
+    "round": 3,
+    "status": "ok",
+    "count": 162,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 162
+      }
+    ],
+    "note": "got 162 vs research 124"
+  },
+  "npm__@icon_linea-basic": {
+    "key": "npm__@icon_linea-basic",
+    "label": "@icon/linea-basic",
+    "source": "https://www.npmjs.com/package/@icon/linea-basic",
+    "setId": "icon-linea-basic",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 122,
+    "round": 3,
+    "status": "ok",
+    "count": 135,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 135
+      }
+    ],
+    "note": "got 135 vs research 122"
+  },
+  "npm__seti-ui": {
+    "key": "npm__seti-ui",
+    "label": "seti-ui",
+    "source": "https://www.npmjs.com/package/seti-ui",
+    "setId": "seti-ui",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 117,
+    "round": 3,
+    "status": "ok",
+    "count": 169,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 169
+      }
+    ],
+    "note": "got 169 vs research 117"
+  },
+  "npm__gaia-font-icons": {
+    "key": "npm__gaia-font-icons",
+    "label": "gaia-font-icons",
+    "source": "https://www.npmjs.com/package/gaia-font-icons",
+    "setId": "gaia-font-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 114,
+    "round": 3,
+    "status": "ok",
+    "count": 129,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 129
+      }
+    ],
+    "note": "got 129 vs research 114"
+  },
+  "cncf_svg-autocrop": {
+    "key": "cncf_svg-autocrop",
+    "label": "cncf/svg-autocrop",
+    "source": "https://github.com/cncf/svg-autocrop",
+    "setId": "cncf-svg-autocrop",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 113,
+    "round": 3,
+    "status": "ok",
+    "count": 158,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 158
+      }
+    ],
+    "note": "got 158 vs research 113"
+  },
+  "plotly_plotly-icons": {
+    "key": "plotly_plotly-icons",
+    "label": "plotly/plotly-icons",
+    "source": "https://github.com/plotly/plotly-icons",
+    "setId": "plotly-plotly-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 108,
+    "round": 3,
+    "status": "ok",
+    "count": 129,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 129
+      }
+    ],
+    "note": "got 129 vs research 108"
+  },
+  "npm__@dr2rai_raid-canvas": {
+    "key": "npm__@dr2rai_raid-canvas",
+    "label": "@dr2rai/raid-canvas",
+    "source": "https://www.npmjs.com/package/@dr2rai/raid-canvas",
+    "setId": "dr2rai-raid-canvas",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 107,
+    "round": 3,
+    "status": "ok",
+    "count": 117,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 117
+      }
+    ],
+    "note": "got 117 vs research 107"
+  },
+  "npm__openwebicons": {
+    "key": "npm__openwebicons",
+    "label": "openwebicons",
+    "source": "https://www.npmjs.com/package/openwebicons",
+    "setId": "openwebicons",
+    "license": "OFL-1.1",
+    "copyleft": false,
+    "expected": 107,
+    "round": 3,
+    "status": "ok",
+    "count": 115,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 115
+      }
+    ],
+    "note": "got 115 vs research 107"
+  },
+  "k00ni_semicon": {
+    "key": "k00ni_semicon",
+    "label": "k00ni/semicon",
+    "source": "https://github.com/k00ni/semicon",
+    "setId": "k00ni-semicon",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 106,
+    "round": 3,
+    "status": "ok",
+    "count": 103,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 103
+      }
+    ],
+    "note": "got 103 vs research 106"
+  },
+  "npm__font-mfizz": {
+    "key": "npm__font-mfizz",
+    "label": "font-mfizz",
+    "source": "https://www.npmjs.com/package/font-mfizz",
+    "setId": "font-mfizz",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 102,
+    "round": 3,
+    "status": "ok",
+    "count": 137,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 137
+      }
+    ],
+    "note": "got 137 vs research 102"
+  },
+  "papillonapp_papicons": {
+    "key": "papillonapp_papicons",
+    "label": "papillonapp/papicons",
+    "source": "https://github.com/papillonapp/papicons",
+    "setId": "papillonapp-papicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 99,
+    "round": 3,
+    "status": "ok",
+    "count": 112,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 112
+      }
+    ],
+    "note": "got 112 vs research 99"
+  },
+  "npm__@manageiq_font-fabulous": {
+    "key": "npm__@manageiq_font-fabulous",
+    "label": "@manageiq/font-fabulous",
+    "source": "https://www.npmjs.com/package/@manageiq/font-fabulous",
+    "setId": "manageiq-font-fabulous",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 95,
+    "round": 3,
+    "status": "ok",
+    "count": 109,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 109
+      }
+    ],
+    "note": "got 109 vs research 95"
+  },
+  "mondaycom_vibe": {
+    "key": "mondaycom_vibe",
+    "label": "mondaycom/vibe",
+    "source": "https://github.com/mondaycom/vibe",
+    "setId": "mondaycom-vibe",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 94,
+    "round": 3,
+    "status": "ok",
+    "count": 277,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 277
+      }
+    ],
+    "note": "got 277 vs research 94"
+  },
+  "baryodev_kapehan": {
+    "key": "baryodev_kapehan",
+    "label": "baryodev/kapehan",
+    "source": "https://github.com/baryodev/kapehan",
+    "setId": "baryodev-kapehan",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 93,
+    "round": 3,
+    "status": "ok",
+    "count": 84,
+    "styles": [
+      {
+        "id": "mono",
+        "label": "Mono",
+        "group": "line",
+        "count": 42
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 42
+      }
+    ],
+    "note": "got 84 vs research 93"
+  },
+  "file-icons_mfixx": {
+    "key": "file-icons_mfixx",
+    "label": "file-icons/mfixx",
+    "source": "https://github.com/file-icons/mfixx",
+    "setId": "file-icons-mfixx",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 93,
+    "round": 3,
+    "status": "ok",
+    "count": 106,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 106
+      }
+    ],
+    "note": "got 106 vs research 93"
+  },
+  "npm__@icon_gonzocons": {
+    "key": "npm__@icon_gonzocons",
+    "label": "@icon/gonzocons",
+    "source": "https://www.npmjs.com/package/@icon/gonzocons",
+    "setId": "icon-gonzocons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 89,
+    "round": 3,
+    "status": "ok",
+    "count": 100,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 100
+      }
+    ],
+    "note": "got 100 vs research 89"
+  },
+  "rylydou_sharp-icons": {
+    "key": "rylydou_sharp-icons",
+    "label": "rylydou/sharp-icons",
+    "source": "https://github.com/rylydou/sharp-icons",
+    "setId": "rylydou-sharp-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 89,
+    "round": 3,
+    "status": "ok",
+    "count": 98,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 98
+      }
+    ],
+    "note": "got 98 vs research 89"
+  },
+  "npm__@eotl_icons": {
+    "key": "npm__@eotl_icons",
+    "label": "@eotl/icons",
+    "source": "https://www.npmjs.com/package/@eotl/icons",
+    "setId": "eotl-icons",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 87,
+    "round": 3,
+    "status": "ok",
+    "count": 105,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 105
+      }
+    ],
+    "note": "got 105 vs research 87"
+  },
+  "npm__@posten_hedwig": {
+    "key": "npm__@posten_hedwig",
+    "label": "@posten/hedwig",
+    "source": "https://www.npmjs.com/package/@posten/hedwig",
+    "setId": "posten-hedwig",
+    "license": "BSD-2-Clause",
+    "copyleft": false,
+    "expected": 87,
+    "round": 3,
+    "status": "ok",
+    "count": 101,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 101
+      }
+    ],
+    "note": "got 101 vs research 87"
+  },
+  "npm__waste-categories": {
+    "key": "npm__waste-categories",
+    "label": "waste-categories",
+    "source": "https://www.npmjs.com/package/waste-categories",
+    "setId": "waste-categories",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 83,
+    "round": 3,
+    "status": "ok",
+    "count": 47,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 47
+      }
+    ],
+    "note": "got 47 vs research 83"
+  },
+  "npm__@bs-solutions_bastion-icons": {
+    "key": "npm__@bs-solutions_bastion-icons",
+    "label": "@bs-solutions/bastion-icons",
+    "source": "https://www.npmjs.com/package/@bs-solutions/bastion-icons",
+    "setId": "bs-solutions-bastion-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 80,
+    "round": 3,
+    "status": "ok",
+    "count": 47,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 47
+      }
+    ],
+    "note": "got 47 vs research 80"
+  },
+  "npm__@icon_linea-ecommerce": {
+    "key": "npm__@icon_linea-ecommerce",
+    "label": "@icon/linea-ecommerce",
+    "source": "https://www.npmjs.com/package/@icon/linea-ecommerce",
+    "setId": "icon-linea-ecommerce",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 79,
+    "round": 3,
+    "status": "ok",
+    "count": 85,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 85
+      }
+    ],
+    "note": "got 85 vs research 79"
+  },
+  "gip-recia_icons-pack": {
+    "key": "gip-recia_icons-pack",
+    "label": "gip-recia/icons-pack",
+    "source": "https://github.com/gip-recia/icons-pack",
+    "setId": "gip-recia-icons-pack",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 79,
+    "round": 3,
+    "status": "ok",
+    "count": 115,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 115
+      }
+    ],
+    "note": "got 115 vs research 79"
+  },
+  "npm__@cruglobal_cornerstone-design-system": {
+    "key": "npm__@cruglobal_cornerstone-design-system",
+    "label": "@cruglobal/cornerstone-design-system",
+    "source": "https://www.npmjs.com/package/@cruglobal/cornerstone-design-system",
+    "setId": "cruglobal-cornerstone-design-system",
+    "license": "BSD-3-Clause",
+    "copyleft": false,
+    "expected": 78,
+    "round": 3,
+    "status": "ok",
+    "count": 81,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 81
+      }
+    ],
+    "note": "got 81 vs research 78"
+  },
+  "johan-boshoff_blade-car-makes-icons": {
+    "key": "johan-boshoff_blade-car-makes-icons",
+    "label": "johan-boshoff/blade-car-makes-icons",
+    "source": "https://github.com/johan-boshoff/blade-car-makes-icons",
+    "setId": "johan-boshoff-blade-car-makes-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 78,
+    "round": 3,
+    "status": "ok",
+    "count": 78,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 78
+      }
+    ]
+  },
+  "codeat3_blade-inau-icons": {
+    "key": "codeat3_blade-inau-icons",
+    "label": "codeat3/blade-inau-icons",
+    "source": "https://github.com/codeat3/blade-inau-icons",
+    "setId": "codeat3-blade-inau-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 77,
+    "round": 3,
+    "status": "ok",
+    "count": 81,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 81
+      }
+    ],
+    "note": "got 81 vs research 77"
+  },
+  "npm__@gooddata_sdk-ui-kit": {
+    "key": "npm__@gooddata_sdk-ui-kit",
+    "label": "@gooddata/sdk-ui-kit",
+    "source": "https://www.npmjs.com/package/@gooddata/sdk-ui-kit",
+    "setId": "gooddata-sdk-ui-kit",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 75,
+    "round": 3,
+    "status": "ok",
+    "count": 61,
+    "styles": [
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 60
+      }
+    ],
+    "note": "got 61 vs research 75"
+  },
+  "npm__@musora_icons": {
+    "key": "npm__@musora_icons",
+    "label": "@musora/icons",
+    "source": "https://www.npmjs.com/package/@musora/icons",
+    "setId": "musora-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 74,
+    "round": 3,
+    "status": "ok",
+    "count": 86,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 86
+      }
+    ],
+    "note": "got 86 vs research 74"
+  },
+  "npm__iobroker.yr": {
+    "key": "npm__iobroker.yr",
+    "label": "iobroker.yr",
+    "source": "https://www.npmjs.com/package/iobroker.yr",
+    "setId": "iobroker-yr",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 74,
+    "round": 3,
+    "status": "ok",
+    "count": 83,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 83
+      }
+    ],
+    "note": "got 83 vs research 74"
+  },
+  "cubing_icons": {
+    "key": "cubing_icons",
+    "label": "cubing/icons",
+    "source": "https://github.com/cubing/icons",
+    "setId": "cubing-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 72,
+    "round": 3,
+    "status": "ok",
+    "count": 82,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 82
+      }
+    ],
+    "note": "got 82 vs research 72"
+  },
+  "npm__light-boilerplate": {
+    "key": "npm__light-boilerplate",
+    "label": "light-boilerplate",
+    "source": "https://www.npmjs.com/package/light-boilerplate",
+    "setId": "light-boilerplate",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 71,
+    "round": 3,
+    "status": "ok",
+    "count": 81,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 81
+      }
+    ],
+    "note": "got 81 vs research 71"
+  },
+  "npm__@adso-sass_flags": {
+    "key": "npm__@adso-sass_flags",
+    "label": "@adso-sass/flags",
+    "source": "https://www.npmjs.com/package/@adso-sass/flags",
+    "setId": "adso-sass-flags",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 70,
+    "round": 3,
+    "status": "ok",
+    "count": 77,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 77
+      }
+    ],
+    "note": "got 77 vs research 70"
+  },
+  "lexrus_fontdiao": {
+    "key": "lexrus_fontdiao",
+    "label": "lexrus/fontdiao",
+    "source": "https://github.com/lexrus/fontdiao",
+    "setId": "lexrus-fontdiao",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 70,
+    "round": 3,
+    "status": "ok",
+    "count": 74,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 74
+      }
+    ],
+    "note": "got 74 vs research 70"
+  },
+  "npm__facilio-icons-svg": {
+    "key": "npm__facilio-icons-svg",
+    "label": "facilio-icons-svg",
+    "source": "https://www.npmjs.com/package/facilio-icons-svg",
+    "setId": "facilio-icons-svg",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 69,
+    "round": 3,
+    "status": "ok",
+    "count": 77,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 77
+      }
+    ],
+    "note": "got 77 vs research 69"
+  },
+  "inausoft_icons": {
+    "key": "inausoft_icons",
+    "label": "inausoft/icons",
+    "source": "https://github.com/inausoft/icons",
+    "setId": "inausoft-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 69,
+    "round": 3,
+    "status": "ok",
+    "count": 86,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 86
+      }
+    ],
+    "note": "got 86 vs research 69"
+  },
+  "yuta-nihei_mue-icon": {
+    "key": "yuta-nihei_mue-icon",
+    "label": "yuta-nihei/mue-icon",
+    "source": "https://github.com/yuta-nihei/mue-icon",
+    "setId": "yuta-nihei-mue-icon",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 69,
+    "round": 3,
+    "status": "ok",
+    "count": 80,
+    "styles": [
+      {
+        "id": "duotone",
+        "label": "Duotone",
+        "group": "solid",
+        "count": 40
+      },
+      {
+        "id": "line",
+        "label": "Line",
+        "group": "line",
+        "count": 40
+      }
+    ],
+    "note": "got 80 vs research 69"
+  },
+  "npm__mp-design-system": {
+    "key": "npm__mp-design-system",
+    "label": "mp-design-system",
+    "source": "https://www.npmjs.com/package/mp-design-system",
+    "setId": "mp-design-system",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 68,
+    "round": 3,
+    "status": "ok",
+    "count": 89,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 89
+      }
+    ],
+    "note": "got 89 vs research 68"
+  },
+  "npm__pokeapi-sprites": {
+    "key": "npm__pokeapi-sprites",
+    "label": "pokeapi-sprites",
+    "source": "https://www.npmjs.com/package/pokeapi-sprites",
+    "setId": "pokeapi-sprites",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 67,
+    "round": 3,
+    "status": "ok",
+    "count": 749,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 749
+      }
+    ],
+    "note": "got 749 vs research 67"
+  },
+  "npm__@frosted-ui_icons": {
+    "key": "npm__@frosted-ui_icons",
+    "label": "@frosted-ui/icons",
+    "source": "https://www.npmjs.com/package/@frosted-ui/icons",
+    "setId": "frosted-ui-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 64,
+    "round": 3,
+    "status": "ok",
+    "count": 201,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 201
+      }
+    ],
+    "note": "got 201 vs research 64"
+  },
+  "acruxray_getmeteome-icon-font": {
+    "key": "acruxray_getmeteome-icon-font",
+    "label": "acruxray/getmeteome-icon-font",
+    "source": "https://github.com/acruxray/getmeteome-icon-font",
+    "setId": "acruxray-getmeteome-icon-font",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 64,
+    "round": 3,
+    "status": "ok",
+    "count": 76,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 76
+      }
+    ],
+    "note": "got 76 vs research 64"
+  },
+  "npm__atsarul-mujahidin": {
+    "key": "npm__atsarul-mujahidin",
+    "label": "atsarul-mujahidin",
+    "source": "https://www.npmjs.com/package/atsarul-mujahidin",
+    "setId": "atsarul-mujahidin",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 63,
+    "round": 3,
+    "status": "ok",
+    "count": 81,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Color",
+        "group": "solid",
+        "count": 5
+      },
+      {
+        "id": "fill",
+        "label": "Fill",
+        "group": "solid",
+        "count": 55
+      },
+      {
+        "id": "outline",
+        "label": "Outline",
+        "group": "line",
+        "count": 21
+      }
+    ],
+    "note": "got 81 vs research 63"
+  },
+  "halfmage_raster": {
+    "key": "halfmage_raster",
+    "label": "halfmage/raster",
+    "source": "https://github.com/halfmage/raster",
+    "setId": "halfmage-raster",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 62,
+    "round": 3,
+    "status": "ok",
+    "count": 69,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 69
+      }
+    ],
+    "note": "got 69 vs research 62"
+  },
+  "npm__@jdcfe_icons-svg": {
+    "key": "npm__@jdcfe_icons-svg",
+    "label": "@jdcfe/icons-svg",
+    "source": "https://www.npmjs.com/package/@jdcfe/icons-svg",
+    "setId": "jdcfe-icons-svg",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 60,
+    "round": 3,
+    "status": "ok",
+    "count": 66,
+    "styles": [
+      {
+        "id": "filled",
+        "label": "Filled",
+        "group": "solid",
+        "count": 5
+      },
+      {
+        "id": "outlined",
+        "label": "Outlined",
+        "group": "line",
+        "count": 59
+      },
+      {
+        "id": "twotone",
+        "label": "Twotone",
+        "group": "solid",
+        "count": 2
+      }
+    ],
+    "note": "got 66 vs research 60"
+  },
+  "npm__gadget-icons": {
+    "key": "npm__gadget-icons",
+    "label": "gadget-icons",
+    "source": "https://www.npmjs.com/package/gadget-icons",
+    "setId": "gadget-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 60,
+    "round": 3,
+    "status": "ok",
+    "count": 63,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 63
+      }
+    ],
+    "note": "got 63 vs research 60"
+  },
+  "hearthsim_hs-icons": {
+    "key": "hearthsim_hs-icons",
+    "label": "hearthsim/hs-icons",
+    "source": "https://github.com/hearthsim/hs-icons",
+    "setId": "hearthsim-hs-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 60,
+    "round": 3,
+    "status": "ok",
+    "count": 62,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 62
+      }
+    ],
+    "note": "got 62 vs research 60"
+  },
+  "erudus_erudus-icons": {
+    "key": "erudus_erudus-icons",
+    "label": "erudus/erudus-icons",
+    "source": "https://github.com/erudus/erudus-icons",
+    "setId": "erudus-erudus-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 59,
+    "round": 3,
+    "status": "ok",
+    "count": 59,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 59
+      }
+    ]
+  },
+  "aflegel_tabletop.fantasyflighticons": {
+    "key": "aflegel_tabletop.fantasyflighticons",
+    "label": "aflegel/tabletop.fantasyflighticons",
+    "source": "https://github.com/aflegel/tabletop.fantasyflighticons",
+    "setId": "aflegel-tabletop-fantasyflighticons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 57,
+    "round": 3,
+    "status": "ok",
+    "count": 99,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 99
+      }
+    ],
+    "note": "got 99 vs research 57"
+  },
+  "pfefferle_openwebicons": {
+    "key": "pfefferle_openwebicons",
+    "label": "pfefferle/openwebicons",
+    "source": "https://github.com/pfefferle/openwebicons",
+    "setId": "pfefferle-openwebicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 57,
+    "round": 3,
+    "status": "ok",
+    "count": 171,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 171
+      }
+    ],
+    "note": "got 171 vs research 57"
+  },
+  "viglino_font-cassini": {
+    "key": "viglino_font-cassini",
+    "label": "viglino/font-cassini",
+    "source": "https://github.com/viglino/font-cassini",
+    "setId": "viglino-font-cassini",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 56,
+    "round": 3,
+    "status": "ok",
+    "count": 61,
+    "styles": [
+      {
+        "id": "icon",
+        "label": "Icon",
+        "group": "line",
+        "count": 13
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 48
+      }
+    ],
+    "note": "got 61 vs research 56"
+  },
+  "npm__banklogos": {
+    "key": "npm__banklogos",
+    "label": "banklogos",
+    "source": "https://www.npmjs.com/package/banklogos",
+    "setId": "banklogos",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 53,
+    "round": 3,
+    "status": "ok",
+    "count": 61,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 61
+      }
+    ],
+    "note": "got 61 vs research 53"
+  },
+  "sgryphon_osa-icon-library": {
+    "key": "sgryphon_osa-icon-library",
+    "label": "sgryphon/osa-icon-library",
+    "source": "https://github.com/sgryphon/osa-icon-library",
+    "setId": "sgryphon-osa-icon-library",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 53,
+    "round": 3,
+    "status": "ok",
+    "count": 79,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 79
+      }
+    ],
+    "note": "got 79 vs research 53"
+  },
+  "deb__emelfm2-svg-icons": {
+    "key": "deb__emelfm2-svg-icons",
+    "label": "deb:emelfm2-svg-icons",
+    "source": "https://packages.debian.org/sid/emelfm2-svg-icons",
+    "setId": "deb-emelfm2-svg-icons",
+    "license": "GPL",
+    "copyleft": true,
+    "expected": 52,
+    "round": 3,
+    "status": "error",
+    "count": 0,
+    "note": "No .deb download link for emelfm2-svg-icons"
+  },
+  "ahuseyn_state-icons": {
+    "key": "ahuseyn_state-icons",
+    "label": "ahuseyn/state-icons",
+    "source": "https://github.com/ahuseyn/state-icons",
+    "setId": "ahuseyn-state-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 51,
+    "round": 3,
+    "status": "ok",
+    "count": 51,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 51
+      }
+    ]
+  },
+  "npm__holiverse-icon-font-plugin": {
+    "key": "npm__holiverse-icon-font-plugin",
+    "label": "holiverse-icon-font-plugin",
+    "source": "https://www.npmjs.com/package/holiverse-icon-font-plugin",
+    "setId": "holiverse-icon-font-plugin",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 51,
+    "round": 3,
+    "status": "ok",
+    "count": 59,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 59
+      }
+    ],
+    "note": "got 59 vs research 51"
+  },
+  "lrenhrda_nav-maneuver-icons": {
+    "key": "lrenhrda_nav-maneuver-icons",
+    "label": "lrenhrda/nav-maneuver-icons",
+    "source": "https://github.com/lrenhrda/nav-maneuver-icons",
+    "setId": "lrenhrda-nav-maneuver-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 51,
+    "round": 3,
+    "status": "ok",
+    "count": 56,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 56
+      }
+    ],
+    "note": "got 56 vs research 51"
+  },
+  "deb__gnome-icon-theme-gartoon": {
+    "key": "deb__gnome-icon-theme-gartoon",
+    "label": "deb:gnome-icon-theme-gartoon",
+    "source": "https://packages.debian.org/sid/gnome-icon-theme-gartoon",
+    "setId": "deb-gnome-icon-theme-gartoon",
+    "license": "GPL",
+    "copyleft": true,
+    "expected": 48,
+    "round": 3,
+    "status": "error",
+    "count": 0,
+    "note": "No .deb download link for gnome-icon-theme-gartoon"
+  },
+  "consansri_benicons": {
+    "key": "consansri_benicons",
+    "label": "consansri/benicons",
+    "source": "https://github.com/consansri/benicons",
+    "setId": "consansri-benicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 47,
+    "round": 3,
+    "status": "ok",
+    "count": 51,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 51
+      }
+    ],
+    "note": "got 51 vs research 47"
+  },
+  "aisamanra_fruit-icons": {
+    "key": "aisamanra_fruit-icons",
+    "label": "aisamanra/fruit-icons",
+    "source": "https://github.com/aisamanra/fruit-icons",
+    "setId": "aisamanra-fruit-icons",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 45,
+    "round": 3,
+    "status": "ok",
+    "count": 66,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 66
+      }
+    ],
+    "note": "got 66 vs research 45"
+  },
+  "gitlab__mcloide1977_tomorrowio-icons-reactjs": {
+    "key": "gitlab__mcloide1977_tomorrowio-icons-reactjs",
+    "label": "gitlab:mcloide1977/tomorrowio-icons-reactjs",
+    "source": "https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs",
+    "setId": "gitlab-mcloide1977-tomorrowio-icons-reactjs",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 44,
+    "round": 3,
+    "status": "ok",
+    "count": 52,
+    "styles": [
+      {
+        "id": "color",
+        "label": "Color",
+        "group": "solid",
+        "count": 26
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 26
+      }
+    ],
+    "note": "got 52 vs research 44"
+  },
+  "mapbox_directions-icons": {
+    "key": "mapbox_directions-icons",
+    "label": "mapbox/directions-icons",
+    "source": "https://github.com/mapbox/directions-icons",
+    "setId": "mapbox-directions-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 42,
+    "round": 3,
+    "status": "ok",
+    "count": 87,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 87
+      }
+    ],
+    "note": "got 87 vs research 42"
+  },
+  "mybbgroup_myicon": {
+    "key": "mybbgroup_myicon",
+    "label": "mybbgroup/myicon",
+    "source": "https://github.com/mybbgroup/myicon",
+    "setId": "mybbgroup-myicon",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 42,
+    "round": 3,
+    "status": "ok",
+    "count": 44,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 44
+      }
+    ],
+    "note": "got 44 vs research 42"
+  },
+  "marcintreder_icons-test": {
+    "key": "marcintreder_icons-test",
+    "label": "marcintreder/icons-test",
+    "source": "https://github.com/marcintreder/icons-test",
+    "setId": "marcintreder-icons-test",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 38,
+    "round": 3,
+    "status": "ok",
+    "count": 45,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 45
+      }
+    ],
+    "note": "got 45 vs research 38"
+  },
+  "skadja_seemly": {
+    "key": "skadja_seemly",
+    "label": "skadja/seemly",
+    "source": "https://github.com/skadja/seemly",
+    "setId": "skadja-seemly",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 38,
+    "round": 3,
+    "status": "ok",
+    "count": 38,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 38
+      }
+    ]
+  },
+  "bignutty_discord-mana-icons": {
+    "key": "bignutty_discord-mana-icons",
+    "label": "bignutty/discord-mana-icons",
+    "source": "https://github.com/bignutty/discord-mana-icons",
+    "setId": "bignutty-discord-mana-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 37,
+    "round": 3,
+    "status": "ok",
+    "count": 42,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 42
+      }
+    ],
+    "note": "got 42 vs research 37"
+  },
+  "damir-sijakovic_boxie_icons": {
+    "key": "damir-sijakovic_boxie_icons",
+    "label": "damir-sijakovic/boxie_icons",
+    "source": "https://github.com/damir-sijakovic/boxie_icons",
+    "setId": "damir-sijakovic-boxie-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 36,
+    "round": 3,
+    "status": "ok",
+    "count": 7,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 7
+      }
+    ],
+    "note": "got 7 vs research 36"
+  },
+  "npm__iobroker.icons-smarthome": {
+    "key": "npm__iobroker.icons-smarthome",
+    "label": "iobroker.icons-smarthome",
+    "source": "https://www.npmjs.com/package/iobroker.icons-smarthome",
+    "setId": "iobroker-icons-smarthome",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 36,
+    "round": 3,
+    "status": "ok",
+    "count": 40,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 40
+      }
+    ],
+    "note": "got 40 vs research 36"
+  },
+  "ultraschall_ultraschall-font-icons": {
+    "key": "ultraschall_ultraschall-font-icons",
+    "label": "ultraschall/ultraschall-font-icons",
+    "source": "https://github.com/ultraschall/ultraschall-font-icons",
+    "setId": "ultraschall-ultraschall-font-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 34,
+    "round": 3,
+    "status": "ok",
+    "count": 62,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 62
+      }
+    ],
+    "note": "got 62 vs research 34"
+  },
+  "madebyretcy_azul": {
+    "key": "madebyretcy_azul",
+    "label": "madebyretcy/azul",
+    "source": "https://github.com/madebyretcy/azul",
+    "setId": "madebyretcy-azul",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 33,
+    "round": 3,
+    "status": "empty",
+    "count": 0,
+    "note": "no usable SVGs after fetch/filter"
+  },
+  "npm__@tremorvideo_aikon": {
+    "key": "npm__@tremorvideo_aikon",
+    "label": "@tremorvideo/aikon",
+    "source": "https://www.npmjs.com/package/@tremorvideo/aikon",
+    "setId": "tremorvideo-aikon",
+    "license": "Unlicense",
+    "copyleft": false,
+    "expected": 31,
+    "round": 3,
+    "status": "ok",
+    "count": 34,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 34
+      }
+    ],
+    "note": "got 34 vs research 31"
+  },
+  "npm__@holidayextras_brand-globals": {
+    "key": "npm__@holidayextras_brand-globals",
+    "label": "@holidayextras/brand-globals",
+    "source": "https://www.npmjs.com/package/@holidayextras/brand-globals",
+    "setId": "holidayextras-brand-globals",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 30,
+    "round": 3,
+    "status": "ok",
+    "count": 46,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 46
+      }
+    ],
+    "note": "got 46 vs research 30"
+  },
+  "npm__@snappmarket_icons_clothes": {
+    "key": "npm__@snappmarket_icons_clothes",
+    "label": "@snappmarket/icons_clothes",
+    "source": "https://www.npmjs.com/package/@snappmarket/icons_clothes",
+    "setId": "snappmarket-icons-clothes",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 30,
+    "round": 3,
+    "status": "ok",
+    "count": 31,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 31
+      }
+    ],
+    "note": "got 31 vs research 30"
+  },
+  "gitlab__Psypherium2010_alphanumeric_bulb_icons": {
+    "key": "gitlab__Psypherium2010_alphanumeric_bulb_icons",
+    "label": "gitlab:Psypherium2010/alphanumeric_bulb_icons",
+    "source": "https://gitlab.com/Psypherium2010/alphanumeric_bulb_icons",
+    "setId": "gitlab-psypherium2010-alphanumeric-bulb-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 30,
+    "round": 3,
+    "status": "ok",
+    "count": 39,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 39
+      }
+    ],
+    "note": "got 39 vs research 30"
+  },
+  "igorhart_front-icons": {
+    "key": "igorhart_front-icons",
+    "label": "igorhart/front-icons",
+    "source": "https://github.com/igorhart/front-icons",
+    "setId": "igorhart-front-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 30,
+    "round": 3,
+    "status": "ok",
+    "count": 35,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 35
+      }
+    ],
+    "note": "got 35 vs research 30"
+  },
+  "npm__iobroker.brightsky": {
+    "key": "npm__iobroker.brightsky",
+    "label": "iobroker.brightsky",
+    "source": "https://www.npmjs.com/package/iobroker.brightsky",
+    "setId": "iobroker-brightsky",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 30,
+    "round": 3,
+    "status": "ok",
+    "count": 34,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 34
+      }
+    ],
+    "note": "got 34 vs research 30"
+  },
+  "eyes22798_svgicon-viewer": {
+    "key": "eyes22798_svgicon-viewer",
+    "label": "eyes22798/svgicon-viewer",
+    "source": "https://github.com/eyes22798/svgicon-viewer",
+    "setId": "eyes22798-svgicon-viewer",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 29,
+    "round": 3,
+    "status": "ok",
+    "count": 34,
+    "styles": [
+      {
+        "id": "icons",
+        "label": "Icons",
+        "group": "solid",
+        "count": 7
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 27
+      }
+    ],
+    "note": "got 34 vs research 29"
+  },
+  "npm__@icon_linea-music": {
+    "key": "npm__@icon_linea-music",
+    "label": "@icon/linea-music",
+    "source": "https://www.npmjs.com/package/@icon/linea-music",
+    "setId": "icon-linea-music",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 28,
+    "round": 3,
+    "status": "ok",
+    "count": 30,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 30
+      }
+    ],
+    "note": "got 30 vs research 28"
+  },
+  "gitlab__VibhasSharma_moka-icon-theme": {
+    "key": "gitlab__VibhasSharma_moka-icon-theme",
+    "label": "gitlab:VibhasSharma/moka-icon-theme",
+    "source": "https://gitlab.com/VibhasSharma/moka-icon-theme",
+    "setId": "gitlab-vibhas-sharma-moka-icon-theme",
+    "license": "GPL",
+    "copyleft": true,
+    "expected": 28,
+    "round": 3,
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "got 810 vs research 28; pack quality pass left 0 icons"
+  },
+  "cyberhuginn_react-iranian-bank-logo": {
+    "key": "cyberhuginn_react-iranian-bank-logo",
+    "label": "cyberhuginn/react-iranian-bank-logo",
+    "source": "https://github.com/cyberhuginn/react-iranian-bank-logo",
+    "setId": "cyberhuginn-react-iranian-bank-logo",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 27,
+    "round": 3,
+    "status": "ok",
+    "count": 31,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 31
+      }
+    ],
+    "note": "got 31 vs research 27"
+  },
+  "go-icons_seti": {
+    "key": "go-icons_seti",
+    "label": "go-icons/seti",
+    "source": "https://github.com/go-icons/seti",
+    "setId": "go-icons-seti",
+    "license": "BSD",
+    "copyleft": false,
+    "expected": 27,
+    "round": 3,
+    "status": "ok",
+    "count": 30,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 30
+      }
+    ],
+    "note": "got 30 vs research 27"
+  },
+  "npm__scienceicons": {
+    "key": "npm__scienceicons",
+    "label": "scienceicons",
+    "source": "https://www.npmjs.com/package/scienceicons",
+    "setId": "scienceicons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 27,
+    "round": 3,
+    "status": "ok",
+    "count": 31,
+    "styles": [
+      {
+        "id": "outline",
+        "label": "Outline",
+        "group": "line",
+        "count": 1
+      },
+      {
+        "id": "solid",
+        "label": "Solid",
+        "group": "solid",
+        "count": 30
+      }
+    ],
+    "note": "got 31 vs research 27"
+  },
+  "madmanmayson_web-icons": {
+    "key": "madmanmayson_web-icons",
+    "label": "madmanmayson/web-icons",
+    "source": "https://github.com/madmanmayson/web-icons",
+    "setId": "madmanmayson-web-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 25,
+    "round": 3,
+    "status": "ok",
+    "count": 27,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 27
+      }
+    ],
+    "note": "got 27 vs research 25"
+  },
+  "npm__z-icon": {
+    "key": "npm__z-icon",
+    "label": "z-icon",
+    "source": "https://www.npmjs.com/package/z-icon",
+    "setId": "z-icon",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 24,
+    "round": 3,
+    "status": "ok",
+    "count": 28,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 28
+      }
+    ],
+    "note": "got 28 vs research 24"
+  },
+  "npm__@hanzo_design": {
+    "key": "npm__@hanzo_design",
+    "label": "@hanzo/design",
+    "source": "https://www.npmjs.com/package/@hanzo/design",
+    "setId": "hanzo-design",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 23,
+    "round": 3,
+    "status": "ok",
+    "count": 29,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 29
+      }
+    ],
+    "note": "got 29 vs research 23"
+  },
+  "npm__@kontourai_ui": {
+    "key": "npm__@kontourai_ui",
+    "label": "@kontourai/ui",
+    "source": "https://www.npmjs.com/package/@kontourai/ui",
+    "setId": "kontourai-ui",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 23,
+    "round": 3,
+    "status": "ok",
+    "count": 25,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 25
+      }
+    ],
+    "note": "got 25 vs research 23"
+  },
+  "eepnet_emissary": {
+    "key": "eepnet_emissary",
+    "label": "eepnet/emissary",
+    "source": "https://github.com/eepnet/emissary",
+    "setId": "eepnet-emissary",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 23,
+    "round": 3,
+    "status": "ok",
+    "count": 23,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 23
+      }
+    ]
+  },
+  "julkuh_aviaticons": {
+    "key": "julkuh_aviaticons",
+    "label": "julkuh/aviaticons",
+    "source": "https://github.com/julkuh/aviaticons",
+    "setId": "julkuh-aviaticons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 23,
+    "round": 3,
+    "status": "ok",
+    "count": 23,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 23
+      }
+    ]
+  },
+  "sempijja_navigation-icons": {
+    "key": "sempijja_navigation-icons",
+    "label": "sempijja/navigation-icons",
+    "source": "https://github.com/sempijja/navigation-icons",
+    "setId": "sempijja-navigation-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 23,
+    "round": 3,
+    "status": "ok",
+    "count": 35,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 35
+      }
+    ],
+    "note": "got 35 vs research 23"
+  },
+  "codeberg__NerdShore_svg-icons-to-woff2": {
+    "key": "codeberg__NerdShore_svg-icons-to-woff2",
+    "label": "codeberg:NerdShore/svg-icons-to-woff2",
+    "source": "https://codeberg.org/NerdShore/svg-icons-to-woff2",
+    "setId": "codeberg-nerd-shore-svg-icons-to-woff2",
+    "license": "ISC",
+    "copyleft": false,
+    "expected": 22,
+    "round": 3,
+    "status": "ok",
+    "count": 24,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 24
+      }
+    ],
+    "note": "got 24 vs research 22"
+  },
+  "soikat27_currently": {
+    "key": "soikat27_currently",
+    "label": "soikat27/currently",
+    "source": "https://github.com/soikat27/currently",
+    "setId": "soikat27-currently",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 22,
+    "round": 3,
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "; pack quality pass left 0 icons"
+  },
+  "npm__@ilo-org_brand-assets": {
+    "key": "npm__@ilo-org_brand-assets",
+    "label": "@ilo-org/brand-assets",
+    "source": "https://www.npmjs.com/package/@ilo-org/brand-assets",
+    "setId": "ilo-org-brand-assets",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 21,
+    "round": 3,
+    "status": "ok",
+    "count": 58,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 58
+      }
+    ],
+    "note": "got 58 vs research 21"
+  },
+  "npm__mod-arch-shared": {
+    "key": "npm__mod-arch-shared",
+    "label": "mod-arch-shared",
+    "source": "https://www.npmjs.com/package/mod-arch-shared",
+    "setId": "mod-arch-shared",
+    "license": "Apache-2.0",
+    "copyleft": false,
+    "expected": 21,
+    "round": 3,
+    "status": "ok",
+    "count": 28,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 28
+      }
+    ],
+    "note": "got 28 vs research 21"
+  },
+  "3sidedcoin_veggies-and-fruits-icons": {
+    "key": "3sidedcoin_veggies-and-fruits-icons",
+    "label": "3sidedcoin/veggies-and-fruits-icons",
+    "source": "https://github.com/3sidedcoin/veggies-and-fruits-icons",
+    "setId": "3sidedcoin-veggies-and-fruits-icons",
+    "license": "CC0",
+    "copyleft": false,
+    "expected": 20,
+    "round": 3,
+    "status": "ok",
+    "count": 10,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 10
+      }
+    ],
+    "note": "got 10 vs research 20"
+  },
+  "npm__@arivedha_astro-icons": {
+    "key": "npm__@arivedha_astro-icons",
+    "label": "@arivedha/astro-icons",
+    "source": "https://www.npmjs.com/package/@arivedha/astro-icons",
+    "setId": "arivedha-astro-icons",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 20,
+    "round": 3,
+    "status": "ok",
+    "count": 12,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 12
+      }
+    ],
+    "note": "got 12 vs research 20"
+  },
+  "joshuakimsey_amcharts-svg-icons-additions": {
+    "key": "joshuakimsey_amcharts-svg-icons-additions",
+    "label": "joshuakimsey/amcharts-svg-icons-additions",
+    "source": "https://github.com/joshuakimsey/amcharts-svg-icons-additions",
+    "setId": "joshuakimsey-amcharts-svg-icons-additions",
+    "license": "CC-BY",
+    "copyleft": false,
+    "attribution": "https://github.com/joshuakimsey/amcharts-svg-icons-additions",
+    "expected": 20,
+    "round": 3,
+    "status": "ok",
+    "count": 27,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 27
+      }
+    ],
+    "note": "got 27 vs research 20"
+  },
+  "masihgh_iranian-bank-list": {
+    "key": "masihgh_iranian-bank-list",
+    "label": "masihgh/iranian-bank-list",
+    "source": "https://github.com/masihgh/iranian-bank-list",
+    "setId": "masihgh-iranian-bank-list",
+    "license": "MIT",
+    "copyleft": false,
+    "expected": 20,
+    "round": 3,
+    "status": "ok",
+    "count": 39,
+    "styles": [
+      {
+        "id": "solid",
+        "label": "Icons",
+        "group": "solid",
+        "count": 39
+      }
+    ],
+    "note": "got 39 vs research 20"
+  },
+  "adejong5_star-trek-icons": {
+    "key": "adejong5_star-trek-icons",
+    "label": "adejong5/star-trek-icons",
+    "source": "https://github.com/adejong5/star-trek-icons",
+    "setId": "adejong5-star-trek-icons",
+    "license": "CC-BY-SA",
+    "copyleft": true,
+    "expected": 20,
+    "round": 3,
+    "status": "ok",
+    "count": 35,
+    "styles": [
+      {
+        "id": "line",
+        "label": "All",
+        "group": "line",
+        "count": 35
+      }
+    ],
+    "note": "got 35 vs research 20"
+  }
+}
