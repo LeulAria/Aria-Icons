@@ -9,3 +9,14 @@ apps/web/icons/vendored/phylopic-silhouettes-cc0-pdm-cc-by-only.json filter=lfs 
 apps/web/icons/vendored/pling-2049257.json filter=lfs diff=lfs merge=lfs -text
 apps/web/icons/vendored/amckenna41-iso3166-flags.json filter=lfs diff=lfs merge=lfs -text
 apps/web/icons/vendored/pling-2316184.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/bchoubert-bc-font.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/fpgawars-icestudio-block-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/gitlab-glab-forks-debian-gnome-team-gnome-icon-theme.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/gitlab-radicons-radicons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/iobroker-icons-mfd-svg.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/krz-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/persianlabs-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/pokeapi-sprites.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/stria-icons.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/teddy95-pokemon-font.json filter=lfs diff=lfs merge=lfs -text
+apps/web/icons/vendored/theartificial-pokemon-icons.json filter=lfs diff=lfs merge=lfs -text

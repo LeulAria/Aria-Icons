@@ -4,6 +4,45 @@ All notable changes to Aria Icons are documented here and in the in-app changelo
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2026-10-11] — Round-3 open icon families (gap research)
+
+Vendored **173** open SVG icon families from the October 2026 gap research round 3 (**93,708** icons after the pack quality/dedupe pass). Catalog estimate: about **1,395,277** icons across **1,332** sets (previous baseline 1,301,569 / 1,159).
+
+Of the packed icons, **5,400** are from copyleft families (GPL/LGPL/CC-BY-SA/MPL) and **88,308** are from permissive licences. Licence, copyleft, and CC-BY attribution fields are stored on each set in `icon-sets.ts`, with per-family notes under `apps/web/icons/licenses/r3/`. Icons ship as packed JSON under `apps/web/icons/vendored/`. Oversized packs use Git LFS.
+
+Research claimed ~292k verified-unique icons including aggregator buckets and Houston Icons; this import covers the **strict icon families** only (see skips).
+
+### Added (highlights)
+
+| Family | Source | License | Icons |
+|--------|--------|---------|------:|
+| krz-icons | [npm krz-icons](https://www.npmjs.com/package/krz-icons) | MIT | 20,130 |
+| stria-icons | [npm stria-icons](https://www.npmjs.com/package/stria-icons) | MIT | 12,572 |
+| appica-icons | [appica-dev/appica-icons](https://github.com/appica-dev/appica-icons) | MIT | 5,006 |
+| iconkit | [npm @ferran_suils/iconkit](https://www.npmjs.com/package/@ferran_suils/iconkit) | MIT | 4,580 |
+| Splunk icon library | [lyderhansen/splunk-icon-library](https://github.com/lyderhansen/splunk-icon-library) | Apache-2.0 | 3,847 |
+| zenicons | [mic-360/zenicons](https://github.com/mic-360/zenicons) | MIT | 3,023 |
+| … | 167 more families | see set metadata | … |
+
+Full per-family licence metadata is in `apps/web/src/lib/icon-sets.ts` (GAP_R3 block), `apps/web/icons/licenses/r3/`, and `apps/web/scripts/data/aria-r3/import-report.json`.
+
+### Skipped
+
+| Family / bucket | Source | License | Reason |
+|-----------------|--------|---------|--------|
+| Clker.com / Openclipart | Hugging Face datasets | CC0 | Clipart — excluded by import policy |
+| @houstonicons/react | [npm](https://www.npmjs.com/package/@houstonicons/react) | commercial (LICENSE.md) | Paid/non-redistributable despite CC0 in package.json |
+| Exact set-id duplicates | various | — | Already shipped on main (e.g. visa-nova-icons-svg, next-core-brick-icons) |
+| SVG Repo / SVGFind licence splits | Hugging Face | per-split | Residual path lists not in upload; full splits would reintroduce geometry duplicates |
+| Wikimedia Commons aggregators | Commons / HF | per-file | HF dataset 401; mixed licences; SVG road signs not trivially separable |
+| emelfm2-svg-icons / gnome-icon-theme-gartoon | Debian | — | No `.deb` download link resolved |
+| madebyretcy/azul | GitHub | MIT | No usable SVGs after fetch/filter |
+
+### Changed
+
+- Added `bun run fetch:r3` (`apps/web/scripts/fetch-r3-families.ts`) — manifest-driven importer for gap research round 3.
+- Licence-file scan at import time rejects proprietary/NC terms even when `package.json` claims a permissive SPDX id.
+
 ## [2026-10-08] — ~300k open icon families (gap research rounds 1 + 2)
 
 Vendored **597** open SVG icon families from the October 2026 gap research (**274,321** icons after the pack quality/dedupe pass). Catalog estimate: about **1,301,569** icons across **1,159** sets (previous baseline 1,027,248 / 562).
