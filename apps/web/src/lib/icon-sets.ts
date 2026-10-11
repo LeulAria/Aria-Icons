@@ -8943,6 +8943,8 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	// GAP_300K_END
+	// GAP_R3_START
+	// GAP_R3_END
 	// Material Symbols weights Iconify doesn't carry (it has 200 and 400): bun run fetch:material-symbols
 	{
 		id: "material-symbols-100",

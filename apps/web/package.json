@@ -14,6 +14,7 @@
     "fetch:p0": "tsx scripts/fetch-p0-families.ts",
     "fetch:gap": "tsx scripts/fetch-oss-gap-families.ts",
     "fetch:300k": "tsx scripts/fetch-300k-families.ts",
+    "fetch:r3": "tsx scripts/fetch-r3-families.ts",
     "fetch:material-symbols": "tsx scripts/fetch-material-symbols.ts",
     "pack:icons": "tsx scripts/pack-icon-sets.ts",
     "repair:icons": "tsx scripts/repair-icon-packs.ts",
