@@ -962,20 +962,23 @@ async function importFamily(
 			// Round 3 manifests ship svg_subpaths (no residual path lists). Prefer
 			// those roots, then widen to parent/repo if the yield is far below research.
 			if (!wanted?.length) {
+				// Prefer the deepest existing svg_subpath (research sample dir / its parent).
+				// Never concatenate overlapping subroots — that double-counts the same SVGs.
 				const subroots =
 					family.svg_subpaths?.length > 0
 						? family.svg_subpaths.map((s) => path.join(root, s))
 						: [root];
-				const collected: NamedSvg[] = [];
+				let best: NamedSvg[] = [];
 				for (const sub of subroots) {
 					try {
 						await fs.access(sub);
 					} catch {
 						continue;
 					}
-					collected.push(...(await collectFromTree(sub, null, theme, include, exclude)));
+					const got = await collectFromTree(sub, null, theme, include, exclude);
+					if (got.length > best.length) best = got;
 				}
-				if (collected.length) items = collected;
+				if (best.length) items = best;
 				if (items.length < Math.max(1, Math.floor(family.new_unique * 0.5))) {
 					const widened = await collectFromTree(root, null, theme, include, exclude);
 					if (widened.length > items.length) items = widened;
