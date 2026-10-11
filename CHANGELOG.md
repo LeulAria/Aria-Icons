@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [2026-10-11] — Round-3 open icon families (gap research)
 
-Vendored **173** open SVG icon families from the October 2026 gap research round 3 (**93,708** icons after the pack quality/dedupe pass). Catalog estimate: about **1,395,277** icons across **1,332** sets (previous baseline 1,301,569 / 1,159).
+Vendored **170** open SVG icon families from the October 2026 gap research round 3 (**93,708** icons after the pack quality/dedupe pass). Catalog estimate: about **1,395,277** icons across **1,329** sets (previous baseline 1,301,569 / 1,159).
 
 Of the packed icons, **5,400** are from copyleft families (GPL/LGPL/CC-BY-SA/MPL) and **88,308** are from permissive licences. Licence, copyleft, and CC-BY attribution fields are stored on each set in `icon-sets.ts`, with per-family notes under `apps/web/icons/licenses/r3/`. Icons ship as packed JSON under `apps/web/icons/vendored/`. Oversized packs use Git LFS.
 
@@ -22,7 +22,7 @@ Research claimed ~292k verified-unique icons including aggregator buckets and Ho
 | iconkit | [npm @ferran_suils/iconkit](https://www.npmjs.com/package/@ferran_suils/iconkit) | MIT | 4,580 |
 | Splunk icon library | [lyderhansen/splunk-icon-library](https://github.com/lyderhansen/splunk-icon-library) | Apache-2.0 | 3,847 |
 | zenicons | [mic-360/zenicons](https://github.com/mic-360/zenicons) | MIT | 3,023 |
-| … | 167 more families | see set metadata | … |
+| … | 164 more families | see set metadata | … |
 
 Full per-family licence metadata is in `apps/web/src/lib/icon-sets.ts` (GAP_R3 block), `apps/web/icons/licenses/r3/`, and `apps/web/scripts/data/aria-r3/import-report.json`.
 
@@ -37,6 +37,7 @@ Full per-family licence metadata is in `apps/web/src/lib/icon-sets.ts` (GAP_R3 b
 | Wikimedia Commons aggregators | Commons / HF | per-file | HF dataset 401; mixed licences; SVG road signs not trivially separable |
 | emelfm2-svg-icons / gnome-icon-theme-gartoon | Debian | — | No `.deb` download link resolved |
 | madebyretcy/azul | GitHub | MIT | No usable SVGs after fetch/filter |
+| rhds-icons / soikat27-currently / moka-icon-theme | npm/git | — | Pack quality pass left 0 usable icons |
 
 ### Changed
 

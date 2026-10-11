@@ -377,17 +377,10 @@
     "copyleft": false,
     "expected": 1021,
     "round": 3,
-    "status": "ok",
-    "count": 555,
-    "styles": [
-      {
-        "id": "line",
-        "label": "All",
-        "group": "line",
-        "count": 555
-      }
-    ],
-    "note": "got 555 vs research 1021"
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "got 555 vs research 1021; pack quality pass left 0 icons"
   },
   "opengemeenten_iconenset": {
     "key": "opengemeenten_iconenset",
@@ -3502,17 +3495,10 @@
     "copyleft": true,
     "expected": 28,
     "round": 3,
-    "status": "ok",
-    "count": 810,
-    "styles": [
-      {
-        "id": "solid",
-        "label": "Icons",
-        "group": "solid",
-        "count": 810
-      }
-    ],
-    "note": "got 810 vs research 28"
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "got 810 vs research 28; pack quality pass left 0 icons"
   },
   "cyberhuginn_react-iranian-bank-logo": {
     "key": "cyberhuginn_react-iranian-bank-logo",
@@ -3758,16 +3744,10 @@
     "copyleft": false,
     "expected": 22,
     "round": 3,
-    "status": "ok",
-    "count": 22,
-    "styles": [
-      {
-        "id": "line",
-        "label": "All",
-        "group": "line",
-        "count": 22
-      }
-    ]
+    "status": "empty",
+    "count": 0,
+    "styles": [],
+    "note": "; pack quality pass left 0 icons"
   },
   "npm__@ilo-org_brand-assets": {
     "key": "npm__@ilo-org_brand-assets",

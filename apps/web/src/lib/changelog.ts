@@ -15,7 +15,7 @@ export const CHANGELOG: ChangelogEntry[] = [
 		title: "Round-3 open icon families",
 		tag: "Icons",
 		summary:
-			"Vendored 173 open SVG icon families from the October 2026 gap research (round 3): 93,708 icons after the pack quality/dedupe pass. About 5,400 icons are from copyleft families and 88,308 from permissive licences; each set records licence, copyleft, and attribution in metadata, with per-family notes under icons/licenses/r3/. Clipart buckets, aggregator residuals without path lists, proprietary Houston Icons, and a few unreachable Debian packages were skipped. The browse catalog now lists about 1,395,277 icons across 1,332 sets.",
+			"Vendored 170 open SVG icon families from the October 2026 gap research (round 3): 93,708 icons after the pack quality/dedupe pass. About 5,400 icons are from copyleft families and 88,308 from permissive licences; each set records licence, copyleft, and attribution in metadata, with per-family notes under icons/licenses/r3/. Clipart buckets, aggregator residuals without path lists, proprietary Houston Icons, and a few unreachable Debian packages were skipped. The browse catalog now lists about 1,395,277 icons across 1,329 sets.",
 		added: [
 			"Added krz-icons (20,130 icons) — [npm krz-icons](https://www.npmjs.com/package/krz-icons), MIT.",
 			"Added stria-icons (12,572 icons) — [npm stria-icons](https://www.npmjs.com/package/stria-icons), MIT.",
@@ -23,10 +23,10 @@ export const CHANGELOG: ChangelogEntry[] = [
 			"Added iconkit (4,580 icons) — [npm @ferran_suils/iconkit](https://www.npmjs.com/package/@ferran_suils/iconkit), MIT.",
 			"Added Splunk icon library (3,847 icons) — [lyderhansen/splunk-icon-library](https://github.com/lyderhansen/splunk-icon-library), Apache-2.0.",
 			"Added zenicons (3,023 icons) — [mic-360/zenicons](https://github.com/mic-360/zenicons), MIT.",
-			"Added 167 further open families from round-3 gap research (git, npm, Codeberg, GitLab) with licence metadata on each set.",
+			"Added 164 further open families from round-3 gap research (git, npm, Codeberg, GitLab) with licence metadata on each set.",
 		],
 		removed: [
-			"Skipped clipart buckets (Clker/Openclipart), aggregator residuals without path lists (SVG Repo/SVGFind/Wikimedia), proprietary @houstonicons/react, exact set-id duplicates already on main, two Debian packages with no .deb link, and madebyretcy/azul (empty after filter).",
+			"Skipped clipart buckets (Clker/Openclipart), aggregator residuals without path lists (SVG Repo/SVGFind/Wikimedia), proprietary @houstonicons/react, exact set-id duplicates already on main, two Debian packages with no .deb link, madebyretcy/azul (empty after filter), and three packs emptied by the quality pass (rhds-icons, soikat27-currently, moka-icon-theme).",
 		],
 	},
 	{

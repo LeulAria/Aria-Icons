@@ -68,7 +68,6 @@ Per-family attribution for packs imported by `bun run fetch:r3`.
 | [`gitlab-nesstero-dar-k-icons`](./gitlab-nesstero-dar-k-icons.md) | CC-BY-SA | yes | 609 |
 | [`gitlab-psypherium2010-alphanumeric-bulb-icons`](./gitlab-psypherium2010-alphanumeric-bulb-icons.md) | CC0 | no | 39 |
 | [`gitlab-radicons-radicons`](./gitlab-radicons-radicons.md) | CC0 | no | 319 |
-| [`gitlab-vibhas-sharma-moka-icon-theme`](./gitlab-vibhas-sharma-moka-icon-theme.md) | GPL | yes | 0 |
 | [`gitlab-willmac321-cowboymoji`](./gitlab-willmac321-cowboymoji.md) | MIT | no | 313 |
 | [`glombek-umbicosaurus`](./glombek-umbicosaurus.md) | MIT | no | 609 |
 | [`gnomicon`](./gnomicon.md) | CC-BY-SA | yes | 1543 |
@@ -144,7 +143,6 @@ Per-family attribution for packs imported by `bun run fetch:r3`.
 | [`presslabs-react-particles-icons`](./presslabs-react-particles-icons.md) | Apache-2.0 | no | 715 |
 | [`qlik-sprout-icons`](./qlik-sprout-icons.md) | MIT | no | 519 |
 | [`rafascalet-let-icons`](./rafascalet-let-icons.md) | MIT | no | 162 |
-| [`rhds-icons`](./rhds-icons.md) | MIT | no | 0 |
 | [`rylydou-sharp-icons`](./rylydou-sharp-icons.md) | MIT | no | 98 |
 | [`salesforce-ux-design-system`](./salesforce-ux-design-system.md) | BSD-3-Clause | no | 1439 |
 | [`scienceicons`](./scienceicons.md) | MIT | no | 31 |
@@ -154,7 +152,6 @@ Per-family attribution for packs imported by `bun run fetch:r3`.
 | [`shrinks99-blender-icons`](./shrinks99-blender-icons.md) | CC-BY-SA | yes | 655 |
 | [`skadja-seemly`](./skadja-seemly.md) | MIT | no | 38 |
 | [`snappmarket-icons-clothes`](./snappmarket-icons-clothes.md) | MIT | no | 31 |
-| [`soikat27-currently`](./soikat27-currently.md) | MIT | no | 0 |
 | [`stria-icons`](./stria-icons.md) | MIT | no | 12572 |
 | [`supercons`](./supercons.md) | BSD | no | 461 |
 | [`teddy95-pokemon-font`](./teddy95-pokemon-font.md) | MIT | no | 1201 |

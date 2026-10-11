@@ -8964,7 +8964,6 @@ export const ICON_SETS: IconSetConfig[] = [
 			{ id: "line", label: "Line", group: "line", roots: ["line"] },
 			{ id: "regular", label: "Regular", group: "line", roots: ["regular"] },
 			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
 			{ id: "thin", label: "Thin", group: "line", roots: ["thin"] },
 		],
 	},
@@ -8975,10 +8974,10 @@ export const ICON_SETS: IconSetConfig[] = [
 		license: "MIT",
 		styles: [
 			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
-			{ id: "icons", label: "Icons", group: "line", roots: ["icons"] },
+			{ id: "icons", label: "Icons", group: "solid", roots: ["icons"] },
 			{ id: "line", label: "Line", group: "line", roots: ["line"] },
 			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-			{ id: "square", label: "Square", group: "line", roots: ["square"] },
+			{ id: "square", label: "Square", group: "solid", roots: ["square"] },
 		],
 	},
 	{
@@ -8988,7 +8987,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		license: "MIT",
 		styles: [
 			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
 			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
 		],
 	},
@@ -9000,7 +8998,7 @@ export const ICON_SETS: IconSetConfig[] = [
 		styles: [
 			{ id: "light", label: "Light", group: "line", roots: ["light"] },
 			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-			{ id: "square", label: "Square", group: "line", roots: ["square"] },
+			{ id: "square", label: "Square", group: "solid", roots: ["square"] },
 		],
 	},
 	{
@@ -9022,33 +9020,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "gitlab-nesstero-dar-k-icons",
-		label: "gitlab:nesstero/DarK-icons",
-		homepage: "https://gitlab.com/nesstero/DarK-icons",
-		license: "CC-BY-SA",
-		copyleft: true,
-		styles: [
-			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
-			{ id: "line", label: "Line", group: "line", roots: ["line"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
 		id: "archie123-kerke-icons",
 		label: "archie123-kerke-icons",
 		homepage: "https://www.npmjs.com/package/archie123-kerke-icons",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "ui5-webcomponents-icons",
-		label: "@ui5/webcomponents-icons",
-		homepage: "https://www.npmjs.com/package/@ui5/webcomponents-icons",
-		license: "Apache-2.0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -9059,6 +9036,25 @@ export const ICON_SETS: IconSetConfig[] = [
 		copyleft: true,
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "theartificial-pokemon-icons",
+		label: "theartificial/pokemon-icons",
+		homepage: "https://github.com/theartificial/pokemon-icons",
+		license: "ISC",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "salesforce-ux-design-system",
+		label: "@salesforce-ux/design-system",
+		homepage: "https://www.npmjs.com/package/@salesforce-ux/design-system",
+		license: "BSD-3-Clause",
+		styles: [
+			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9080,12 +9076,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "rhds-icons",
-		label: "@rhds/icons",
-		homepage: "https://www.npmjs.com/package/@rhds/icons",
+		id: "teddy95-pokemon-font",
+		label: "teddy95/pokemon-font",
+		homepage: "https://github.com/teddy95/pokemon-font",
 		license: "MIT",
 		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9101,34 +9097,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "salesforce-ux-design-system",
-		label: "@salesforce-ux/design-system",
-		homepage: "https://www.npmjs.com/package/@salesforce-ux/design-system",
-		license: "BSD-3-Clause",
-		styles: [
-			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "microfocus-ias-icons",
-		label: "microfocus/ias-icons",
-		homepage: "https://github.com/microfocus/ias-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "udir-design-icons",
-		label: "@udir-design/icons",
-		homepage: "https://www.npmjs.com/package/@udir-design/icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
 		id: "uxthings-popicons",
 		label: "uxthings/popicons",
 		homepage: "https://github.com/uxthings/popicons",
@@ -9140,19 +9108,9 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "derroce-icons",
-		label: "@derroce/icons",
-		homepage: "https://www.npmjs.com/package/@derroce/icons",
-		license: "MIT",
-		styles: [
-			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "michaelbollin-food-icons",
-		label: "michaelbollin/food-icons",
-		homepage: "https://github.com/michaelbollin/food-icons",
+		id: "udir-design-icons",
+		label: "@udir-design/icons",
+		homepage: "https://www.npmjs.com/package/@udir-design/icons",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
@@ -9169,6 +9127,25 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "microfocus-ias-icons",
+		label: "microfocus/ias-icons",
+		homepage: "https://github.com/microfocus/ias-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "persianlabs-icons",
+		label: "@persianlabs/icons",
+		homepage: "https://www.npmjs.com/package/@persianlabs/icons",
+		license: "MIT",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "mono", label: "Mono", group: "line", roots: ["mono"] },
+		],
+	},
+	{
 		id: "vytautas9-fabric-icons",
 		label: "vytautas9/fabric-icons",
 		homepage: "https://github.com/vytautas9/fabric-icons",
@@ -9178,12 +9155,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "dot-alter-altered-icons",
-		label: "dot-alter/altered-icons",
-		homepage: "https://github.com/dot-alter/altered-icons",
+		id: "pokeapi-sprites",
+		label: "pokeapi-sprites",
+		homepage: "https://www.npmjs.com/package/pokeapi-sprites",
 		license: "ISC",
 		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9196,40 +9173,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "devui-design-icons",
-		label: "@devui-design/icons",
-		homepage: "https://www.npmjs.com/package/@devui-design/icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "glombek-umbicosaurus",
-		label: "glombek/umbicosaurus",
-		homepage: "https://github.com/glombek/umbicosaurus",
-		license: "MIT",
-		styles: [
-			{ id: "icons", label: "Icons", group: "line", roots: ["icons"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "teddy95-pokemon-font",
-		label: "teddy95/pokemon-font",
-		homepage: "https://github.com/teddy95/pokemon-font",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "coveo-atomic-react",
-		label: "@coveo/atomic-react",
-		homepage: "https://www.npmjs.com/package/@coveo/atomic-react",
+		id: "ui5-webcomponents-icons",
+		label: "@ui5/webcomponents-icons",
+		homepage: "https://www.npmjs.com/package/@ui5/webcomponents-icons",
 		license: "Apache-2.0",
 		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -9252,12 +9201,52 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "fpgawars-icestudio-block-icons",
+		label: "fpgawars/icestudio-block-icons",
+		homepage: "https://github.com/fpgawars/icestudio-block-icons",
+		license: "LGPL",
+		copyleft: true,
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "iobroker-icons-freepic",
+		label: "iobroker.icons-freepic",
+		homepage: "https://www.npmjs.com/package/iobroker.icons-freepic",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
 		id: "toroll-tagin-icons",
 		label: "@toroll/tagin-icons",
 		homepage: "https://www.npmjs.com/package/@toroll/tagin-icons",
 		license: "ISC",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "gitlab-nesstero-dar-k-icons",
+		label: "gitlab:nesstero/DarK-icons",
+		homepage: "https://gitlab.com/nesstero/DarK-icons",
+		license: "CC-BY-SA",
+		copyleft: true,
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "glombek-umbicosaurus",
+		label: "glombek/umbicosaurus",
+		homepage: "https://github.com/glombek/umbicosaurus",
+		license: "MIT",
+		styles: [
+			{ id: "icons", label: "Icons", group: "solid", roots: ["icons"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9270,13 +9259,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "persianlabs-icons",
-		label: "@persianlabs/icons",
-		homepage: "https://www.npmjs.com/package/@persianlabs/icons",
+		id: "qlik-sprout-icons",
+		label: "@qlik/sprout-icons",
+		homepage: "https://www.npmjs.com/package/@qlik/sprout-icons",
 		license: "MIT",
 		styles: [
-			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
-			{ id: "mono", label: "Mono", group: "line", roots: ["mono"] },
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9290,18 +9278,127 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "iobroker-icons-freepic",
-		label: "iobroker.icons-freepic",
-		homepage: "https://www.npmjs.com/package/iobroker.icons-freepic",
+		id: "detechies-icons",
+		label: "detechies-icons",
+		homepage: "https://www.npmjs.com/package/detechies-icons",
+		license: "ISC",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "coingaming-moon-icons-react",
+		label: "coingaming/moon-icons-react",
+		homepage: "https://github.com/coingaming/moon-icons-react",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
-		id: "qlik-sprout-icons",
-		label: "@qlik/sprout-icons",
-		homepage: "https://www.npmjs.com/package/@qlik/sprout-icons",
+		id: "afnan-hossain-atmoscene",
+		label: "afnan-hossain/atmoscene",
+		homepage: "https://github.com/afnan-hossain/atmoscene",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "derroce-icons",
+		label: "@derroce/icons",
+		homepage: "https://www.npmjs.com/package/@derroce/icons",
+		license: "MIT",
+		styles: [
+			{ id: "bold", label: "Bold", group: "solid", roots: ["bold"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "supercons",
+		label: "supercons",
+		homepage: "https://www.npmjs.com/package/supercons",
+		license: "BSD",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "michaelbollin-food-icons",
+		label: "michaelbollin/food-icons",
+		homepage: "https://github.com/michaelbollin/food-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "devui-design-icons",
+		label: "@devui-design/icons",
+		homepage: "https://www.npmjs.com/package/@devui-design/icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "indxsearch-indx-pixl",
+		label: "indxsearch/indx-pixl",
+		homepage: "https://github.com/indxsearch/indx-pixl",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "oxoyo-crazy-loading",
+		label: "oxoyo/crazy-loading",
+		homepage: "https://github.com/oxoyo/crazy-loading",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "dot-alter-altered-icons",
+		label: "dot-alter/altered-icons",
+		homepage: "https://github.com/dot-alter/altered-icons",
+		license: "ISC",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "iconmuse",
+		label: "iconmuse",
+		homepage: "https://www.npmjs.com/package/iconmuse",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "icon-batch",
+		label: "icon-batch",
+		homepage: "https://www.npmjs.com/package/icon-batch",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "cfpb-cfpb-design-system",
+		label: "@cfpb/cfpb-design-system",
+		homepage: "https://www.npmjs.com/package/@cfpb/cfpb-design-system",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "finery-ccy-icons",
+		label: "@finery/ccy-icons",
+		homepage: "https://www.npmjs.com/package/@finery/ccy-icons",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
@@ -9318,154 +9415,9 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "alaa-sufi-shihab-icons",
-		label: "alaa-sufi/shihab-icons",
-		homepage: "https://github.com/alaa-sufi/shihab-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "coingaming-moon-icons-react",
-		label: "coingaming/moon-icons-react",
-		homepage: "https://github.com/coingaming/moon-icons-react",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "supercons",
-		label: "supercons",
-		homepage: "https://www.npmjs.com/package/supercons",
-		license: "BSD",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "detechies-icons",
-		label: "detechies-icons",
-		homepage: "https://www.npmjs.com/package/detechies-icons",
-		license: "ISC",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "iconmuse",
-		label: "iconmuse",
-		homepage: "https://www.npmjs.com/package/iconmuse",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "cfpb-cfpb-design-system",
-		label: "@cfpb/cfpb-design-system",
-		homepage: "https://www.npmjs.com/package/@cfpb/cfpb-design-system",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "oxoyo-crazy-loading",
-		label: "oxoyo/crazy-loading",
-		homepage: "https://github.com/oxoyo/crazy-loading",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "finery-ccy-icons",
-		label: "@finery/ccy-icons",
-		homepage: "https://www.npmjs.com/package/@finery/ccy-icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "mteheran-colombia-icons",
-		label: "mteheran/colombia-icons",
-		homepage: "https://github.com/mteheran/colombia-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "l3-lib-ui-style",
-		label: "@l3-lib/ui-style",
-		homepage: "https://www.npmjs.com/package/@l3-lib/ui-style",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "fpgawars-icestudio-block-icons",
-		label: "fpgawars/icestudio-block-icons",
-		homepage: "https://github.com/fpgawars/icestudio-block-icons",
-		license: "LGPL",
-		copyleft: true,
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "icon-batch",
-		label: "icon-batch",
-		homepage: "https://www.npmjs.com/package/icon-batch",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "indxsearch-indx-pixl",
-		label: "indxsearch/indx-pixl",
-		homepage: "https://github.com/indxsearch/indx-pixl",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "phillbush-haiku-icons",
-		label: "phillbush/haiku-icons",
-		homepage: "https://github.com/phillbush/haiku-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "atomicsmash-launchpad-icons",
-		label: "atomicsmash/launchpad-icons",
-		homepage: "https://github.com/atomicsmash/launchpad-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
 		id: "gitlab-radicons-radicons",
 		label: "gitlab:radicons/radicons",
 		homepage: "https://gitlab.com/radicons/radicons",
-		license: "CC0",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "aquasecurity-cloudsec-icons",
-		label: "aquasecurity/cloudsec-icons",
-		homepage: "https://github.com/aquasecurity/cloudsec-icons",
 		license: "CC0",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
@@ -9481,6 +9433,24 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "mteheran-colombia-icons",
+		label: "mteheran/colombia-icons",
+		homepage: "https://github.com/mteheran/colombia-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "atomicsmash-launchpad-icons",
+		label: "atomicsmash/launchpad-icons",
+		homepage: "https://github.com/atomicsmash/launchpad-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
 		id: "danielwerg-r6data",
 		label: "danielwerg/r6data",
 		homepage: "https://github.com/danielwerg/r6data",
@@ -9490,10 +9460,28 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "afnan-hossain-atmoscene",
-		label: "afnan-hossain/atmoscene",
-		homepage: "https://github.com/afnan-hossain/atmoscene",
+		id: "zerox2cool-d365dt",
+		label: "zerox2cool/d365dt",
+		homepage: "https://github.com/zerox2cool/d365dt",
 		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "alaa-sufi-shihab-icons",
+		label: "alaa-sufi/shihab-icons",
+		homepage: "https://github.com/alaa-sufi/shihab-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "aquasecurity-cloudsec-icons",
+		label: "aquasecurity/cloudsec-icons",
+		homepage: "https://github.com/aquasecurity/cloudsec-icons",
+		license: "CC0",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
@@ -9518,15 +9506,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "zerox2cool-d365dt",
-		label: "zerox2cool/d365dt",
-		homepage: "https://github.com/zerox2cool/d365dt",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
 		id: "bit-icons",
 		label: "bit-icons",
 		homepage: "https://www.npmjs.com/package/bit-icons",
@@ -9545,6 +9524,15 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "youseedk-dna",
+		label: "@youseedk/dna",
+		homepage: "https://www.npmjs.com/package/@youseedk/dna",
+		license: "ISC",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
 		id: "dabisaigomez-prog-bitline",
 		label: "dabisaigomez-prog/bitline",
 		homepage: "https://github.com/dabisaigomez-prog/bitline",
@@ -9554,15 +9542,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "yisibell-nuxt-svg-icons",
-		label: "yisibell/nuxt-svg-icons",
-		homepage: "https://github.com/yisibell/nuxt-svg-icons",
+		id: "frosted-ui-icons",
+		label: "@frosted-ui/icons",
+		homepage: "https://www.npmjs.com/package/@frosted-ui/icons",
 		license: "MIT",
 		styles: [
-			{ id: "icons", label: "Icons", group: "solid", roots: ["icons"] },
-			{ id: "mini", label: "Mini", group: "line", roots: ["mini"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-			{ id: "square", label: "Square", group: "line", roots: ["square"] },
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9572,25 +9557,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "code4history-chokei",
-		label: "code4history/chokei",
-		homepage: "https://github.com/code4history/chokei",
-		license: "CC-BY-SA-4.0",
-		copyleft: true,
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "youseedk-dna",
-		label: "@youseedk/dna",
-		homepage: "https://www.npmjs.com/package/@youseedk/dna",
-		license: "ISC",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -9604,6 +9570,16 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "code4history-chokei",
+		label: "code4history/chokei",
+		homepage: "https://github.com/code4history/chokei",
+		license: "CC-BY-SA-4.0",
+		copyleft: true,
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
 		id: "maxsteenbergen-pebble-icons",
 		label: "maxsteenbergen/pebble-icons",
 		homepage: "https://github.com/maxsteenbergen/pebble-icons",
@@ -9613,20 +9589,127 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "theartificial-pokemon-icons",
-		label: "theartificial/pokemon-icons",
-		homepage: "https://github.com/theartificial/pokemon-icons",
+		id: "pfefferle-openwebicons",
+		label: "pfefferle/openwebicons",
+		homepage: "https://github.com/pfefferle/openwebicons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "seti-ui",
+		label: "seti-ui",
+		homepage: "https://www.npmjs.com/package/seti-ui",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "rafascalet-let-icons",
+		label: "rafascalet/let-icons",
+		homepage: "https://github.com/rafascalet/let-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "l3-lib-ui-style",
+		label: "@l3-lib/ui-style",
+		homepage: "https://www.npmjs.com/package/@l3-lib/ui-style",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "ibm-icon-font",
+		label: "ibm-icon-font",
+		homepage: "https://www.npmjs.com/package/ibm-icon-font",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "lightspeed-cirrus-icon",
+		label: "@lightspeed/cirrus-icon",
+		homepage: "https://www.npmjs.com/package/@lightspeed/cirrus-icon",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "cncf-svg-autocrop",
+		label: "cncf/svg-autocrop",
+		homepage: "https://github.com/cncf/svg-autocrop",
+		license: "Apache-2.0",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "obosbbl-grunnmuren-icons",
+		label: "@obosbbl/grunnmuren-icons",
+		homepage: "https://www.npmjs.com/package/@obosbbl/grunnmuren-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "icon-linea-basic-elaboration",
+		label: "@icon/linea-basic-elaboration",
+		homepage: "https://www.npmjs.com/package/@icon/linea-basic-elaboration",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "userfrm-egui-charts",
+		label: "userfrm/egui-charts",
+		homepage: "https://github.com/userfrm/egui-charts",
+		license: "Apache-2.0",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "font-mfizz",
+		label: "font-mfizz",
+		homepage: "https://www.npmjs.com/package/font-mfizz",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "icon-linea-basic",
+		label: "@icon/linea-basic",
+		homepage: "https://www.npmjs.com/package/@icon/linea-basic",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "gaia-font-icons",
+		label: "gaia-font-icons",
+		homepage: "https://www.npmjs.com/package/gaia-font-icons",
 		license: "ISC",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
-		id: "codeberg-k1t-weather-icons",
-		label: "codeberg:k1t/WeatherIcons",
-		homepage: "https://codeberg.org/k1t/WeatherIcons",
-		license: "LGPL",
-		copyleft: true,
+		id: "phillbush-haiku-icons",
+		label: "phillbush/haiku-icons",
+		homepage: "https://github.com/phillbush/haiku-icons",
+		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
@@ -9642,111 +9725,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "userfrm-egui-charts",
-		label: "userfrm/egui-charts",
-		homepage: "https://github.com/userfrm/egui-charts",
-		license: "Apache-2.0",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "lightspeed-cirrus-icon",
-		label: "@lightspeed/cirrus-icon",
-		homepage: "https://www.npmjs.com/package/@lightspeed/cirrus-icon",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "ibm-icon-font",
-		label: "ibm-icon-font",
-		homepage: "https://www.npmjs.com/package/ibm-icon-font",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
 		id: "hr-icons",
 		label: "hr-icons",
 		homepage: "https://www.npmjs.com/package/hr-icons",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "icon-linea-basic-elaboration",
-		label: "@icon/linea-basic-elaboration",
-		homepage: "https://www.npmjs.com/package/@icon/linea-basic-elaboration",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "obosbbl-grunnmuren-icons",
-		label: "@obosbbl/grunnmuren-icons",
-		homepage: "https://www.npmjs.com/package/@obosbbl/grunnmuren-icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "warhammer40kgroup-wh40k-icon",
-		label: "warhammer40kgroup/wh40k-icon",
-		homepage: "https://github.com/warhammer40kgroup/wh40k-icon",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "rafascalet-let-icons",
-		label: "rafascalet/let-icons",
-		homepage: "https://github.com/rafascalet/let-icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "icon-linea-basic",
-		label: "@icon/linea-basic",
-		homepage: "https://www.npmjs.com/package/@icon/linea-basic",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "seti-ui",
-		label: "seti-ui",
-		homepage: "https://www.npmjs.com/package/seti-ui",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "gaia-font-icons",
-		label: "gaia-font-icons",
-		homepage: "https://www.npmjs.com/package/gaia-font-icons",
-		license: "ISC",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "cncf-svg-autocrop",
-		label: "cncf/svg-autocrop",
-		homepage: "https://github.com/cncf/svg-autocrop",
-		license: "Apache-2.0",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9777,24 +9761,6 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "k00ni-semicon",
-		label: "k00ni/semicon",
-		homepage: "https://github.com/k00ni/semicon",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "font-mfizz",
-		label: "font-mfizz",
-		homepage: "https://www.npmjs.com/package/font-mfizz",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
 		id: "papillonapp-papicons",
 		label: "papillonapp/papicons",
 		homepage: "https://github.com/papillonapp/papicons",
@@ -9813,29 +9779,46 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "mondaycom-vibe",
-		label: "mondaycom/vibe",
-		homepage: "https://github.com/mondaycom/vibe",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "baryodev-kapehan",
-		label: "baryodev/kapehan",
-		homepage: "https://github.com/baryodev/kapehan",
-		license: "MIT",
-		styles: [
-			{ id: "mono", label: "Mono", group: "line", roots: ["mono"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
 		id: "file-icons-mfixx",
 		label: "file-icons/mfixx",
 		homepage: "https://github.com/file-icons/mfixx",
 		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "eotl-icons",
+		label: "@eotl/icons",
+		homepage: "https://www.npmjs.com/package/@eotl/icons",
+		license: "ISC",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "warhammer40kgroup-wh40k-icon",
+		label: "warhammer40kgroup/wh40k-icon",
+		homepage: "https://github.com/warhammer40kgroup/wh40k-icon",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "k00ni-semicon",
+		label: "k00ni/semicon",
+		homepage: "https://github.com/k00ni/semicon",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "posten-hedwig",
+		label: "@posten/hedwig",
+		homepage: "https://www.npmjs.com/package/@posten/hedwig",
+		license: "BSD-2-Clause",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
@@ -9859,39 +9842,39 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "eotl-icons",
-		label: "@eotl/icons",
-		homepage: "https://www.npmjs.com/package/@eotl/icons",
-		license: "ISC",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "posten-hedwig",
-		label: "@posten/hedwig",
-		homepage: "https://www.npmjs.com/package/@posten/hedwig",
-		license: "BSD-2-Clause",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "waste-categories",
-		label: "waste-categories",
-		homepage: "https://www.npmjs.com/package/waste-categories",
+		id: "aflegel-tabletop-fantasyflighticons",
+		label: "aflegel/tabletop.fantasyflighticons",
+		homepage: "https://github.com/aflegel/tabletop.fantasyflighticons",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
-		id: "bs-solutions-bastion-icons",
-		label: "@bs-solutions/bastion-icons",
-		homepage: "https://www.npmjs.com/package/@bs-solutions/bastion-icons",
+		id: "mondaycom-vibe",
+		label: "mondaycom/vibe",
+		homepage: "https://github.com/mondaycom/vibe",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "inausoft-icons",
+		label: "inausoft/icons",
+		homepage: "https://github.com/inausoft/icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "musora-icons",
+		label: "@musora/icons",
+		homepage: "https://www.npmjs.com/package/@musora/icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -9904,28 +9887,20 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "baryodev-kapehan",
+		label: "baryodev/kapehan",
+		homepage: "https://github.com/baryodev/kapehan",
+		license: "MIT",
+		styles: [
+			{ id: "mono", label: "Mono", group: "line", roots: ["mono"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
 		id: "gip-recia-icons-pack",
 		label: "gip-recia/icons-pack",
 		homepage: "https://github.com/gip-recia/icons-pack",
 		license: "Apache-2.0",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "cruglobal-cornerstone-design-system",
-		label: "@cruglobal/cornerstone-design-system",
-		homepage: "https://www.npmjs.com/package/@cruglobal/cornerstone-design-system",
-		license: "BSD-3-Clause",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "johan-boshoff-blade-car-makes-icons",
-		label: "johan-boshoff/blade-car-makes-icons",
-		homepage: "https://github.com/johan-boshoff/blade-car-makes-icons",
-		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
@@ -9940,31 +9915,12 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "gooddata-sdk-ui-kit",
-		label: "@gooddata/sdk-ui-kit",
-		homepage: "https://www.npmjs.com/package/@gooddata/sdk-ui-kit",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "Line", group: "line", roots: ["line"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "musora-icons",
-		label: "@musora/icons",
-		homepage: "https://www.npmjs.com/package/@musora/icons",
-		license: "MIT",
+		id: "cruglobal-cornerstone-design-system",
+		label: "@cruglobal/cornerstone-design-system",
+		homepage: "https://www.npmjs.com/package/@cruglobal/cornerstone-design-system",
+		license: "BSD-3-Clause",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "iobroker-yr",
-		label: "iobroker.yr",
-		homepage: "https://www.npmjs.com/package/iobroker.yr",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
@@ -9986,36 +9942,9 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "adso-sass-flags",
-		label: "@adso-sass/flags",
-		homepage: "https://www.npmjs.com/package/@adso-sass/flags",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "lexrus-fontdiao",
-		label: "lexrus/fontdiao",
-		homepage: "https://github.com/lexrus/fontdiao",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "facilio-icons-svg",
-		label: "facilio-icons-svg",
-		homepage: "https://www.npmjs.com/package/facilio-icons-svg",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "inausoft-icons",
-		label: "inausoft/icons",
-		homepage: "https://github.com/inausoft/icons",
+		id: "mp-design-system",
+		label: "mp-design-system",
+		homepage: "https://www.npmjs.com/package/mp-design-system",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
@@ -10032,30 +9961,40 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "mp-design-system",
-		label: "mp-design-system",
-		homepage: "https://www.npmjs.com/package/mp-design-system",
+		id: "sgryphon-osa-icon-library",
+		label: "sgryphon/osa-icon-library",
+		homepage: "https://github.com/sgryphon/osa-icon-library",
+		license: "CC-BY-SA",
+		copyleft: true,
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "johan-boshoff-blade-car-makes-icons",
+		label: "johan-boshoff/blade-car-makes-icons",
+		homepage: "https://github.com/johan-boshoff/blade-car-makes-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "adso-sass-flags",
+		label: "@adso-sass/flags",
+		homepage: "https://www.npmjs.com/package/@adso-sass/flags",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
-		id: "pokeapi-sprites",
-		label: "pokeapi-sprites",
-		homepage: "https://www.npmjs.com/package/pokeapi-sprites",
-		license: "ISC",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "frosted-ui-icons",
-		label: "@frosted-ui/icons",
-		homepage: "https://www.npmjs.com/package/@frosted-ui/icons",
+		id: "facilio-icons-svg",
+		label: "facilio-icons-svg",
+		homepage: "https://www.npmjs.com/package/facilio-icons-svg",
 		license: "MIT",
 		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -10068,14 +10007,24 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "atsarul-mujahidin",
-		label: "atsarul-mujahidin",
-		homepage: "https://www.npmjs.com/package/atsarul-mujahidin",
+		id: "yisibell-nuxt-svg-icons",
+		label: "yisibell/nuxt-svg-icons",
+		homepage: "https://github.com/yisibell/nuxt-svg-icons",
 		license: "MIT",
 		styles: [
-			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
-			{ id: "fill", label: "Fill", group: "solid", roots: ["fill"] },
-			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
+			{ id: "icons", label: "Icons", group: "solid", roots: ["icons"] },
+			{ id: "mini", label: "Mini", group: "solid", roots: ["mini"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+			{ id: "square", label: "Square", group: "solid", roots: ["square"] },
+		],
+	},
+	{
+		id: "lexrus-fontdiao",
+		label: "lexrus/fontdiao",
+		homepage: "https://github.com/lexrus/fontdiao",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -10117,175 +10066,9 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "erudus-erudus-icons",
-		label: "erudus/erudus-icons",
-		homepage: "https://github.com/erudus/erudus-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "aflegel-tabletop-fantasyflighticons",
-		label: "aflegel/tabletop.fantasyflighticons",
-		homepage: "https://github.com/aflegel/tabletop.fantasyflighticons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "pfefferle-openwebicons",
-		label: "pfefferle/openwebicons",
-		homepage: "https://github.com/pfefferle/openwebicons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "viglino-font-cassini",
-		label: "viglino/font-cassini",
-		homepage: "https://github.com/viglino/font-cassini",
-		license: "Apache-2.0",
-		styles: [
-			{ id: "icon", label: "Icon", group: "line", roots: ["icon"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
 		id: "banklogos",
 		label: "banklogos",
 		homepage: "https://www.npmjs.com/package/banklogos",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "sgryphon-osa-icon-library",
-		label: "sgryphon/osa-icon-library",
-		homepage: "https://github.com/sgryphon/osa-icon-library",
-		license: "CC-BY-SA",
-		copyleft: true,
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "ahuseyn-state-icons",
-		label: "ahuseyn/state-icons",
-		homepage: "https://github.com/ahuseyn/state-icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "holiverse-icon-font-plugin",
-		label: "holiverse-icon-font-plugin",
-		homepage: "https://www.npmjs.com/package/holiverse-icon-font-plugin",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "lrenhrda-nav-maneuver-icons",
-		label: "lrenhrda/nav-maneuver-icons",
-		homepage: "https://github.com/lrenhrda/nav-maneuver-icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "consansri-benicons",
-		label: "consansri/benicons",
-		homepage: "https://github.com/consansri/benicons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "aisamanra-fruit-icons",
-		label: "aisamanra/fruit-icons",
-		homepage: "https://github.com/aisamanra/fruit-icons",
-		license: "CC-BY-SA",
-		copyleft: true,
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "gitlab-mcloide1977-tomorrowio-icons-reactjs",
-		label: "gitlab:mcloide1977/tomorrowio-icons-reactjs",
-		homepage: "https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs",
-		license: "ISC",
-		styles: [
-			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
-			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "mapbox-directions-icons",
-		label: "mapbox/directions-icons",
-		homepage: "https://github.com/mapbox/directions-icons",
-		license: "CC0",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "mybbgroup-myicon",
-		label: "mybbgroup/myicon",
-		homepage: "https://github.com/mybbgroup/myicon",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "marcintreder-icons-test",
-		label: "marcintreder/icons-test",
-		homepage: "https://github.com/marcintreder/icons-test",
-		license: "ISC",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "skadja-seemly",
-		label: "skadja/seemly",
-		homepage: "https://github.com/skadja/seemly",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "bignutty-discord-mana-icons",
-		label: "bignutty/discord-mana-icons",
-		homepage: "https://github.com/bignutty/discord-mana-icons",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "damir-sijakovic-boxie-icons",
-		label: "damir-sijakovic/boxie_icons",
-		homepage: "https://github.com/damir-sijakovic/boxie_icons",
-		license: "MIT",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "iobroker-icons-smarthome",
-		label: "iobroker.icons-smarthome",
-		homepage: "https://www.npmjs.com/package/iobroker.icons-smarthome",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
@@ -10301,12 +10084,115 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "tremorvideo-aikon",
-		label: "@tremorvideo/aikon",
-		homepage: "https://www.npmjs.com/package/@tremorvideo/aikon",
-		license: "Unlicense",
+		id: "viglino-font-cassini",
+		label: "viglino/font-cassini",
+		homepage: "https://github.com/viglino/font-cassini",
+		license: "Apache-2.0",
+		styles: [
+			{ id: "icon", label: "Icon", group: "solid", roots: ["icon"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "aisamanra-fruit-icons",
+		label: "aisamanra/fruit-icons",
+		homepage: "https://github.com/aisamanra/fruit-icons",
+		license: "CC-BY-SA",
+		copyleft: true,
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "erudus-erudus-icons",
+		label: "erudus/erudus-icons",
+		homepage: "https://github.com/erudus/erudus-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "gooddata-sdk-ui-kit",
+		label: "@gooddata/sdk-ui-kit",
+		homepage: "https://www.npmjs.com/package/@gooddata/sdk-ui-kit",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "Line", group: "line", roots: ["line"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "holiverse-icon-font-plugin",
+		label: "holiverse-icon-font-plugin",
+		homepage: "https://www.npmjs.com/package/holiverse-icon-font-plugin",
+		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "mapbox-directions-icons",
+		label: "mapbox/directions-icons",
+		homepage: "https://github.com/mapbox/directions-icons",
+		license: "CC0",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "lrenhrda-nav-maneuver-icons",
+		label: "lrenhrda/nav-maneuver-icons",
+		homepage: "https://github.com/lrenhrda/nav-maneuver-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "gitlab-mcloide1977-tomorrowio-icons-reactjs",
+		label: "gitlab:mcloide1977/tomorrowio-icons-reactjs",
+		homepage: "https://gitlab.com/mcloide1977/tomorrowio-icons-reactjs",
+		license: "ISC",
+		styles: [
+			{ id: "color", label: "Color", group: "solid", roots: ["color"] },
+			{ id: "solid", label: "Solid", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "ahuseyn-state-icons",
+		label: "ahuseyn/state-icons",
+		homepage: "https://github.com/ahuseyn/state-icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "consansri-benicons",
+		label: "consansri/benicons",
+		homepage: "https://github.com/consansri/benicons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "bs-solutions-bastion-icons",
+		label: "@bs-solutions/bastion-icons",
+		homepage: "https://www.npmjs.com/package/@bs-solutions/bastion-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "waste-categories",
+		label: "waste-categories",
+		homepage: "https://www.npmjs.com/package/waste-categories",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -10319,9 +10205,36 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "snappmarket-icons-clothes",
-		label: "@snappmarket/icons_clothes",
-		homepage: "https://www.npmjs.com/package/@snappmarket/icons_clothes",
+		id: "marcintreder-icons-test",
+		label: "marcintreder/icons-test",
+		homepage: "https://github.com/marcintreder/icons-test",
+		license: "ISC",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "mybbgroup-myicon",
+		label: "mybbgroup/myicon",
+		homepage: "https://github.com/mybbgroup/myicon",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "bignutty-discord-mana-icons",
+		label: "bignutty/discord-mana-icons",
+		homepage: "https://github.com/bignutty/discord-mana-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "iobroker-icons-smarthome",
+		label: "iobroker.icons-smarthome",
+		homepage: "https://www.npmjs.com/package/iobroker.icons-smarthome",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
@@ -10337,18 +10250,37 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "igorhart-front-icons",
-		label: "igorhart/front-icons",
-		homepage: "https://github.com/igorhart/front-icons",
+		id: "masihgh-iranian-bank-list",
+		label: "masihgh/iranian-bank-list",
+		homepage: "https://github.com/masihgh/iranian-bank-list",
 		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "skadja-seemly",
+		label: "skadja/seemly",
+		homepage: "https://github.com/skadja/seemly",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "adejong5-star-trek-icons",
+		label: "adejong5/star-trek-icons",
+		homepage: "https://github.com/adejong5/star-trek-icons",
+		license: "CC-BY-SA",
+		copyleft: true,
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
-		id: "iobroker-brightsky",
-		label: "iobroker.brightsky",
-		homepage: "https://www.npmjs.com/package/iobroker.brightsky",
+		id: "igorhart-front-icons",
+		label: "igorhart/front-icons",
+		homepage: "https://github.com/igorhart/front-icons",
 		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
@@ -10365,40 +10297,30 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "icon-linea-music",
-		label: "@icon/linea-music",
-		homepage: "https://www.npmjs.com/package/@icon/linea-music",
-		license: "CC0",
+		id: "tremorvideo-aikon",
+		label: "@tremorvideo/aikon",
+		homepage: "https://www.npmjs.com/package/@tremorvideo/aikon",
+		license: "Unlicense",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "iobroker-brightsky",
+		label: "iobroker.brightsky",
+		homepage: "https://www.npmjs.com/package/iobroker.brightsky",
+		license: "MIT",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
-		id: "gitlab-vibhas-sharma-moka-icon-theme",
-		label: "gitlab:VibhasSharma/moka-icon-theme",
-		homepage: "https://gitlab.com/VibhasSharma/moka-icon-theme",
-		license: "GPL",
-		copyleft: true,
+		id: "ilo-org-brand-assets",
+		label: "@ilo-org/brand-assets",
+		homepage: "https://www.npmjs.com/package/@ilo-org/brand-assets",
+		license: "Apache-2.0",
 		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "cyberhuginn-react-iranian-bank-logo",
-		label: "cyberhuginn/react-iranian-bank-logo",
-		homepage: "https://github.com/cyberhuginn/react-iranian-bank-logo",
-		license: "MIT",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
-		],
-	},
-	{
-		id: "go-icons-seti",
-		label: "go-icons/seti",
-		homepage: "https://github.com/go-icons/seti",
-		license: "BSD",
-		styles: [
-			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -10412,21 +10334,21 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "madmanmayson-web-icons",
-		label: "madmanmayson/web-icons",
-		homepage: "https://github.com/madmanmayson/web-icons",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "z-icon",
-		label: "z-icon",
-		homepage: "https://www.npmjs.com/package/z-icon",
+		id: "snappmarket-icons-clothes",
+		label: "@snappmarket/icons_clothes",
+		homepage: "https://www.npmjs.com/package/@snappmarket/icons_clothes",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "icon-linea-music",
+		label: "@icon/linea-music",
+		homepage: "https://www.npmjs.com/package/@icon/linea-music",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
 	},
 	{
@@ -10439,10 +10361,55 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
+		id: "z-icon",
+		label: "z-icon",
+		homepage: "https://www.npmjs.com/package/z-icon",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "madmanmayson-web-icons",
+		label: "madmanmayson/web-icons",
+		homepage: "https://github.com/madmanmayson/web-icons",
+		license: "CC0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "mod-arch-shared",
+		label: "mod-arch-shared",
+		homepage: "https://www.npmjs.com/package/mod-arch-shared",
+		license: "Apache-2.0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "sempijja-navigation-icons",
+		label: "sempijja/navigation-icons",
+		homepage: "https://github.com/sempijja/navigation-icons",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
 		id: "kontourai-ui",
 		label: "@kontourai/ui",
 		homepage: "https://www.npmjs.com/package/@kontourai/ui",
 		license: "Apache-2.0",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "codeberg-nerd-shore-svg-icons-to-woff2",
+		label: "codeberg:NerdShore/svg-icons-to-woff2",
+		homepage: "https://codeberg.org/NerdShore/svg-icons-to-woff2",
+		license: "ISC",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
 		],
@@ -10466,64 +10433,39 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "sempijja-navigation-icons",
-		label: "sempijja/navigation-icons",
-		homepage: "https://github.com/sempijja/navigation-icons",
+		id: "codeberg-k1t-weather-icons",
+		label: "codeberg:k1t/WeatherIcons",
+		homepage: "https://codeberg.org/k1t/WeatherIcons",
+		license: "LGPL",
+		copyleft: true,
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "cyberhuginn-react-iranian-bank-logo",
+		label: "cyberhuginn/react-iranian-bank-logo",
+		homepage: "https://github.com/cyberhuginn/react-iranian-bank-logo",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
-		id: "codeberg-nerd-shore-svg-icons-to-woff2",
-		label: "codeberg:NerdShore/svg-icons-to-woff2",
-		homepage: "https://codeberg.org/NerdShore/svg-icons-to-woff2",
-		license: "ISC",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "soikat27-currently",
-		label: "soikat27/currently",
-		homepage: "https://github.com/soikat27/currently",
+		id: "atsarul-mujahidin",
+		label: "atsarul-mujahidin",
+		homepage: "https://www.npmjs.com/package/atsarul-mujahidin",
 		license: "MIT",
 		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
+			{ id: "fill", label: "Fill", group: "solid", roots: ["fill"] },
+			{ id: "outline", label: "Outline", group: "line", roots: ["outline"] },
 		],
 	},
 	{
-		id: "ilo-org-brand-assets",
-		label: "@ilo-org/brand-assets",
-		homepage: "https://www.npmjs.com/package/@ilo-org/brand-assets",
+		id: "coveo-atomic-react",
+		label: "@coveo/atomic-react",
+		homepage: "https://www.npmjs.com/package/@coveo/atomic-react",
 		license: "Apache-2.0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "mod-arch-shared",
-		label: "mod-arch-shared",
-		homepage: "https://www.npmjs.com/package/mod-arch-shared",
-		license: "Apache-2.0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "3sidedcoin-veggies-and-fruits-icons",
-		label: "3sidedcoin/veggies-and-fruits-icons",
-		homepage: "https://github.com/3sidedcoin/veggies-and-fruits-icons",
-		license: "CC0",
-		styles: [
-			{ id: "line", label: "All", group: "line", roots: ["line"] },
-		],
-	},
-	{
-		id: "arivedha-astro-icons",
-		label: "@arivedha/astro-icons",
-		homepage: "https://www.npmjs.com/package/@arivedha/astro-icons",
-		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
@@ -10539,22 +10481,48 @@ export const ICON_SETS: IconSetConfig[] = [
 		],
 	},
 	{
-		id: "masihgh-iranian-bank-list",
-		label: "masihgh/iranian-bank-list",
-		homepage: "https://github.com/masihgh/iranian-bank-list",
+		id: "arivedha-astro-icons",
+		label: "@arivedha/astro-icons",
+		homepage: "https://www.npmjs.com/package/@arivedha/astro-icons",
 		license: "MIT",
 		styles: [
 			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	{
-		id: "adejong5-star-trek-icons",
-		label: "adejong5/star-trek-icons",
-		homepage: "https://github.com/adejong5/star-trek-icons",
-		license: "CC-BY-SA",
-		copyleft: true,
+		id: "3sidedcoin-veggies-and-fruits-icons",
+		label: "3sidedcoin/veggies-and-fruits-icons",
+		homepage: "https://github.com/3sidedcoin/veggies-and-fruits-icons",
+		license: "CC0",
 		styles: [
 			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "damir-sijakovic-boxie-icons",
+		label: "damir-sijakovic/boxie_icons",
+		homepage: "https://github.com/damir-sijakovic/boxie_icons",
+		license: "MIT",
+		styles: [
+			{ id: "line", label: "All", group: "line", roots: ["line"] },
+		],
+	},
+	{
+		id: "iobroker-yr",
+		label: "iobroker.yr",
+		homepage: "https://www.npmjs.com/package/iobroker.yr",
+		license: "MIT",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
+		],
+	},
+	{
+		id: "go-icons-seti",
+		label: "go-icons/seti",
+		homepage: "https://github.com/go-icons/seti",
+		license: "BSD",
+		styles: [
+			{ id: "solid", label: "Icons", group: "solid", roots: ["solid"] },
 		],
 	},
 	// GAP_R3_END
