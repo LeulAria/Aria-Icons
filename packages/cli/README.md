@@ -1,6 +1,6 @@
 # aria-icons
 
-Tiny CLI + MCP server for [Aria Icons](https://icons.leularia.com). Search 340k+ icons, drop them into your repo as source (no giant dependency), migrate existing icon libraries, and expose the same engine to AI agents.
+Tiny CLI + MCP server for [Aria Icons](https://github.com/LeulAria/Aria-Icons). Search 1.4M icons, drop them into your repo as source (no giant dependency), migrate existing icon libraries, and expose the same engine to AI agents.
 
 ```bash
 npx -y aria-icons@latest setup

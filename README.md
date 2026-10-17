@@ -1,44 +1,33 @@
-<img width="1510" height="827" alt="image" src="https://github.com/user-attachments/assets/5a663af7-c9a9-487a-9ba2-c76f8b7248f8" />
-
----
-
-[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
+[![GitHub stars](https://img.shields.io/github/stars/LeulAria/Aria-Icons?style=flat)](https://github.com/LeulAria/Aria-Icons/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/aria-icons)](https://www.npmjs.com/package/aria-icons)
-[![Listed Startups](https://img.shields.io/badge/Listed%20on-Listed%20Startups-0A7CFF)](https://listedstartups.com/products/aria-icons)
-[![Directory Index](https://img.shields.io/badge/Listed%20on-Directory%20Index-2EA44F)](https://directory-index.com/technology/aria-icons/)
-[![Open Source Startups](https://img.shields.io/badge/Listed%20on-Open%20Source%20Startups-6F42C1)](https://www.opensourcestartups.com/project/aria-icons)
-[![Show HN](https://img.shields.io/badge/Show%20HN-discussion-FF6600)](https://news.ycombinator.com/item?id=49717692)
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/leularia/aria-icons)
 [![MCP Repository](https://img.shields.io/badge/Listed%20on-MCP%20Repository-5C6BC0)](https://mcprepository.com/leularia/aria-icons)
-[![Not Human Search](https://img.shields.io/badge/Listed%20on-Not%20Human%20Search-111111)](https://nothumansearch.ai/site/icons.leularia.com)
-[![Listed on Influzer](https://img.shields.io/badge/Listed%20on-Influzer-E91E63)](https://influzer.ai/mcp/aria-icons)
+
+<!-- TODO(glama): Uncomment after the server is listed on Glama:
+[![Glama score](https://glama.ai/mcp/servers/LeulAria/Aria-Icons/badges/score.svg)](https://glama.ai/mcp/servers/LeulAria/Aria-Icons)
+-->
 
 # Aria Icons
 
-**1,000,000+ SVG icons - searchable, customizable, and a package manager for your icon codebase.**
-
-Website + API + CLI + MCP. Find any icon, write it into the project as source (no giant dependency), migrate mixed icon libraries, and let AI agents use the same engine.
-
-Repo: [github.com/LeulAria/Aria-Icons](https://github.com/LeulAria/Aria-Icons)
-
-Test the MCP Server:
-[<MCP. Playground/>](https://mcpplaygroundonline.com/mcp-test-server?url=https%3A%2F%2Ficons.leularia.com%2Fapi%2Fmcp)
+**1.4M open-source SVG icons — searchable, write-as-source CLI, and MCP for AI coding agents.**
 
 ```bash
 npx -y aria-icons@latest setup
-# or
-bunx aria-icons@latest setup
-# or
-curl -fsSL https://icons.leularia.com/install.sh | bash
 ```
 
-The npm package name is `aria-icons` (verified unused on the registry at the time of adding the CLI). The CLI is tiny: it talks to the Aria Icons API and only downloads the icons you request.
+If this saves you time, a [star](https://github.com/LeulAria/Aria-Icons) helps others find it.
 
-## CLI (published package)
+<!-- TODO: Add a short hero GIF/demo here (agent asks for an icon → MCP search → file appears in the repo).
+![Aria Icons demo](docs/demo.gif)
+-->
+
+## Quick start
 
 ```bash
 npx -y aria-icons@latest setup
+# or
 bunx aria-icons@latest setup
-curl -fsSL https://icons.leularia.com/install.sh | bash
 ```
 
 ```bash
@@ -185,6 +174,8 @@ aria-icons/
 │   ├── cli/               # published npm package `aria-icons`
 │   ├── api/               # oRPC layer
 │   └── config/
+├── Dockerfile             # stdio MCP server image (Glama / local)
+└── glama.json             # Glama maintainer claim
 ```
 
 ## Run, build, version, publish
@@ -250,6 +241,30 @@ Inside `apps/web`:
 - `bun run pack:icons`: Collapse loose SVG folders into one JSON per set (`-- --delete` removes sources)
 - `bun run generate-icons`: Rebuild the icon search catalog
 
+## Licensing
+
+The **code** in this repository (website, CLI, MCP server) is [MIT](LICENSE) © Leul Aria.
+
+The **icons** come from many upstream sets and keep their own licenses. Across the catalog you will find MIT, Apache-2.0, ISC, BSD, CC0, CC-BY, CC-BY-SA, GPL/LGPL, MPL, and similar terms — not a single uniform icon license.
+
+### Where to look
+
+| What | Where |
+|------|--------|
+| Per-set `license`, `copyleft`, and `attribution` fields | [`apps/web/src/lib/icon-sets.ts`](apps/web/src/lib/icon-sets.ts) |
+| Round-3 family licence notes (table + per-set files) | [`apps/web/icons/licenses/r3/`](apps/web/icons/licenses/r3/) |
+| Iconify collection licence metadata | [`apps/web/icons/iconify/collections.json`](apps/web/icons/iconify/collections.json) |
+
+Sets marked `copyleft: true` (for example GPL, LGPL, CC-BY-SA, MPL) may require sharing modifications under the same terms when you redistribute derived works — check the upstream licence before shipping.
+
+### Attribution (CC-BY / CC-BY-SA)
+
+When a set records an `attribution` URL or text in `icon-sets.ts`, include that credit when you use those icons in a way that requires attribution (typical for CC-BY and CC-BY-SA). Prefer linking the upstream project page listed in the set metadata.
+
+### Issues
+
+If you believe an icon set is mis-licensed or should be removed, open a [GitHub issue](https://github.com/LeulAria/Aria-Icons/issues/new) with the set id and evidence. We take takedown requests seriously.
+
 ## License
 
-[MIT](LICENSE) © Leul Aria
+[MIT](LICENSE) © Leul Aria (code). Icons remain under their upstream licenses — see [Licensing](#licensing).

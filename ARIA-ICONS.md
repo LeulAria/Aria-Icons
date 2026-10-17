@@ -288,7 +288,7 @@ If `/api/v1` is 404 on production, the CLI automatically uses `POST /api/mcp` so
 ## What we fixed while building the examples
 
 - **Production 404** — CLI falls back to HTTP MCP when `/api/v1` is missing. Search and get work against icons.leularia.com today. Redeploy `apps/web` so REST is first-class.
-- **npx `search` as a binary** — bin is now `dist/index.js` with a shebang. Prefer `bunx` or `npx -y --package=aria-icons -- aria-icons …` until 0.1.1 is published.
+- **npx `search` as a binary** — bin is now `dist/index.js` with a shebang. Prefer `bunx` or `npx -y --package=aria-icons -- aria-icons …` until **0.1.2** is published (source already has the fix; npm latest is still 0.1.0).
 - **Batch `add`** — one missing id no longer stops the rest.
 - **Lucide aliases** — `filter` → `list-filter`, `more-horizontal` → `ellipsis`, `home` → `house`.
 - **`--variant` / `--force`** on `add`.

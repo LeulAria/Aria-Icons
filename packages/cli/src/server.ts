@@ -31,7 +31,7 @@ export async function runServer(): Promise<void> {
     "search_icons",
     {
       description:
-        "Search 340k+ icons across Aria Icons collections. Returns ids like lucide:house for get_icon / add.",
+        "Search 1.4M icons across Aria Icons collections. Returns ids like lucide:house for get_icon / add.",
       inputSchema: {
         query: z.string().describe("Search query, e.g. 'arrow', 'shopping cart'"),
         limit: z.number().min(1).max(999).default(32).describe("Max results"),
