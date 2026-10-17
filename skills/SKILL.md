@@ -1,6 +1,6 @@
 ---
 name: aria-icons
-description: "Use when working with icons in any project. Search 340k+ icons, add them as source files (no giant dependency), migrate existing icon libraries, and run as an MCP server. Commands: `aria-icons search`, `aria-icons add`, `aria-icons get`, `aria-icons migrate`, `aria-icons doctor`."
+description: "Use when working with icons in any project. Search 1.4M icons, add them as source files (no giant dependency), migrate existing icon libraries, and run as an MCP server. Commands: `aria-icons search`, `aria-icons add`, `aria-icons get`, `aria-icons migrate`, `aria-icons doctor`."
 ---
 
 # Aria Icons

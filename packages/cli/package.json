@@ -1,7 +1,7 @@
 {
   "name": "aria-icons",
-  "version": "0.1.1",
-  "description": "Find any icon, put it in your codebase, and let AI use it. CLI + MCP server for Aria Icons.",
+  "version": "0.1.2",
+  "description": "1.4M SVG icons — find any icon, write it as source, and run as an MCP server for AI agents.",
   "author": "Leul Aria",
   "license": "MIT",
   "type": "module",

@@ -12,7 +12,7 @@ export const MCP_DISCOVERY_DOCUMENT = {
 	name: "com.leularia/aria-icons",
 	title: "Aria Icons",
 	description:
-		"340k SVG icons — browser, CLI (writes source), and MCP for Cursor/Claude.",
+		"1.4M SVG icons — browser, CLI (writes source), and MCP for Cursor/Claude.",
 	version: "1.0.0",
 	websiteUrl: "https://icons.leularia.com",
 	repository: {
@@ -37,7 +37,7 @@ export const MCP_DISCOVERY_DOCUMENT = {
 			registryType: "npm",
 			registryBaseUrl: "https://registry.npmjs.org",
 			identifier: "aria-icons",
-			version: "0.1.1",
+			version: "0.1.2",
 			transport: {
 				type: "stdio" as const,
 			},
